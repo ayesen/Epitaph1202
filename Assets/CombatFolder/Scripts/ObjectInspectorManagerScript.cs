@@ -36,11 +36,20 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 	private GameObject doer;
 	private string funcToCall;
 
+	// for audio
+	private AudioSource aS;
+	public float advanceOffset;
+
 	private void Awake()
 	{
 		me = this;
 		objectDes_ui_cht.text = "";
 		objectDes_ui_eng.text = "";
+	}
+
+	private void Start()
+	{
+		aS = GetComponent<AudioSource>();
 	}
 
 	public void ShowText(DialogueScript ds)
@@ -77,7 +86,14 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 			imageDisplayer.GetComponent<Image>().sprite = ds.image;
 		}
 
-		timer = dialogueToShow[index].time;
+		timer = dialogueToShow[index].time + advanceOffset;
+
+		// play audio
+		if (dialogueToShow[index].clip != null)
+		{
+			aS.clip = dialogueToShow[index].clip;
+			aS.Play();
+		}
 	}
 
 	private void Update()
@@ -99,7 +115,13 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 						index++;
 						objectDes_ui_cht.text = dialogueToShow[index].description_cht;
 						objectDes_ui_eng.text = dialogueToShow[index].description_eng;
-						timer = dialogueToShow[index].time;
+						timer = dialogueToShow[index].time + advanceOffset;
+						// play audio
+						if (dialogueToShow[index].clip != null)
+						{
+							aS.clip = dialogueToShow[index].clip;
+							aS.Play();
+						}
 					}
 					else // when the dialogue ends
 					{
@@ -137,6 +159,12 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 						if (dialogueToShow[index].options.Count > 0) // if there are options after this line
 						{
 							ShowOptions();
+						}
+						// play audio
+						if (dialogueToShow[index].clip != null)
+						{
+							aS.clip = dialogueToShow[index].clip;
+							aS.Play();
 						}
 					}
 					else // when the dialogue ends
@@ -202,6 +230,12 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 						}
 						options.Clear();
 						optionsDisplaying = false;
+						// play audio
+						if (dialogueToShow[index].clip != null)
+						{
+							aS.clip = dialogueToShow[index].clip;
+							aS.Play();
+						}
 					}
 				}
 			}

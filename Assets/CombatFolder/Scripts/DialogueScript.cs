@@ -35,7 +35,9 @@ public class DialogueScript : MonoBehaviour
 		foreach (var line in texts)
 		{
 			if (line.clip != null)
-				line.SetTime(line.clip.length);
+			{
+				line.time = line.clip.length;
+			}
 		}
 	}
 
