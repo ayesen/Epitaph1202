@@ -1,0 +1,13 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/modules.xml
+/contentModel.xml
+/projectSettingsUpdater.xml
+/.idea.EpitaphNew.iml
+# Datasource local storage ignored files
+/../../../../../../:\UnityRepo\EpitaphNew\.idea\.idea.EpitaphNew\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/

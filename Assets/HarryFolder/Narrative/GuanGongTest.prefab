@@ -1,0 +1,131 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &745129377203762091
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 745129377203762080}
+  - component: {fileID: 745129377203762087}
+  - component: {fileID: 745129377203762086}
+  - component: {fileID: 745129377203762085}
+  - component: {fileID: 745129377203762084}
+  m_Layer: 0
+  m_Name: GuanGongTest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &745129377203762080
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745129377203762091}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 18.93, y: 2.42, z: 54.579}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &745129377203762087
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745129377203762091}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &745129377203762086
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745129377203762091}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!135 &745129377203762085
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745129377203762091}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &745129377203762084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745129377203762091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cffd2b335fa43e040b06dc5eda5f467d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flyAmount: 0
+  enemy: {fileID: 0}
+  sinkSpd: 0
+  sink: 0
+  player: {fileID: 0}
+  highLightMat: {fileID: 2100000, guid: 36eb1215e899be246a345a35363d2670, type: 2}
+  inspectionRange: 3
+  objectDescription:
+  - "\u68C0\u89C6\u7269\u54C1\uFF1A\u6C11\u95F4\u5E38\u8BF4\u201C\u5173\u516C\u4E0D\u7741\u773C\uFF0C\u7741\u773C\u8981\u6740\u4EBA\u3002\u201D\u5927\u90E8\u5206\u7684\u5173\u516C\u50CF\u90FD\u662F\u95ED\u773C\u7684\uFF0C\u7EB9\u8EAB\u65F6\u4E5F\u5FCC\u8BB3\u7741\u773C\u5173\u516C\u3002\r\nFolk
+    often say \"Guan Gong does not open his eyes, if he open his eyes, he kills.\"
+    Most of the Guan Gong statue is eyes closed. It is even tabooed for  having open
+    eyes Guan Gong tattoos."
+  - "\u4E00\u4E2A\u5E38\u89C1\u7684\u95ED\u773C\u5173\u516C\u50CF\uFF0C\u4EBA\u4EEC\u76F8\u4FE1\u5BB6\u4E2D\u6446\u653E\u80FD\u9547\u5B85\u9A71\u90AA\uFF0C\u6216\u8005\u62DB\u8D22\u8FDB\u5B9D\u3002\r\nA
+    regular Guan Gong Statue, people believe he can protect the house from the evil.
+    Or bring wealth and prosper."
+  - "\u987E\u751F\u4E43\u4E00\u4ECB\u8D3E\u4EBA\uFF0C\u5173\u516C\u7406\u5E94\u5200\u5251\u5411\u4E0B\u4EE5\u8868\u8FDB\u8D22\uFF0C\u53EF\u8FD9\u5200\u5251\u5411\u4E0A\u5200\u67C4\u5411\u5916\uFF0C\u50CF\u672C\u8EAB\u671D\u5411\u623F\u5C4B\u5185\u90E8\u800C\u975E\u5BF9\u5916\uFF0C\u987E\u751F\u8FD9\u662F\u5BD3\u610F\u4F55\u5728\uFF0C\u662F\u60F3\u9547\u538B\u5BB6\u91CC\u7684\u4EC0\u4E48\u5417\uFF1F\r\nMr.
+    Gu is a business man, his Guan Gong should have its sword down for bringing wealth,
+    but this one has its sword up and outward for protection, the statue is also
+    facing inward to the house instead of facing outward to the front door, what
+    is Gu even trying to suppress?"

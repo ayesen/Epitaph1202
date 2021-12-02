@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4539926603083141565
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4539926603083141563}
+  - component: {fileID: 4539926603083141562}
+  m_Layer: 5
+  m_Name: RecipeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4539926603083141563
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4539926603083141565}
+  m_LocalRotation: {x: 0.25367346, y: 0, z: 0, w: 0.9672899}
+  m_LocalPosition: {x: 0, y: 0, z: -5.643485}
+  m_LocalScale: {x: 0.015111112, y: 0.015111113, z: 0.015111113}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 29.39, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 183.14304}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &4539926603083141562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4539926603083141565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8b62387b33a1a24a952eac10b022ae2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recipeList:
+  - namae: Match
+    materials:
+    - Mats: {fileID: 1478154070093566531, guid: 699134f854649d041b639287d52979e4, type: 3}
+      matAmounts: 1
+    Outcome: {fileID: 1478154070093566531, guid: 699134f854649d041b639287d52979e4, type: 3}
+  - namae: Argyi
+    materials:
+    - Mats: {fileID: 4380351066936016701, guid: 625161a5ab7fc944baf5ffd2d1fdae1b, type: 3}
+      matAmounts: 1
+    Outcome: {fileID: 4380351066936016701, guid: 625161a5ab7fc944baf5ffd2d1fdae1b, type: 3}
+  - namae: Copper Nail
+    materials:
+    - Mats: {fileID: 3072454774791025738, guid: b10d6266975052a4db91d28b836a1a6f, type: 3}
+      matAmounts: 1
+    Outcome: {fileID: 3072454774791025738, guid: b10d6266975052a4db91d28b836a1a6f, type: 3}
+  - namae: Argyi Ash
+    materials:
+    - Mats: {fileID: 1478154070093566531, guid: 699134f854649d041b639287d52979e4, type: 3}
+      matAmounts: 1
+    - Mats: {fileID: 4380351066936016701, guid: 625161a5ab7fc944baf5ffd2d1fdae1b, type: 3}
+      matAmounts: 1
+    Outcome: {fileID: 4925269295210593759, guid: c668315f111e89941b191a7ce2a2c1f6, type: 3}
+  - namae: Fire Nail
+    materials:
+    - Mats: {fileID: 1478154070093566531, guid: 699134f854649d041b639287d52979e4, type: 3}
+      matAmounts: 1
+    - Mats: {fileID: 3072454774791025738, guid: b10d6266975052a4db91d28b836a1a6f, type: 3}
+      matAmounts: 1
+    Outcome: {fileID: 1015415400622677105, guid: f2165abc8b60d824fb473db0c933f145, type: 3}
+  - namae: Explosion Spell
+    materials:
+    - Mats: {fileID: 1478154070093566531, guid: 699134f854649d041b639287d52979e4, type: 3}
+      matAmounts: 1
+    - Mats: {fileID: 2429920367318801475, guid: 246cc5031e223c548b132211d37c5988, type: 3}
+      matAmounts: 1
+    Outcome: {fileID: 7561332901268601623, guid: a8f37c108baf5ba48b451cc2fbcdf72c, type: 3}
+  - namae: Dash Juice G
+    materials:
+    - Mats: {fileID: 4380351066936016701, guid: 625161a5ab7fc944baf5ffd2d1fdae1b, type: 3}
+      matAmounts: 1
+    - Mats: {fileID: 8441474695682364324, guid: 212051402683f614781bcf259e7847f1, type: 3}
+      matAmounts: 1
+    Outcome: {fileID: 7347339357971675122, guid: 2b148fd6fbc2edb4dbfaca43a452ddcf, type: 3}
+  - namae: Nail of Tetanus
+    materials:
+    - Mats: {fileID: 8441474695682364324, guid: 212051402683f614781bcf259e7847f1, type: 3}
+      matAmounts: 1
+    - Mats: {fileID: 3072454774791025738, guid: b10d6266975052a4db91d28b836a1a6f, type: 3}
+      matAmounts: 1
+    Outcome: {fileID: 7385027715785288007, guid: 430ddac43904a9249b46273311ea90a4, type: 3}
+  player: {fileID: 0}
+  instruction: {fileID: 0}
+  combination: {fileID: 0}
+  match: {fileID: 0}
+  argyi: {fileID: 0}
+  nail: {fileID: 0}
+  bossMat: {fileID: 0}
+  possibleCombinations: []
