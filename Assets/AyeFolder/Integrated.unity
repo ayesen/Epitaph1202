@@ -1067,7 +1067,7 @@ MonoBehaviour:
   phase: 1
   ghostRider: {fileID: 0}
   target: {fileID: 1440344667}
-  myTrigger: {fileID: 0}
+  myTrigger: {fileID: 680149035}
   myTriggerObj: {fileID: 680149034}
   Origin: {r: 1, g: 0.5, b: 0.5, a: 0.3}
   TempAtkColor: {r: 1, g: 0, b: 0, a: 0.3}
@@ -1075,6 +1075,7 @@ MonoBehaviour:
   attackable: 1
   walkable: 1
   hittedStates: {fileID: 186619017}
+  knockedBack: 0
   breakMeter: 0
   breakMeterMax: 0
   recovery_wait: 0
@@ -4936,7 +4937,7 @@ MonoBehaviour:
   knockbackAmount: 30
   ResetPos: {x: 73, y: 2, z: 43}
   myAC: {fileID: 0}
-  phase: 0
+  phase: 1
   ghostRider: {fileID: 94765222}
   target: {fileID: 1440344667}
   myTrigger: {fileID: 870652154}
@@ -4947,6 +4948,7 @@ MonoBehaviour:
   attackable: 1
   walkable: 1
   hittedStates: {fileID: 505895890}
+  knockedBack: 0
   breakMeter: 0
   breakMeterMax: 20
   recovery_wait: 2
@@ -5027,7 +5029,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 94765218}
   m_LocalRotation: {x: 0, y: 0.92387956, z: 0, w: 0.38268343}
-  m_LocalPosition: {x: 65.87, y: 2, z: 64.2}
+  m_LocalPosition: {x: 74.6, y: 2, z: 29.54}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 870652153}
@@ -18914,6 +18916,7 @@ MonoBehaviour:
   attackable: 1
   walkable: 1
   hittedStates: {fileID: 1640026512}
+  knockedBack: 0
   breakMeter: 0
   breakMeterMax: 0
   recovery_wait: 0
@@ -37470,6 +37473,7 @@ MonoBehaviour:
   attackable: 1
   walkable: 1
   hittedStates: {fileID: 0}
+  knockedBack: 0
   breakMeter: 0
   breakMeterMax: 0
   recovery_wait: 0
@@ -57795,7 +57799,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1459540988
 Transform:
   m_ObjectHideFlags: 0
@@ -58747,6 +58751,7 @@ MonoBehaviour:
   attackable: 1
   walkable: 1
   hittedStates: {fileID: 0}
+  knockedBack: 0
   breakMeter: 0
   breakMeterMax: 0
   recovery_wait: 0
@@ -77343,7 +77348,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1982609395}
   m_LocalRotation: {x: -0, y: 0.92387956, z: -0, w: 0.38268343}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 7.34, y: 0, z: -38.54}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 1957877425}
@@ -77468,7 +77473,7 @@ MonoBehaviour:
   myAC: {fileID: 0}
   phase: 0
   ghostRider: {fileID: 1982609401}
-  target: {fileID: 0}
+  target: {fileID: 1440344667}
   myTrigger: {fileID: 1957877426}
   myTriggerObj: {fileID: 1957877424}
   Origin: {r: 1, g: 0.5, b: 0.5, a: 0.2}
@@ -77477,6 +77482,7 @@ MonoBehaviour:
   attackable: 1
   walkable: 1
   hittedStates: {fileID: 2076661930}
+  knockedBack: 0
   breakMeter: 0
   breakMeterMax: 20
   recovery_wait: 2
