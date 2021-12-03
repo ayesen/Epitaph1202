@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17873973, g: 0.22380534, b: 0.3057178, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11671,6 +11671,7 @@ MonoBehaviour:
   attackable: 1
   walkable: 1
   hittedStates: {fileID: 1376832058}
+  knockedBack: 0
   breakMeter: 0
   breakMeterMax: 0
   recovery_wait: 0
@@ -13481,6 +13482,7 @@ MonoBehaviour:
   attackable: 1
   walkable: 1
   hittedStates: {fileID: 1611292110}
+  knockedBack: 0
   breakMeter: 0
   breakMeterMax: 0
   recovery_wait: 0
@@ -25074,7 +25076,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &675927237
 Light:
   m_ObjectHideFlags: 0
@@ -26581,6 +26583,7 @@ MonoBehaviour:
   attackable: 1
   walkable: 1
   hittedStates: {fileID: 1376832058}
+  knockedBack: 0
   breakMeter: 0
   breakMeterMax: 0
   recovery_wait: 0
@@ -57474,6 +57477,7 @@ MonoBehaviour:
   attackable: 1
   walkable: 1
   hittedStates: {fileID: 1376832058}
+  knockedBack: 0
   breakMeter: 0
   breakMeterMax: 0
   recovery_wait: 0
@@ -75730,6 +75734,7 @@ MonoBehaviour:
   attackable: 1
   walkable: 1
   hittedStates: {fileID: 2034375718}
+  knockedBack: 0
   breakMeter: 0
   breakMeterMax: 20
   recovery_wait: 2
