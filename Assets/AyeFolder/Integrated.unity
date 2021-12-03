@@ -1582,24 +1582,28 @@ MonoBehaviour:
     description_eng: An old book called "Tao of Wealth". Just by a glance, it records
       ways of bringing wealth. But a few pages are torn out
     clip: {fileID: 0}
+    time: 0
     options: []
   - description_cht: "\u5E2B\u5085  \u9019\u88CF\u6709\u672C\u53EB\u8CA1\u9053\u8A8C\u7684\u66F8 
       \u4F60\u53EF\u6E05\u695A  \u6211\u7784\u4E86\u5E7E\u773C  \u90FD\u662F\u4E9B\u6B6A\u9580\u90AA\u9053\u7684\u6CD5\u4E8B"
     description_eng: Shifu, I found a book called Tao of Wealth, if you've heard
       of it. I I took a few glances, it's all about evil spirituals
     clip: {fileID: 0}
+    time: 0
     options: []
   - description_cht: "\u8CA1\u9053\u8A8C  \u807D\u8AAA\u904E\u9019\u672C\u90AA\u8853 
       \u6309\u7406\u8AAA\u591A\u5E74\u524D\u5C31\u5DF2\u7D93\u88AB\u6E05\u7406\u6389\u4E86 
       \u73FE\u5728\u600E\u9EBD\u53C8\u51FA\u73FE\u4E86"
     description_eng: Tao of Wealth? It was supposed to be destroyed years ago
     clip: {fileID: 0}
+    time: 0
     options: []
   - description_cht: "\u6211\u5148\u63E3\u515C\u88CF  \u9019\u672C\u66F8\u6709\u6B98\u7F3A 
       \u6211\u770B\u770B\u80FD\u4E0D\u80FD\u627E\u5230\u5C11\u7684\u90A3\u5E7E\u9801"
     description_eng: I'll bring it back, but some pages are missing, I'm trying to
       find them
     clip: {fileID: 0}
+    time: 0
     options: []
   image: {fileID: 0}
   highLightMat: {fileID: 0}
@@ -8688,6 +8692,7 @@ MonoBehaviour:
   - description_cht: "\u9019\u61C9\u8A72\u662F\u9867\u751F\u7684\u81E5\u5BA4"
     description_eng: This must be Gu's bedroom
     clip: {fileID: 0}
+    time: 0
     options: []
   image: {fileID: 0}
   highLightMat: {fileID: 0}
@@ -10737,6 +10742,7 @@ MonoBehaviour:
   - description_cht: "\u4E00\u672C\u5C0F\u5973\u5B69\u5152\u7684\u65E5\u8A18 \u8A18\u9304\u4E86\u81EA\u5DF1\u7684\u6240\u601D\u6240\u60F3"
     description_eng: Daughter's diary recording her thoughts
     clip: {fileID: 0}
+    time: 0
     options: []
   image: {fileID: 0}
   highLightMat: {fileID: 0}
@@ -11604,15 +11610,18 @@ MonoBehaviour:
     description_eng: A kitchen knife with blade turned dark red. Appears to have
       been exposed to blood.
     clip: {fileID: 0}
+    time: 0
     options: []
   - description_cht: "\u5E2B\u5085  \u9019\u5EDA\u623F\u88CF\u7684\u5200\u770B\u8D77\u4F86\u6CBE\u904E\u8840 
       \u5200\u53E3\u7684\u7D05\u8272\u90FD\u767C\u9ED1\u4E86"
     description_eng: Shifu, these knives in the kitchen, their blade are dark red
     clip: {fileID: 0}
+    time: 0
     options: []
   - description_cht: "\u90A3\u6CBE\u8840\u6B21\u6578\u4E0D\u5C11  \u800C\u4E14\u6709\u9EDE\u6642\u9593\u4E86"
     description_eng: Sounds like their bloodstained for a long time
     clip: {fileID: 0}
+    time: 0
     options: []
   image: {fileID: 0}
   highLightMat: {fileID: 0}
@@ -16601,15 +16610,18 @@ MonoBehaviour:
     description_eng: A shelf filled with all kinds of toys, all with greeting cards
       attached which say "For my dear daughter"
     clip: {fileID: 0}
+    time: 0
     options: []
   - description_cht: "\u9019\u67B6\u5B50\u4E0A\u6709\u597D\u591A\u73A9\u5177\u554A 
       \u90FD\u662F\u9867\u751F\u9001\u7D66\u4ED6\u5973\u5152\u7684"
     description_eng: So many toys on the shelf, it's all bought by Gu
     clip: {fileID: 0}
+    time: 0
     options: []
   - description_cht: "\u9019\u9867\u751F\u5C0D\u5973\u5152\u7684\u60C5\u611F\u9084\u633A\u8907\u96DC\u7684"
     description_eng: Gu's relationship to his daughter seems
     clip: {fileID: 0}
+    time: 0
     options: []
   image: {fileID: 0}
   highLightMat: {fileID: 0}
@@ -19230,6 +19242,7 @@ MonoBehaviour:
     description_eng: A drawing of a stranger giving a book to father  "This man gave
       dad a book"
     clip: {fileID: 0}
+    time: 0
     options: []
   image: {fileID: 0}
   highLightMat: {fileID: 0}
@@ -26284,6 +26297,7 @@ GameObject:
   m_Component:
   - component: {fileID: 686228334}
   - component: {fileID: 686228333}
+  - component: {fileID: 686228335}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -26314,6 +26328,7 @@ MonoBehaviour:
   dialogueToShow: []
   options: []
   optionSpacing: 0
+  advanceOffset: 0
 --- !u!4 &686228334
 Transform:
   m_ObjectHideFlags: 0
@@ -26328,6 +26343,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &686228335
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686228332}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &687703442
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26619,12 +26730,14 @@ MonoBehaviour:
     description_eng: "A K\u1E63itigarbha statue, often used to daven the souls of
       the deceased"
     clip: {fileID: 0}
+    time: 0
     options: []
   - description_cht: "\u5E2B\u5085  \u6211\u8A18\u5F97\u5730\u85CF\u83E9\u85A9\u662F\u7528\u4F86\u5EA6\u6B7B\u8005\u7684\u5427 
       \u9019\u5EC1\u6240\u9593\u88CF\u6709\u4E00\u5C0A"
     description_eng: "Shifu, I remember that the K\u1E63itigarbha statue is used
       to daven the souls of the deceased, right? There is one in this toilet room"
     clip: {fileID: 0}
+    time: 0
     options: []
   - description_cht: "\u4F60\u770B\u770B\u56DB\u5468\u6709\u6C92\u6709\u602A\u7570 
       \u6309\u7167\u98A8\u4FD7  \u9019\u5EC1\u6240\u516B\u6210\u7528\u4F86\u5E79\u904E\u90AA\u4E8B\u5152 
@@ -26632,6 +26745,7 @@ MonoBehaviour:
     description_eng: Check the toilet carefully, according to the use of the statue,
       someone might be dead nearby
     clip: {fileID: 0}
+    time: 0
     options: []
   image: {fileID: 0}
   highLightMat: {fileID: 0}
@@ -26743,6 +26857,7 @@ MonoBehaviour:
   - description_cht: "\u597D\u5F37\u7684\u9670\u6C23  \u90A3\u602A\u7269\u662F\u5F9E\u9019\u88CF\u51FA\u4F86\u7684\u5427"
     description_eng: The Gu's apartment is quite big for a place in Urban Village
     clip: {fileID: 0}
+    time: 0
     options: []
   image: {fileID: 0}
   highLightMat: {fileID: 0}
@@ -27778,6 +27893,7 @@ MonoBehaviour:
   - description_cht: "\u4F60\u597D\u554A"
     description_eng: Hello there
     clip: {fileID: 0}
+    time: 0
     options: []
   image: {fileID: 0}
   highLightMat: {fileID: 0}
@@ -30758,19 +30874,23 @@ MonoBehaviour:
     description_eng: Shifu, the kitchen window is plastered with newspapers, and
       rune paper
     clip: {fileID: 0}
+    time: 0
     options: []
   - description_cht: "\u770B\u5F97\u6E05\u5BEB\u7684\u4EC0\u9EBD\u55CE"
     description_eng: What's on the rune paper?
     clip: {fileID: 0}
+    time: 0
     options: []
   - description_cht: "\u300C\u4E5D\u5929\u61C9\u5143\u96F7\u8072\u666E\u5316\u5929\u5C0A\u8056\u865F\u300D"
     description_eng: It has the God of Thunder's name on it
     clip: {fileID: 0}
+    time: 0
     options: []
   - description_cht: "\u9019\u662F\u500B\u61C9\u6025\u7528\u7684\u93AE\u58D3\u7B26\u7D19 
       \u770B\u4F86\u5C4B\u88CF\u78BA\u5BE6\u6709\u90AA\u7269  \u9867\u751F\u6025\u8457\u628A\u5B83\u93AE\u4F4F"
     description_eng: That's used for suppressing evil spirit
     clip: {fileID: 0}
+    time: 0
     options: []
   image: {fileID: 0}
   highLightMat: {fileID: 0}
@@ -33672,15 +33792,18 @@ MonoBehaviour:
   - description_cht: "\u524D\u9762\u9019\u500B\u4E0A\u9396\u7684\u623F\u9593\u61C9\u8A72\u662F\u9867\u66C9\u8339\u7684\u4E86"
     description_eng: The room at the end of the balcony must be the daughter's room
     clip: {fileID: 0}
+    time: 0
     options: []
   - description_cht: "\u5E2B\u5085  \u9019\u9580\u4E0A\u6709\u7981\u88FD  \u88AB\u4E0B\u4E86\u5C01\u9396\u9663"
     description_eng: Shifu, the door is sealed with spells
     clip: {fileID: 0}
+    time: 0
     options: []
   - description_cht: "\u4F60\u525B\u525B\u4E0D\u662F\u62FF\u4E86\u500B\u98A8\u6C34\u5716 
       \u4E0A\u9762\u662F\u4E0D\u662F\u548C\u9019\u500B\u76F8\u95DC"
     description_eng: It might be relative to the map you got earlier
     clip: {fileID: 0}
+    time: 0
     options: []
   image: {fileID: 0}
   highLightMat: {fileID: 0}
@@ -34555,6 +34678,7 @@ MonoBehaviour:
   - description_cht: "\u9019\u5177\u5C4D\u9AD4\u5C31\u662F\u9867\u751F\u5427  \u54CE"
     description_eng: This must be Gu's dead body
     clip: {fileID: 0}
+    time: 0
     options: []
   image: {fileID: 0}
   highLightMat: {fileID: 0}
@@ -35096,6 +35220,7 @@ MonoBehaviour:
       \u300C\u7238\u7238\u770B\u8457\u597D\u5687\u4EBA\u300D"
     description_eng: A drawing of father reading a book "Dad looks scary"
     clip: {fileID: 0}
+    time: 0
     options: []
   image: {fileID: 0}
   highLightMat: {fileID: 0}
@@ -45329,6 +45454,7 @@ MonoBehaviour:
       \u300C\u7238\u7238\u770B\u8457\u597D\u5687\u4EBA\u300D"
     description_eng: A drawing of father reading a book "Dad looks scary"
     clip: {fileID: 0}
+    time: 0
     options: []
   image: {fileID: 0}
   highLightMat: {fileID: 0}
@@ -50675,10 +50801,12 @@ MonoBehaviour:
   - description_cht: "\u5E2B\u5085  \u6211\u627E\u5230\u9867\u751F\u4E86"
     description_eng: Shifu, I found Gu Sheng's body
     clip: {fileID: 0}
+    time: 0
     options: []
   - description_cht: "\u597D\u7684  \u4F60\u5148\u51FA\u4F86  \u597D\u597D\u8DDF\u6211\u8B1B\u8B1B"
     description_eng: Good, come out first, we'll talk about it
     clip: {fileID: 0}
+    time: 0
     options: []
   image: {fileID: 0}
   highLightMat: {fileID: 0}
@@ -54617,15 +54745,18 @@ MonoBehaviour:
   - description_cht: "\u4E00\u5F35\u5E36\u6709\u6A19\u8A3B\u7684\u623F\u5C4B\u98A8\u6C34\u5716"
     description_eng: A floor plan marked with symbols related to Feng Shui
     clip: {fileID: 0}
+    time: 0
     options: []
   - description_cht: "\u5E2B\u5085  \u9019\u6709\u4E00\u5F35\u623F\u5C4B\u5167\u98A8\u6C34\u5716 
       \u9019\u4E0A\u9762\u6709\u4E9B\u8A18\u865F"
     description_eng: Shifu, I found a Feng Shui map, there's some symbol on it
     clip: {fileID: 0}
+    time: 0
     options: []
   - description_cht: "\u7559\u610F\u4E00\u4E0B  \u53EF\u80FD\u6703\u6D3E\u4E0A\u7528\u5834"
     description_eng: Keep mind on the layout, might be useful
     clip: {fileID: 0}
+    time: 0
     options: []
   image: {fileID: 0}
   highLightMat: {fileID: 0}
@@ -55200,10 +55331,12 @@ MonoBehaviour:
     description_eng: A delicate peace sachet, with the words "Xiao Ru's peace amulet
       for dad" written on it, seems to be handmade by the daughter
     clip: {fileID: 0}
+    time: 0
     options: []
   - description_cht: "\u9019\u500B\u9999\u56CA\u662F\u9867\u5BB6\u5973\u5152\u9867\u66C9\u8339\u7684"
     description_eng: This sachet belongs to Gu Xiaoru, the daughter?
     clip: {fileID: 0}
+    time: 0
     options: []
   image: {fileID: 0}
   highLightMat: {fileID: 0}
@@ -57365,7 +57498,8 @@ MonoBehaviour:
   texts:
   - description_cht: "\u9867\u5BB6\u9019\u6236\u5728\u57CE\u4E2D\u6751\u7684\u623F\u5B50\u770B\u4F86\u5012\u662F\u5BEC\u655E"
     description_eng: The Gu's apartment is quite big for a place in Urban Village
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 7d23c8e610e9baa4a9028e3400b6dc59, type: 3}
+    time: 0
     options: []
   image: {fileID: 0}
   highLightMat: {fileID: 0}
@@ -63557,6 +63691,7 @@ MonoBehaviour:
   - description_cht: "\u597D\u6FC3\u90C1\u7684\u8840\u8165\u6C23"
     description_eng: I smell blood coming from the bathroom
     clip: {fileID: 0}
+    time: 0
     options: []
   image: {fileID: 0}
   highLightMat: {fileID: 0}
@@ -65321,10 +65456,12 @@ MonoBehaviour:
   - description_cht: "\u767C\u73FE\u4E00\u5177\u5973\u5C4D  \u6050\u6015\u662F\u9867\u5BB6\u5973\u5152\u9867\u66C9\u8339"
     description_eng: I found a female body, I'm afraid it's the daughter
     clip: {fileID: 0}
+    time: 0
     options: []
   - description_cht: "\u4F60\u7E7C\u7E8C\u770B\u770B\u56DB\u5468  \u5C0F\u5FC3\u525B\u624D\u90A3\u6771\u897F"
     description_eng: Keep looking around, be careful with that creature
     clip: {fileID: 0}
+    time: 0
     options: []
   image: {fileID: 0}
   highLightMat: {fileID: 0}
@@ -67135,18 +67272,22 @@ MonoBehaviour:
     description_eng: A regular Guan Gong Statue, people believe he can protect the
       house from the evil. Or bring wealth and prosper
     clip: {fileID: 0}
+    time: 0
     options: []
   - description_cht: "\u5E2B\u5085  \u9019\u95DC\u516C\u548C\u9019\u4E00\u5E36\u7684\u5176\u4ED6\u95DC\u516C\u50CF\u770B\u8D77\u4F86\u4E0D\u4E00\u6A23\u554A"
     description_eng: Shifu, this Guan Gong statue looks kinda different
     clip: {fileID: 0}
+    time: 0
     options: []
   - description_cht: "\u4F60\u770B\u770B\u5200\u53E3\u671D\u54EA\u5152"
     description_eng: Is that so, check where the blade's aiming at
     clip: {fileID: 0}
+    time: 0
     options: []
   - description_cht: "\u9019\u95DC\u516C\u5200\u5C16\u671D\u4E0A  \u4E14\u5200\u53E3\u671D\u5916"
     description_eng: It's aiming up and facing outward
     clip: {fileID: 0}
+    time: 0
     options: []
   - description_cht: "\u78BA\u5BE6\u5947\u602A  \u9867\u751F\u9019\u4E9B\u5546\u4EBA\u8ACB\u95DC\u516C\u90FD\u8ACB\u5200\u5C16\u671D\u4E0B\u7684 
       \u4EE3\u8868\u8457\u8CA1\u904B  \u5200\u5C16\u671D\u4E0A\u5247\u610F\u5473\u8457\u93AE\u58D3\u90AA\u7269 
@@ -67155,6 +67296,7 @@ MonoBehaviour:
       blade Guan Gong, which means bring the wealth and fortune. Aiming upwards means
       suppressing and guarding. What is he suppressing tho
     clip: {fileID: 0}
+    time: 0
     options: []
   image: {fileID: 0}
   highLightMat: {fileID: 0}
@@ -72652,22 +72794,26 @@ MonoBehaviour:
     description_eng: There's dried blood near the drain. And the seams of the floor
       tiles were also blackened
     clip: {fileID: 0}
+    time: 0
     options: []
   - description_cht: "\u8AAA\u8AAA\u770B\u4F60\u7684\u5224\u65B7"
     description_eng: What your thoughts?
     clip: {fileID: 0}
+    time: 0
     options:
     - optionContent: "\u5E79\u4E86\u7684\u8840\u8DE1  Dried blood"
       dialogues:
       - description_cht: "\u9019\u4E9B\u8840\u662F\u65B0\u9BAE\u7684\uFF0C\u61C9\u8A72\u662F\u4E0D\u4E45\u524D\u7559\u4E0B\u7684"
         description_eng: This blood is relatively fresh, someone left this recently
         clip: {fileID: 0}
+        time: 0
         options: []
       - description_cht: "\u7E2B\u9699\u767C\u9ED1\u4F30\u8A08\u662F\u4E4B\u524D\u7559\u4E0B\u7684 
           \u80FD\u8B93\u7E2B\u9699\u767C\u9ED1\u8AAA\u660E\u7559\u4E0B\u7684\u8840\u6B21\u6578\u4E0D\u5C11 
           \u800C\u4E14\u6709\u9EDE\u6642\u9593\u4E86"
         description_eng: Blackened seams indicate there were blood here before.
         clip: {fileID: 0}
+        time: 0
         options: []
     - optionContent: "\u767C\u9ED1\u7684\u7E2B\u9699  Blackened seams"
       dialogues:
@@ -72676,11 +72822,13 @@ MonoBehaviour:
         description_eng: The blackened seams indicates that there was a lot of blood
           here before and were cleaned
         clip: {fileID: 0}
+        time: 0
         options: []
       - description_cht: "\u90A3\u90A3\u4E9B\u5E79\u4E86\u7684\u8840\u8DE1\u662F\u6700\u8FD1\u7559\u4E0B\u7684 
           \u4F60\u81EA\u5DF1\u7576\u5FC3\u9EDE"
         description_eng: So those dried blood stains are recent? Watch out for yourself
         clip: {fileID: 0}
+        time: 0
         options: []
   image: {fileID: 0}
   highLightMat: {fileID: 0}
@@ -74304,6 +74452,7 @@ MonoBehaviour:
     description_eng: "A drawing of mother leaving father and daughter  \u201CMom
       left us\u201D"
     clip: {fileID: 0}
+    time: 0
     options: []
   image: {fileID: 0}
   highLightMat: {fileID: 0}
@@ -75271,6 +75420,7 @@ MonoBehaviour:
     description_eng: Very strong Yin Qi coming out, thanks to the Guan Gong statue
       it's not leaking out
     clip: {fileID: 0}
+    time: 0
     options: []
   image: {fileID: 0}
   highLightMat: {fileID: 0}
@@ -77491,15 +77641,18 @@ MonoBehaviour:
   - description_cht: "\u4E00\u500B\u770B\u4F3C\u6B63\u5E38\u4F46\u6563\u767C\u8457\u90AA\u6C23\u7684\u4F5B\u724C"
     description_eng: A seemingly normal but evil emanating Buddha amulet
     clip: {fileID: 0}
+    time: 0
     options: []
   - description_cht: "\u5E2B\u5085  \u9019\u5E8A\u982D\u4F9B\u5949\u4E86\u4E00\u679A\u4F5B\u724C 
       \u9670\u6C23\u5F88\u91CD"
     description_eng: Shifu, I found a Buddhist amulet, but it has strong Yin Qi
     clip: {fileID: 0}
+    time: 0
     options: []
   - description_cht: "\u4F5B\u724C  \u9019\u4F4D\u7F6E\u4F9B\u5949\u4F5B\u724C  \u4E0D\u5C0D\u554A"
     description_eng: An amulet in here? Something's not right
     clip: {fileID: 0}
+    time: 0
     options: []
   image: {fileID: 0}
   highLightMat: {fileID: 0}
@@ -78152,21 +78305,25 @@ MonoBehaviour:
     description_eng: The crumpled letterhead reads, "Dear daughter, I'm sorry, I
       don't want to, but it's all for the good of the family
     clip: {fileID: 0}
+    time: 0
     options: []
   - description_cht: "\u5E2B\u5085  \u9019\u88CF\u6709\u5E7E\u5718\u63C9\u8D77\u4F86\u7684\u4FE1\u7D19 
       \u662F\u5BEB\u7D66\u5973\u5152\u7684"
     description_eng: Shifu, here are some crumpled letters here, I think it's Gu
       writing to his daughter
     clip: {fileID: 0}
+    time: 0
     options: []
   - description_cht: "\u5BEB\u4E86\u4E9B\u5565"
     description_eng: What's on it?
     clip: {fileID: 0}
+    time: 0
     options: []
   - description_cht: "\u4E00\u4E9B\u5929\u5730\u826F\u5FC3\u7684\u8A71 \u60F3\u7D66\u5973\u5152\u9053\u6B49 
       \u770B\u4F86\u6C92\u8B93\u5973\u5152\u770B\u5230"
     description_eng: He's apologizing to the daughter, but he didn't give it to her
     clip: {fileID: 0}
+    time: 0
     options: []
   image: {fileID: 0}
   highLightMat: {fileID: 0}
