@@ -181,10 +181,16 @@
 		// mats
 			// xaoe, dmg decay based on distance
 			// xnormal spell, deal dmg and knock back
-			// heal when dmg dealt
+			// xheal when dmg dealt
 				// xhealing
-				// add modifer
+				// xadd modifer
 			// xadd break dmg when dmg dealt / when break dealt / when hit / etc.
 	// pick up mats
 		// currently picking up mats will restore the mats to its starting amount
-	// bugs
+
+// 12/02/2021
+// capstone 1 final
+	// conversation with bear after bear's death
+	// small bear mat
+	// print mat effects
+	// limit player selection

@@ -44,7 +44,7 @@ public class SpellScript : MonoBehaviour
 	}
 	private void OnCollisionEnter(Collision collision)
 	{
-		print(("collide"));
+		print(("collided with " + collision.gameObject.name));
 		if (collision.gameObject.CompareTag("InteractableObject"))
 		{
 			print(mats);
