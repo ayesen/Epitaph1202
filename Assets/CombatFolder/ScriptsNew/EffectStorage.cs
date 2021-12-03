@@ -8,14 +8,16 @@ public class EffectStorage : MonoBehaviour
     public static EffectStorage me;
 	[Header("DOT Manager")]
 	public float dot_interval;
-	public ParticleSystem fragments_dot;
 	[Header("Break Manager")]
 	public float droppedMat_flyAmount;
 	public List<GameObject> droppableMat;
 	public GameObject droppedMat_prefab;
 	[Header("AOE Manager")]
 	public GameObject collisionPrefab;
-	
+	[Header("VFXs")]
+	public ParticleSystem heal;
+	public ParticleSystem fragments_dot;
+
 	private void Awake()
 	{
 		me = this;
@@ -28,11 +30,13 @@ public class EffectStorage : MonoBehaviour
 	public void HurtEnemy(EffectHolderScript ehs, GameObject enemy)
 	{
 		enemy.GetComponent<Enemy>().LoseHealth((int)ehs.myEffect.forHowMuch);
+		CombatInfoScript.me.infoToDisplay.Add("dealt " + (int)ehs.myEffect.forHowMuch + " dmg");
 	}
 	public void HurtEnemyBasedOnDis(EffectHolderScript ehs, GameObject enemy, float dis)
 	{
 		float dmgToDeal = 1f / dis * ehs.myEffect.forHowMuch;
 		enemy.GetComponent<Enemy>().LoseHealth((int)dmgToDeal);
+		CombatInfoScript.me.infoToDisplay.Add("dealt " + (int)ehs.myEffect.forHowMuch + " dmg");
 	}
 	public void DotEnemy(EffectHolderScript ehs, GameObject enemy)
 	{
@@ -84,7 +88,7 @@ public class EffectStorage : MonoBehaviour
 	}
 	IEnumerator SetEnemyKnockedState(GameObject ee)
 	{
-		yield return new WaitForSeconds(0.1f);
+		yield return new WaitForSeconds(0.2f);
 		ee.GetComponent<Enemy>().knockedBack = true;
 	}
 	#endregion
@@ -92,10 +96,12 @@ public class EffectStorage : MonoBehaviour
 	public void Break(EffectHolderScript ehs, GameObject enemy)
 	{
 		if (enemy.GetComponent<Enemy>() != null &&
+			enemy.GetComponent<Enemy>().breakable &&
 			droppableMat.Count > 0)
 		{
 			Enemy eS = enemy.GetComponent<Enemy>();
 			eS.breakMeter -= ehs.myEffect.forHowMuch;
+			CombatInfoScript.me.infoToDisplay.Add("dealt " + (int)ehs.myEffect.forHowMuch + " break dmg");
 			if (eS.breakMeter <= 0)
 			{
 				eS.breakMeter = eS.breakMeterMax;
@@ -132,7 +138,11 @@ public class EffectStorage : MonoBehaviour
 	{
 		if (target.CompareTag("Player"))
 		{
-			PlayerScriptNew.me.hp += (int)(ehs.myEffect.forHowMuch + ProcessModifers(ehs.myEffect, condition));
+			int healAmount = (int)(ehs.myEffect.forHowMuch + ProcessModifers(ehs.myEffect, condition));
+			PlayerScriptNew.me.hp += healAmount;
+			//CombatInfoScript.me.infoToDisplay.Add("healed " + healAmount);
+			print("healed " + healAmount);
+			SpawnParticle(heal, PlayerScriptNew.me.gameObject.transform.position);
 		}
 	}
 	#endregion
