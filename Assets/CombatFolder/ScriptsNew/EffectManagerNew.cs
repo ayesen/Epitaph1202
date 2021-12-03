@@ -25,11 +25,6 @@ public class EffectManagerNew : MonoBehaviour
 	[Header("Effect Infliction")]
 	public GameObject effectHolder_prefab;
 
-	[Header("VFX")]
-	public ParticleSystem burst;
-	public ParticleSystem fragments;
-	public ParticleSystem fragments_dot;
-
 	public enum CtrlType
 	{
 		cantWalk,
