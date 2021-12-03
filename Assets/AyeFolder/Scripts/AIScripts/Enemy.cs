@@ -46,6 +46,7 @@ public class Enemy : MonoBehaviour
     public bool knockedBack;
 
     [Header("Supply")]
+    public bool breakable;
     public float breakMeter;
     public float breakMeterMax;
     public float recovery_wait;
@@ -173,7 +174,7 @@ public class Enemy : MonoBehaviour
     public void LoseHealth(int hurtAmt)
     {
         // for effect manager new
-        /*ConditionStruct cs = new ConditionStruct
+        ConditionStruct cs = new ConditionStruct
         {
             condition = EffectStructNew.Condition.dealtDmg,
             conditionTrigger = gameObject,
@@ -182,7 +183,7 @@ public class Enemy : MonoBehaviour
         if (EffectManagerNew.me.gameObject != null)
         {
             EffectManagerNew.me.conditionProcessList.Add(cs);
-        }*/
+        }
         print("dealt " + hurtAmt + " damage to " + gameObject.name);
 
         // og code
@@ -351,14 +352,11 @@ public class Enemy : MonoBehaviour
 
     private void ReactivateNavMesh()
     {
-        if (GetComponent<Rigidbody>().velocity.magnitude <= 0)
+        if (GetComponent<Rigidbody>().velocity.magnitude <= 1f)
         {
-            if (!ghostRider.enabled)
-            {
-                ghostRider.enabled = true;
-                GetComponent<Rigidbody>().isKinematic = true;
-                knockedBack = false;
-            }
+            ghostRider.enabled = true;
+            GetComponent<Rigidbody>().isKinematic = true;
+            knockedBack = false;
         }
     }
 }
