@@ -43,7 +43,7 @@ public class DialogueScript : MonoBehaviour
 
 	private void Update()
 	{
-		if (player != null && Vector3.Distance(player.transform.position, transform.position) < triggerRange && !inspected && oneTimeDialogue)
+		if (player != null && Vector3.Distance(player.transform.position, transform.position) < triggerRange && (!inspected || !oneTimeDialogue))
 		{
 			if (!autoTrigger) // highlight item, show text after pressing E
 			{
