@@ -191,6 +191,7 @@
 // 12/02/2021
 // capstone 1 final
 	// conversation with bear after bear's death
+	// player
 	// small bear mat
 	// print mat effects
 	// limit player selection
