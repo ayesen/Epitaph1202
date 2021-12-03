@@ -22,6 +22,18 @@ public class RecipeManagerScript : MonoBehaviour
 
     public List<GameObject> possibleCombinations;
 
+    private void Update()
+    {
+        if(outcomeIcon.sprite == null)
+        {
+            outcomeIcon.color = new Color32(255, 255, 255, 0);
+        }
+        else
+        {
+            outcomeIcon.color = new Color32(255, 255, 255, 255);
+        }
+    }
+
     public void SearchRecipeForMats(List<GameObject> choosenMats)
     {
         for (int i = 0; i < recipeList.Count; i++)

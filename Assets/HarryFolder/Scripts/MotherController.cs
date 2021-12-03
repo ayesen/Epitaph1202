@@ -72,6 +72,7 @@ public class MotherController : MonoBehaviour
     {
         for (int i = 0; i < kids.Count; i++)
         {
+            kids[i].GetComponent<SmallBear>().ResetSmallBear();
             kids[i].transform.SetParent(kidsHouse[i].transform);
             kids[i].GetComponent<Rigidbody>().useGravity = false;
             kids[i].GetComponent<CapsuleCollider>().enabled = false;
