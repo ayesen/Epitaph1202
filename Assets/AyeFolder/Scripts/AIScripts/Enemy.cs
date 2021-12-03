@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
     public int changeLimit = 2;
     public float knockbackAmount;
     public Vector3 ResetPos;
+    
 
     public AIController myAC;
     public enum AIPhase { NotInBattle, InBattle1, InBattle2 };
@@ -56,8 +57,15 @@ public class Enemy : MonoBehaviour
     public float stopDis;
     public GameObject dialogueTrigger;
 
+    //private
+    private int healthRecord;
+    private int shieldRecord;
+
+
     private void Awake()
     {
+        healthRecord = maxHealth;
+        shieldRecord = maxShield;
         ghostRider = GetComponent<NavMeshAgent>();
         myAC = GetComponent<AIController>();
         health = maxHealth;
@@ -126,10 +134,10 @@ public class Enemy : MonoBehaviour
 
     public void ResetEnemy()
     {
-        health = 100;
-        maxHealth = 100;
-        shield = 200;
-        maxShield = 200;
+        health = healthRecord;
+        maxHealth = healthRecord;
+        shield = shieldRecord - 200;
+        maxShield = shieldRecord - 200;
         changeLimit = 2;
         Mother.BackKids();
         this.GetComponent<NavMeshAgent>().enabled = false;
