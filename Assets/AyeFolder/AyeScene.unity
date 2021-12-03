@@ -11380,9 +11380,10 @@ GameObject:
   - component: {fileID: 323654093}
   - component: {fileID: 323654101}
   - component: {fileID: 323654100}
+  - component: {fileID: 323654102}
   m_Layer: 0
   m_Name: EnemyKids
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11678,6 +11679,19 @@ MonoBehaviour:
   eventTarget: {fileID: 0}
   stopDis: 0
   dialogueTrigger: {fileID: 0}
+--- !u!114 &323654102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323654091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 541426b3b460bb14590b4a8906dafa1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectHolders: []
 --- !u!1 &323868877
 GameObject:
   m_ObjectHideFlags: 0
@@ -13176,9 +13190,10 @@ GameObject:
   - component: {fileID: 376100583}
   - component: {fileID: 376100591}
   - component: {fileID: 376100590}
+  - component: {fileID: 376100592}
   m_Layer: 0
   m_Name: EnemyKids
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13474,6 +13489,19 @@ MonoBehaviour:
   eventTarget: {fileID: 0}
   stopDis: 0
   dialogueTrigger: {fileID: 0}
+--- !u!114 &376100592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376100581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 541426b3b460bb14590b4a8906dafa1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectHolders: []
 --- !u!1 &378737552
 GameObject:
   m_ObjectHideFlags: 0
@@ -26262,9 +26290,10 @@ GameObject:
   - component: {fileID: 721156793}
   - component: {fileID: 721156801}
   - component: {fileID: 721156800}
+  - component: {fileID: 721156802}
   m_Layer: 0
   m_Name: EnemyKids
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26560,6 +26589,19 @@ MonoBehaviour:
   eventTarget: {fileID: 0}
   stopDis: 0
   dialogueTrigger: {fileID: 0}
+--- !u!114 &721156802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721156791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 541426b3b460bb14590b4a8906dafa1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectHolders: []
 --- !u!1 &731436843
 GameObject:
   m_ObjectHideFlags: 0
@@ -75575,7 +75617,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2000024136}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 541426b3b460bb14590b4a8906dafa1c, type: 3}
   m_Name: 
