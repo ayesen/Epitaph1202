@@ -43,6 +43,7 @@ public class Enemy : MonoBehaviour
     public bool attackable;
     public bool walkable;
     public TextMeshProUGUI hittedStates;
+    public bool knockedBack;
 
     [Header("Supply")]
     public float breakMeter;
@@ -80,6 +81,10 @@ public class Enemy : MonoBehaviour
         PhaseSetting();
         BreakMeter_recovery();
         BreakMeter_show();
+        if (knockedBack)
+		{
+            ReactivateNavMesh();
+        }
     }
 
     public void ChangePhase(AIPhase phaseName, int time)
@@ -344,4 +349,16 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void ReactivateNavMesh()
+    {
+        if (GetComponent<Rigidbody>().velocity.magnitude <= 0)
+        {
+            if (!ghostRider.enabled)
+            {
+                ghostRider.enabled = true;
+                GetComponent<Rigidbody>().isKinematic = true;
+                knockedBack = false;
+            }
+        }
+    }
 }
