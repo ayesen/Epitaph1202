@@ -66,8 +66,8 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
-        healthRecord = maxHealth;
-        shieldRecord = maxShield;
+        this.healthRecord = maxHealth;
+        this.shieldRecord = maxShield;
         ghostRider = GetComponent<NavMeshAgent>();
         myAC = GetComponent<AIController>();
         health = maxHealth;
@@ -130,20 +130,25 @@ public class Enemy : MonoBehaviour
         myTrigger = myTriggerObj.GetComponent<AtkTrigger>();
     }
 
-    public void AIDead()
+    public bool AIDead()
     {
         if (health <= 0)
         {
+
             myAC.ChangeState(myAC.dieState);
+            return true;
         }
+        else
+            return false;
+
     }
 
     public void ResetEnemy()
     {
-        health = healthRecord;
-        maxHealth = healthRecord;
-        shield = shieldRecord - 200;
-        maxShield = shieldRecord - 200;
+        health = this.healthRecord;
+        maxHealth = this.healthRecord;
+        shield = this.shieldRecord - 200;
+        maxShield = this.shieldRecord - 200;
         changeLimit = 2;
         Mother.BackKids();
         this.GetComponent<NavMeshAgent>().enabled = false;
@@ -230,28 +235,35 @@ public class Enemy : MonoBehaviour
     }
     public void HittedStatesIndication()
     {
-        if (myAC.currentState != myAC.dieState)
+        if (AIDead() == false)
         {
-            if (walkable && attackable == false)
+            if (myAC.currentState != myAC.dieState)
             {
-                hittedStates.text = "cant attack";
-            }
-            else if (attackable && walkable == false)
-            {
-                hittedStates.text = "cant walk";
-            }
-            else if (!walkable && !attackable)
-            {
-                hittedStates.text = "cant anything";
-            }
-
-            else if (walkable && attackable)
-            {
-                if (hittedStates != null)
+                if (walkable && attackable == false)
                 {
-                    hittedStates.text = "";
+                    hittedStates.text = "cant attack";
+                }
+                else if (attackable && walkable == false)
+                {
+                    hittedStates.text = "cant walk";
+                }
+                else if (!walkable && !attackable)
+                {
+                    hittedStates.text = "cant anything";
+                }
+
+                else if (walkable && attackable)
+                {
+                    if (hittedStates != null)
+                    {
+                        hittedStates.text = "";
+                    }
                 }
             }
+        }
+        if(AIDead() == true)
+        {
+            hittedStates.text = "DEAD";
         }
     }
     public void TempPre(float time)
@@ -263,13 +275,15 @@ public class Enemy : MonoBehaviour
     {
         myTrigger.myMR.material.color = Color.Lerp(TempAtkColor, Origin, time);
     }
-    public void KnockBackAtk()
+    public void KnockBackAtk(float KnockBackAmt, Vector3 AttackerPos, GameObject Receiver)
     {
         myTrigger.myMR.material.color = new Color(1, 1, 1, 1);
 
         if (InRange())
         {
-            EffectManager.me.KnockBack(knockbackAmount, gameObject, GameObject.FindGameObjectWithTag("Player"));
+            //EffectManager.me.KnockBack(knockbackAmount, gameObject, GameObject.FindGameObjectWithTag("Player"));
+            Vector3 dir = Receiver.transform.position - AttackerPos;
+            Receiver.GetComponent<Rigidbody>().AddForce(dir.normalized * KnockBackAmt, ForceMode.Impulse);
             DealtDmg(attackamt);
         }
 
@@ -350,7 +364,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void ReactivateNavMesh()
+    public void ReactivateNavMesh()
     {
         if (GetComponent<Rigidbody>().velocity.magnitude <= 1f)
         {
