@@ -193,3 +193,4 @@
 	// conversation with bear after bear's death
 	// small bear mat
 	// print mat effects
+	// limit player selection
