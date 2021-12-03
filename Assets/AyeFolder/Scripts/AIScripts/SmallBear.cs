@@ -8,7 +8,7 @@ public class SmallBear : Enemy
 
     private void Awake()
     {
-        healthRecord = maxHealth;
+        this.healthRecord = maxHealth;
         myTrigger = myTriggerObj.GetComponent<AtkTrigger>();
         myAC = GetComponent<AIController>();
         health = maxHealth;
@@ -27,12 +27,16 @@ public class SmallBear : Enemy
         AIDead();
         Debug.Log(phase);
         Debug.Log(myAC.currentState);
+        if (knockedBack)
+        {
+            ReactivateNavMesh();
+        }
     }
 
     public void ResetSmallBear()
     {
-        maxHealth = healthRecord;
-        health = healthRecord;
+        maxHealth = this.healthRecord;
+        health = this.healthRecord;
         ChangePhase(AIPhase.NotInBattle, 1);
     }
     

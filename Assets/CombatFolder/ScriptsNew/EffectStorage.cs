@@ -80,6 +80,12 @@ public class EffectStorage : MonoBehaviour
 		}
 		Vector3 dir = ee.transform.position - erPos;
 		ee.GetComponent<Rigidbody>().AddForce(dir.normalized * amount, ForceMode.Impulse);
+		StartCoroutine(SetEnemyKnockedState(ee));
+	}
+	IEnumerator SetEnemyKnockedState(GameObject ee)
+	{
+		yield return new WaitForSeconds(0.1f);
+		ee.GetComponent<Enemy>().knockedBack = true;
 	}
 	#endregion
 	#region BREAK
