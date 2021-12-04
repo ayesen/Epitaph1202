@@ -30,13 +30,13 @@ public class EffectStorage : MonoBehaviour
 	public void HurtEnemy(EffectHolderScript ehs, GameObject enemy)
 	{
 		enemy.GetComponent<Enemy>().LoseHealth((int)ehs.myEffect.forHowMuch);
-		//CombatInfoScript.me.infoToDisplay.Add("dealt " + (int)ehs.myEffect.forHowMuch + " dmg");
+		enemy.GetComponent<CombatInfoScript>().infoToDisplay.Add("dealt " + (int)ehs.myEffect.forHowMuch + " dmg");
 	}
 	public void HurtEnemyBasedOnDis(EffectHolderScript ehs, GameObject enemy, float dis)
 	{
 		float dmgToDeal = 1f / dis * ehs.myEffect.forHowMuch;
 		enemy.GetComponent<Enemy>().LoseHealth((int)dmgToDeal);
-		CombatInfoScript.me.infoToDisplay.Add("dealt " + (int)ehs.myEffect.forHowMuch + " dmg");
+		enemy.GetComponent<CombatInfoScript>().infoToDisplay.Add("dealt " + (int)ehs.myEffect.forHowMuch + " dmg");
 	}
 	public void DotEnemy(EffectHolderScript ehs, GameObject enemy)
 	{
@@ -101,7 +101,7 @@ public class EffectStorage : MonoBehaviour
 		{
 			Enemy eS = enemy.GetComponent<Enemy>();
 			eS.breakMeter -= ehs.myEffect.forHowMuch;
-			CombatInfoScript.me.infoToDisplay.Add("dealt " + (int)ehs.myEffect.forHowMuch + " break dmg");
+			enemy.GetComponent<CombatInfoScript>().infoToDisplay.Add("dealt " + (int)ehs.myEffect.forHowMuch + " break dmg");
 			if (eS.breakMeter <= 0)
 			{
 				eS.breakMeter = eS.breakMeterMax;
