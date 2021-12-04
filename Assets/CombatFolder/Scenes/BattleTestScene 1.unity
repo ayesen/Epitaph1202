@@ -1467,7 +1467,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &318008744
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1560,6 +1560,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onAtkTrigger: 0
   myMR: {fileID: 318008745}
+  MyEnemy: {fileID: 0}
 --- !u!1 &323121283
 GameObject:
   m_ObjectHideFlags: 0
@@ -2062,6 +2063,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onAtkTrigger: 0
   myMR: {fileID: 398955403}
+  MyEnemy: {fileID: 2110752276}
 --- !u!1 &399655690
 GameObject:
   m_ObjectHideFlags: 0
@@ -3156,6 +3158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onAtkTrigger: 0
   myMR: {fileID: 511490228}
+  MyEnemy: {fileID: 0}
 --- !u!1 &529902155
 GameObject:
   m_ObjectHideFlags: 0
@@ -5393,6 +5396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onAtkTrigger: 0
   myMR: {fileID: 483415616}
+  MyEnemy: {fileID: 0}
 --- !u!64 &1139605072
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6216,6 +6220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onAtkTrigger: 0
   myMR: {fileID: 1335113837}
+  MyEnemy: {fileID: 0}
 --- !u!64 &1321117807
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -10208,7 +10213,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2110752277
 MonoBehaviour:
   m_ObjectHideFlags: 0
