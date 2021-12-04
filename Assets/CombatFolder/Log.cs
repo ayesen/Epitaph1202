@@ -195,4 +195,4 @@
 	// small bear mat
 	// xprint mat effects using hitted state ui
 	// xadd a bool to decide whether the enemy can drop mat
-	// limit player selection
+	// limit player selection - takaya

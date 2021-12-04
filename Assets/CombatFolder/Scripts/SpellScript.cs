@@ -15,7 +15,6 @@ public class SpellScript : MonoBehaviour
 	private float deathTimer;
 	[Header("LASTWORD EVENT")]
 	public GameObject collisionPrefab;
-	private bool destroying = false;
 
 	private void Start()
 	{
