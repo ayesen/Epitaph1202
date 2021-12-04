@@ -53,10 +53,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - Displacement: 0.00107
-    - Opacity: 0.978
+    - Displacement: 0.0014
+    - Opacity: 0.912
     - gloss: 1
     m_Colors:
-    - _Color: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 0}
+    - _Color: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 0}
     - _WorldSpaceLightPos0: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
