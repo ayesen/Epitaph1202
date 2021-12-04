@@ -190,7 +190,7 @@
 
 // 12/02/2021
 // capstone 1 final
-	// conversation with bear after bear's death
+	// xconversation with bear after bear's death
 	// player walking animation
 	// small bear mat
 	// xprint mat effects using hitted state ui

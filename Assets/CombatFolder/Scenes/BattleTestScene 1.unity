@@ -7272,7 +7272,7 @@ MonoBehaviour:
   knockbackAmount: 30
   ResetPos: {x: 0, y: 0, z: 0}
   myAC: {fileID: 0}
-  phase: 0
+  phase: 1
   ghostRider: {fileID: 1557505168}
   target: {fileID: 1708728301}
   myTrigger: {fileID: 511490231}
