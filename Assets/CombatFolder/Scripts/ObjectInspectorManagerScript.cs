@@ -219,10 +219,14 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 					}
 					else if (Input.GetKeyDown(KeyCode.E))
 					{
-						foreach (var dialogue in dialogueToShow[index].options[optionIndex].dialogues)
+						for (int i = dialogueToShow[index].options[optionIndex].dialogues.Count - 1; i >= 0 ; i--)
 						{
-							dialogueToShow.Insert(index + 1, dialogue);
+							dialogueToShow.Insert(index+1, dialogueToShow[index].options[optionIndex].dialogues[i]);
 						}
+						// foreach (var dialogue in dialogueToShow[index].options[optionIndex].dialogues)
+						// {
+						// 	dialogueToShow.Insert(index+1, dialogue);               
+						// }
 						optionSelection.SetActive(false);
 						foreach (var option in options)
 						{
@@ -277,7 +281,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 				}
 			}
 		}
-		else // if uneven unber of options
+		else // if uneven number of options
 		{
 			for (int i = 0; i < options.Count; i++)
 			{
