@@ -413,6 +413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onAtkTrigger: 0
   myMR: {fileID: 14814907}
+  MyEnemy: {fileID: 0}
 --- !u!64 &14814906
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1314,7 +1315,7 @@ Transform:
   m_Children:
   - {fileID: 680149039}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &33016992
 MonoBehaviour:
@@ -1764,7 +1765,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 46
+  m_RootOrder: 49
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &53153128
 PrefabInstance:
@@ -2641,7 +2642,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4539926603083141563, guid: 9715c13062f83e54ba91b3d4dbb4ab04, type: 3}
       propertyPath: m_RootOrder
-      value: 23
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 4539926603083141563, guid: 9715c13062f83e54ba91b3d4dbb4ab04, type: 3}
       propertyPath: m_AnchorMax.x
@@ -4143,7 +4144,7 @@ Transform:
   - {fileID: 1272163167}
   - {fileID: 1259864569}
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &80154405
 GameObject:
@@ -5043,7 +5044,7 @@ Transform:
   - {fileID: 2838741441691321234}
   - {fileID: 76621973}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 135, z: 0}
 --- !u!114 &94765228
 MonoBehaviour:
@@ -7083,7 +7084,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2174258576397472079, guid: 57d520f0554298648be9d1affdcfbf69, type: 3}
       propertyPath: m_RootOrder
-      value: 24
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 2174258576397472079, guid: 57d520f0554298648be9d1affdcfbf69, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7175,6 +7176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onAtkTrigger: 0
   myMR: {fileID: 165369596}
+  MyEnemy: {fileID: 0}
 --- !u!64 &165369595
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7902,6 +7904,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onAtkTrigger: 0
   myMR: {fileID: 1228765211}
+  MyEnemy: {fileID: 0}
 --- !u!64 &175245323
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9603,7 +9606,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 38
+  m_RootOrder: 41
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &216881875
 MonoBehaviour:
@@ -11484,7 +11487,7 @@ RectTransform:
   m_Children:
   - {fileID: 1442226268}
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -12440,7 +12443,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 33
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &302974999
 MonoBehaviour:
@@ -12745,7 +12748,7 @@ Transform:
   - {fileID: 75052350}
   - {fileID: 1995842996}
   m_Father: {fileID: 0}
-  m_RootOrder: 53
+  m_RootOrder: 56
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &313051113
 GameObject:
@@ -15066,6 +15069,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onAtkTrigger: 0
   myMR: {fileID: 355921342}
+  MyEnemy: {fileID: 0}
 --- !u!64 &355921341
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18843,7 +18847,7 @@ GameObject:
   - component: {fileID: 476800203}
   - component: {fileID: 476800202}
   m_Layer: 0
-  m_Name: EnemyKids
+  m_Name: SmallBear2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18862,7 +18866,7 @@ Transform:
   m_Children:
   - {fileID: 2040078375}
   m_Father: {fileID: 1409089627}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &476800202
 MonoBehaviour:
@@ -18920,7 +18924,7 @@ MonoBehaviour:
   myAC: {fileID: 476800203}
   phase: 1
   ghostRider: {fileID: 476800208}
-  target: {fileID: 0}
+  target: {fileID: 1440344667}
   myTrigger: {fileID: 0}
   myTriggerObj: {fileID: 2040078374}
   Origin: {r: 1, g: 0.5, b: 0.5, a: 0.3}
@@ -19102,9 +19106,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 0
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 6.7699246
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 2.3849623, z: 0}
 --- !u!23 &476800210
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22173,7 +22177,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 44
+  m_RootOrder: 47
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &554109642
 GameObject:
@@ -23428,7 +23432,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 31
+  m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &588588484
 MonoBehaviour:
@@ -23712,7 +23716,7 @@ Transform:
   - {fileID: 826439981}
   - {fileID: 2142881516}
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &604099241 stripped
 GameObject:
@@ -24009,7 +24013,7 @@ RectTransform:
   - {fileID: 186619019}
   - {fileID: 1212951976}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -26699,7 +26703,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 40
+  m_RootOrder: 43
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &662785267
 GameObject:
@@ -27303,6 +27307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onAtkTrigger: 0
   myMR: {fileID: 680149037}
+  MyEnemy: {fileID: 0}
 --- !u!64 &680149036
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -29204,7 +29209,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &715367807
 GameObject:
@@ -30096,7 +30101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6656671598141136718, guid: 4679dd85ede32474c84cd696abab62dd, type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 6656671598141136718, guid: 4679dd85ede32474c84cd696abab62dd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -34751,7 +34756,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &855526976
 GameObject:
@@ -35177,7 +35182,7 @@ GameObject:
   - component: {fileID: 864886353}
   - component: {fileID: 864886352}
   m_Layer: 5
-  m_Name: Canvas_enemy
+  m_Name: Canvas_BigBear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35191,17 +35196,17 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 864886350}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 3.9000015}
-  m_LocalScale: {x: 0.017017974, y: 0.017017974, z: 0.017017974}
+  m_LocalPosition: {x: 0, y: 0, z: 32.4}
+  m_LocalScale: {x: 0.017017975, y: 0.017017974, z: 0.017017975}
   m_Children:
   - {fileID: 2076661932}
   - {fileID: 172001616}
-  m_Father: {fileID: 1459540988}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -47.319996, y: -2}
+  m_AnchoredPosition: {x: -2672703, y: 552119.75}
   m_SizeDelta: {x: 844, y: 433}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &864886352
@@ -35531,6 +35536,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onAtkTrigger: 0
   myMR: {fileID: 870652151}
+  MyEnemy: {fileID: 0}
 --- !u!114 &871259240 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5333350804940405807, guid: dbf3a9937b057a349823f4ce83443e03, type: 3}
@@ -35593,7 +35599,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 48
+  m_RootOrder: 51
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &876864605
 PrefabInstance:
@@ -37398,7 +37404,7 @@ GameObject:
   - component: {fileID: 919550916}
   - component: {fileID: 919550915}
   m_Layer: 0
-  m_Name: EnemyKids
+  m_Name: SmallBear3
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37417,7 +37423,7 @@ Transform:
   m_Children:
   - {fileID: 1075471185}
   m_Father: {fileID: 1627182081}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &919550915
 MonoBehaviour:
@@ -37475,7 +37481,7 @@ MonoBehaviour:
   myAC: {fileID: 919550916}
   phase: 1
   ghostRider: {fileID: 919550921}
-  target: {fileID: 0}
+  target: {fileID: 1440344667}
   myTrigger: {fileID: 1075471186}
   myTriggerObj: {fileID: 1075471184}
   Origin: {r: 1, g: 0.5, b: 0.5, a: 0.3}
@@ -37483,7 +37489,7 @@ MonoBehaviour:
   Mother: {fileID: 0}
   attackable: 1
   walkable: 1
-  hittedStates: {fileID: 0}
+  hittedStates: {fileID: 1384848789}
   knockedBack: 0
   breakable: 0
   breakMeter: 0
@@ -37657,9 +37663,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 0
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 6.7699246
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 2.3849623, z: 0}
 --- !u!23 &919550923
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -39418,7 +39424,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 37
+  m_RootOrder: 40
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &958314010
 MonoBehaviour:
@@ -43083,6 +43089,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onAtkTrigger: 0
   myMR: {fileID: 1075471188}
+  MyEnemy: {fileID: 919550913}
 --- !u!64 &1075471187
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -43368,7 +43375,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1089208747
 MonoBehaviour:
@@ -43563,7 +43570,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 47
+  m_RootOrder: 50
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1094224084
 PrefabInstance:
@@ -44425,7 +44432,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 35
+  m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1123507224
 MonoBehaviour:
@@ -45845,7 +45852,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 39
+  m_RootOrder: 42
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1146017692
 MonoBehaviour:
@@ -47490,7 +47497,7 @@ GameObject:
   - component: {fileID: 1196998163}
   - component: {fileID: 1196998162}
   m_Layer: 5
-  m_Name: Canvas_enemy
+  m_Name: Canvas_SmallBear2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47503,18 +47510,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1196998160}
-  m_LocalRotation: {x: -0, y: -0.92387956, z: -0, w: 0.38268343}
-  m_LocalPosition: {x: 0, y: 0, z: -52.153957}
-  m_LocalScale: {x: 0.0245088, y: 0.024508806, z: 0.0245088}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 31.960012}
+  m_LocalScale: {x: 0.017020002, y: 0.01702, z: 0.017020002}
   m_Children:
   - {fileID: 1640026514}
   - {fileID: 857005758}
-  m_Father: {fileID: 1409089627}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 42.74292, y: -2.8800006}
+  m_AnchoredPosition: {x: -751.79004, y: 166.33272}
   m_SizeDelta: {x: 844, y: 433}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1196998162
@@ -48431,7 +48438,7 @@ Transform:
   - {fileID: 104001321}
   - {fileID: 446178938}
   m_Father: {fileID: 0}
-  m_RootOrder: 50
+  m_RootOrder: 53
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1227763065
 GameObject:
@@ -48740,7 +48747,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 32
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1228819890
 MonoBehaviour:
@@ -50922,7 +50929,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 34
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1262094608
 MonoBehaviour:
@@ -51723,7 +51730,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 45
+  m_RootOrder: 48
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1287113473
 PrefabInstance:
@@ -53271,7 +53278,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 55.725, y: -139.291, z: -128.002}
 --- !u!1 &1332408890
 GameObject:
@@ -55905,7 +55912,6 @@ Transform:
   m_LocalPosition: {x: 0.51, y: 0, z: 0}
   m_LocalScale: {x: 0.34722215, y: 0.34722215, z: 0.34722215}
   m_Children:
-  - {fileID: 1196998161}
   - {fileID: 476800201}
   m_Father: {fileID: 1982609396}
   m_RootOrder: 5
@@ -57796,38 +57802,6 @@ MonoBehaviour:
   whenMasterRoom: 0
   whenBalcony: 0
   whenDaughtorRoom: 1
---- !u!1 &1459540987
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1459540988}
-  m_Layer: 0
-  m_Name: BigBear
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1459540988
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1459540987}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 76.2, y: 2, z: 28.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 864886351}
-  - {fileID: 1982609396}
-  m_Father: {fileID: 0}
-  m_RootOrder: 16
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1460483091
 GameObject:
   m_ObjectHideFlags: 0
@@ -59679,7 +59653,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1496648033
 PrefabInstance:
@@ -59971,6 +59945,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onAtkTrigger: 0
   myMR: {fileID: 1409172865}
+  MyEnemy: {fileID: 1982609395}
 --- !u!64 &1501204781
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -64001,7 +63976,7 @@ GameObject:
   - component: {fileID: 1586919212}
   - component: {fileID: 1586919211}
   m_Layer: 5
-  m_Name: Canvas_enemy
+  m_Name: Canvas_SmallBear3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64014,18 +63989,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1586919209}
-  m_LocalRotation: {x: -0, y: -0.92387956, z: -0, w: 0.38268343}
-  m_LocalPosition: {x: 0, y: 0, z: -52.153957}
-  m_LocalScale: {x: 0.0245088, y: 0.024508806, z: 0.0245088}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 31.960012}
+  m_LocalScale: {x: 0.017020002, y: 0.01702, z: 0.017020002}
   m_Children:
   - {fileID: 1384848788}
   - {fileID: 210436806}
-  m_Father: {fileID: 1627182081}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 42.74292, y: -2.8800006}
+  m_AnchoredPosition: {x: -751.79004, y: 166.33272}
   m_SizeDelta: {x: 844, y: 433}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1586919211
@@ -65002,7 +64977,7 @@ RectTransform:
   - {fileID: 339699610}
   - {fileID: 251544926}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -65346,7 +65321,6 @@ Transform:
   m_LocalPosition: {x: 0.51, y: 0, z: 0}
   m_LocalScale: {x: 0.34722215, y: 0.34722215, z: 0.34722215}
   m_Children:
-  - {fileID: 1586919210}
   - {fileID: 919550914}
   m_Father: {fileID: 1982609396}
   m_RootOrder: 6
@@ -70222,7 +70196,7 @@ Transform:
   - {fileID: 1236885138}
   - {fileID: 88297036}
   m_Father: {fileID: 0}
-  m_RootOrder: 42
+  m_RootOrder: 45
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
 --- !u!1001 &1800527212
 PrefabInstance:
@@ -70748,7 +70722,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1810338966
 Transform:
   m_ObjectHideFlags: 0
@@ -70777,6 +70751,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onAtkTrigger: 0
   myMR: {fileID: 1810338969}
+  MyEnemy: {fileID: 1482298447}
 --- !u!64 &1810338968
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -72601,7 +72576,7 @@ RectTransform:
   - {fileID: 1373729987}
   - {fileID: 1661496953}
   m_Father: {fileID: 0}
-  m_RootOrder: 43
+  m_RootOrder: 46
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -72636,7 +72611,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1848544981
 GameObject:
@@ -73878,7 +73853,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 49
+  m_RootOrder: 52
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1875848376
 PrefabInstance:
@@ -74265,7 +74240,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 52
+  m_RootOrder: 55
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1893038111
 PrefabInstance:
@@ -76309,6 +76284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onAtkTrigger: 0
   myMR: {fileID: 1957877428}
+  MyEnemy: {fileID: 1982609395}
 --- !u!64 &1957877427
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -77246,7 +77222,7 @@ RectTransform:
   - {fileID: 505895888}
   - {fileID: 1484147921}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -77360,7 +77336,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1982609395}
   m_LocalRotation: {x: -0, y: 0.92387956, z: -0, w: 0.38268343}
-  m_LocalPosition: {x: 0.34, y: 0, z: -0.44}
+  m_LocalPosition: {x: 76.53998, y: 2, z: 28.06}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 1957877425}
@@ -77371,8 +77347,8 @@ Transform:
   - {fileID: 1409089627}
   - {fileID: 1627182081}
   - {fileID: 183053603}
-  m_Father: {fileID: 1459540988}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 135, z: 0}
 --- !u!114 &1982609397
 MonoBehaviour:
@@ -78674,7 +78650,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 36
+  m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2011521093
 MonoBehaviour:
@@ -79041,7 +79017,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8354202477693154228, guid: 233e6e696c7c03c44a147aaebc5af99e, type: 3}
       propertyPath: m_RootOrder
-      value: 51
+      value: 54
       objectReference: {fileID: 0}
     - target: {fileID: 8354202477693154228, guid: 233e6e696c7c03c44a147aaebc5af99e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -79420,7 +79396,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2037992315
 MonoBehaviour:
@@ -79598,6 +79574,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onAtkTrigger: 0
   myMR: {fileID: 2040078378}
+  MyEnemy: {fileID: 476800200}
 --- !u!64 &2040078377
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -83776,7 +83753,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4716978909920572267, guid: d887d468b7aa6024c80693bf81add631, type: 3}
       propertyPath: m_RootOrder
-      value: 41
+      value: 44
       objectReference: {fileID: 0}
     - target: {fileID: 4716978909920572267, guid: d887d468b7aa6024c80693bf81add631, type: 3}
       propertyPath: m_LocalPosition.x

@@ -6,11 +6,11 @@ public class AtkTrigger : MonoBehaviour
 {
     public bool onAtkTrigger = false;
     public MeshRenderer myMR;
-
+    public GameObject MyEnemy;
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        if(other.gameObject == MyEnemy.GetComponent<Enemy>().target)
         {
             onAtkTrigger = true;
             //myMR.enabled = true;
@@ -19,7 +19,7 @@ public class AtkTrigger : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject == MyEnemy.GetComponent<Enemy>().target)
         {
             
             onAtkTrigger = false;
