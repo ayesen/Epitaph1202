@@ -5415,6 +5415,7 @@ MonoBehaviour:
   walkable: 1
   hittedStates: {fileID: 1682314224}
   knockedBack: 0
+  breakable: 0
   breakMeter: 0
   breakMeterMax: 0
   recovery_wait: 0
@@ -6999,6 +7000,7 @@ MonoBehaviour:
   walkable: 1
   hittedStates: {fileID: 137720333}
   knockedBack: 0
+  breakable: 0
   breakMeter: 20
   breakMeterMax: 20
   recovery_wait: 1
@@ -9618,6 +9620,52 @@ Transform:
   m_Father: {fileID: 1488125665}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
+--- !u!1 &2117591919
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2117591921}
+  - component: {fileID: 2117591920}
+  m_Layer: 0
+  m_Name: Enemy Dialogue Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2117591920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117591919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1d2e80e1cfeec74c8c85b06425c0097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueTriggers:
+  - {fileID: 1700380103}
+  enemy: {fileID: 1557505164}
+--- !u!4 &2117591921
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117591919}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 33
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &199564422829148171
 GameObject:
   m_ObjectHideFlags: 0

@@ -134,7 +134,7 @@ public class Enemy : MonoBehaviour
     {
         if (health <= 0)
         {
-
+            EnemyDialogueManagerScript.me.SpawnDialogueTrigger(0);
             myAC.ChangeState(myAC.dieState);
             return true;
         }
