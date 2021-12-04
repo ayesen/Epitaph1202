@@ -191,7 +191,8 @@
 // 12/02/2021
 // capstone 1 final
 	// conversation with bear after bear's death
-	// player
+	// player walking animation
 	// small bear mat
-	// print mat effects
+	// xprint mat effects
+	// xadd a bool to decide whether the enemy can drop mat
 	// limit player selection
