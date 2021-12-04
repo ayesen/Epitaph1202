@@ -168,7 +168,7 @@ public class Enemy : MonoBehaviour
     {
         if (target.gameObject.tag == "Player")
         {
-            target.GetComponent<PlayerScript>().LoseHealth_player(dmgAmt);
+            target.GetComponent<PlayerScriptNew>().LoseHealth_player(dmgAmt);
         }
         if (target.gameObject.tag == "Enemy")
         {
@@ -292,13 +292,13 @@ public class Enemy : MonoBehaviour
     public void SoundWaveAtk()
     {
         myTrigger.myMR.material.color = new Color(0, 0.5f, 1, 1);
-        float dmgRange = 8;
-        float soundWaveDmg = 8 - dmgRange; //can change later
-
+        float dmgRange = 12;
+        float soundWaveDmg = dmgRange - AIToPlayerDist(); //can change later
+        Debug.Log(soundWaveDmg);
         if (AIToPlayerDist() <= dmgRange)
         {
-            Debug.Log("player in dmg range");
-            DealtDmg(attackamt);
+            
+            DealtDmg(attackamt * (int)soundWaveDmg);
             /*apply DOT to player here*/
         }
 
