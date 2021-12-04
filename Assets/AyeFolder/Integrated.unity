@@ -1076,6 +1076,7 @@ MonoBehaviour:
   walkable: 1
   hittedStates: {fileID: 186619017}
   knockedBack: 0
+  breakable: 0
   breakMeter: 0
   breakMeterMax: 0
   recovery_wait: 0
@@ -1751,6 +1752,7 @@ MonoBehaviour:
       times: 0.5
     forHowLong: 10
   lifespan: 3
+  matIcon: {fileID: 21300000, guid: ea967d010a3e9cb4682ce7bf30206f56, type: 3}
 --- !u!4 &50473586
 Transform:
   m_ObjectHideFlags: 0
@@ -2140,6 +2142,46 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 5603555314290144243, guid: 227da076e12dbfa4b990f022b9a9dc8e, type: 3}
+      propertyPath: mat1
+      value: 
+      objectReference: {fileID: 313051115}
+    - target: {fileID: 5603555314290144243, guid: 227da076e12dbfa4b990f022b9a9dc8e, type: 3}
+      propertyPath: mat2
+      value: 
+      objectReference: {fileID: 1441359312}
+    - target: {fileID: 5603555314290144243, guid: 227da076e12dbfa4b990f022b9a9dc8e, type: 3}
+      propertyPath: mat3
+      value: 
+      objectReference: {fileID: 1373729988}
+    - target: {fileID: 5603555314290144243, guid: 227da076e12dbfa4b990f022b9a9dc8e, type: 3}
+      propertyPath: mat4
+      value: 
+      objectReference: {fileID: 1661496954}
+    - target: {fileID: 5603555314290144243, guid: 227da076e12dbfa4b990f022b9a9dc8e, type: 3}
+      propertyPath: matSlots.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5603555314290144243, guid: 227da076e12dbfa4b990f022b9a9dc8e, type: 3}
+      propertyPath: matSlots.Array.data[0]
+      value: 
+      objectReference: {fileID: 552890080}
+    - target: {fileID: 5603555314290144243, guid: 227da076e12dbfa4b990f022b9a9dc8e, type: 3}
+      propertyPath: matSlots.Array.data[1]
+      value: 
+      objectReference: {fileID: 1286690107}
+    - target: {fileID: 5603555314290144243, guid: 227da076e12dbfa4b990f022b9a9dc8e, type: 3}
+      propertyPath: matSlots.Array.data[2]
+      value: 
+      objectReference: {fileID: 50473584}
+    - target: {fileID: 5603555314290144243, guid: 227da076e12dbfa4b990f022b9a9dc8e, type: 3}
+      propertyPath: matSlots.Array.data[3]
+      value: 
+      objectReference: {fileID: 1875390914}
+    - target: {fileID: 5603555314290144243, guid: 227da076e12dbfa4b990f022b9a9dc8e, type: 3}
+      propertyPath: matSlots.Array.data[4]
+      value: 
+      objectReference: {fileID: 1092794031}
     - target: {fileID: 5670354874651408993, guid: 227da076e12dbfa4b990f022b9a9dc8e, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -4949,6 +4991,7 @@ MonoBehaviour:
   walkable: 1
   hittedStates: {fileID: 505895890}
   knockedBack: 0
+  breakable: 0
   breakMeter: 0
   breakMeterMax: 20
   recovery_wait: 2
@@ -18928,6 +18971,7 @@ MonoBehaviour:
   walkable: 1
   hittedStates: {fileID: 1640026512}
   knockedBack: 0
+  breakable: 0
   breakMeter: 0
   breakMeterMax: 0
   recovery_wait: 0
@@ -22158,6 +22202,7 @@ MonoBehaviour:
     myModifiers: []
     forHowLong: 0
   lifespan: 3
+  matIcon: {fileID: 21300000, guid: 960d7177b594964499b31089eee3ba49, type: 3}
 --- !u!4 &552890082
 Transform:
   m_ObjectHideFlags: 0
@@ -35578,9 +35623,6 @@ MonoBehaviour:
   spawnCount: 1
   hitCount: 1
   effectHolder_prefab: {fileID: 3007298977845008024, guid: 55947bb115f61704b9fe2de2f2aebf2e, type: 3}
-  burst: {fileID: 4206482292668527978, guid: 66c3d900e51cad04da07b40bf7c56cf9, type: 3}
-  fragments: {fileID: 2156532497255595423, guid: 1033caef31484d34f9c755850c12368c, type: 3}
-  fragments_dot: {fileID: 5638349666497607249, guid: 7c7aeb57a56c88f48b92e3ec1b732a53, type: 3}
 --- !u!4 &871383421
 Transform:
   m_ObjectHideFlags: 0
@@ -37485,6 +37527,7 @@ MonoBehaviour:
   walkable: 1
   hittedStates: {fileID: 0}
   knockedBack: 0
+  breakable: 0
   breakMeter: 0
   breakMeterMax: 0
   recovery_wait: 0
@@ -43550,6 +43593,7 @@ MonoBehaviour:
     myModifiers: []
     forHowLong: 0
   lifespan: 0.1
+  matIcon: {fileID: 21300000, guid: 6d7587efe376e9547ace804df02d22f0, type: 3}
 --- !u!4 &1092794033
 Transform:
   m_ObjectHideFlags: 0
@@ -51710,6 +51754,7 @@ MonoBehaviour:
     myModifiers: []
     forHowLong: 0
   lifespan: 3
+  matIcon: {fileID: 21300000, guid: d94a77db26ae1444cbfdc3015cd7bac1, type: 3}
 --- !u!4 &1286690109
 Transform:
   m_ObjectHideFlags: 0
@@ -56992,32 +57037,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 199564424747727129, guid: 227da076e12dbfa4b990f022b9a9dc8e, type: 3}
   m_PrefabInstance: {fileID: 53153128}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1440344668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1440344667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f80b680459af5f46a38e3d223692a7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 20
-  spd: 10
-  rot_spd: 4
-  playerModel: {fileID: 2104597039}
-  selectedMats: []
-  matSlots:
-  - {fileID: 552890080}
-  - {fileID: 1286690107}
-  - {fileID: 50473584}
-  - {fileID: 1875390914}
-  mat1: {fileID: 313051115}
-  mat2: {fileID: 1441359312}
-  mat3: {fileID: 1373729988}
-  mat4: {fileID: 1661496954}
 --- !u!114 &1440344669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58763,6 +58782,7 @@ MonoBehaviour:
   walkable: 1
   hittedStates: {fileID: 0}
   knockedBack: 0
+  breakable: 0
   breakMeter: 0
   breakMeterMax: 0
   recovery_wait: 0
@@ -73865,6 +73885,7 @@ MonoBehaviour:
     myModifiers: []
     forHowLong: 0
   lifespan: 3
+  matIcon: {fileID: 21300000, guid: 40fadc3026110954d8815002de124a44, type: 3}
 --- !u!4 &1875390916
 Transform:
   m_ObjectHideFlags: 0
@@ -77494,6 +77515,7 @@ MonoBehaviour:
   walkable: 1
   hittedStates: {fileID: 2076661930}
   knockedBack: 0
+  breakable: 0
   breakMeter: 0
   breakMeterMax: 20
   recovery_wait: 2

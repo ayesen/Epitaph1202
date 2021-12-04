@@ -74,6 +74,7 @@ public class SafehouseManager : MonoBehaviour
             Debug.Log("Safehouse");
             if(enemyScript != null)
                 enemyScript.ResetEnemy();
+            PostProcessingManager.Me.StopAllCoroutines();
             PostProcessingManager.Me.StartCoroutine(PostProcessingManager.Me.ResetFilter());
             StartCoroutine(FadeCanvas(cg, 1f, fadeTime));
             PlayerScriptNew.me.gameObject.SetActive(false);
