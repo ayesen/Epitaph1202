@@ -7,14 +7,6 @@ public class AOECollisionDetectorScript : MonoBehaviour
     public float lifeSpan;
 	public List<EffectStructNew> myEffects;
 
-	private void Start()
-	{
-		foreach (var effect in myEffects)
-		{
-			print(effect.doThis);
-		}
-	}
-
 	private void Update()
 	{
 		Destroy(gameObject, lifeSpan);
