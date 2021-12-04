@@ -13,6 +13,6 @@ public class EffectManagerScriptHolder : MonoBehaviour
 			conditionTrigger = PlayerScriptNew.me.gameObject
 		};
 		EffectManagerNew.me.conditionProcessList.Add(cs);
-		CombatInfoScript.me.infoPanel.text = ""; // clear combat info
+		//CombatInfoScript.me.infoPanel.text = ""; // clear combat info
 	}
 }

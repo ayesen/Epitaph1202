@@ -30,7 +30,7 @@ public class EffectStorage : MonoBehaviour
 	public void HurtEnemy(EffectHolderScript ehs, GameObject enemy)
 	{
 		enemy.GetComponent<Enemy>().LoseHealth((int)ehs.myEffect.forHowMuch);
-		CombatInfoScript.me.infoToDisplay.Add("dealt " + (int)ehs.myEffect.forHowMuch + " dmg");
+		//CombatInfoScript.me.infoToDisplay.Add("dealt " + (int)ehs.myEffect.forHowMuch + " dmg");
 	}
 	public void HurtEnemyBasedOnDis(EffectHolderScript ehs, GameObject enemy, float dis)
 	{

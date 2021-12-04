@@ -8,6 +8,7 @@ public class SmallBear : Enemy
 
     private void Awake()
     {
+        Debug.Log(this.gameObject.name);
         this.healthRecord = maxHealth;
         myTrigger = myTriggerObj.GetComponent<AtkTrigger>();
         myAC = GetComponent<AIController>();

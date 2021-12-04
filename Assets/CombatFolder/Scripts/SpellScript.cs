@@ -66,6 +66,7 @@ public class SpellScript : MonoBehaviour
 	IEnumerator Detection(int hitAmount, Collision hit, Vector3 hitPos)
 	{
 		int amount = hitAmount;
+		print(hit.gameObject.name);
 		while (amount > 0)
 		{
 			if (hit.gameObject.CompareTag("Enemy")) // if hit enemy, inflict effects on enemy and spawn fragments vfx

@@ -196,17 +196,17 @@ public class Enemy : MonoBehaviour
         {
             if (shield <= 0)
             {
-                if (health - hurtAmt >= 0)
+                if (this.health - hurtAmt >= 0)
                 {
-                    health -= hurtAmt;
+                    this.health -= hurtAmt;
                 }
                 else
                 {
-                    health = 0;
+                    this.health = 0;
                 }
             }
             else
-                shield -= hurtAmt;
+                this.shield -= hurtAmt;
         }
     }
 
