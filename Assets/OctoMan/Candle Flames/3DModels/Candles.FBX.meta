@@ -1,0 +1,133 @@
+fileFormatVersion: 2
+guid: 5566667e4c1c0344785cadb093e769d5
+timeCreated: 1457686549
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Docht 3
+    100004: Docht1
+    100006: Docht2
+    100008: Kerze_klein
+    100010: "KerzeGro\xDF"
+    100012: KerzeMittel
+    100014: Candle 2
+    100016: Candle1
+    100018: Candle3
+    100020: Wick1
+    100022: Wick2
+    100024: Wick3
+    400000: //RootNode
+    400002: Docht 3
+    400004: Docht1
+    400006: Docht2
+    400008: Kerze_klein
+    400010: "KerzeGro\xDF"
+    400012: KerzeMittel
+    400014: Candle 2
+    400016: Candle1
+    400018: Candle3
+    400020: Wick1
+    400022: Wick2
+    400024: Wick3
+    2300000: Docht 3
+    2300002: Docht1
+    2300004: Docht2
+    2300006: Kerze_klein
+    2300008: "KerzeGro\xDF"
+    2300010: KerzeMittel
+    2300012: Candle 2
+    2300014: Candle1
+    2300016: Candle3
+    2300018: Wick1
+    2300020: Wick2
+    2300022: Wick3
+    3300000: Docht 3
+    3300002: Docht1
+    3300004: Docht2
+    3300006: Kerze_klein
+    3300008: "KerzeGro\xDF"
+    3300010: KerzeMittel
+    3300012: Candle 2
+    3300014: Candle1
+    3300016: Candle3
+    3300018: Wick1
+    3300020: Wick2
+    3300022: Wick3
+    4300000: Kerze_klein
+    4300002: KerzeMittel
+    4300004: "KerzeGro\xDF"
+    4300006: Docht1
+    4300008: Docht2
+    4300010: Docht 3
+    4300012: Candle1
+    4300014: Wick1
+    4300016: Candle 2
+    4300018: Wick2
+    4300020: Candle3
+    4300022: Wick3
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 89
+    normalImportMode: 0
+    tangentImportMode: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
