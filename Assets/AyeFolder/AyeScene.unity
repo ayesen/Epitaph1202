@@ -11672,6 +11672,7 @@ MonoBehaviour:
   walkable: 1
   hittedStates: {fileID: 1376832058}
   knockedBack: 0
+  breakable: 0
   breakMeter: 0
   breakMeterMax: 0
   recovery_wait: 0
@@ -13483,6 +13484,7 @@ MonoBehaviour:
   walkable: 1
   hittedStates: {fileID: 1611292110}
   knockedBack: 0
+  breakable: 0
   breakMeter: 0
   breakMeterMax: 0
   recovery_wait: 0
@@ -26584,6 +26586,7 @@ MonoBehaviour:
   walkable: 1
   hittedStates: {fileID: 1376832058}
   knockedBack: 0
+  breakable: 0
   breakMeter: 0
   breakMeterMax: 0
   recovery_wait: 0
@@ -57478,6 +57481,7 @@ MonoBehaviour:
   walkable: 1
   hittedStates: {fileID: 1376832058}
   knockedBack: 0
+  breakable: 0
   breakMeter: 0
   breakMeterMax: 0
   recovery_wait: 0
@@ -73276,9 +73280,6 @@ MonoBehaviour:
   spawnCount: 1
   hitCount: 1
   effectHolder_prefab: {fileID: 3007298977845008024, guid: 55947bb115f61704b9fe2de2f2aebf2e, type: 3}
-  burst: {fileID: 4206482292668527978, guid: 66c3d900e51cad04da07b40bf7c56cf9, type: 3}
-  fragments: {fileID: 2156532497255595423, guid: 1033caef31484d34f9c755850c12368c, type: 3}
-  fragments_dot: {fileID: 5638349666497607249, guid: 7c7aeb57a56c88f48b92e3ec1b732a53, type: 3}
 --- !u!4 &1938028239
 Transform:
   m_ObjectHideFlags: 0
@@ -75723,7 +75724,7 @@ MonoBehaviour:
   knockbackAmount: 30
   ResetPos: {x: 73, y: 2, z: 43}
   myAC: {fileID: 0}
-  phase: 0
+  phase: 1
   ghostRider: {fileID: 2000024141}
   target: {fileID: 1319416545}
   myTrigger: {fileID: 1223367113}
@@ -75735,6 +75736,7 @@ MonoBehaviour:
   walkable: 1
   hittedStates: {fileID: 2034375718}
   knockedBack: 0
+  breakable: 0
   breakMeter: 0
   breakMeterMax: 20
   recovery_wait: 2
@@ -75815,7 +75817,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2000024136}
   m_LocalRotation: {x: -0, y: 0.92387956, z: -0, w: 0.38268343}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 9.58, y: 0, z: -36.31}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 1223367112}
