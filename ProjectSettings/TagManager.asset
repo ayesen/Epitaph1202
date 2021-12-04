@@ -15,6 +15,7 @@ TagManager:
   - Floor
   - Undefined
   - Inventory
+  - EnemyInfoUI
   layers:
   - Default
   - TransparentFX
