@@ -83,6 +83,7 @@ public class ChangeInventory : MonoBehaviour
             {
                 ChangeMat(choosenMatIndex, choosenMat);
                 DI.CreateDisplay();
+                UIManager.Me.UI_ChangeIcon();
                 isChanging = false;
                 choosenMatIndex = 4;
             }
@@ -111,18 +112,14 @@ public class ChangeInventory : MonoBehaviour
             choosenCircle.GetComponent<RectTransform>().localPosition = DisplayInventory.Me.GetPosition(choosenMatIndex - 4) + Vector3.up * 190f;
         }
         //Show description
-        description.text = DI.inventory[choosenMatIndex].Mats.name;
+        description.text = PlayerScriptNew.me.matSlots[choosenMatIndex].name;
     }
 
     public void ChangeMat(int choosenMat, int targetMat)
     {
-        InventoryDict temp = PlayerScript.me.tempInventory[choosenMat];
-        PlayerScript.me.tempInventory[choosenMat] = PlayerScript.me.tempInventory[targetMat];
-        PlayerScript.me.tempInventory[targetMat] = temp;
-
-        InventoryDict tem = DI.inventory[choosenMat];
-        DI.inventory[choosenMat] = DI.inventory[targetMat];
-        DI.inventory[targetMat] = tem;
+        GameObject temp = PlayerScriptNew.me.matSlots[choosenMat];
+        PlayerScriptNew.me.matSlots[choosenMat] = PlayerScriptNew.me.matSlots[targetMat];
+        PlayerScriptNew.me.matSlots[targetMat] = temp;
     }
     public Vector3 GetPosition(int i)
     {

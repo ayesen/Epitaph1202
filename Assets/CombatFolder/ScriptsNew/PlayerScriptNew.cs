@@ -13,7 +13,7 @@ public class PlayerScriptNew : MonoBehaviour
 	private GameObject enemy;
     private Animator anim;
     public GameObject playerModel;
-	private bool dead = false;
+	public bool dead = false;
 	[Header("Mat")]
 	public List<GameObject> selectedMats; // mats activated
 	public List<GameObject> matSlots; // inventory
@@ -25,6 +25,9 @@ public class PlayerScriptNew : MonoBehaviour
 
 	// backswing cancel
 	private GameObject lastMat;
+
+	//Do once after death
+	private bool checkBoolChange;
 
 	private void Awake()
 	{
@@ -39,6 +42,10 @@ public class PlayerScriptNew : MonoBehaviour
 
 	private void Update()
 	{
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+			hp = 0;
+        }
 		if (Input.GetKeyDown(KeyCode.T))
 		{
 			//GetComponentInChildren<Rigidbody>().AddForce(new Vector3(1,0,1) * 50, ForceMode.Impulse);
@@ -109,9 +116,10 @@ public class PlayerScriptNew : MonoBehaviour
 				mat4.text = "mat 4 not selected";
 			}
 			#endregion
+			
 			#region activate and deactivate mats
 			// activate mats
-			if (Input.GetKeyUp(KeyCode.Alpha1))
+			if (Input.GetKeyUp(KeyCode.Alpha1) && matSlots[0] != null)
 			{
 				if (selectedMats.Contains(matSlots[0]))
 				{
@@ -119,11 +127,12 @@ public class PlayerScriptNew : MonoBehaviour
 				}
 				else
 				{
-					selectedMats.Add(matSlots[0]);
+					if(matSlots[0].GetComponent<MatScriptNew>().amount > 0)
+						selectedMats.Add(matSlots[0]);
 				}
 				EffectManagerNew.me.RefreshCurrentMats();
 			}
-			else if (Input.GetKeyUp(KeyCode.Alpha2))
+			else if (Input.GetKeyUp(KeyCode.Alpha2) && matSlots[1] != null)
 			{
 				if (selectedMats.Contains(matSlots[1]))
 				{
@@ -131,11 +140,12 @@ public class PlayerScriptNew : MonoBehaviour
 				}
 				else
 				{
-					selectedMats.Add(matSlots[1]);
+					if (matSlots[1].GetComponent<MatScriptNew>().amount > 0)
+						selectedMats.Add(matSlots[1]);
 				}
 				EffectManagerNew.me.RefreshCurrentMats();
 			}
-			else if (Input.GetKeyUp(KeyCode.Alpha3))
+			else if (Input.GetKeyUp(KeyCode.Alpha3) && matSlots[2] != null)
 			{
 				if (selectedMats.Contains(matSlots[2]))
 				{
@@ -143,11 +153,12 @@ public class PlayerScriptNew : MonoBehaviour
 				}
 				else
 				{
-					selectedMats.Add(matSlots[2]);
+					if (matSlots[2].GetComponent<MatScriptNew>().amount > 0)
+						selectedMats.Add(matSlots[2]);
 				}
 				EffectManagerNew.me.RefreshCurrentMats();
 			}
-			else if (Input.GetKeyUp(KeyCode.Alpha4))
+			else if (Input.GetKeyUp(KeyCode.Alpha4) && matSlots[3] != null)
 			{
 				if (selectedMats.Contains(matSlots[3]))
 				{
@@ -155,7 +166,8 @@ public class PlayerScriptNew : MonoBehaviour
 				}
 				else
 				{
-					selectedMats.Add(matSlots[3]);
+					if (matSlots[3].GetComponent<MatScriptNew>().amount > 0)
+						selectedMats.Add(matSlots[3]);
 				}
 				EffectManagerNew.me.RefreshCurrentMats();
 			}
@@ -233,6 +245,19 @@ public class PlayerScriptNew : MonoBehaviour
 		if (hp <= 0)
 		{
 			dead = true;
+		}
+		else
+		{
+			dead = false;
+		}
+		if (dead != checkBoolChange && dead)
+		{
+			checkBoolChange = dead;
+			PostProcessingManager.Me.StartCoroutine(PostProcessingManager.Me.DeadFilter());
+		}
+		else if (dead != checkBoolChange && !dead)
+		{
+			checkBoolChange = dead;
 		}
 	}
 }

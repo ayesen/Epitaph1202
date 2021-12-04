@@ -467,6 +467,8 @@ GameObject:
   - component: {fileID: 199564424747727109}
   - component: {fileID: 199564424747727110}
   - component: {fileID: 7093479450101510729}
+  - component: {fileID: 5603555314290144243}
+  - component: {fileID: 114750589119298922}
   m_Layer: 15
   m_Name: Player
   m_TagString: Player
@@ -519,6 +521,7 @@ MonoBehaviour:
   cotton: {fileID: 2429920367318801475, guid: 246cc5031e223c548b132211d37c5988, type: 3}
   enemy: {fileID: 0}
   MatInventory: {fileID: 0}
+  dead: 0
   tempInventory:
   - Mats: {fileID: 1478154070093566531, guid: 699134f854649d041b639287d52979e4, type: 3}
     matAmounts: 999
@@ -572,6 +575,45 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 6
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5603555314290144243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199564424747727129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f80b680459af5f46a38e3d223692a7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  spd: 10
+  rot_spd: 4
+  playerModel: {fileID: 7577041118973501038}
+  selectedMats: []
+  matSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  mat1: {fileID: 0}
+  mat2: {fileID: 0}
+  mat3: {fileID: 0}
+  mat4: {fileID: 0}
+--- !u!114 &114750589119298922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199564424747727129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 541426b3b460bb14590b4a8906dafa1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectHolders: []
 --- !u!1 &3109627730938442457
 GameObject:
   m_ObjectHideFlags: 0
