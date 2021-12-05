@@ -67,7 +67,7 @@ public class MotherController : MonoBehaviour
             kidChild.transform.parent = null;
             kidChild.GetComponent<Rigidbody>().useGravity = true;
             kidChild.GetComponent<CapsuleCollider>().enabled = true;
-
+            kidChild.GetComponent<Enemy>().ChangePhase(Enemy.AIPhase.InBattle1, 1);
         }
     }
 
@@ -83,10 +83,10 @@ public class MotherController : MonoBehaviour
             kids[i].GetComponent<Kids>().isActivated = false;
             kids[i].GetComponent<Kids>().timer = 0f;
             kids[i].GetComponent<Kids>().enabled = false;
-            kids[i].GetComponent<NavMeshAgent>().enabled = false;
+            /*kids[i].GetComponent<NavMeshAgent>().enabled = false;
             kids[i].GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
             kids[i].GetComponent<Rigidbody>().rotation = Quaternion.Euler(0, 0, 0);
-            kids[i].GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);
+            kids[i].GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);*/
             kids[i].transform.position = Vector3.Lerp(kids[i].transform.position, kidsHouse[i].transform.position, Time.time);
             kids[i].SetActive(false);
         }

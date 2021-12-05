@@ -57,7 +57,7 @@ public class Kids : MonoBehaviour
           }
           
           print("warped");
-          self.SetDestination(target.transform.position);
+          //self.SetDestination(target.transform.position);
         } 
         
     }

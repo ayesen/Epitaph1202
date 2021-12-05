@@ -28,13 +28,16 @@ public class AIStateChangePhase : AIStateBase
 
     public override void LeaveState(Enemy myEnemy)
     {
-        if (myEnemy.phase == Enemy.AIPhase.InBattle2)
+        if (myEnemy.Mother != null)
         {
-            myEnemy.Mother.OutKids();
-        }
-        else if (myEnemy.phase == Enemy.AIPhase.InBattle1)
-        {
-            myEnemy.Mother.BackKids();
+            if (myEnemy.phase == Enemy.AIPhase.InBattle2)
+            {
+                myEnemy.Mother.OutKids();
+            }
+            else if (myEnemy.phase == Enemy.AIPhase.InBattle1)
+            {
+                myEnemy.Mother.BackKids();
+            }
         }
     }
 }
