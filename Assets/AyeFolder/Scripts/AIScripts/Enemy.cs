@@ -32,6 +32,9 @@ public class Enemy : MonoBehaviour
     public NavMeshAgent ghostRider;
     public GameObject target;
 
+    [Header("ANIMATION")]
+    public Animator AIAnimator;
+
     [Header("ATTACK")]
     public AtkTrigger myTrigger;
     public GameObject myTriggerObj;
@@ -98,7 +101,10 @@ public class Enemy : MonoBehaviour
     public void EnterHittedState()
     {
         interruptedState = myAC.currentState;
-        myAC.ChangeState(myAC.hittedState);
+        if (myAC.currentState != myAC.changePhaseState || myAC.currentState!= myAC.dieState)
+        {
+            myAC.ChangeState(myAC.hittedState);
+        }
     }
 
     public void ChangePhase(AIPhase phaseName, int time)
@@ -123,13 +129,13 @@ public class Enemy : MonoBehaviour
             myTriggerObj = GameObject.Find("Atk1Trigger");
             if (shield <= 0)
             {
-                ChangePhase(AIPhase.InBattle2, 10);
+                ChangePhase(AIPhase.InBattle2, 20);
             }
         }
         else if (phase == AIPhase.InBattle2)
         {
             atkSpd = 5;
-            preAtkSpd = 7;
+            preAtkSpd = 5;
             atkTime = 1;
             postAtkSpd = 3;
             attackamt = 2;
@@ -388,7 +394,9 @@ public class Enemy : MonoBehaviour
         {
             GetComponent<Rigidbody>().isKinematic = true;
             knockedBack = false;
+
             myAC.ChangeState(myAC.idleState);
+            
         }
     }
 }

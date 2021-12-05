@@ -7,7 +7,7 @@ public class AIStateChangePhase : AIStateBase
     public float changePhaseTimer;
     public override void StartState(Enemy myEnemy)
     {
-
+        myEnemy.AIAnimator.Play("RoarBear");
         if (myEnemy.phase == Enemy.AIPhase.InBattle2)
         {
             myEnemy.changeLimit -= 1;

@@ -7,6 +7,7 @@ public class AIStateDie : AIStateBase
     public AIStateBase oldState;
     public override void StartState(Enemy myEnemy)
     {
+        myEnemy.AIAnimator.Play("Die");
         myEnemy.myTrigger.myMR.enabled = false;
         myEnemy.ghostRider.enabled = false;
         if(myEnemy.Mother != null)
