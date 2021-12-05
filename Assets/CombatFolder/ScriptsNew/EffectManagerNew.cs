@@ -89,7 +89,7 @@ public class EffectManagerNew : MonoBehaviour
 			bool recordEffects = true;
 			foreach (var effect in ms.myEffects)
 			{
-				if (effect.doThis == EffectStructNew.Effect.spawnHitDetectionAfterDeath)
+				if (effect.doThis == EffectStructNew.Effect.spawnAOEDetectionAfterDeath)
 				{
 					recordEffects = false;
 				}

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AOECollisionDetectorScript : MonoBehaviour
+public class CollisionDetectorScript : MonoBehaviour
 {
     public float lifeSpan;
 	public List<EffectStructNew> myEffects;
@@ -14,14 +14,23 @@ public class AOECollisionDetectorScript : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
+		if (!CompareTag("PlayerSpawnedBear"))
+		{
+			InflictEffects(other.gameObject);
+		}
+	}
+
+	public void InflictEffects(GameObject target)
+	{
 		foreach (var effect in myEffects)
 		{
-			if (other.CompareTag("Enemy") &&
+			if (target.CompareTag("Enemy") &&
 				effect.toWhom == EffectStructNew.Target.collisionEnemy)
 			{
-				EffectManagerNew.me.SpawnEffectHolders(other.gameObject, effect, gameObject.transform.position);
+				print("inflicted effects on: " + target.name);
+				EffectManagerNew.me.SpawnEffectHolders(target.gameObject, effect, gameObject.transform.position);
 			}
-			else if (other.CompareTag("Player") &&
+			else if (target.CompareTag("Player") &&
 				effect.toWhom == EffectStructNew.Target.player)
 			{
 				EffectManagerNew.me.SpawnEffectHolders(PlayerScript.me.gameObject, effect, gameObject.transform.position);

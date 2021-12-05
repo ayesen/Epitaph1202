@@ -16,6 +16,7 @@ TagManager:
   - Undefined
   - Inventory
   - EnemyInfoUI
+  - PlayerSpawnedBear
   layers:
   - Default
   - TransparentFX
