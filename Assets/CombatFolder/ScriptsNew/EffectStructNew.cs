@@ -37,7 +37,8 @@ public struct EffectStructNew
 		spawnExtraCollisionDetection,
 		spawnExtraSpell,
 		knockBack,
-		spawnHitDetectionAfterDeath,
+		spawnAOEDetectionAfterDeath,
+		spawnSmallBearAfterDeath,
 		heal
 	};
 	[Header("EFFECTS")]

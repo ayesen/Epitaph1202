@@ -19,12 +19,13 @@ public class MotherController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             foreach (GameObject kid in kidsHouse)
             {
                 GameObject kidChild = kid.transform.GetChild(0).gameObject;
                 kids.Add(kidChild);
+                kidChild.gameObject.SetActive(true);
                 kidChild.transform.parent = null;
                 kidChild.GetComponent<Rigidbody>().useGravity = true;
                 kidChild.GetComponent<CapsuleCollider>().enabled = true;
@@ -52,7 +53,7 @@ public class MotherController : MonoBehaviour
                 kids[i].transform.position = Vector3.Lerp(kids[i].transform.position, kidsHouse[i].transform.position, Time.time);
             }
             
-        }*/
+        }
     }
 
     public void OutKids()
@@ -61,10 +62,12 @@ public class MotherController : MonoBehaviour
         {
             GameObject kidChild = kid.transform.GetChild(0).gameObject;
             kids.Add(kidChild);
+            kidChild.gameObject.SetActive(true);
+            kidChild.GetComponent<Kids>().enabled = true;
             kidChild.transform.parent = null;
             kidChild.GetComponent<Rigidbody>().useGravity = true;
             kidChild.GetComponent<CapsuleCollider>().enabled = true;
-            kidChild.GetComponent<Kids>().enabled = true;
+
         }
     }
 
@@ -72,6 +75,7 @@ public class MotherController : MonoBehaviour
     {
         for (int i = 0; i < kids.Count; i++)
         {
+
             kids[i].GetComponent<SmallBear>().ResetSmallBear();
             kids[i].transform.SetParent(kidsHouse[i].transform);
             kids[i].GetComponent<Rigidbody>().useGravity = false;
@@ -84,6 +88,7 @@ public class MotherController : MonoBehaviour
             kids[i].GetComponent<Rigidbody>().rotation = Quaternion.Euler(0, 0, 0);
             kids[i].GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);
             kids[i].transform.position = Vector3.Lerp(kids[i].transform.position, kidsHouse[i].transform.position, Time.time);
+            kids[i].SetActive(false);
         }
     }
 

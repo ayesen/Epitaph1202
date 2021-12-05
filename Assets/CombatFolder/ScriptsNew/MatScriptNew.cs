@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MatScriptNew : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class MatScriptNew : MonoBehaviour
 	public int amount_max;
 	public List<EffectStructNew> myEffects;
 	public float lifespan;
+	public Sprite matIcon;
 
 	private void Start()
 	{
