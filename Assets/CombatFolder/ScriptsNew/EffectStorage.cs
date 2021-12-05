@@ -6,14 +6,17 @@ using UnityEngine.AI;
 public class EffectStorage : MonoBehaviour
 {
     public static EffectStorage me;
+	public GameObject mainEnemyOfThisLevel;
 	[Header("DOT Manager")]
 	public float dot_interval;
 	[Header("Break Manager")]
 	public float droppedMat_flyAmount;
+	public List<GameObject> bossMats;
 	public List<GameObject> droppableMat;
 	public GameObject droppedMat_prefab;
-	[Header("AOE Manager")]
-	public GameObject collisionPrefab;
+	[Header("Collision Detector Transfiguring Manager")]
+	public GameObject AOECollisionPrefab;
+	public GameObject smallBearPrefab;
 	[Header("VFXs")]
 	public ParticleSystem heal;
 	public ParticleSystem fragments_dot;
@@ -30,13 +33,13 @@ public class EffectStorage : MonoBehaviour
 	public void HurtEnemy(EffectHolderScript ehs, GameObject enemy)
 	{
 		enemy.GetComponent<Enemy>().LoseHealth((int)ehs.myEffect.forHowMuch);
-		CombatInfoScript.me.infoToDisplay.Add("dealt " + (int)ehs.myEffect.forHowMuch + " dmg");
+		enemy.GetComponent<CombatInfoScript>().infoToDisplay.Add("dealt " + (int)ehs.myEffect.forHowMuch + " dmg");
 	}
 	public void HurtEnemyBasedOnDis(EffectHolderScript ehs, GameObject enemy, float dis)
 	{
 		float dmgToDeal = 1f / dis * ehs.myEffect.forHowMuch;
 		enemy.GetComponent<Enemy>().LoseHealth((int)dmgToDeal);
-		CombatInfoScript.me.infoToDisplay.Add("dealt " + (int)ehs.myEffect.forHowMuch + " dmg");
+		enemy.GetComponent<CombatInfoScript>().infoToDisplay.Add("dealt " + (int)ehs.myEffect.forHowMuch + " dmg");
 	}
 	public void DotEnemy(EffectHolderScript ehs, GameObject enemy)
 	{
@@ -77,12 +80,16 @@ public class EffectStorage : MonoBehaviour
 	}
 	public void KnockBack(float amount, Vector3 erPos, GameObject ee)
 	{
-		if (ee.GetComponent<NavMeshAgent>())
+		/*if (ee.GetComponent<NavMeshAgent>())
 		{
 			ee.GetComponent<NavMeshAgent>().enabled = false;
 			ee.GetComponent<Rigidbody>().isKinematic = false;
-		}
+		}*/
+		ee.GetComponent<Enemy>().EnterHittedState();
+		ee.GetComponent<Rigidbody>().isKinematic = false;
 		Vector3 dir = ee.transform.position - erPos;
+		print(ee.transform.position);
+		print(erPos);
 		ee.GetComponent<Rigidbody>().AddForce(dir.normalized * amount, ForceMode.Impulse);
 		StartCoroutine(SetEnemyKnockedState(ee));
 	}
@@ -101,7 +108,7 @@ public class EffectStorage : MonoBehaviour
 		{
 			Enemy eS = enemy.GetComponent<Enemy>();
 			eS.breakMeter -= ehs.myEffect.forHowMuch;
-			CombatInfoScript.me.infoToDisplay.Add("dealt " + (int)ehs.myEffect.forHowMuch + " break dmg");
+			enemy.GetComponent<CombatInfoScript>().infoToDisplay.Add("dealt " + (int)ehs.myEffect.forHowMuch + " break dmg");
 			if (eS.breakMeter <= 0)
 			{
 				eS.breakMeter = eS.breakMeterMax;
@@ -116,7 +123,7 @@ public class EffectStorage : MonoBehaviour
 			droppableMat.Add(mat);
 		}
 	}
-	private void BreakNSpawnMat(GameObject enemy)
+	private void BreakNSpawnMat(GameObject enemy) //! remember to drag boss to mainEnemyInThisLevel
 	{
 		foreach (var mat in droppableMat)
 		{
@@ -131,6 +138,17 @@ public class EffectStorage : MonoBehaviour
 				Random.Range(-droppedMat_flyAmount, droppedMat_flyAmount)),
 				ForceMode.Impulse);
 		}
+		// drop boss mat randomly
+		GameObject bossMatDropped = mainEnemyOfThisLevel.GetComponent<Enemy>().myMats[Random.Range(0, 2)];
+		Vector3 spawnPos_bossMat = new Vector3(enemy.transform.position.x, enemy.transform.position.y + 0.7f, enemy.transform.position.z);
+		GameObject droppedMat_bossMat = Instantiate(droppedMat_prefab, spawnPos_bossMat, Random.rotation);
+		droppedMat_bossMat.GetComponent<DroppedMatScript>().myMat = bossMatDropped;
+		droppedMat_bossMat.GetComponent<DroppedMatScript>().amount = 1;
+		droppedMat_bossMat.GetComponent<Rigidbody>().AddForce(
+			new Vector3(Random.Range(-droppedMat_flyAmount, droppedMat_flyAmount),
+			3, // force upward
+			Random.Range(-droppedMat_flyAmount, droppedMat_flyAmount)),
+			ForceMode.Impulse);
 	}
 	#endregion
 	#region HEAL AND BUFFS
@@ -159,13 +177,23 @@ public class EffectStorage : MonoBehaviour
 	#region DEATHWORD RELATED
 	public void SpawnAOE(EffectStructNew effect, GameObject spell)
 	{
-		GameObject collisionDetector = Instantiate(collisionPrefab, spell.transform.position, Quaternion.identity);
+		GameObject collisionDetector = Instantiate(AOECollisionPrefab, spell.transform.position, Quaternion.identity);
 		collisionDetector.transform.localScale = new Vector3(effect.forHowMuch, effect.forHowMuch, effect.forHowMuch);
-		collisionDetector.GetComponent<AOECollisionDetectorScript>().lifeSpan = effect.forHowLong;
+		collisionDetector.GetComponent<CollisionDetectorScript>().lifeSpan = effect.forHowLong;
 		foreach (var effectToBePassed in spell.GetComponent<SpellScript>().myEffects)
 		{
-			collisionDetector.GetComponent<AOECollisionDetectorScript>().myEffects.Add(effectToBePassed);
+			collisionDetector.GetComponent<CollisionDetectorScript>().myEffects.Add(effectToBePassed);
 		}
+	}
+	public void SpawnSmallBear(EffectStructNew effect, GameObject spell)
+	{
+		GameObject smallBear = Instantiate(smallBearPrefab, spell.transform.position, Quaternion.identity);
+		smallBear.GetComponent<CollisionDetectorScript>().lifeSpan = effect.forHowLong;
+		foreach (var effectToBePassed in spell.GetComponent<SpellScript>().myEffects)
+		{
+			smallBear.GetComponent<CollisionDetectorScript>().myEffects.Add(effectToBePassed);
+		}
+		smallBear.GetComponent<Enemy>().target = mainEnemyOfThisLevel;
 	}
 	#endregion
 	public void SpawnParticle(ParticleSystem particle, Vector3 pos)

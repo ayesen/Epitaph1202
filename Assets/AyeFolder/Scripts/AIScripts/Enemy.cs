@@ -44,6 +44,7 @@ public class Enemy : MonoBehaviour
     public bool walkable;
     public TextMeshProUGUI hittedStates;
     public bool knockedBack;
+    public AIStateBase interruptedState;
 
     [Header("Supply")]
     public bool breakable;
@@ -53,6 +54,7 @@ public class Enemy : MonoBehaviour
     private float recovery_timer;
     public float recovery_spd;
     public TextMeshProUGUI breakMeter_ui;
+    public List<GameObject> myMats;
 
     [Header("SCRIPTED EVENTS")]
     public Transform eventTarget;
@@ -77,6 +79,11 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            EnterHittedState();
+        }
+        
         HittedStatesIndication();
         AIDead();
         PhaseSetting();
@@ -86,6 +93,12 @@ public class Enemy : MonoBehaviour
 		{
             ReactivateNavMesh();
         }
+    }
+
+    public void EnterHittedState()
+    {
+        interruptedState = myAC.currentState;
+        myAC.ChangeState(myAC.hittedState);
     }
 
     public void ChangePhase(AIPhase phaseName, int time)
@@ -134,7 +147,10 @@ public class Enemy : MonoBehaviour
     {
         if (health <= 0)
         {
-
+            if (gameObject == EnemyDialogueManagerScript.me.enemy)
+            {
+                EnemyDialogueManagerScript.me.SpawnDialogueTrigger(0);
+            }
             myAC.ChangeState(myAC.dieState);
             return true;
         }
@@ -161,18 +177,21 @@ public class Enemy : MonoBehaviour
         hittedStates.enabled = false;
         myTrigger.GetComponent<AtkTrigger>().onAtkTrigger = false;
         myTrigger.myMR.enabled = false;
-
     }
 
-    public void DealtDmg(int dmgAmt)
+    public void DealDmg(int dmgAmt)
     {
-        if (target.gameObject.tag == "Player")
+        if (target.gameObject.CompareTag("Player"))
         {
-            target.GetComponent<PlayerScript>().LoseHealth_player(dmgAmt);
+            target.GetComponent<PlayerScriptNew>().LoseHealth_player(dmgAmt);
         }
-        if (target.gameObject.tag == "Enemy")
+        if (target.gameObject.CompareTag("Enemy"))
         {
-            target.GetComponent<Enemy>().LoseHealth(dmgAmt);
+            if (CompareTag("PlayerSpawnedBear"))
+			{
+                target.GetComponent<Enemy>().LoseHealth(dmgAmt);
+                GetComponent<CollisionDetectorScript>().InflictEffects(target);
+            }
         }
     }
 
@@ -196,17 +215,17 @@ public class Enemy : MonoBehaviour
         {
             if (shield <= 0)
             {
-                if (health - hurtAmt >= 0)
+                if (this.health - hurtAmt >= 0)
                 {
-                    health -= hurtAmt;
+                    this.health -= hurtAmt;
                 }
                 else
                 {
-                    health = 0;
+                    this.health = 0;
                 }
             }
             else
-                shield -= hurtAmt;
+                this.shield -= hurtAmt;
         }
     }
 
@@ -284,21 +303,20 @@ public class Enemy : MonoBehaviour
             //EffectManager.me.KnockBack(knockbackAmount, gameObject, GameObject.FindGameObjectWithTag("Player"));
             Vector3 dir = Receiver.transform.position - AttackerPos;
             Receiver.GetComponent<Rigidbody>().AddForce(dir.normalized * KnockBackAmt, ForceMode.Impulse);
-            DealtDmg(attackamt);
+            DealDmg(attackamt);
         }
-
     }
 
     public void SoundWaveAtk()
     {
         myTrigger.myMR.material.color = new Color(0, 0.5f, 1, 1);
-        float dmgRange = 8;
-        float soundWaveDmg = 8 - dmgRange; //can change later
-
+        float dmgRange = 12;
+        float soundWaveDmg = dmgRange - AIToPlayerDist(); //can change later
+        Debug.Log(soundWaveDmg);
         if (AIToPlayerDist() <= dmgRange)
         {
-            Debug.Log("player in dmg range");
-            DealtDmg(attackamt);
+            
+            DealDmg(attackamt * (int)soundWaveDmg);
             /*apply DOT to player here*/
         }
 
@@ -368,9 +386,9 @@ public class Enemy : MonoBehaviour
     {
         if (GetComponent<Rigidbody>().velocity.magnitude <= 1f)
         {
-            ghostRider.enabled = true;
             GetComponent<Rigidbody>().isKinematic = true;
             knockedBack = false;
+            myAC.ChangeState(myAC.idleState);
         }
     }
 }

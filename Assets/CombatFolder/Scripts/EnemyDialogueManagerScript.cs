@@ -6,7 +6,7 @@ public class EnemyDialogueManagerScript : MonoBehaviour
 {
 	public static EnemyDialogueManagerScript me;
     public List<GameObject> dialogueTriggers;
-	private GameObject enemy;
+	public GameObject enemy;
 
 	private void Awake()
 	{
@@ -15,7 +15,7 @@ public class EnemyDialogueManagerScript : MonoBehaviour
 
 	private void Start()
 	{
-		enemy = GameObject.FindGameObjectWithTag("Enemy");
+		//enemy = GameObject.FindGameObjectWithTag("Enemy");
 	}
 
 	public void SpawnDialogueTrigger(int index)
