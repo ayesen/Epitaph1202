@@ -72,10 +72,12 @@ public class SafehouseManager : MonoBehaviour
         if(isSafehouse != checkBoolChange && isSafehouse)
         {
             Debug.Log("Safehouse");
-            enemyScript.ResetEnemy();
+            if(enemyScript != null)
+                enemyScript.ResetEnemy();
+            PostProcessingManager.Me.StopAllCoroutines();
             PostProcessingManager.Me.StartCoroutine(PostProcessingManager.Me.ResetFilter());
             StartCoroutine(FadeCanvas(cg, 1f, fadeTime));
-            PlayerScript.me.gameObject.SetActive(false);
+            PlayerScriptNew.me.gameObject.SetActive(false);
             checkBoolChange = isSafehouse;
         }
         else if(isSafehouse != checkBoolChange && !isSafehouse)
@@ -83,17 +85,30 @@ public class SafehouseManager : MonoBehaviour
             StartCoroutine(FadeCanvas(cg, 0f, fadeTime));
             RespawnPlayer(spawnPoint);
             WallHider.me.roomPlayerIsIn = WallHider.Room.corridor;
-
+            ResetMatAmount();
+            PlayerScriptNew.me.selectedMats.Clear();
             checkBoolChange = isSafehouse;
         }
     }
 
+    public void ResetMatAmount()
+    {
+        foreach(var mat in PlayerScriptNew.me.matSlots)
+        {
+            if(mat != null)
+            {
+                mat.GetComponent<MatScriptNew>().amount = mat.GetComponent<MatScriptNew>().amount_max;
+            }
+        }
+        
+    }
+
     public void RespawnPlayer(Transform SpawnPoint)
     {
-        PlayerScript.me.transform.position = new Vector3(SpawnPoint.position.x, PlayerScript.me.transform.position.y, SpawnPoint.position.z);
-        PlayerScript.me.hp = 30;
-        PlayerScript.me.dead = false;
-        PlayerScript.me.gameObject.SetActive(true);
+        PlayerScriptNew.me.transform.position = new Vector3(SpawnPoint.position.x, PlayerScript.me.transform.position.y, SpawnPoint.position.z);
+        PlayerScriptNew.me.hp = 30;
+        PlayerScriptNew.me.dead = false;
+        PlayerScriptNew.me.gameObject.SetActive(true);
     }
 
     IEnumerator FadeCanvas(CanvasGroup cg, float endValue, float duration)

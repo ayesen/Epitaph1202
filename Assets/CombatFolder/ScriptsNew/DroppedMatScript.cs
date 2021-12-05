@@ -14,20 +14,35 @@ public class DroppedMatScript : MonoBehaviour
 	{
 		if (Vector3.Distance(PlayerScriptNew.me.transform.position, transform.position) < attractDis)
 		{
-			FlyTowardsPlayer();
+			if(myMat.CompareTag("BossMat") && PlayerScriptNew.me.matSlots[3] == null)
+				FlyTowardsPlayer();
+			if (myMat.tag != "BossMat")
+				FlyTowardsPlayer();
 		}
 		if (Vector3.Distance(PlayerScriptNew.me.transform.position, transform.position) < killDis)
 		{
-			foreach (var mat in PlayerScriptNew.me.matSlots)
+			if (myMat.CompareTag("BossMat"))
 			{
-				if (mat.name == myMat.name)
+				if (PlayerScriptNew.me.matSlots[3] == null)
 				{
-					MatScriptNew ms = mat.GetComponent<MatScriptNew>();
-					ms.amount += amount;
-					ms.amount = Mathf.Clamp(ms.amount, 0, ms.amount_max);
+					PlayerScriptNew.me.matSlots[3] = myMat;
+					PlayerScriptNew.me.matSlots[3].GetComponent<MatScriptNew>().amount = 1;
+					Destroy(gameObject);
 				}
 			}
-			Destroy(gameObject);
+			else
+			{
+				foreach (var mat in PlayerScriptNew.me.matSlots)
+				{
+					if (mat.name == myMat.name)
+					{
+						MatScriptNew ms = mat.GetComponent<MatScriptNew>();
+						ms.amount += amount;
+						ms.amount = Mathf.Clamp(ms.amount, 0, ms.amount_max);
+					}
+				}
+				Destroy(gameObject);
+			}
 		}
 		float min_y = Mathf.Clamp(transform.position.y, 0, float.MaxValue);
 		transform.position = new Vector3(transform.position.x, min_y, transform.position.z);
