@@ -54,6 +54,7 @@ public class Enemy : MonoBehaviour
     private float recovery_timer;
     public float recovery_spd;
     public TextMeshProUGUI breakMeter_ui;
+    public List<GameObject> myMats;
 
     [Header("SCRIPTED EVENTS")]
     public Transform eventTarget;
@@ -176,18 +177,21 @@ public class Enemy : MonoBehaviour
         hittedStates.enabled = false;
         myTrigger.GetComponent<AtkTrigger>().onAtkTrigger = false;
         myTrigger.myMR.enabled = false;
-
     }
 
-    public void DealtDmg(int dmgAmt)
+    public void DealDmg(int dmgAmt)
     {
-        if (target.gameObject.tag == "Player")
+        if (target.gameObject.CompareTag("Player"))
         {
             target.GetComponent<PlayerScriptNew>().LoseHealth_player(dmgAmt);
         }
-        if (target.gameObject.tag == "Enemy")
+        if (target.gameObject.CompareTag("Enemy"))
         {
-            target.GetComponent<Enemy>().LoseHealth(dmgAmt);
+            if (CompareTag("PlayerSpawnedBear"))
+			{
+                target.GetComponent<Enemy>().LoseHealth(dmgAmt);
+                GetComponent<CollisionDetectorScript>().InflictEffects(target);
+            }
         }
     }
 
@@ -299,9 +303,8 @@ public class Enemy : MonoBehaviour
             //EffectManager.me.KnockBack(knockbackAmount, gameObject, GameObject.FindGameObjectWithTag("Player"));
             Vector3 dir = Receiver.transform.position - AttackerPos;
             Receiver.GetComponent<Rigidbody>().AddForce(dir.normalized * KnockBackAmt, ForceMode.Impulse);
-            DealtDmg(attackamt);
+            DealDmg(attackamt);
         }
-
     }
 
     public void SoundWaveAtk()
@@ -313,7 +316,7 @@ public class Enemy : MonoBehaviour
         if (AIToPlayerDist() <= dmgRange)
         {
             
-            DealtDmg(attackamt * (int)soundWaveDmg);
+            DealDmg(attackamt * (int)soundWaveDmg);
             /*apply DOT to player here*/
         }
 

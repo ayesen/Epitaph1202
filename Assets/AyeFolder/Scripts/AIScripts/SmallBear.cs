@@ -26,8 +26,8 @@ public class SmallBear : Enemy
     {
         HittedStatesIndication();
         AIDead();
-        Debug.Log(phase);
-        Debug.Log(myAC.currentState);
+        //Debug.Log(phase);
+        //Debug.Log(myAC.currentState);
         if (knockedBack)
         {
             ReactivateNavMesh();

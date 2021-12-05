@@ -192,7 +192,7 @@
 // capstone 1 final
 	// xconversation with bear after bear's death
 	// player walking animation
-	// small bear mat
+	// xsmall bear mat
 	// xprint mat effects using hitted state ui
 	// xadd a bool to decide whether the enemy can drop mat
-	// limit player selection - takaya
+	// xrandomly drop boss mat
