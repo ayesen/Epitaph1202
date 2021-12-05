@@ -80,12 +80,16 @@ public class EffectStorage : MonoBehaviour
 	}
 	public void KnockBack(float amount, Vector3 erPos, GameObject ee)
 	{
-		if (ee.GetComponent<NavMeshAgent>())
+		/*if (ee.GetComponent<NavMeshAgent>())
 		{
 			ee.GetComponent<NavMeshAgent>().enabled = false;
 			ee.GetComponent<Rigidbody>().isKinematic = false;
-		}
+		}*/
+		ee.GetComponent<Enemy>().EnterHittedState();
+		ee.GetComponent<Rigidbody>().isKinematic = false;
 		Vector3 dir = ee.transform.position - erPos;
+		print(ee.transform.position);
+		print(erPos);
 		ee.GetComponent<Rigidbody>().AddForce(dir.normalized * amount, ForceMode.Impulse);
 		StartCoroutine(SetEnemyKnockedState(ee));
 	}

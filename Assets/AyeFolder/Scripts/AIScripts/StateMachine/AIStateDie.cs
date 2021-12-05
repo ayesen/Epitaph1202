@@ -8,6 +8,7 @@ public class AIStateDie : AIStateBase
     public override void StartState(Enemy myEnemy)
     {
         myEnemy.myTrigger.myMR.enabled = false;
+        myEnemy.ghostRider.enabled = false;
         if(myEnemy.Mother != null)
         {
             myEnemy.Mother.BackKids();
@@ -23,6 +24,7 @@ public class AIStateDie : AIStateBase
     public override void LeaveState(Enemy myEnemy)
     {
         myEnemy.myTrigger.myMR.enabled = true;
+        myEnemy.ghostRider.enabled = true;
         myEnemy.hittedStates.text = "";
     }
 }
