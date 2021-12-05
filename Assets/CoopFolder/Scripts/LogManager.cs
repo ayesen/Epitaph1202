@@ -83,6 +83,7 @@ public class LogManager : MonoBehaviour
         	x.GetComponent<Image>().sprite = P5Cover[i];
         	P5CoverInstance.Add(x);
         }
+        CoverSetActive(3,3);
         ChangePage();
     }
 
@@ -110,8 +111,6 @@ public class LogManager : MonoBehaviour
     public void Fade()
     {
         var canGroup = GetComponent<CanvasGroup>();
-
-
 
         StartCoroutine(DoFade(canGroup, canGroup.alpha, mFaded ? 1:0));
         
@@ -184,6 +183,37 @@ public class LogManager : MonoBehaviour
     	Page3.SetActive(false);
     	Page4.SetActive(false);
     	Page5.SetActive(false);
+    }
+
+    public void CoverSetActive(int x, int y)
+    {
+    	switch(x)
+    	{
+    		case 5:
+    			P5CoverInstance[y].SetActive(false);
+    			TurnPageTo(4);
+    			break;
+    		case 4:
+    			P4CoverInstance[y].SetActive(false);
+    			TurnPageTo(3);
+    			break;
+    		case 3:
+    			P3CoverInstance[y].SetActive(false);
+    			TurnPageTo(2);
+    			break;
+    		case 2:
+    			P2CoverInstance[y].SetActive(false);
+    			TurnPageTo(1);
+    			break;
+    		case 1:
+    			P1CoverInstance[y].SetActive(false);
+    			TurnPageTo(0);
+    			break;
+    		default:
+
+    			break;
+
+    	}
     }
 
     public void TurnPageTo(int index)
