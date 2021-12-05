@@ -5,6 +5,7 @@ using UnityEngine;
 public class SafehouseManager : MonoBehaviour
 {
     private float timer;
+    public bool canSafehouse;
     public bool isSafehouse;
     public float hideTime;
     public float fadeTime;
@@ -41,6 +42,7 @@ public class SafehouseManager : MonoBehaviour
         checkBoolChange = isSafehouse;
         cg = GetComponent<CanvasGroup>();
         enemyScript = GameObject.Find("Bear").GetComponent<Enemy>();
+        canSafehouse = false;
     }
 
     void Update()
