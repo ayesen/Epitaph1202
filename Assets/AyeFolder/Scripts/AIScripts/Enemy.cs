@@ -82,10 +82,6 @@ public class Enemy : MonoBehaviour
         {
             EnterHittedState();
         }
-        if(Input.GetKeyDown(KeyCode.L))
-        {
-            ExitHittedState();
-        }
         
         HittedStatesIndication();
         AIDead();
@@ -102,11 +98,6 @@ public class Enemy : MonoBehaviour
     {
         interruptedState = myAC.currentState;
         myAC.ChangeState(myAC.hittedState);
-    }
-
-    public void ExitHittedState()
-    {
-        myAC.ChangeState(interruptedState);
     }
 
     public void ChangePhase(AIPhase phaseName, int time)
@@ -155,7 +146,10 @@ public class Enemy : MonoBehaviour
     {
         if (health <= 0)
         {
-            EnemyDialogueManagerScript.me.SpawnDialogueTrigger(0);
+            if (gameObject == EnemyDialogueManagerScript.me.enemy)
+            {
+                EnemyDialogueManagerScript.me.SpawnDialogueTrigger(0);
+            }
             myAC.ChangeState(myAC.dieState);
             return true;
         }
@@ -389,9 +383,9 @@ public class Enemy : MonoBehaviour
     {
         if (GetComponent<Rigidbody>().velocity.magnitude <= 1f)
         {
-            ghostRider.enabled = true;
             GetComponent<Rigidbody>().isKinematic = true;
             knockedBack = false;
+            myAC.ChangeState(myAC.idleState);
         }
     }
 }
