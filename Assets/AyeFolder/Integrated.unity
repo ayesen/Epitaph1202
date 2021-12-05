@@ -9705,7 +9705,7 @@ Light:
   m_BounceIntensity: 2
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 7761898.5, y: -1.5874535e+38, z: 0, w: -1.0216459e-19}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -30255,6 +30255,72 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 725129081}
   m_Mesh: {fileID: 3861478300804232965, guid: 702329ba245b9b64a9b5cfed2981b67e, type: 3}
+--- !u!1 &728043798
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 728043802}
+  - component: {fileID: 728043801}
+  - component: {fileID: 728043800}
+  - component: {fileID: 728043799}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &728043799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728043798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a29f98390fb0f0c44b79684dec1ffd93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &728043800
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728043798}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &728043801
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728043798}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &728043802
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728043798}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 59.05, y: 0.96, z: 10.95}
+  m_LocalScale: {x: 4, y: 1, z: 4}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 49
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &731582440
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40259,7 +40325,7 @@ Light:
   m_BounceIntensity: 2
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1.3192373e+31, y: NaN, z: 0.27059805, w: -0.27059805}
+  m_BoundingSphereOverride: {x: 4.593121e+27, y: 0.24360038, z: 1.3563128e-19, w: 1.3563156e-19}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -52122,7 +52188,7 @@ Light:
   m_BounceIntensity: 2
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 3.87e-43, y: -1.8982981e-13, z: 3.85e-43, w: 3.923636e-39}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -58824,41 +58890,25 @@ MonoBehaviour:
   back: 276
   next: 275
   call: 280
-  lOne: {fileID: 116593461}
-  lTwo: {fileID: 1239050006}
-  lThree: {fileID: 1949309368}
-  rOne: {fileID: 956125787}
-  rTwo: {fileID: 1261448689}
-  rThree: {fileID: 2121320963}
-  undiscoverd: {fileID: 21300000, guid: 73fa01502d6e52e4880231be68622ad3, type: 3}
-  leftIndex: {fileID: 384469619}
-  rightIndex: {fileID: 700511319}
-  page:
-  - one: {fileID: 21300000, guid: 0c22a64feb5fbdc4588a4f41fcda0615, type: 3}
-    oneDiscovered: 1
-    two: {fileID: 21300000, guid: 9e6d0ab4cf20e9c45bb2eaefc8cc9dd3, type: 3}
-    twoDiscovered: 0
-    three: {fileID: 21300000, guid: 0c22a64feb5fbdc4588a4f41fcda0615, type: 3}
-    threeDiscovered: 0
-  - one: {fileID: 21300000, guid: 9e6d0ab4cf20e9c45bb2eaefc8cc9dd3, type: 3}
-    oneDiscovered: 0
-    two: {fileID: 21300000, guid: 0c22a64feb5fbdc4588a4f41fcda0615, type: 3}
-    twoDiscovered: 1
-    three: {fileID: 21300000, guid: 9e6d0ab4cf20e9c45bb2eaefc8cc9dd3, type: 3}
-    threeDiscovered: 0
-  - one: {fileID: 21300000, guid: 9e6d0ab4cf20e9c45bb2eaefc8cc9dd3, type: 3}
-    oneDiscovered: 0
-    two: {fileID: 21300000, guid: 9e6d0ab4cf20e9c45bb2eaefc8cc9dd3, type: 3}
-    twoDiscovered: 0
-    three: {fileID: 21300000, guid: 9e6d0ab4cf20e9c45bb2eaefc8cc9dd3, type: 3}
-    threeDiscovered: 0
-  - one: {fileID: 21300000, guid: 0c22a64feb5fbdc4588a4f41fcda0615, type: 3}
-    oneDiscovered: 0
-    two: {fileID: 21300000, guid: 0c22a64feb5fbdc4588a4f41fcda0615, type: 3}
-    twoDiscovered: 0
-    three: {fileID: 21300000, guid: 0c22a64feb5fbdc4588a4f41fcda0615, type: 3}
-    threeDiscovered: 0
+  pageBase: {fileID: 0}
+  coverPrefab: {fileID: 0}
+  Page1: {fileID: 0}
+  Page2: {fileID: 0}
+  Page3: {fileID: 0}
+  Page4: {fileID: 0}
+  Page5: {fileID: 0}
+  PageBase: []
+  P1Cover: []
+  P2Cover: []
+  P3Cover: []
+  P4Cover: []
+  P5Cover: []
   duration: 0.4
+  P1CoverInstance: []
+  P2CoverInstance: []
+  P3CoverInstance: []
+  P4CoverInstance: []
+  P5CoverInstance: []
 --- !u!1001 &1442388517
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -64829,41 +64879,25 @@ MonoBehaviour:
   back: 276
   next: 275
   call: 273
-  lOne: {fileID: 389690882}
-  lTwo: {fileID: 554109644}
-  lThree: {fileID: 119322103}
-  rOne: {fileID: 0}
-  rTwo: {fileID: 895417630}
-  rThree: {fileID: 694586970}
-  undiscoverd: {fileID: 21300000, guid: 73fa01502d6e52e4880231be68622ad3, type: 3}
-  leftIndex: {fileID: 217320627}
-  rightIndex: {fileID: 935614125}
-  page:
-  - one: {fileID: 21300000, guid: 0c22a64feb5fbdc4588a4f41fcda0615, type: 3}
-    oneDiscovered: 1
-    two: {fileID: 21300000, guid: 9e6d0ab4cf20e9c45bb2eaefc8cc9dd3, type: 3}
-    twoDiscovered: 0
-    three: {fileID: 21300000, guid: 0c22a64feb5fbdc4588a4f41fcda0615, type: 3}
-    threeDiscovered: 0
-  - one: {fileID: 21300000, guid: 9e6d0ab4cf20e9c45bb2eaefc8cc9dd3, type: 3}
-    oneDiscovered: 0
-    two: {fileID: 21300000, guid: 0c22a64feb5fbdc4588a4f41fcda0615, type: 3}
-    twoDiscovered: 1
-    three: {fileID: 21300000, guid: 9e6d0ab4cf20e9c45bb2eaefc8cc9dd3, type: 3}
-    threeDiscovered: 0
-  - one: {fileID: 21300000, guid: 9e6d0ab4cf20e9c45bb2eaefc8cc9dd3, type: 3}
-    oneDiscovered: 0
-    two: {fileID: 21300000, guid: 9e6d0ab4cf20e9c45bb2eaefc8cc9dd3, type: 3}
-    twoDiscovered: 0
-    three: {fileID: 21300000, guid: 9e6d0ab4cf20e9c45bb2eaefc8cc9dd3, type: 3}
-    threeDiscovered: 0
-  - one: {fileID: 21300000, guid: 0c22a64feb5fbdc4588a4f41fcda0615, type: 3}
-    oneDiscovered: 0
-    two: {fileID: 21300000, guid: 0c22a64feb5fbdc4588a4f41fcda0615, type: 3}
-    twoDiscovered: 0
-    three: {fileID: 21300000, guid: 0c22a64feb5fbdc4588a4f41fcda0615, type: 3}
-    threeDiscovered: 0
+  pageBase: {fileID: 0}
+  coverPrefab: {fileID: 0}
+  Page1: {fileID: 0}
+  Page2: {fileID: 0}
+  Page3: {fileID: 0}
+  Page4: {fileID: 0}
+  Page5: {fileID: 0}
+  PageBase: []
+  P1Cover: []
+  P2Cover: []
+  P3Cover: []
+  P4Cover: []
+  P5Cover: []
   duration: 0.4
+  P1CoverInstance: []
+  P2CoverInstance: []
+  P3CoverInstance: []
+  P4CoverInstance: []
+  P5CoverInstance: []
 --- !u!1001 &1579518616
 PrefabInstance:
   m_ObjectHideFlags: 0
