@@ -33,9 +33,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - Outline: 1
+    - Outline: 2
     - Step: 150
-    - Steps: 138
+    - Steps: 150
     m_Colors:
     - OutlineColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
