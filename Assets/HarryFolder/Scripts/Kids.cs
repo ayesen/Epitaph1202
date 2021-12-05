@@ -16,6 +16,7 @@ public class Kids : MonoBehaviour
     private NavMeshAgent self;
     private GameObject target;
     private Rigidbody rB;
+
     void Start()
     {
         selfPose = this.transform;
@@ -42,6 +43,7 @@ public class Kids : MonoBehaviour
                 self.enabled = true;
                 self.Warp(transform.position);
                 isActivated = true;
+
             }
 
         }

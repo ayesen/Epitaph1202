@@ -44,6 +44,7 @@ public class Enemy : MonoBehaviour
     public bool walkable;
     public TextMeshProUGUI hittedStates;
     public bool knockedBack;
+    public AIStateBase interruptedState;
 
     [Header("Supply")]
     public bool breakable;
@@ -78,6 +79,11 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            EnterHittedState();
+        }
+        
         HittedStatesIndication();
         AIDead();
         PhaseSetting();
@@ -87,6 +93,12 @@ public class Enemy : MonoBehaviour
 		{
             ReactivateNavMesh();
         }
+    }
+
+    public void EnterHittedState()
+    {
+        interruptedState = myAC.currentState;
+        myAC.ChangeState(myAC.hittedState);
     }
 
     public void ChangePhase(AIPhase phaseName, int time)
@@ -135,7 +147,10 @@ public class Enemy : MonoBehaviour
     {
         if (health <= 0)
         {
-            EnemyDialogueManagerScript.me.SpawnDialogueTrigger(0);
+            if (gameObject == EnemyDialogueManagerScript.me.enemy)
+            {
+                EnemyDialogueManagerScript.me.SpawnDialogueTrigger(0);
+            }
             myAC.ChangeState(myAC.dieState);
             return true;
         }
@@ -200,17 +215,17 @@ public class Enemy : MonoBehaviour
         {
             if (shield <= 0)
             {
-                if (health - hurtAmt >= 0)
+                if (this.health - hurtAmt >= 0)
                 {
-                    health -= hurtAmt;
+                    this.health -= hurtAmt;
                 }
                 else
                 {
-                    health = 0;
+                    this.health = 0;
                 }
             }
             else
-                shield -= hurtAmt;
+                this.shield -= hurtAmt;
         }
     }
 
@@ -371,9 +386,9 @@ public class Enemy : MonoBehaviour
     {
         if (GetComponent<Rigidbody>().velocity.magnitude <= 1f)
         {
-            ghostRider.enabled = true;
             GetComponent<Rigidbody>().isKinematic = true;
             knockedBack = false;
+            myAC.ChangeState(myAC.idleState);
         }
     }
 }
