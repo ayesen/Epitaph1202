@@ -68,7 +68,6 @@ public class Enemy : MonoBehaviour
     private int healthRecord;
     private int shieldRecord;
 
-
     private void Awake()
     {
         this.healthRecord = maxHealth;
@@ -359,6 +358,7 @@ public class Enemy : MonoBehaviour
         hittedStates.enabled = true;
         myTrigger.myMR.enabled = true;
         ChangePhase(AIPhase.InBattle1, 1);
+        SafehouseManager.Me.canSafehouse = true;
     }
 
     private void BreakMeter_recovery()
