@@ -44,6 +44,7 @@ public class Enemy : MonoBehaviour
     public bool walkable;
     public TextMeshProUGUI hittedStates;
     public bool knockedBack;
+    public AIStateBase interruptedState;
 
     [Header("Supply")]
     public bool breakable;
@@ -77,6 +78,15 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            EnterHittedState();
+        }
+        if(Input.GetKeyDown(KeyCode.L))
+        {
+            ExitHittedState();
+        }
+        
         HittedStatesIndication();
         AIDead();
         PhaseSetting();
@@ -86,6 +96,17 @@ public class Enemy : MonoBehaviour
 		{
             ReactivateNavMesh();
         }
+    }
+
+    public void EnterHittedState()
+    {
+        interruptedState = myAC.currentState;
+        myAC.ChangeState(myAC.hittedState);
+    }
+
+    public void ExitHittedState()
+    {
+        myAC.ChangeState(interruptedState);
     }
 
     public void ChangePhase(AIPhase phaseName, int time)

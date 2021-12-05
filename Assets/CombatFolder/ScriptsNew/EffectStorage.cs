@@ -83,6 +83,8 @@ public class EffectStorage : MonoBehaviour
 			ee.GetComponent<Rigidbody>().isKinematic = false;
 		}
 		Vector3 dir = ee.transform.position - erPos;
+		print(ee.transform.position);
+		print(erPos);
 		ee.GetComponent<Rigidbody>().AddForce(dir.normalized * amount, ForceMode.Impulse);
 		StartCoroutine(SetEnemyKnockedState(ee));
 	}

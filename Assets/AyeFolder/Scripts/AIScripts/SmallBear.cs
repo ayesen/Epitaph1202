@@ -38,7 +38,7 @@ public class SmallBear : Enemy
     {
         maxHealth = this.healthRecord;
         health = this.healthRecord;
-        ChangePhase(AIPhase.NotInBattle, 1);
+        ChangePhase(AIPhase.InBattle1, 1);
     }
     
 
