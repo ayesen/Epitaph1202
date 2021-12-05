@@ -116,7 +116,6 @@ public class PlayerScriptNew : MonoBehaviour
 				mat4.text = "mat 4 not selected";
 			}
 			#endregion
-			
 			#region activate and deactivate mats
 			// activate mats
 			if (Input.GetKeyUp(KeyCode.Alpha1) && matSlots[0] != null)
@@ -127,7 +126,7 @@ public class PlayerScriptNew : MonoBehaviour
 				}
 				else
 				{
-					if(matSlots[0].GetComponent<MatScriptNew>().amount > 0)
+					if(matSlots[0].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
 						selectedMats.Add(matSlots[0]);
 				}
 				EffectManagerNew.me.RefreshCurrentMats();
@@ -140,7 +139,7 @@ public class PlayerScriptNew : MonoBehaviour
 				}
 				else
 				{
-					if (matSlots[1].GetComponent<MatScriptNew>().amount > 0)
+					if (matSlots[1].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
 						selectedMats.Add(matSlots[1]);
 				}
 				EffectManagerNew.me.RefreshCurrentMats();
@@ -153,7 +152,7 @@ public class PlayerScriptNew : MonoBehaviour
 				}
 				else
 				{
-					if (matSlots[2].GetComponent<MatScriptNew>().amount > 0)
+					if (matSlots[2].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
 						selectedMats.Add(matSlots[2]);
 				}
 				EffectManagerNew.me.RefreshCurrentMats();
@@ -166,7 +165,7 @@ public class PlayerScriptNew : MonoBehaviour
 				}
 				else
 				{
-					if (matSlots[3].GetComponent<MatScriptNew>().amount > 0)
+					if (matSlots[3].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
 						selectedMats.Add(matSlots[3]);
 				}
 				EffectManagerNew.me.RefreshCurrentMats();
@@ -233,9 +232,17 @@ public class PlayerScriptNew : MonoBehaviour
 				var target = new Vector3(MouseManager.me.mousePos.x, transform.position.y, MouseManager.me.mousePos.z);
 				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target - transform.position), rot_spd * Time.deltaTime);
 			}
-			#endregion
-		}
-	}
+            #endregion
+            #region Detect Boss Slot
+			if(matSlots[3] != null && matSlots[3].GetComponent<MatScriptNew>().amount <= 0)
+            {
+				matSlots[3] = null;
+				UIManager.Me.UI_ChangeIcon();
+            }
+            #endregion
+
+        }
+    }
 	public void LoseHealth_player(int amt)
 	{
 		hp -= amt;

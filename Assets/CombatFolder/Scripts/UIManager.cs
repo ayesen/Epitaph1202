@@ -179,7 +179,10 @@ public class UIManager : MonoBehaviour
         slot0_TMP.text = PlayerScriptNew.me.matSlots[0].GetComponent<MatScriptNew>().amount.ToString();
         slot1_TMP.text = PlayerScriptNew.me.matSlots[1].GetComponent<MatScriptNew>().amount.ToString();
         slot2_TMP.text = PlayerScriptNew.me.matSlots[2].GetComponent<MatScriptNew>().amount.ToString();
-        slot3_TMP.text = PlayerScriptNew.me.matSlots[3].GetComponent<MatScriptNew>().amount.ToString();
+        if (PlayerScriptNew.me.matSlots[3] != null)
+            slot3_TMP.text = PlayerScriptNew.me.matSlots[3].GetComponent<MatScriptNew>().amount.ToString();
+        else
+            slot3_TMP.text = "0";
     }
 
     IEnumerator FadeCanvas(CanvasGroup cg, float endValue, float duration)
