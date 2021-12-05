@@ -17,20 +17,19 @@ public class AIStateWalking : AIStateBase
         if (myEnemy.walkable)
         {
             myEnemy.ChaseTarget();
-            if (myEnemy.target.CompareTag("Player")) // if chasing down player
-			{
-                if (myEnemy.InRange())
+
+            if (myEnemy.InRange())
+            {
+                if (myEnemy.attackable)
                 {
-                    if (myEnemy.attackable)
-                    {
-                        myEnemy.myAC.ChangeState(myEnemy.myAC.preAttackState);
-                    }
-                    else if (!myEnemy.attackable)
-                    {
-                        myEnemy.myAC.ChangeState(myEnemy.myAC.idleState);
-                    }
+                    myEnemy.myAC.ChangeState(myEnemy.myAC.preAttackState);
+                }
+                else if (!myEnemy.attackable)
+                {
+                    myEnemy.myAC.ChangeState(myEnemy.myAC.idleState);
                 }
             }
+            
 			else // if chasing down event target location
 			{
     //            if (Vector3.Distance(myEnemy.gameObject.transform.position, myEnemy.eventTarget.position) < myEnemy.stopDis && // if the enemy reaches the event target location

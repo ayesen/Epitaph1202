@@ -8,7 +8,12 @@ public class AtkTrigger : MonoBehaviour
     public MeshRenderer myMR;
     public GameObject MyEnemy;
 
-    private void OnTriggerEnter(Collider other)
+	private void Start()
+	{
+        MyEnemy = transform.parent.gameObject;
+	}
+
+	private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject == MyEnemy.GetComponent<Enemy>().target)
         {
