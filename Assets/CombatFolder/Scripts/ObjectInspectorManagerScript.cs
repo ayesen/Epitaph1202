@@ -110,6 +110,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 				}
 				else
 				{
+					LogManager.LOGManager.CoverSetActive(dialogueToShow[index].logX, dialogueToShow[index].logY);
 					if (index < dialogueToShow.Count - 1)
 					{
 						index++;
@@ -153,6 +154,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 				{
 					if (index < dialogueToShow.Count - 1)
 					{
+						LogManager.LOGManager.CoverSetActive(dialogueToShow[index].logX, dialogueToShow[index].logY);
 						index++;
 						objectDes_ui_cht.text = dialogueToShow[index].description_cht;
 						objectDes_ui_eng.text = dialogueToShow[index].description_eng;
