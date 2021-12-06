@@ -136,7 +136,7 @@ public class Enemy : MonoBehaviour
             atkSpd = 5;
             preAtkSpd = 5;
             atkTime = 1;
-            postAtkSpd = 3;
+            postAtkSpd = 2;
             attackamt = 2;
             myTriggerObj = GameObject.Find("Atk2Trigger");
             if (health < healthLimit && changeLimit > 0)
@@ -317,7 +317,7 @@ public class Enemy : MonoBehaviour
         myTrigger.myMR.material.color = new Color(0, 0.5f, 1, 1);
         float dmgRange = 12;
         float soundWaveDmg = dmgRange - AIToPlayerDist(); //can change later
-        Debug.Log(soundWaveDmg);
+        StartCoroutine(this.GetComponent<AIEffectManager>().StartSoundWave());
         if (AIToPlayerDist() <= dmgRange)
         {
             
