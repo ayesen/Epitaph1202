@@ -20,9 +20,9 @@ public class Enemy : MonoBehaviour
     public int changePhaseTime;
     public int healthLimit;
     public int changeLimit = 2;
+    public float hittedTime;
     public float knockbackAmount;
     public Vector3 ResetPos;
-    
 
     public AIController myAC;
     public enum AIPhase { NotInBattle, InBattle1, InBattle2 };
@@ -81,10 +81,6 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P))
-        {
-            EnterHittedState();
-        }
         
         HittedStatesIndication();
         AIDead();
@@ -97,8 +93,9 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void EnterHittedState()
+    public void EnterHittedState(float hitTimer)
     {
+        hittedTime = hitTimer;
         interruptedState = myAC.currentState;
         if (myAC.currentState != myAC.changePhaseState || myAC.currentState!= myAC.dieState)
         {
@@ -108,6 +105,7 @@ public class Enemy : MonoBehaviour
 
     public void ChangePhase(AIPhase phaseName, int time)
     {
+        interruptedState = myAC.currentState;
         myTrigger.myMR.enabled = false;
         phase = phaseName;
         changePhaseTime = time;
@@ -390,13 +388,27 @@ public class Enemy : MonoBehaviour
 
     public void ReactivateNavMesh()
     {
-        if (GetComponent<Rigidbody>().velocity.magnitude <= 1f)
+        if (interruptedState != myAC.dieState || interruptedState != myAC.changePhaseState)
         {
-            GetComponent<Rigidbody>().isKinematic = true;
-            knockedBack = false;
+            if (GetComponent<Rigidbody>().velocity.magnitude <= 1f)
+            {
+                GetComponent<Rigidbody>().isKinematic = true;
+                knockedBack = false;
 
-            myAC.ChangeState(myAC.idleState);
-            
+                myAC.ChangeState(myAC.idleState);
+
+            }
+        }
+        else if (interruptedState == myAC.dieState || interruptedState == myAC.changePhaseState)
+        {
+            if (GetComponent<Rigidbody>().velocity.magnitude <= 1f)
+            {
+                GetComponent<Rigidbody>().isKinematic = true;
+                knockedBack = false;
+
+                myAC.ChangeState(interruptedState);
+
+            }
         }
     }
 }

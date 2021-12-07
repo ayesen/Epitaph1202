@@ -8,9 +8,12 @@ public class AIStateChangePhase : AIStateBase
     public override void StartState(Enemy myEnemy)
     {
         myEnemy.AIAnimator.Play("RoarBear");
-        if (myEnemy.phase == Enemy.AIPhase.InBattle2)
+        if (myEnemy.interruptedState != myEnemy.myAC.hittedState)
         {
-            myEnemy.changeLimit -= 1;
+            if (myEnemy.phase == Enemy.AIPhase.InBattle2)
+            {
+                myEnemy.changeLimit -= 1;
+            }
         }
 
     }

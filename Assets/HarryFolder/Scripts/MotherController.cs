@@ -38,7 +38,7 @@ public class MotherController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.T))
         {
-            for (int i = 0; i < kids.Count; i++)
+            for (int i = 0; i < kids.Count-1; i++)
             {
                 kids[i].transform.SetParent(kidsHouse[i].transform);
                 kids[i].GetComponent<Rigidbody>().useGravity = false;

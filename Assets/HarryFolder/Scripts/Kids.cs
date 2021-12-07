@@ -47,7 +47,7 @@ public class Kids : MonoBehaviour
             }
 
         }
-        if (isActivated)
+        /*if (isActivated)
         { 
           selfPose.rotation = Quaternion.identity;
           if (xRotation != 0 || yRotation != 0 || zRotation != 0)
@@ -58,7 +58,7 @@ public class Kids : MonoBehaviour
           
           print("warped");
           //self.SetDestination(target.transform.position);
-        } 
+        } */
         
     }
 }

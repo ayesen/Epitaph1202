@@ -85,7 +85,7 @@ public class EffectStorage : MonoBehaviour
 			ee.GetComponent<NavMeshAgent>().enabled = false;
 			ee.GetComponent<Rigidbody>().isKinematic = false;
 		}*/
-		ee.GetComponent<Enemy>().EnterHittedState();
+		ee.GetComponent<Enemy>().EnterHittedState(0);
 		ee.GetComponent<Rigidbody>().isKinematic = false;
 		Vector3 dir = ee.transform.position - erPos;
 		print(ee.transform.position);
