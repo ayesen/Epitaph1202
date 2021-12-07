@@ -18,6 +18,8 @@ public class DialogueScript : MonoBehaviour
 	private MeshRenderer mr;
 	public bool isSwitch;
 	public GameObject[] interactiveSwitch;
+	public int logX;
+	public int logY;
 
 	[Header("Custimizable End Action")]
 	public GameObject actor;
@@ -57,6 +59,7 @@ public class DialogueScript : MonoBehaviour
 					{
 						interactable.SetActive(true);
 					}
+					LogManager.LOGManager.CoverSetActive(logX, logY);
 				}
 			}
 			else // auto show text
@@ -67,6 +70,7 @@ public class DialogueScript : MonoBehaviour
 				{
 					interactable.SetActive(true);
 				}
+				LogManager.LOGManager.CoverSetActive(logX, logY);
 			}
 		}
 		else
