@@ -2728,6 +2728,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7093479450101510729, guid: 227da076e12dbfa4b990f022b9a9dc8e, type: 3}
+    - {fileID: 5603555314290144243, guid: 227da076e12dbfa4b990f022b9a9dc8e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 227da076e12dbfa4b990f022b9a9dc8e, type: 3}
 --- !u!4 &61081860 stripped
 Transform:
@@ -10184,6 +10185,7 @@ MonoBehaviour:
   changeLimit: 0
   hittedTime: 0
   knockbackAmount: 0
+  dot_interval: 0
   ResetPos: {x: 0, y: 0, z: 0}
   myAC: {fileID: 268735356}
   phase: 1
@@ -25103,6 +25105,7 @@ MonoBehaviour:
   changeLimit: 0
   hittedTime: 0
   knockbackAmount: 0
+  dot_interval: 0
   ResetPos: {x: 0, y: 0, z: 0}
   myAC: {fileID: 622072597}
   phase: 0
@@ -33971,6 +33974,7 @@ MonoBehaviour:
   changeLimit: 0
   hittedTime: 0
   knockbackAmount: 0
+  dot_interval: 0
   ResetPos: {x: 0, y: 0, z: 0}
   myAC: {fileID: 828645767}
   phase: 1
@@ -56916,6 +56920,7 @@ MonoBehaviour:
   changeLimit: 0
   hittedTime: 0
   knockbackAmount: 0
+  dot_interval: 0
   ResetPos: {x: 0, y: 0, z: 0}
   myAC: {fileID: 1371030893}
   phase: 0
@@ -62656,6 +62661,7 @@ MonoBehaviour:
   changeLimit: 2
   hittedTime: 0
   knockbackAmount: 30
+  dot_interval: 0
   ResetPos: {x: 73, y: 2, z: 43}
   myAC: {fileID: 0}
   phase: 1
@@ -67563,6 +67569,7 @@ MonoBehaviour:
   changeLimit: 0
   hittedTime: 0
   knockbackAmount: 0
+  dot_interval: 0
   ResetPos: {x: 0, y: 0, z: 0}
   myAC: {fileID: 1658417428}
   phase: 1
@@ -73075,9 +73082,10 @@ MonoBehaviour:
   changeLimit: 2
   hittedTime: 0
   knockbackAmount: 30
+  dot_interval: 1
   ResetPos: {x: 73, y: 2, z: 43}
   myAC: {fileID: 0}
-  phase: 0
+  phase: 2
   ghostRider: {fileID: 1770997394}
   target: {fileID: 61081865}
   AIAnimator: {fileID: 1102947580}
@@ -74669,6 +74677,7 @@ MonoBehaviour:
   changeLimit: 0
   hittedTime: 0
   knockbackAmount: 0
+  dot_interval: 0
   ResetPos: {x: 0, y: 0, z: 0}
   myAC: {fileID: 1820184043}
   phase: 1
@@ -85622,6 +85631,7 @@ MonoBehaviour:
   changeLimit: 0
   hittedTime: 0
   knockbackAmount: 0
+  dot_interval: 0
   ResetPos: {x: 0, y: 0, z: 0}
   myAC: {fileID: 2090170498}
   phase: 1

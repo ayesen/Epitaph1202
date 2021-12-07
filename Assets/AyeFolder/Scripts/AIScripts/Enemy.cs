@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
     public int changeLimit = 2;
     public float hittedTime;
     public float knockbackAmount;
+    public float dot_interval;
     public Vector3 ResetPos;
 
     public AIController myAC;
@@ -187,6 +188,7 @@ public class Enemy : MonoBehaviour
         if (target.gameObject.CompareTag("Player"))
         {
             target.GetComponent<PlayerScriptNew>().LoseHealth_player(dmgAmt);
+            Debug.Log(dmgAmt);
         }
         if (target.gameObject.CompareTag("Enemy"))
         {
@@ -320,7 +322,7 @@ public class Enemy : MonoBehaviour
         {
             
             DealDmg(attackamt * (int)soundWaveDmg);
-            /*apply DOT to player here*/
+            StartCoroutine(EnemyDotDmg(5f, 1));
         }
 
     }
@@ -386,6 +388,17 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    public IEnumerator EnemyDotDmg(float dotTimer, int dotDmg)
+    {
+        yield return new WaitForSeconds(dot_interval);
+        float timer = dotTimer;
+        while (timer > 0)
+        {
+            timer--;
+            DealDmg(dotDmg);
+            yield return new WaitForSeconds(dot_interval);
+        }
+    }
     public void ReactivateNavMesh()
     {
         if (interruptedState != myAC.dieState || interruptedState != myAC.changePhaseState)
