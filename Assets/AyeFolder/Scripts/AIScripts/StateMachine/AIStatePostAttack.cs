@@ -7,7 +7,14 @@ public class AIStatePostAttack : AIStateBase
     public float postAtkTimer;
     public override void StartState(Enemy myEnemy)
     {
-       
+        if (myEnemy.phase == Enemy.AIPhase.InBattle1)
+        {
+            myEnemy.AIAnimator.Play("PostAttack1");
+        }
+        else if (myEnemy.phase == Enemy.AIPhase.InBattle2)
+        {
+            myEnemy.AIAnimator.Play("PostAttack2");
+        }
     }
 
     public override void Update(Enemy myEnemy)
