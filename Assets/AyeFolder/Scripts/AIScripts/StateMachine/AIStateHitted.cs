@@ -5,15 +5,17 @@ using UnityEngine;
 public class AIStateHitted : AIStateBase
 {
     public float hitTimer;
+    public float myEnemyVelocity;
     public override void StartState(Enemy myEnemy)
     {
         myEnemy.ghostRider.enabled = false;
         myEnemy.AIAnimator.Play("Hitted");
+        myEnemyVelocity = myEnemy.GetComponent<Rigidbody>().velocity.magnitude;
     }
 
     public override void Update(Enemy myEnemy)
     {
-        if(!myEnemy.knockedBack)
+        if(myEnemyVelocity >= 1f)
         {
             hitTimer += Time.fixedDeltaTime;
             if (hitTimer > myEnemy.hittedTime)

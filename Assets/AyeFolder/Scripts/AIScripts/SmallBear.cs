@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class SmallBear : Enemy
 {
-    private int healthRecord;
+    private int smallBearHealthRecord;
 
     private void Awake()
     {
         Debug.Log(this.gameObject.name);
-        this.healthRecord = maxHealth;
+        this.smallBearHealthRecord = maxHealth;
         myTrigger = myTriggerObj.GetComponent<AtkTrigger>();
         myAC = GetComponent<AIController>();
         health = maxHealth;
@@ -36,8 +36,8 @@ public class SmallBear : Enemy
 
     public void ResetSmallBear()
     {
-        maxHealth = this.healthRecord;
-        health = this.healthRecord;
+        maxHealth = this.smallBearHealthRecord;
+        health = this.smallBearHealthRecord;
         ChangePhase(AIPhase.NotInBattle, 0);
     }
     
