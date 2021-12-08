@@ -206,7 +206,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 				{
 					optionSelection.SetActive(true);
 					RectTransform rt = optionSelection.GetComponent<RectTransform>();
-					rt.position = new Vector3(rt.position.x, options[optionIndex].GetComponent<RectTransform>().position.y + 23f, rt.position.z);
+					rt.position = new Vector3(options[optionIndex].GetComponent<RectTransform>().position.x, options[optionIndex].GetComponent<RectTransform>().position.y + 50f, rt.position.z);
 					if (Input.GetKeyUp(KeyCode.DownArrow))
 					{
 						if (optionIndex < options.Count - 1)
@@ -270,6 +270,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 		foreach (var option in thisLine.options)
 		{
 			GameObject optn = Instantiate(optionPrefab, canvasDialogue.transform);
+			//optn.transform.parent = optionSelection.transform;
 			options.Add(optn);
 			optn.GetComponentInChildren<TMP_Text>().text = option.optionContent;
 			optionsDisplaying = true;
