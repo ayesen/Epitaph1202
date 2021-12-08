@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.17873973, g: 0.22380534, b: 0.3057178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -74618,7 +74618,7 @@ MonoBehaviour:
   dot_interval: 1
   ResetPos: {x: 73, y: 2, z: 43}
   myAC: {fileID: 0}
-  phase: 0
+  phase: 2
   ghostRider: {fileID: 1770997394}
   target: {fileID: 61081865}
   AIAnimator: {fileID: 1102947580}
