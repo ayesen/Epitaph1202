@@ -20,9 +20,10 @@ public class Enemy : MonoBehaviour
     public int changePhaseTime;
     public int healthLimit;
     public int changeLimit = 2;
+    public float hittedTime;
     public float knockbackAmount;
+    public float dot_interval;
     public Vector3 ResetPos;
-    
 
     public AIController myAC;
     public enum AIPhase { NotInBattle, InBattle1, InBattle2 };
@@ -31,6 +32,9 @@ public class Enemy : MonoBehaviour
     [Header("NAV MESH")]
     public NavMeshAgent ghostRider;
     public GameObject target;
+
+    [Header("ANIMATION")]
+    public Animator AIAnimator;
 
     [Header("ATTACK")]
     public AtkTrigger myTrigger;
@@ -78,10 +82,6 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P))
-        {
-            EnterHittedState();
-        }
         
         HittedStatesIndication();
         AIDead();
@@ -94,14 +94,19 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void EnterHittedState()
+    public void EnterHittedState(float hitTimer)
     {
+        hittedTime = hitTimer;
         interruptedState = myAC.currentState;
-        myAC.ChangeState(myAC.hittedState);
+        if (myAC.currentState != myAC.changePhaseState || myAC.currentState!= myAC.dieState)
+        {
+            myAC.ChangeState(myAC.hittedState);
+        }
     }
 
     public void ChangePhase(AIPhase phaseName, int time)
     {
+        interruptedState = myAC.currentState;
         myTrigger.myMR.enabled = false;
         phase = phaseName;
         changePhaseTime = time;
@@ -122,15 +127,15 @@ public class Enemy : MonoBehaviour
             myTriggerObj = GameObject.Find("Atk1Trigger");
             if (shield <= 0)
             {
-                ChangePhase(AIPhase.InBattle2, 10);
+                ChangePhase(AIPhase.InBattle2, 20);
             }
         }
         else if (phase == AIPhase.InBattle2)
         {
             atkSpd = 5;
-            preAtkSpd = 7;
+            preAtkSpd = 5;
             atkTime = 1;
-            postAtkSpd = 3;
+            postAtkSpd = 2;
             attackamt = 2;
             myTriggerObj = GameObject.Find("Atk2Trigger");
             if (health < healthLimit && changeLimit > 0)
@@ -183,6 +188,7 @@ public class Enemy : MonoBehaviour
         if (target.gameObject.CompareTag("Player"))
         {
             target.GetComponent<PlayerScriptNew>().LoseHealth_player(dmgAmt);
+            Debug.Log(dmgAmt);
         }
         if (target.gameObject.CompareTag("Enemy"))
         {
@@ -311,12 +317,12 @@ public class Enemy : MonoBehaviour
         myTrigger.myMR.material.color = new Color(0, 0.5f, 1, 1);
         float dmgRange = 12;
         float soundWaveDmg = dmgRange - AIToPlayerDist(); //can change later
-        Debug.Log(soundWaveDmg);
+        StartCoroutine(this.GetComponent<AIEffectManager>().StartSoundWave());
         if (AIToPlayerDist() <= dmgRange)
         {
             
             DealDmg(attackamt * (int)soundWaveDmg);
-            /*apply DOT to player here*/
+            StartCoroutine(EnemyDotDmg(5f, 1));
         }
 
     }
@@ -382,13 +388,40 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    public IEnumerator EnemyDotDmg(float dotTimer, int dotDmg)
+    {
+        yield return new WaitForSeconds(dot_interval);
+        float timer = dotTimer;
+        while (timer > 0)
+        {
+            timer--;
+            DealDmg(dotDmg);
+            yield return new WaitForSeconds(dot_interval);
+        }
+    }
     public void ReactivateNavMesh()
     {
-        if (GetComponent<Rigidbody>().velocity.magnitude <= 1f)
+        if (interruptedState != myAC.dieState || interruptedState != myAC.changePhaseState)
         {
-            GetComponent<Rigidbody>().isKinematic = true;
-            knockedBack = false;
-            myAC.ChangeState(myAC.idleState);
+            if (GetComponent<Rigidbody>().velocity.magnitude <= 1f)
+            {
+                GetComponent<Rigidbody>().isKinematic = true;
+                knockedBack = false;
+
+                myAC.ChangeState(myAC.idleState);
+
+            }
+        }
+        else if (interruptedState == myAC.dieState || interruptedState == myAC.changePhaseState)
+        {
+            if (GetComponent<Rigidbody>().velocity.magnitude <= 1f)
+            {
+                GetComponent<Rigidbody>().isKinematic = true;
+                knockedBack = false;
+
+                myAC.ChangeState(interruptedState);
+
+            }
         }
     }
 }

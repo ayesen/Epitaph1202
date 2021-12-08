@@ -83,7 +83,7 @@ public class LogManager : MonoBehaviour
         	x.GetComponent<Image>().sprite = P5Cover[i];
         	P5CoverInstance.Add(x);
         }
-        CoverSetActive(3,3);
+        //CoverSetActive(3,3);
         ChangePage();
     }
 

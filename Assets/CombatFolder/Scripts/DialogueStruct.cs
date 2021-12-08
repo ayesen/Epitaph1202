@@ -12,4 +12,6 @@ public class DialogueStruct
     public AudioClip clip;
     public float time; // if this dialogue should be played automatically, this is the time for its duration
     public List<OptionStruct> options;
+    public int logX;
+    public int logY;
 }

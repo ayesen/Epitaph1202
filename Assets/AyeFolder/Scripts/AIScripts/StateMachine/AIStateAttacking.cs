@@ -7,6 +7,7 @@ public class AIStateAttacking : AIStateBase
     public float AtkTimer;
     public override void StartState(Enemy myEnemy)
     {
+
         myEnemy.myTrigger.myMR.enabled = true;
 
         if (myEnemy.attackable)
@@ -14,10 +15,12 @@ public class AIStateAttacking : AIStateBase
             if (myEnemy.phase == Enemy.AIPhase.InBattle1)
             {
                 Debug.Log("knock");
+                myEnemy.AIAnimator.Play("Attacking1");
                 myEnemy.KnockBackAtk(myEnemy.knockbackAmount, myEnemy.transform.position, myEnemy.target);
             }
             else if (myEnemy.phase == Enemy.AIPhase.InBattle2)
             {
+                myEnemy.AIAnimator.Play("Attacking2");
                 myEnemy.SoundWaveAtk();
             }
          }
