@@ -30098,7 +30098,7 @@ MonoBehaviour:
   canvasDialogue: {fileID: 2121997739609287153}
   dialogueToShow: []
   options: []
-  optionSpacing: 30
+  optionSpacing: 100
   advanceOffset: 0.2
 --- !u!4 &686228334
 Transform:
@@ -90985,7 +90985,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 34.98542}
-  m_SizeDelta: {x: 800, y: 45}
+  m_SizeDelta: {x: 250, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4497946350287381775
 CanvasRenderer:
@@ -91006,6 +91006,7 @@ GameObject:
   - component: {fileID: 4497946350287381773}
   - component: {fileID: 4497946350287381775}
   - component: {fileID: 4497946350287381772}
+  - component: {fileID: 4497946350287381779}
   m_Layer: 5
   m_Name: option selection prefab
   m_TagString: Untagged
@@ -91013,6 +91014,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &4497946350287381779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4497946350287381778}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: -15
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &5059708955149680460
 GameObject:
   m_ObjectHideFlags: 0
