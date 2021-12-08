@@ -64,22 +64,28 @@ public class DisplayInventory : MonoBehaviour
 
         for (int i = 0; i <= 3; i++)
         {
-            if (PlayerScriptNew.me.matSlots[i] != null && PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().amount > 0)
+            if (PlayerScriptNew.me.matSlots[i] != null)
             {
-                Image obj = Instantiate(imagePrefab, Vector3.zero, Quaternion.identity, transform);
-                obj.sprite = PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().matIcon;
-                obj.GetComponent<RectTransform>().localPosition = GetPosition((i - 4));
+                if (PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().amount > 0)
+                {
+                    Image obj = Instantiate(imagePrefab, Vector3.zero, Quaternion.identity, transform);
+                    obj.sprite = PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().matIcon;
+                    obj.GetComponent<RectTransform>().localPosition = GetPosition((i - 4));
+                }
             }
         }
 
         for (int i = 4; i < PlayerScriptNew.me.matSlots.Count; i++)
         {
-            if(PlayerScriptNew.me.matSlots[i] != null && PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().amount > 0)
+            if(PlayerScriptNew.me.matSlots[i] != null)
             {
-                Image obj = Instantiate(imagePrefab, Vector3.zero, Quaternion.identity, transform);
-                obj.sprite = PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().matIcon;
-                obj.GetComponent<RectTransform>().localPosition = GetPosition((i-4));
-                Amount_Of_Inventory += 1;
+                if (PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().amount > 0)
+                {
+                    Image obj = Instantiate(imagePrefab, Vector3.zero, Quaternion.identity, transform);
+                    obj.sprite = PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().matIcon;
+                    obj.GetComponent<RectTransform>().localPosition = GetPosition((i-4));
+                    Amount_Of_Inventory += 1;
+                }
             }
         }
     }

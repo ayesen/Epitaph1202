@@ -11,8 +11,9 @@ public class PlayerScriptNew : MonoBehaviour
 	public float spd;
 	public float rot_spd;
 	private GameObject enemy;
-    private Animator anim;
+    public Animator anim;
     public GameObject playerModel;
+    public float deathTime;
 	public bool dead = false;
 	[Header("Mat")]
 	public List<GameObject> selectedMats; // mats activated
@@ -305,11 +306,18 @@ public class PlayerScriptNew : MonoBehaviour
 		if (dead != checkBoolChange && dead)
 		{
 			checkBoolChange = dead;
-			PostProcessingManager.Me.StartCoroutine(PostProcessingManager.Me.DeadFilter());
+			anim.Play("Death");
+			StartCoroutine(WaitSecondsAndDie(deathTime));
 		}
 		else if (dead != checkBoolChange && !dead)
 		{
 			checkBoolChange = dead;
 		}
+	}
+
+	IEnumerator WaitSecondsAndDie(float deathTime)
+	{
+		yield return new WaitForSecondsRealtime(deathTime);
+		PostProcessingManager.Me.StartCoroutine(PostProcessingManager.Me.DeadFilter());
 	}
 }
