@@ -21,6 +21,7 @@ public class DialogueScript : MonoBehaviour
 	public int logX;
 	public int logY;
 
+
 	[Header("Custimizable End Action")]
 	public GameObject actor;
 	public string funcToCall;

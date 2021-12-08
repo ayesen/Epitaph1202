@@ -22,6 +22,9 @@ public class PlayerScriptNew : MonoBehaviour
 	public TextMeshProUGUI mat2;
 	public TextMeshProUGUI mat3;
 	public TextMeshProUGUI mat4;
+	[Header("Walking Animation")]
+	private Vector3 walkingDir;
+	public bool walking;
 
 	// backswing cancel
 	private GameObject lastMat;
@@ -32,6 +35,7 @@ public class PlayerScriptNew : MonoBehaviour
 	private void Awake()
 	{
 		me = this;
+		walkingDir = new Vector3();
 	}
 
 	private void Start()
@@ -46,75 +50,43 @@ public class PlayerScriptNew : MonoBehaviour
         {
 			hp = 0;
         }
-		if (Input.GetKeyDown(KeyCode.T))
-		{
-			//GetComponentInChildren<Rigidbody>().AddForce(new Vector3(1,0,1) * 50, ForceMode.Impulse);
-		}
 		Death();
 		if (!dead)
 		{
-			// check for attack button press
-			if (selectedMats.Count > 0 &&  // check if player has mat activated
-				(anim.GetCurrentAnimatorStateInfo(0).IsName("testIdle") || // if player in idle state
-				anim.GetCurrentAnimatorStateInfo(0).IsName("testWalk")))  // if player in walk state
-			{
-				if (Input.GetMouseButtonUp(0)) // if left click
-				{
-					bool goodToGo = true;
-					foreach (var mat in selectedMats)
-					{
-						if (mat.GetComponent<MatScriptNew>().amount <= 0)
-						{
-							goodToGo = false;
-						}
-					}
-					if (goodToGo)
-					{
-						foreach (var mat in selectedMats)
-						{
-							mat.GetComponent<MatScriptNew>().amount--;
-						}
-						anim.Play("testWindup"); // player anticipation clip and call effect manager's casting event in clip
-					}
-					else
-					{
-						print("YOU DON'T HAVE ENOUGH MATERIALS!!!");
-					}
-				}
-			}
+			
 			#region Temp UI
-			if (selectedMats.Contains(matSlots[0]))
-			{
-				mat1.text = matSlots[0].name + ": " + matSlots[0].GetComponent<MatScriptNew>().amount;
-			}
-			else
-			{
-				mat1.text = "mat 1 not selected";
-			}
-			if (selectedMats.Contains(matSlots[1]))
-			{
-				mat2.text = matSlots[1].name + ": " + matSlots[1].GetComponent<MatScriptNew>().amount;
-			}
-			else
-			{
-				mat2.text = "mat 2 not selected";
-			}
-			if (selectedMats.Contains(matSlots[2]))
-			{
-				mat3.text = matSlots[2].name + ": " + matSlots[2].GetComponent<MatScriptNew>().amount;
-			}
-			else
-			{
-				mat3.text = "mat 3 not selected";
-			}
-			if (selectedMats.Contains(matSlots[3]))
-			{
-				mat4.text = matSlots[3].name + ": " + matSlots[3].GetComponent<MatScriptNew>().amount;
-			}
-			else
-			{
-				mat4.text = "mat 4 not selected";
-			}
+			//if (selectedMats.Contains(matSlots[0]))
+			//{
+			//	mat1.text = matSlots[0].name + ": " + matSlots[0].GetComponent<MatScriptNew>().amount;
+			//}
+			//else
+			//{
+			//	mat1.text = "mat 1 not selected";
+			//}
+			//if (selectedMats.Contains(matSlots[1]))
+			//{
+			//	mat2.text = matSlots[1].name + ": " + matSlots[1].GetComponent<MatScriptNew>().amount;
+			//}
+			//else
+			//{
+			//	mat2.text = "mat 2 not selected";
+			//}
+			//if (selectedMats.Contains(matSlots[2]))
+			//{
+			//	mat3.text = matSlots[2].name + ": " + matSlots[2].GetComponent<MatScriptNew>().amount;
+			//}
+			//else
+			//{
+			//	mat3.text = "mat 3 not selected";
+			//}
+			//if (selectedMats.Contains(matSlots[3]))
+			//{
+			//	mat4.text = matSlots[3].name + ": " + matSlots[3].GetComponent<MatScriptNew>().amount;
+			//}
+			//else
+			//{
+			//	mat4.text = "mat 4 not selected";
+			//}
 			#endregion
 			#region activate and deactivate mats
 			// activate mats
@@ -172,51 +144,93 @@ public class PlayerScriptNew : MonoBehaviour
 			}
 			#endregion
 			#region movement
-			// simple movement for now
 			if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) &&
-				anim.GetCurrentAnimatorStateInfo(0).IsName("testIdle")) // if in idel state and a movement key pressed, go into walk state
+				anim.GetCurrentAnimatorStateInfo(0).IsName("testIdle")) // if in walk state, walk
 			{
-				anim.Play("testWalk");
+				walking = true;
 			}
-			if (anim.GetCurrentAnimatorStateInfo(0).IsName("testWalk")) // if in walk state, walk
+			if (walking)
 			{
 				// walking diagonally
 				if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
 				{
 					transform.position = new Vector3(transform.position.x - Mathf.Sqrt(Mathf.Pow(spd, 2) / 2) * Time.deltaTime, transform.position.y, transform.position.z + Mathf.Sqrt(Mathf.Pow(spd, 2) / 2) * Time.deltaTime);
+					walkingDir = new Vector3(-Mathf.Sqrt(Mathf.Pow(spd, 2) / 2), 0, Mathf.Sqrt(Mathf.Pow(spd, 2) / 2));
 				}
 				else if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
 				{
 					transform.position = new Vector3(transform.position.x + Mathf.Sqrt(Mathf.Pow(spd, 2) / 2) * Time.deltaTime, transform.position.y, transform.position.z + Mathf.Sqrt(Mathf.Pow(spd, 2) / 2) * Time.deltaTime);
+					walkingDir = new Vector3(Mathf.Sqrt(Mathf.Pow(spd, 2) / 2), 0, Mathf.Sqrt(Mathf.Pow(spd, 2) / 2));
 				}
 				else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A))
 				{
 					transform.position = new Vector3(transform.position.x - Mathf.Sqrt(Mathf.Pow(spd, 2) / 2) * Time.deltaTime, transform.position.y, transform.position.z - Mathf.Sqrt(Mathf.Pow(spd, 2) / 2) * Time.deltaTime);
+					walkingDir = new Vector3(-Mathf.Sqrt(Mathf.Pow(spd, 2) / 2), 0, -Mathf.Sqrt(Mathf.Pow(spd, 2) / 2));
 				}
 				else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D))
 				{
 					transform.position = new Vector3(transform.position.x + Mathf.Sqrt(Mathf.Pow(spd, 2) / 2) * Time.deltaTime, transform.position.y, transform.position.z - Mathf.Sqrt(Mathf.Pow(spd, 2) / 2) * Time.deltaTime);
+					walkingDir = new Vector3(Mathf.Sqrt(Mathf.Pow(spd, 2) / 2), 0, -Mathf.Sqrt(Mathf.Pow(spd, 2) / 2));
 				}
 				// walking in one axis
 				else if (Input.GetKey(KeyCode.W))
 				{
 					transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + spd * Time.deltaTime);
+					walkingDir = new Vector3(0, 0, spd);
 				}
 				else if (Input.GetKey(KeyCode.S))
 				{
 					transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - spd * Time.deltaTime);
+					walkingDir = new Vector3(0, 0, -spd);
 				}
 				else if (Input.GetKey(KeyCode.A))
 				{
 					transform.position = new Vector3(transform.position.x - spd * Time.deltaTime, transform.position.y, transform.position.z);
+					walkingDir = new Vector3(-spd, 0, 0);
 				}
 				else if (Input.GetKey(KeyCode.D))
 				{
 					transform.position = new Vector3(transform.position.x + spd * Time.deltaTime, transform.position.y, transform.position.z);
+					walkingDir = new Vector3(spd, 0, 0);
 				}
 				else
 				{
 					anim.Play("testIdle");
+					walking = false;
+				}
+
+				if (Vector3.Angle(walkingDir, transform.forward) < 45 && Vector3.Angle(walkingDir, transform.forward) > -45)
+				{
+					anim.Play("testWalk");
+				}
+				else if (Vector3.Angle(walkingDir, transform.forward) > 45 && Vector3.Angle(walkingDir, transform.forward) < 135)
+				{
+					if (transform.forward.z < 0 || transform.forward.x < 0)
+					{
+						if (walkingDir.x > 0 || walkingDir.z < 0)
+						{
+							anim.Play("Player_Walking_Left");
+						}
+						else if (walkingDir.x < 0 || walkingDir.z > 0)
+						{
+							anim.Play("Player_Walking_Right");
+						}
+					}
+					else if (transform.forward.z > 0 || transform.forward.x > 0)
+					{
+						if (walkingDir.x > 0 || walkingDir.z < 0)
+						{
+							anim.Play("Player_Walking_Right");
+						}
+						else if (walkingDir.x < 0 || walkingDir.z > 0)
+						{
+							anim.Play("Player_Walking_Left");
+						}
+					}
+				}
+				else if (Vector3.Angle(walkingDir, transform.forward) > 135 && Vector3.Angle(walkingDir, transform.forward) < 225)
+				{
+					anim.Play("Player_Walking_Backwards");
 				}
 			}
 
@@ -241,9 +255,38 @@ public class PlayerScriptNew : MonoBehaviour
 				matSlots[3] = null;
 				UIManager.Me.UI_ChangeIcon();
             }
-            #endregion
-
-        }
+			#endregion
+			// check for attack button press
+			if (selectedMats.Count > 0 &&  // check if player has mat activated
+				(anim.GetCurrentAnimatorStateInfo(0).IsName("testIdle") || // if player in idle state
+				walking))  // if player in walk state
+			{
+				if (Input.GetMouseButtonUp(0)) // if left click
+				{
+					walking = false;
+					bool goodToGo = true;
+					foreach (var mat in selectedMats)
+					{
+						if (mat.GetComponent<MatScriptNew>().amount <= 0)
+						{
+							goodToGo = false;
+						}
+					}
+					if (goodToGo)
+					{
+						foreach (var mat in selectedMats)
+						{
+							mat.GetComponent<MatScriptNew>().amount--;
+						}
+						anim.Play("testWindup"); // player anticipation clip and call effect manager's casting event in clip
+					}
+					else
+					{
+						print("YOU DON'T HAVE ENOUGH MATERIALS!!!");
+					}
+				}
+			}
+		}
     }
 	public void LoseHealth_player(int amt)
 	{

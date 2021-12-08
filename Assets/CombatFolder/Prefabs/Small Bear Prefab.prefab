@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 4696270329065464474}
   - component: {fileID: 4696270329065464495}
   m_Layer: 0
-  m_Name: TestEnemyKids
+  m_Name: Small Bear Prefab
   m_TagString: PlayerSpawnedBear
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
