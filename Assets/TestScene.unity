@@ -1922,7 +1922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7688550c798a4ec48b9b1eb8c5a9d383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 5
+  amount: 10
   amount_max: 0
   myEffects:
   - when: 1
@@ -1936,7 +1936,7 @@ MonoBehaviour:
       times: 0.5
     forHowLong: 10
   lifespan: 3
-  matIcon: {fileID: 21300000, guid: ea967d010a3e9cb4682ce7bf30206f56, type: 3}
+  matIcon: {fileID: 21300000, guid: d94a77db26ae1444cbfdc3015cd7bac1, type: 3}
 --- !u!4 &50473586
 Transform:
   m_ObjectHideFlags: 0
@@ -23833,7 +23833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7688550c798a4ec48b9b1eb8c5a9d383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 5
+  amount: 10
   amount_max: 0
   myEffects:
   - when: 0
@@ -47165,7 +47165,7 @@ MonoBehaviour:
     myModifiers: []
     forHowLong: 0
   lifespan: 0.1
-  matIcon: {fileID: 21300000, guid: 6d7587efe376e9547ace804df02d22f0, type: 3}
+  matIcon: {fileID: 21300000, guid: a00008f2586e79646a888f054861b3b2, type: 3}
 --- !u!4 &1092794033
 Transform:
   m_ObjectHideFlags: 0
@@ -54944,7 +54944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7688550c798a4ec48b9b1eb8c5a9d383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 5
+  amount: 10
   amount_max: 0
   myEffects:
   - when: 1
@@ -54962,7 +54962,7 @@ MonoBehaviour:
     myModifiers: []
     forHowLong: 0
   lifespan: 3
-  matIcon: {fileID: 21300000, guid: d94a77db26ae1444cbfdc3015cd7bac1, type: 3}
+  matIcon: {fileID: 21300000, guid: 8008d6579dc6491428d80ba95171dac2, type: 3}
 --- !u!4 &1286690109
 Transform:
   m_ObjectHideFlags: 0
@@ -61837,18 +61837,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ba89d365c2835c4e831b7673416b539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  maxHealth: 100
+  health: 10
+  maxHealth: 10
   moveSpeed: 0
   shield: 20
-  maxShield: 500
+  maxShield: 20
   atkSpd: 2
   attackamt: 0
   preAtkSpd: 2
   atkTime: 1
   postAtkSpd: 2
   changePhaseTime: 0
-  healthLimit: 50
+  healthLimit: 5
   changeLimit: 2
   hittedTime: 0
   knockbackAmount: 30
@@ -79318,7 +79318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7688550c798a4ec48b9b1eb8c5a9d383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 3
+  amount: 5
   amount_max: 0
   myEffects:
   - when: 2
