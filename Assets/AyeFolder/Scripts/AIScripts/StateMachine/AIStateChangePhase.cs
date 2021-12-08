@@ -7,10 +7,13 @@ public class AIStateChangePhase : AIStateBase
     public float changePhaseTimer;
     public override void StartState(Enemy myEnemy)
     {
-
-        if (myEnemy.phase == Enemy.AIPhase.InBattle2)
+        myEnemy.AIAnimator.Play("RoarBear");
+        if (myEnemy.interruptedState != myEnemy.myAC.hittedState)
         {
-            myEnemy.changeLimit -= 1;
+            if (myEnemy.phase == Enemy.AIPhase.InBattle2)
+            {
+                myEnemy.changeLimit -= 1;
+            }
         }
 
     }
@@ -28,13 +31,16 @@ public class AIStateChangePhase : AIStateBase
 
     public override void LeaveState(Enemy myEnemy)
     {
-        if (myEnemy.phase == Enemy.AIPhase.InBattle2)
+        if (myEnemy.Mother != null)
         {
-            myEnemy.Mother.OutKids();
-        }
-        else if (myEnemy.phase == Enemy.AIPhase.InBattle1)
-        {
-            myEnemy.Mother.BackKids();
+            if (myEnemy.phase == Enemy.AIPhase.InBattle2)
+            {
+                myEnemy.Mother.OutKids();
+            }
+            else if (myEnemy.phase == Enemy.AIPhase.InBattle1)
+            {
+                myEnemy.Mother.BackKids();
+            }
         }
     }
 }

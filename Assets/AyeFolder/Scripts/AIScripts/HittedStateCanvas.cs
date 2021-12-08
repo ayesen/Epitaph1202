@@ -13,6 +13,6 @@ public class HittedStateCanvas : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //this.transform.position = AI.transform.position;
+        this.transform.position = AI.transform.position;
     }
 }

@@ -8,7 +8,16 @@ public class AIStatePreAttack : AIStateBase
     public override void StartState(Enemy myEnemy)
     {
         //Debug.Log("enter preattack");
+
         myEnemy.myTrigger.myMR.enabled = true;
+        if (myEnemy.phase == Enemy.AIPhase.InBattle1)
+        {
+            myEnemy.AIAnimator.Play("PreAttack1");
+        }
+        else if (myEnemy.phase == Enemy.AIPhase.InBattle2)
+        {
+            myEnemy.AIAnimator.Play("PreAttack2");
+        }
     }
 
     public override void Update(Enemy myEnemy)
