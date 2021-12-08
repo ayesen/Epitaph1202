@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/TestScene.unity
     guid: 8770c6fddf1f6a34ab65f926d7c9589d
+  - enabled: 1
+    path: Assets/AyeFolder/CreditScene.unity
+    guid: 40272d2870c468142b4b61fc6e7d4354
   m_configObjects: {}

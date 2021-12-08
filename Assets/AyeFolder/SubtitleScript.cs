@@ -96,16 +96,16 @@ public class SubtitleScript : MonoBehaviour
     }
     public IEnumerator RolingUp()
     {
-        OriginalPos = Credit.transform.position;
+        OriginalPos = Credit.rectTransform.anchoredPosition3D;
         float yPos = OriginalPos.y;
-        while(Credit.transform.position.y < 2200)
+        while(Credit.rectTransform.anchoredPosition.y < 2050)
         {
             yPos += 0.2f;
-            Credit.transform.position = new Vector3(OriginalPos.x, yPos, OriginalPos.z);
+            Credit.rectTransform.anchoredPosition = new Vector3(OriginalPos.x, yPos, OriginalPos.z);
             yield return null;
         }
-
-
+        Debug.Log("Quit");
+        Application.Quit();
     }
 
 
