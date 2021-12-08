@@ -43,8 +43,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 071c36016d1d23842b948e6f02b6bd66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainEnemyOfThisLevel: {fileID: 0}
   dot_interval: 1
-  fragments_dot: {fileID: 5638349666497607249, guid: 7c7aeb57a56c88f48b92e3ec1b732a53, type: 3}
-  droppedMat_flyAmount: 0.1
+  droppedMat_flyAmount: 2
+  bossMats: []
   droppableMat: []
   droppedMat_prefab: {fileID: 5635884315906684866, guid: fc9be29fc93d59547ad8089055d586a0, type: 3}
+  AOECollisionPrefab: {fileID: 0}
+  smallBearPrefab: {fileID: 0}
+  heal: {fileID: 0}
+  fragments_dot: {fileID: 5638349666497607249, guid: 7c7aeb57a56c88f48b92e3ec1b732a53, type: 3}
+  SoundWaveVFX: {fileID: 0}

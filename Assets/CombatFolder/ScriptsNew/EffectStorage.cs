@@ -20,6 +20,8 @@ public class EffectStorage : MonoBehaviour
 	[Header("VFXs")]
 	public ParticleSystem heal;
 	public ParticleSystem fragments_dot;
+	public GameObject PlayerSoundWaveVFX;
+	private float time = 0;
 
 	private void Awake()
 	{
@@ -177,6 +179,8 @@ public class EffectStorage : MonoBehaviour
 	#region DEATHWORD RELATED
 	public void SpawnAOE(EffectStructNew effect, GameObject spell)
 	{
+		PlayerSoundWaveVFX.transform.position = spell.transform.position;
+		StartCoroutine(StartPlayerSoundWave());
 		GameObject collisionDetector = Instantiate(AOECollisionPrefab, spell.transform.position, Quaternion.identity);
 		collisionDetector.transform.localScale = new Vector3(effect.forHowMuch, effect.forHowMuch, effect.forHowMuch);
 		collisionDetector.GetComponent<CollisionDetectorScript>().lifeSpan = effect.forHowLong;
@@ -201,6 +205,26 @@ public class EffectStorage : MonoBehaviour
 		ParticleSystem f = Instantiate(particle);
 		f.transform.position = pos;
 	}
+
+	public void ResetPlayerSoundWave()
+	{
+		PlayerSoundWaveVFX.SetActive(false);
+		time = 0;
+		PlayerSoundWaveVFX.GetComponent<MeshRenderer>().material.SetFloat("WaveAmt", -1);
+	}
+
+	public IEnumerator StartPlayerSoundWave()
+	{
+		PlayerSoundWaveVFX.SetActive(true);
+		while (time < 0.5)
+		{
+			time += Time.fixedDeltaTime * 0.2f;
+			PlayerSoundWaveVFX.GetComponent<MeshRenderer>().material.SetFloat("WaveAmt", time);
+			yield return null;
+		}
+		ResetPlayerSoundWave();
+	}
+
 	private float ProcessModifers(EffectStructNew es, ConditionStruct condition)
 	{
 		float outcome = 0;
