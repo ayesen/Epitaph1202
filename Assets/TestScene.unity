@@ -3859,7 +3859,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxAudioSouces: 50
   sourcePrefab: {fileID: 6500670877884442635, guid: 7aab4b4054ab5794391ccb73c06d2279, type: 3}
-  interactClips: []
+  manWalkClips: []
+  bearWalkClips: []
+  castFlying: {fileID: 0}
+  materialSelect: {fileID: 0}
+  enemyHitten: {fileID: 0}
+  droppingBall: {fileID: 0}
+  inspection: {fileID: 0}
+  logChangePage: {fileID: 0}
+  logClose: {fileID: 0}
+  logOpen: {fileID: 0}
+  playerCast: {fileID: 0}
+  playerHitten: {fileID: 0}
+  safehouseMaterialSelect: {fileID: 0}
+  safehouseMaterialSwap: {fileID: 0}
+  bearRoar: {fileID: 0}
+  wallBreak: {fileID: 0}
+  battleVOPhaseOne: []
+  battleVOPhaseTwo: []
 --- !u!4 &77839815
 Transform:
   m_ObjectHideFlags: 0
@@ -25168,7 +25185,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxAudioSouces: 50
   sourcePrefab: {fileID: 6500670877884442635, guid: 7aab4b4054ab5794391ccb73c06d2279, type: 3}
-  interactClips: []
+  manWalkClips: []
+  bearWalkClips: []
+  castFlying: {fileID: 0}
+  materialSelect: {fileID: 0}
+  enemyHitten: {fileID: 0}
+  droppingBall: {fileID: 0}
+  inspection: {fileID: 0}
+  logChangePage: {fileID: 0}
+  logClose: {fileID: 0}
+  logOpen: {fileID: 0}
+  playerCast: {fileID: 0}
+  playerHitten: {fileID: 0}
+  safehouseMaterialSelect: {fileID: 0}
+  safehouseMaterialSwap: {fileID: 0}
+  bearRoar: {fileID: 0}
+  wallBreak: {fileID: 0}
+  battleVOPhaseOne: []
+  battleVOPhaseTwo: []
 --- !u!4 &604025911
 Transform:
   m_ObjectHideFlags: 0
@@ -28464,7 +28498,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &677459126
 Transform:
@@ -64224,7 +64258,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1526989719
 Transform:
@@ -84821,7 +84855,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &2036310537
 Transform:
