@@ -133,7 +133,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 						textShowing = false;
 						if (restrictMovement)
 						{
-							PlayerScript.me.GetComponentInChildren<Animator>().Play("testIdle");
+							PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("testIdle");
 						}
 						imageDisplayer.SetActive(false);
 						imageBG.SetActive(false);
@@ -178,7 +178,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 						textShowing = false;
 						if (restrictMovement)
 						{
-							PlayerScript.me.GetComponentInChildren<Animator>().Play("testIdle");
+							PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("testIdle");
 						}
 						imageDisplayer.SetActive(false);
 						imageBG.SetActive(false);
