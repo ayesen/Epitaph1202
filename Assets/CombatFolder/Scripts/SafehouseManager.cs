@@ -79,11 +79,11 @@ public class SafehouseManager : MonoBehaviour
             PostProcessingManager.Me.StopAllCoroutines();
             PostProcessingManager.Me.StartCoroutine(PostProcessingManager.Me.ResetFilter());
             StartCoroutine(FadeCanvas(cg, 1f, fadeTime));
-            PlayerScriptNew.me.gameObject.SetActive(false);
             checkBoolChange = isSafehouse;
         }
         else if(isSafehouse != checkBoolChange && !isSafehouse)
         {
+            PlayerScriptNew.me.walking = true;
             StartCoroutine(FadeCanvas(cg, 0f, fadeTime));
             RespawnPlayer(spawnPoint);
             WallHider.me.roomPlayerIsIn = WallHider.Room.corridor;

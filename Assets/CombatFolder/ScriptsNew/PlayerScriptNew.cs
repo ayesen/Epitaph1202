@@ -52,7 +52,7 @@ public class PlayerScriptNew : MonoBehaviour
 			hp = 0;
         }
 		Death();
-		if (!dead)
+		if (!dead && !SafehouseManager.Me.isSafehouse)
 		{
 			
 			#region Temp UI
@@ -306,7 +306,7 @@ public class PlayerScriptNew : MonoBehaviour
 		if (dead != checkBoolChange && dead)
 		{
 			checkBoolChange = dead;
-			//anim.Play("Death");
+			anim.Play("Death");
 			StartCoroutine(WaitSecondsAndDie(deathTime));
 		}
 		else if (dead != checkBoolChange && !dead)
