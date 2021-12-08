@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
@@ -157,11 +158,19 @@ public class Enemy : MonoBehaviour
                 EnemyDialogueManagerScript.me.SpawnDialogueTrigger(0);
             }
             myAC.ChangeState(myAC.dieState);
+            FadeInManager.Me.StartCoroutine(UIManager.Me.FadeCanvas(FadeInManager.Me.GetComponent<CanvasGroup>(), 1, 3));
+            StartCoroutine(EndGame(3));
             return true;
         }
         else
             return false;
 
+    }
+
+    IEnumerator EndGame(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        SceneManager.LoadScene(2);
     }
 
     public void ResetEnemy()
@@ -362,7 +371,7 @@ public class Enemy : MonoBehaviour
         this.GetComponent<CapsuleCollider>().enabled = true;
         this.GetComponent<NavMeshAgent>().enabled = true;
         //EnemyCanvas.SetActive(true);
-        breakMeter_ui.enabled = true;
+        ///breakMeter_ui.enabled = true;
         //hittedStates.enabled = true;
         myTrigger.myMR.enabled = true;
         ChangePhase(AIPhase.InBattle1, 1);
