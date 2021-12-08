@@ -176,16 +176,25 @@ public class UIManager : MonoBehaviour
 
     public void UI_ChangeAmount()
     {
-        slot0_TMP.text = PlayerScriptNew.me.matSlots[0].GetComponent<MatScriptNew>().amount.ToString();
-        slot1_TMP.text = PlayerScriptNew.me.matSlots[1].GetComponent<MatScriptNew>().amount.ToString();
-        slot2_TMP.text = PlayerScriptNew.me.matSlots[2].GetComponent<MatScriptNew>().amount.ToString();
+        if (PlayerScriptNew.me.matSlots[0] != null)
+            slot0_TMP.text = PlayerScriptNew.me.matSlots[0].GetComponent<MatScriptNew>().amount.ToString();
+        else
+            slot0_TMP.text = "0";
+        if (PlayerScriptNew.me.matSlots[1] != null)
+            slot1_TMP.text = PlayerScriptNew.me.matSlots[1].GetComponent<MatScriptNew>().amount.ToString();
+        else
+            slot1_TMP.text = "0";
+        if (PlayerScriptNew.me.matSlots[2] != null)
+            slot2_TMP.text = PlayerScriptNew.me.matSlots[2].GetComponent<MatScriptNew>().amount.ToString();
+        else
+            slot2_TMP.text = "0";
         if (PlayerScriptNew.me.matSlots[3] != null)
             slot3_TMP.text = PlayerScriptNew.me.matSlots[3].GetComponent<MatScriptNew>().amount.ToString();
         else
             slot3_TMP.text = "0";
     }
 
-    IEnumerator FadeCanvas(CanvasGroup cg, float endValue, float duration)
+    public IEnumerator FadeCanvas(CanvasGroup cg, float endValue, float duration)
     {
         float elapsedTime = 0;
         float startValue = cg.alpha;
