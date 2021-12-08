@@ -168,21 +168,25 @@ public class Enemy : MonoBehaviour
     {
         health = this.healthRecord;
         maxHealth = this.healthRecord;
-        shield = 200;
-        maxShield = 200;
+        shield = maxShield;
+        //maxShield = 200;
         changeLimit = 2;
         Mother.BackKids();
-        this.GetComponent<NavMeshAgent>().enabled = false;
-        ChangePhase(AIPhase.NotInBattle, 1);
+        var item = GameObject.Find("GirlJournal");
+        if (item != null)
+        {
+            ChangePhase(AIPhase.NotInBattle, 1);
+            this.GetComponent<NavMeshAgent>().enabled = false;
+            BearMesh.SetActive(false);
+            this.GetComponent<MeshRenderer>().enabled = false;
+            this.GetComponent<CapsuleCollider>().enabled = false;
+            myTrigger.GetComponent<AtkTrigger>().onAtkTrigger = false;
+            myTrigger.myMR.enabled = false;
+        }
         myAC.ChangeState(myAC.idleState);
         this.transform.position = ResetPos;
-        BearMesh.SetActive(false);
-        this.GetComponent<MeshRenderer>().enabled = false;
-        this.GetComponent<CapsuleCollider>().enabled = false;
         breakMeter_ui.enabled = false;
         //hittedStates.enabled = false;
-        myTrigger.GetComponent<AtkTrigger>().onAtkTrigger = false;
-        myTrigger.myMR.enabled = false;
         EnemyCanvas.SetActive(false);
     }
 
@@ -357,7 +361,7 @@ public class Enemy : MonoBehaviour
         BearMesh.SetActive(true);
         this.GetComponent<CapsuleCollider>().enabled = true;
         this.GetComponent<NavMeshAgent>().enabled = true;
-        EnemyCanvas.SetActive(true);
+        //EnemyCanvas.SetActive(true);
         breakMeter_ui.enabled = true;
         //hittedStates.enabled = true;
         myTrigger.myMR.enabled = true;
