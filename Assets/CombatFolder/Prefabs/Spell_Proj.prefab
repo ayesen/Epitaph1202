@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f36982d8c971cd54286c7103eba7cda8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mat: {fileID: 0}
+  mats: []
   burst: {fileID: 4206482292668527978, guid: 66c3d900e51cad04da07b40bf7c56cf9, type: 3}
   fragments: {fileID: 2156532497255595423, guid: 1033caef31484d34f9c755850c12368c, type: 3}
   myEffects: []
