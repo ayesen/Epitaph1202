@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class AmbienceManager : MonoBehaviour
 {
+    public static AmbienceManager ambienceManager;
+    
     private GameObject player;
 
     private AudioSource ambienceSource;
@@ -13,6 +15,18 @@ public class AmbienceManager : MonoBehaviour
 
     private BoxCollider hallwayTrigger;
     private BoxCollider roomtrigger;
+    private BoxCollider balconyTrigger;
+
+    private void Awake()
+    {
+        if (ambienceManager != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        ambienceManager = this;
+    }
+
     private void Start()
     {
         ambienceSource = GetComponent<AudioSource>();
@@ -37,6 +51,12 @@ public class AmbienceManager : MonoBehaviour
         {
             RoomAmbiencePlay();
         }
+
+        if(other == balconyTrigger)
+        {
+            BalconyAmbiencePlay();
+        }
+
     }
 
     public void HallwayAmbiencePlay()
@@ -56,5 +76,22 @@ public class AmbienceManager : MonoBehaviour
             ambienceSource.volume = 1f;
             ambienceSource.Play();
         }
+    }
+
+    public void BalconyAmbiencePlay()
+    {
+        if (ambienceSource.clip != ambienceClips[2])
+        {
+            ambienceSource.clip = ambienceClips[2];
+            ambienceSource.volume = 1f;
+            ambienceSource.Play();
+        }
+    }
+
+    public void SafeHouseAmbiencePlay()
+    {
+        ambienceSource.clip = ambienceClips[3];
+        ambienceSource.volume = 1f;
+        ambienceSource.Play();
     }
 }
