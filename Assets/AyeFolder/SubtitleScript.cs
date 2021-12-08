@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class SubtitleScript : MonoBehaviour
 {
@@ -98,14 +99,13 @@ public class SubtitleScript : MonoBehaviour
     {
         OriginalPos = Credit.rectTransform.anchoredPosition3D;
         float yPos = OriginalPos.y;
-        while(Credit.rectTransform.anchoredPosition.y < 2050)
+        while(Credit.rectTransform.anchoredPosition.y < 1550)
         {
             yPos += 0.2f;
             Credit.rectTransform.anchoredPosition = new Vector3(OriginalPos.x, yPos, OriginalPos.z);
             yield return null;
         }
-        Debug.Log("Quit");
-        Application.Quit();
+        SceneManager.LoadScene(0);
     }
 
 
