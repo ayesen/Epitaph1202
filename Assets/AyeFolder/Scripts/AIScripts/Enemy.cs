@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
     public float knockbackAmount;
     public float dot_interval;
     public Vector3 ResetPos;
-
+    public GameObject BearMesh;
     public AIController myAC;
     public enum AIPhase { NotInBattle, InBattle1, InBattle2 };
     public AIPhase phase;
@@ -49,6 +49,7 @@ public class Enemy : MonoBehaviour
     public TextMeshProUGUI hittedStates;
     public bool knockedBack;
     public AIStateBase interruptedState;
+    public GameObject EnemyCanvas;
 
     [Header("Supply")]
     public bool breakable;
@@ -167,20 +168,22 @@ public class Enemy : MonoBehaviour
     {
         health = this.healthRecord;
         maxHealth = this.healthRecord;
-        shield = this.shieldRecord - 200;
-        maxShield = this.shieldRecord - 200;
+        shield = 200;
+        maxShield = 200;
         changeLimit = 2;
         Mother.BackKids();
         this.GetComponent<NavMeshAgent>().enabled = false;
         ChangePhase(AIPhase.NotInBattle, 1);
         myAC.ChangeState(myAC.idleState);
         this.transform.position = ResetPos;
+        BearMesh.SetActive(false);
         this.GetComponent<MeshRenderer>().enabled = false;
         this.GetComponent<CapsuleCollider>().enabled = false;
         breakMeter_ui.enabled = false;
-        hittedStates.enabled = false;
+        //hittedStates.enabled = false;
         myTrigger.GetComponent<AtkTrigger>().onAtkTrigger = false;
         myTrigger.myMR.enabled = false;
+        EnemyCanvas.SetActive(false);
     }
 
     public void DealDmg(int dmgAmt)
@@ -351,11 +354,12 @@ public class Enemy : MonoBehaviour
     public void GotoLoc()
     {
         // go to specific location and stand still for dialogue
-        this.GetComponent<MeshRenderer>().enabled = true;
+        BearMesh.SetActive(true);
         this.GetComponent<CapsuleCollider>().enabled = true;
         this.GetComponent<NavMeshAgent>().enabled = true;
+        EnemyCanvas.SetActive(true);
         breakMeter_ui.enabled = true;
-        hittedStates.enabled = true;
+        //hittedStates.enabled = true;
         myTrigger.myMR.enabled = true;
         ChangePhase(AIPhase.InBattle1, 1);
         SafehouseManager.Me.canSafehouse = true;
