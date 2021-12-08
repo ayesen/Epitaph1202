@@ -7,6 +7,7 @@ public class SubtitleScript : MonoBehaviour
 {
     public TextMeshProUGUI Subtitle;
     public TextMeshProUGUI SubtitleEnglish;
+    public TextMeshProUGUI Credit;
     public int SubtitleReadTime;
     public string LineOne;
     public string LineOneEnglish;
@@ -15,14 +16,12 @@ public class SubtitleScript : MonoBehaviour
     public string LineThree;
     public string LineThreeEnglish;
     private int Loop = 3;
+    private Vector3 OriginalPos;
+    public SpriteRenderer BackGround;
 
-
-    void Update()
+    void Start()
     {
-        if(Input.GetKeyDown(KeyCode.S))
-        {
-            StartCoroutine(FadeIn(5));
-        }
+        StartCoroutine(FadeIn(5));
     }
     
     public IEnumerator FadeIn(float time)
@@ -73,14 +72,39 @@ public class SubtitleScript : MonoBehaviour
             yield return null;
         }
         Loop -= 1;
-        if(Loop >= 1)
+        if (Loop >= 1)
         {
             StartCoroutine(FadeIn(5));
         }
+        else
+            StartCoroutine(ShowBG());
     }
 
-    public void Rolling()
+    public IEnumerator ShowBG()
     {
+        yield return new WaitForSeconds(1);
+        float Timer = 0;
+        Color originalColor = new Vector4(255, 255, 255, 255);
+        Color fadeColor = new Vector4(255, 255, 255, 0);
+        while(BackGround.color != Color.white)
+        {
+            Timer += 0.01f;
+            BackGround.color = Color.Lerp(Color.clear, Color.white, Timer);
+            yield return null;
+        }
+        StartCoroutine(RolingUp());
+    }
+    public IEnumerator RolingUp()
+    {
+        OriginalPos = Credit.transform.position;
+        float yPos = OriginalPos.y;
+        while(Credit.transform.position.y < 2200)
+        {
+            yPos += 0.2f;
+            Credit.transform.position = new Vector3(OriginalPos.x, yPos, OriginalPos.z);
+            yield return null;
+        }
+
 
     }
 
