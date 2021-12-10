@@ -28,7 +28,9 @@ public class ChangeInventory : MonoBehaviour
 
     void Update()
     {
-        //Move the square, choose inventory
+        if (SafehouseManager.Me.isSafehouse)
+        {
+                    //Move the square, choose inventory
         if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             choosenMatIndex += 1;
@@ -112,14 +114,21 @@ public class ChangeInventory : MonoBehaviour
             choosenCircle.GetComponent<RectTransform>().localPosition = DisplayInventory.Me.GetPosition(choosenMatIndex - 4) + Vector3.up * 190f;
         }
         //Show description
-        description.text = PlayerScriptNew.me.matSlots[choosenMatIndex].name;
+        if(PlayerScriptNew.me.matSlots[choosenMatIndex] != null)
+            description.text = PlayerScriptNew.me.matSlots[choosenMatIndex].name;
+        }
     }
 
     public void ChangeMat(int choosenMat, int targetMat)
     {
-        GameObject temp = PlayerScriptNew.me.matSlots[choosenMat];
-        PlayerScriptNew.me.matSlots[choosenMat] = PlayerScriptNew.me.matSlots[targetMat];
-        PlayerScriptNew.me.matSlots[targetMat] = temp;
+        GameObject temp = PlayerScriptNew.me.matSlots[targetMat];
+        PlayerScriptNew.me.matSlots[targetMat] = PlayerScriptNew.me.matSlots[choosenMat];
+        PlayerScriptNew.me.matSlots[choosenMat] = temp;
+        if (PlayerScriptNew.me.matSlots[targetMat] == null)
+        {
+            Debug.Log("choosenMat null");
+            PlayerScriptNew.me.matSlots.RemoveAt(targetMat);
+        }
     }
     public Vector3 GetPosition(int i)
     {

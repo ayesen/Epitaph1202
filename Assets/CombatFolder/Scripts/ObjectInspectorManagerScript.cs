@@ -12,6 +12,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 	public GameObject imageDisplayer;
 	public GameObject imageBG;
 	public GameObject optionPrefab;
+	public GameObject blurMask;
 	public GameObject optionSelection;
 	private bool textShowing = false;
 	public GameObject canvasUI;
@@ -82,6 +83,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 		if (ds.image != null)
 		{
 			imageBG.SetActive(true);
+			blurMask.SetActive(true);
 			imageDisplayer.SetActive(true);
 			imageDisplayer.GetComponent<Image>().sprite = ds.image;
 		}
@@ -110,6 +112,9 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 				}
 				else
 				{
+					imageBG.SetActive(false);
+					blurMask.SetActive(false);
+					imageDisplayer.SetActive(false);
 					LogManager.LOGManager.CoverSetActive(dialogueToShow[index].logX, dialogueToShow[index].logY);
 					if (index < dialogueToShow.Count - 1)
 					{
@@ -137,6 +142,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 						}
 						imageDisplayer.SetActive(false);
 						imageBG.SetActive(false);
+						blurMask.SetActive(false);
 						if (doer != null)
 						{
 							doer.SendMessage(funcToCall);
@@ -154,6 +160,9 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 				{
 					if (index < dialogueToShow.Count - 1)
 					{
+						imageBG.SetActive(false);
+						blurMask.SetActive(false);
+						imageDisplayer.SetActive(false);
 						LogManager.LOGManager.CoverSetActive(dialogueToShow[index].logX, dialogueToShow[index].logY);
 						index++;
 						objectDes_ui_cht.text = dialogueToShow[index].description_cht;
@@ -182,6 +191,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 						}
 						imageDisplayer.SetActive(false);
 						imageBG.SetActive(false);
+						blurMask.SetActive(false);
 						if (doer != null)
 						{
 							doer.SendMessage(funcToCall);
@@ -196,7 +206,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 				{
 					optionSelection.SetActive(true);
 					RectTransform rt = optionSelection.GetComponent<RectTransform>();
-					rt.position = new Vector3(rt.position.x, options[optionIndex].GetComponent<RectTransform>().position.y + 23f, rt.position.z);
+					rt.position = new Vector3(options[optionIndex].GetComponent<RectTransform>().position.x, options[optionIndex].GetComponent<RectTransform>().position.y + 50f, rt.position.z);
 					if (Input.GetKeyUp(KeyCode.DownArrow))
 					{
 						if (optionIndex < options.Count - 1)
@@ -260,6 +270,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 		foreach (var option in thisLine.options)
 		{
 			GameObject optn = Instantiate(optionPrefab, canvasDialogue.transform);
+			//optn.transform.parent = optionSelection.transform;
 			options.Add(optn);
 			optn.GetComponentInChildren<TMP_Text>().text = option.optionContent;
 			optionsDisplaying = true;
