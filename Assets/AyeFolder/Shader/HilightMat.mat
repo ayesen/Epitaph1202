@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Outline
-  m_Shader: {fileID: -6465566751694194690, guid: f61f352651c72c345b766073596111b6, type: 3}
+  m_Name: HilightMat
+  m_Shader: {fileID: -6465566751694194690, guid: 74bcb178d1d33304dbe331d7c13b65fc, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,6 +19,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture:
+        m_Texture: {fileID: 2800000, guid: 0569322b11966ee4eb3b0b6abaaa69e0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -33,10 +37,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - ColorSensitivty: 1
-    - DepthIntensity: 1
-    - NormalIntensity: 1
-    - OutlineThickness: 1
+    - _Offset: 0.62
     m_Colors:
-    - OutlineColor: {r: 0.26415092, g: 0.061053753, b: 0.061053753, a: 0}
+    - _Color: {r: 0.5660378, g: 0.47070512, b: 0, a: 0}
   m_BuildTextureStacks: []

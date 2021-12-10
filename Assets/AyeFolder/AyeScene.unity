@@ -2921,7 +2921,9 @@ MonoBehaviour:
   hp: 20
   spd: 10
   rot_spd: 4
+  anim: {fileID: 0}
   playerModel: {fileID: 61081864}
+  deathTime: 0
   dead: 0
   selectedMats: []
   matSlots:
@@ -2933,6 +2935,7 @@ MonoBehaviour:
   mat2: {fileID: 2130767418}
   mat3: {fileID: 516886943}
   mat4: {fileID: 1247571557}
+  walking: 0
 --- !u!4 &61081870 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 199564424747727130, guid: 227da076e12dbfa4b990f022b9a9dc8e, type: 3}
@@ -5361,12 +5364,16 @@ MonoBehaviour:
     clip: {fileID: 0}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   image: {fileID: 0}
   highLightMat: {fileID: 0}
   restrictMovement: 0
   oneTimeDialogue: 1
   isSwitch: 0
   interactiveSwitch: []
+  logX: 0
+  logY: 0
   actor: {fileID: 0}
   funcToCall: 
 --- !u!23 &139749018
@@ -5724,12 +5731,16 @@ MonoBehaviour:
     clip: {fileID: 0}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   image: {fileID: 0}
   highLightMat: {fileID: 0}
   restrictMovement: 0
   oneTimeDialogue: 1
   isSwitch: 0
   interactiveSwitch: []
+  logX: 0
+  logY: 0
   actor: {fileID: 0}
   funcToCall: 
 --- !u!23 &145757374
@@ -6028,21 +6039,29 @@ MonoBehaviour:
     clip: {fileID: 0}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   - description_cht: "\u5E2B\u5085  \u9019\u95DC\u516C\u548C\u9019\u4E00\u5E36\u7684\u5176\u4ED6\u95DC\u516C\u50CF\u770B\u8D77\u4F86\u4E0D\u4E00\u6A23\u554A"
     description_eng: Shifu, this Guan Gong statue looks kinda different
     clip: {fileID: 8300000, guid: b1c217012083c9d41a689919c5aa5feb, type: 3}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   - description_cht: "\u4F60\u770B\u770B\u5200\u53E3\u671D\u54EA\u5152"
     description_eng: Is that so, check where the blade's aiming at
     clip: {fileID: 8300000, guid: 88e4d7a731fa6fb448dc99fcdeb6438e, type: 3}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   - description_cht: "\u9019\u95DC\u516C\u5200\u5C16\u671D\u4E0A  \u4E14\u5200\u53E3\u671D\u5916"
     description_eng: It's aiming up and facing outward
     clip: {fileID: 8300000, guid: b1f6c3ff878356345a2e7723ec176d98, type: 3}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   - description_cht: "\u78BA\u5BE6\u5947\u602A  \u9867\u751F\u9019\u4E9B\u5546\u4EBA\u8ACB\u95DC\u516C\u90FD\u8ACB\u5200\u5C16\u671D\u4E0B\u7684 
       \u4EE3\u8868\u8457\u8CA1\u904B  \u5200\u5C16\u671D\u4E0A\u5247\u610F\u5473\u8457\u93AE\u58D3\u90AA\u7269 
       \u800C\u4ED6\u60F3\u93AE\u58D3\u4EC0\u9EBD\u5462"
@@ -6052,12 +6071,16 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 51d4770856bf60541aa6222fa4f0c160, type: 3}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   image: {fileID: 0}
   highLightMat: {fileID: 0}
   restrictMovement: 0
   oneTimeDialogue: 1
   isSwitch: 0
   interactiveSwitch: []
+  logX: 0
+  logY: 0
   actor: {fileID: 0}
   funcToCall: 
 --- !u!23 &146890795
@@ -6663,28 +6686,38 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 1391c54348730304da3f63b4ab6116aa, type: 3}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   - description_cht: "\u770B\u5F97\u6E05\u5BEB\u7684\u4EC0\u9EBD\u55CE"
     description_eng: What's on the rune paper?
     clip: {fileID: 8300000, guid: 012548c238d1745408bd41d70ba3c091, type: 3}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   - description_cht: "\u300C\u4E5D\u5929\u61C9\u5143\u96F7\u8072\u666E\u5316\u5929\u5C0A\u8056\u865F\u300D"
     description_eng: It has the God of Thunder's name on it
     clip: {fileID: 8300000, guid: 3fcda9014325df44b87488e2414eff99, type: 3}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   - description_cht: "\u9019\u662F\u500B\u61C9\u6025\u7528\u7684\u93AE\u58D3\u7B26\u7D19 
       \u770B\u4F86\u5C4B\u88CF\u78BA\u5BE6\u6709\u90AA\u7269  \u9867\u751F\u6025\u8457\u628A\u5B83\u93AE\u4F4F"
     description_eng: That's used for suppressing evil spirit
     clip: {fileID: 8300000, guid: 435a01c096d83fd4da8f6207b8aa954f, type: 3}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   image: {fileID: 0}
   highLightMat: {fileID: 0}
   restrictMovement: 0
   oneTimeDialogue: 1
   isSwitch: 0
   interactiveSwitch: []
+  logX: 0
+  logY: 0
   actor: {fileID: 0}
   funcToCall: 
 --- !u!23 &157044115
@@ -8338,7 +8371,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 54
+  m_RootOrder: 55
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &210225490
 GameObject:
@@ -10431,6 +10464,7 @@ MonoBehaviour:
   knockbackAmount: 0
   dot_interval: 0
   ResetPos: {x: 0, y: 0, z: 0}
+  BearMesh: {fileID: 0}
   myAC: {fileID: 268735356}
   phase: 1
   ghostRider: {fileID: 0}
@@ -10445,6 +10479,7 @@ MonoBehaviour:
   walkable: 1
   hittedStates: {fileID: 1386010579}
   knockedBack: 0
+  EnemyCanvas: {fileID: 0}
   breakable: 0
   breakMeter: 0
   breakMeterMax: 0
@@ -12904,23 +12939,31 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: e109f9ecc92d4b84091698cc03427596, type: 3}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   - description_cht: "\u5E2B\u5085  \u9019\u9580\u4E0A\u6709\u7981\u88FD  \u88AB\u4E0B\u4E86\u5C01\u9396\u9663"
     description_eng: Shifu, the door is sealed with spells
     clip: {fileID: 0}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   - description_cht: "\u4F60\u525B\u525B\u4E0D\u662F\u62FF\u4E86\u500B\u98A8\u6C34\u5716 
       \u4E0A\u9762\u662F\u4E0D\u662F\u548C\u9019\u500B\u76F8\u95DC"
     description_eng: It might be relative to the map you got earlier
     clip: {fileID: 0}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   image: {fileID: 0}
   highLightMat: {fileID: 0}
   restrictMovement: 0
   oneTimeDialogue: 1
   isSwitch: 0
   interactiveSwitch: []
+  logX: 0
+  logY: 0
   actor: {fileID: 0}
   funcToCall: 
 --- !u!23 &331791362
@@ -15883,23 +15926,31 @@ MonoBehaviour:
     clip: {fileID: 0}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   - description_cht: "\u5E2B\u5085  \u9019\u5E8A\u982D\u4F9B\u5949\u4E86\u4E00\u679A\u4F5B\u724C 
       \u9670\u6C23\u5F88\u91CD"
     description_eng: Shifu, I found a Buddhist amulet, but it has strong Yin Qi
     clip: {fileID: 8300000, guid: 72f46ba5f8a6f294cb14004e18424ff1, type: 3}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   - description_cht: "\u4F5B\u724C  \u9019\u4F4D\u7F6E\u4F9B\u5949\u4F5B\u724C  \u4E0D\u5C0D\u554A"
     description_eng: An amulet in here? Something's not right
     clip: {fileID: 8300000, guid: f3dcf554cfa943743af829a7f578479e, type: 3}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   image: {fileID: 0}
   highLightMat: {fileID: 0}
   restrictMovement: 0
   oneTimeDialogue: 1
   isSwitch: 0
   interactiveSwitch: []
+  logX: 0
+  logY: 0
   actor: {fileID: 0}
   funcToCall: 
 --- !u!23 &412423903
@@ -16795,6 +16846,8 @@ MonoBehaviour:
     clip: {fileID: 0}
     time: 2
     options: []
+    logX: 0
+    logY: 0
   - description_cht: "\u5E2B\u5085  \u6211\u8A18\u5F97\u5730\u85CF\u83E9\u85A9\u662F\u7528\u4F86\u5EA6\u6B7B\u8005\u7684\u5427 
       \u9019\u5EC1\u6240\u9593\u88CF\u6709\u4E00\u5C0A"
     description_eng: "Shifu, I remember that the K\u1E63itigarbha statue is used
@@ -16802,6 +16855,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 07a9880b9d68a7b4faeb8609071ce7cf, type: 3}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   - description_cht: "\u4F60\u770B\u770B\u56DB\u5468\u6709\u6C92\u6709\u602A\u7570 
       \u6309\u7167\u98A8\u4FD7  \u9019\u5EC1\u6240\u516B\u6210\u7528\u4F86\u5E79\u904E\u90AA\u4E8B\u5152 
       \u51FA\u904E\u4EBA\u547D\u90FD\u53EF\u80FD"
@@ -16810,12 +16865,16 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 18ff0a1dfb59c16439f959f14cab442e, type: 3}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   image: {fileID: 0}
   highLightMat: {fileID: 0}
   restrictMovement: 0
   oneTimeDialogue: 1
   isSwitch: 0
   interactiveSwitch: []
+  logX: 0
+  logY: 0
   actor: {fileID: 0}
   funcToCall: 
 --- !u!23 &433486979
@@ -17863,23 +17922,31 @@ MonoBehaviour:
     clip: {fileID: 0}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   - description_cht: "\u9019\u67B6\u5B50\u4E0A\u6709\u597D\u591A\u73A9\u5177\u554A 
       \u90FD\u662F\u9867\u751F\u9001\u7D66\u4ED6\u5973\u5152\u7684"
     description_eng: So many toys on the shelf, it's all bought by Gu
     clip: {fileID: 0}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   - description_cht: "\u9019\u9867\u751F\u5C0D\u5973\u5152\u7684\u60C5\u611F\u9084\u633A\u8907\u96DC\u7684"
     description_eng: Gu's relationship to his daughter seems
     clip: {fileID: 0}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   image: {fileID: 0}
   highLightMat: {fileID: 0}
   restrictMovement: 0
   oneTimeDialogue: 1
   isSwitch: 0
   interactiveSwitch: []
+  logX: 0
+  logY: 0
   actor: {fileID: 0}
   funcToCall: 
 --- !u!23 &458932733
@@ -22002,12 +22069,16 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 7d23c8e610e9baa4a9028e3400b6dc59, type: 3}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   image: {fileID: 0}
   highLightMat: {fileID: 0}
   restrictMovement: 0
   oneTimeDialogue: 1
   isSwitch: 0
   interactiveSwitch: []
+  logX: 0
+  logY: 0
   actor: {fileID: 0}
   funcToCall: 
 --- !u!23 &544994953
@@ -22237,6 +22308,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 8c9986bbffc03ea4499a9d216aeea334, type: 3}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   - description_cht: "\u8AAA\u8AAA\u770B\u4F60\u7684\u5224\u65B7"
     description_eng: What your thoughts?
     clip: {fileID: 8300000, guid: fcfd03639de3e424e9129a1bd930ffb6, type: 3}
@@ -22249,6 +22322,8 @@ MonoBehaviour:
         clip: {fileID: 8300000, guid: a061f73fedc4f15429f2bf3b60fe5524, type: 3}
         time: 0
         options: []
+        logX: 0
+        logY: 0
       - description_cht: "\u7E2B\u9699\u767C\u9ED1\u4F30\u8A08\u662F\u4E4B\u524D\u7559\u4E0B\u7684 
           \u80FD\u8B93\u7E2B\u9699\u767C\u9ED1\u8AAA\u660E\u7559\u4E0B\u7684\u8840\u6B21\u6578\u4E0D\u5C11 
           \u800C\u4E14\u6709\u9EDE\u6642\u9593\u4E86"
@@ -22256,6 +22331,8 @@ MonoBehaviour:
         clip: {fileID: 8300000, guid: d0fc35fd29d2d114bba2ff842170d960, type: 3}
         time: 0
         options: []
+        logX: 0
+        logY: 0
     - optionContent: Blackened seams
       dialogues:
       - description_cht: "\u7E2B\u9699\u767C\u9ED1\u8AAA\u660E\u9019\u5152\u4E4B\u524D\u5C31\u6709\u4E0D\u5C11\u8840\u8DE1 
@@ -22265,18 +22342,26 @@ MonoBehaviour:
         clip: {fileID: 8300000, guid: 406cc26c1c368e7489d0eda94a82d48d, type: 3}
         time: 0
         options: []
+        logX: 0
+        logY: 0
       - description_cht: "\u90A3\u90A3\u4E9B\u5E79\u4E86\u7684\u8840\u8DE1\u662F\u6700\u8FD1\u7559\u4E0B\u7684 
           \u4F60\u81EA\u5DF1\u7576\u5FC3\u9EDE"
         description_eng: So those dried blood stains are recent? Watch out for yourself
         clip: {fileID: 8300000, guid: eb0719058be14ec49971e575800abf7d, type: 3}
         time: 0
         options: []
+        logX: 0
+        logY: 0
+    logX: 0
+    logY: 0
   image: {fileID: 0}
   highLightMat: {fileID: 0}
   restrictMovement: 1
   oneTimeDialogue: 1
   isSwitch: 0
   interactiveSwitch: []
+  logX: 0
+  logY: 0
   actor: {fileID: 0}
   funcToCall: 
 --- !u!23 &547669082
@@ -22391,7 +22476,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxAudioSouces: 50
   sourcePrefab: {fileID: 6500670877884442635, guid: 7aab4b4054ab5794391ccb73c06d2279, type: 3}
-  interactClips: []
+  manWalkClips: []
+  bearWalkClips: []
+  castFlying: {fileID: 0}
+  materialSelect: {fileID: 0}
+  enemyHitten: {fileID: 0}
+  droppingBall: {fileID: 0}
+  inspection: {fileID: 0}
+  logChangePage: {fileID: 0}
+  logClose: {fileID: 0}
+  logOpen: {fileID: 0}
+  playerCast: {fileID: 0}
+  playerHitten: {fileID: 0}
+  safehouseMaterialSelect: {fileID: 0}
+  safehouseMaterialSwap: {fileID: 0}
+  bearRoar: {fileID: 0}
+  wallBreak: {fileID: 0}
+  battleVOPhaseOne: []
+  battleVOPhaseTwo: []
 --- !u!4 &550273498
 Transform:
   m_ObjectHideFlags: 0
@@ -23108,17 +23210,23 @@ MonoBehaviour:
     clip: {fileID: 0}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   - description_cht: "\u9019\u500B\u9999\u56CA\u662F\u9867\u5BB6\u5973\u5152\u9867\u66C9\u8339\u7684"
     description_eng: This sachet belongs to Gu Xiaoru, the daughter?
     clip: {fileID: 8300000, guid: ce95cd449992aba4da3fc2e762538a96, type: 3}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   image: {fileID: 0}
   highLightMat: {fileID: 0}
   restrictMovement: 0
   oneTimeDialogue: 1
   isSwitch: 0
   interactiveSwitch: []
+  logX: 0
+  logY: 0
   actor: {fileID: 1522016183}
   funcToCall: GotoLoc
 --- !u!23 &573716606
@@ -23330,12 +23438,16 @@ MonoBehaviour:
     clip: {fileID: 0}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   image: {fileID: 0}
   highLightMat: {fileID: 0}
   restrictMovement: 1
   oneTimeDialogue: 1
   isSwitch: 0
   interactiveSwitch: []
+  logX: 0
+  logY: 0
   actor: {fileID: 1522016183}
   funcToCall: BackToFighting
 --- !u!4 &577800812
@@ -25474,6 +25586,7 @@ MonoBehaviour:
   knockbackAmount: 0
   dot_interval: 0
   ResetPos: {x: 0, y: 0, z: 0}
+  BearMesh: {fileID: 0}
   myAC: {fileID: 622072597}
   phase: 0
   ghostRider: {fileID: 0}
@@ -25488,6 +25601,7 @@ MonoBehaviour:
   walkable: 1
   hittedStates: {fileID: 669421155}
   knockedBack: 0
+  EnemyCanvas: {fileID: 0}
   breakable: 0
   breakMeter: 0
   breakMeterMax: 0
@@ -27398,6 +27512,7 @@ MonoBehaviour:
   imageDisplayer: {fileID: 822620101}
   imageBG: {fileID: 822620100}
   optionPrefab: {fileID: 8076459802678780378, guid: 3d3031b295d25f643930dd5ca605bb7f, type: 3}
+  blurMask: {fileID: 0}
   optionSelection: {fileID: 822620099}
   canvasUI: {fileID: 49752336}
   canvasDialogue: {fileID: 822620104}
@@ -31180,12 +31295,16 @@ MonoBehaviour:
     clip: {fileID: 0}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   image: {fileID: 0}
   highLightMat: {fileID: 0}
   restrictMovement: 0
   oneTimeDialogue: 1
   isSwitch: 0
   interactiveSwitch: []
+  logX: 0
+  logY: 0
   actor: {fileID: 0}
   funcToCall: 
 --- !u!23 &747915166
@@ -34472,6 +34591,7 @@ MonoBehaviour:
   knockbackAmount: 0
   dot_interval: 0
   ResetPos: {x: 0, y: 0, z: 0}
+  BearMesh: {fileID: 0}
   myAC: {fileID: 828645767}
   phase: 1
   ghostRider: {fileID: 0}
@@ -34486,6 +34606,7 @@ MonoBehaviour:
   walkable: 1
   hittedStates: {fileID: 213069590}
   knockedBack: 0
+  EnemyCanvas: {fileID: 0}
   breakable: 0
   breakMeter: 0
   breakMeterMax: 0
@@ -41920,6 +42041,8 @@ MonoBehaviour:
     clip: {fileID: 0}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   - description_cht: "\u5E2B\u5085  \u9019\u88CF\u6709\u672C\u53EB\u8CA1\u9053\u8A8C\u7684\u66F8 
       \u4F60\u53EF\u6E05\u695A  \u6211\u7784\u4E86\u5E7E\u773C  \u90FD\u662F\u4E9B\u6B6A\u9580\u90AA\u9053\u7684\u6CD5\u4E8B"
     description_eng: Shifu, I found a book called Tao of Wealth, if you've heard
@@ -41927,6 +42050,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 480ef8230b8551142b50a24089ceb777, type: 3}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   - description_cht: "\u8CA1\u9053\u8A8C  \u807D\u8AAA\u904E\u9019\u672C\u90AA\u8853 
       \u6309\u7406\u8AAA\u591A\u5E74\u524D\u5C31\u5DF2\u7D93\u88AB\u6E05\u7406\u6389\u4E86 
       \u73FE\u5728\u600E\u9EBD\u53C8\u51FA\u73FE\u4E86"
@@ -41934,6 +42059,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 92fa9cf8be0b7a84ca2f627f7fb45516, type: 3}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   - description_cht: "\u6211\u5148\u63E3\u515C\u88CF  \u9019\u672C\u66F8\u6709\u6B98\u7F3A 
       \u6211\u770B\u770B\u80FD\u4E0D\u80FD\u627E\u5230\u5C11\u7684\u90A3\u5E7E\u9801"
     description_eng: I'll bring it back, but some pages are missing, I'm trying to
@@ -41941,12 +42068,16 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 015ed206cd1432b47b6a4a4b3e62820e, type: 3}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   image: {fileID: 0}
   highLightMat: {fileID: 0}
   restrictMovement: 0
   oneTimeDialogue: 1
   isSwitch: 0
   interactiveSwitch: []
+  logX: 0
+  logY: 0
   actor: {fileID: 0}
   funcToCall: 
 --- !u!23 &1019141288
@@ -44477,12 +44608,16 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 70b90f6cb22094745b5d420a8c7a97a4, type: 3}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   image: {fileID: 0}
   highLightMat: {fileID: 0}
   restrictMovement: 0
   oneTimeDialogue: 1
   isSwitch: 0
   interactiveSwitch: []
+  logX: 0
+  logY: 0
   actor: {fileID: 0}
   funcToCall: 
 --- !u!23 &1089374146
@@ -46162,7 +46297,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxAudioSouces: 50
   sourcePrefab: {fileID: 6500670877884442635, guid: 7aab4b4054ab5794391ccb73c06d2279, type: 3}
-  interactClips: []
+  manWalkClips: []
+  bearWalkClips: []
+  castFlying: {fileID: 0}
+  materialSelect: {fileID: 0}
+  enemyHitten: {fileID: 0}
+  droppingBall: {fileID: 0}
+  inspection: {fileID: 0}
+  logChangePage: {fileID: 0}
+  logClose: {fileID: 0}
+  logOpen: {fileID: 0}
+  playerCast: {fileID: 0}
+  playerHitten: {fileID: 0}
+  safehouseMaterialSelect: {fileID: 0}
+  safehouseMaterialSwap: {fileID: 0}
+  bearRoar: {fileID: 0}
+  wallBreak: {fileID: 0}
+  battleVOPhaseOne: []
+  battleVOPhaseTwo: []
 --- !u!4 &1117791240
 Transform:
   m_ObjectHideFlags: 0
@@ -47758,12 +47910,16 @@ MonoBehaviour:
     clip: {fileID: 0}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   image: {fileID: 0}
   highLightMat: {fileID: 0}
   restrictMovement: 0
   oneTimeDialogue: 1
   isSwitch: 0
   interactiveSwitch: []
+  logX: 0
+  logY: 0
   actor: {fileID: 0}
   funcToCall: 
 --- !u!23 &1136098096
@@ -49792,17 +49948,23 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: e84a19ecd5518e94daf0478068cdb3be, type: 3}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   - description_cht: "\u597D\u7684  \u4F60\u5148\u51FA\u4F86  \u597D\u597D\u8DDF\u6211\u8B1B\u8B1B"
     description_eng: Good, come out first, we'll talk about it
     clip: {fileID: 8300000, guid: 3ac9631e6f7398b4185be9da21810709, type: 3}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   image: {fileID: 0}
   highLightMat: {fileID: 0}
   restrictMovement: 0
   oneTimeDialogue: 1
   isSwitch: 0
   interactiveSwitch: []
+  logX: 0
+  logY: 0
   actor: {fileID: 0}
   funcToCall: 
 --- !u!23 &1174286059
@@ -54325,7 +54487,7 @@ Transform:
   - {fileID: 192364281}
   - {fileID: 1681466399}
   m_Father: {fileID: 0}
-  m_RootOrder: 53
+  m_RootOrder: 54
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1274771738
 PrefabInstance:
@@ -55133,17 +55295,23 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 69d6e01b6fe8fea47b9da75d3a80a735, type: 3}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   - description_cht: "\u4F60\u7E7C\u7E8C\u770B\u770B\u56DB\u5468  \u5C0F\u5FC3\u525B\u624D\u90A3\u6771\u897F"
     description_eng: Keep looking around, be careful with that creature
     clip: {fileID: 8300000, guid: b1dd30422a6d12d43aecbabe4f66f7bb, type: 3}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   image: {fileID: 0}
   highLightMat: {fileID: 0}
   restrictMovement: 0
   oneTimeDialogue: 1
   isSwitch: 0
   interactiveSwitch: []
+  logX: 0
+  logY: 0
   actor: {fileID: 1522016183}
   funcToCall: GotoLoc
 --- !u!23 &1291225964
@@ -57999,6 +58167,7 @@ MonoBehaviour:
   knockbackAmount: 0
   dot_interval: 0
   ResetPos: {x: 0, y: 0, z: 0}
+  BearMesh: {fileID: 0}
   myAC: {fileID: 1371030893}
   phase: 0
   ghostRider: {fileID: 0}
@@ -58013,6 +58182,7 @@ MonoBehaviour:
   walkable: 1
   hittedStates: {fileID: 669421155}
   knockedBack: 0
+  EnemyCanvas: {fileID: 0}
   breakable: 0
   breakMeter: 0
   breakMeterMax: 0
@@ -61603,6 +61773,8 @@ MonoBehaviour:
     clip: {fileID: 0}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   - description_cht: "\u5E2B\u5085  \u9019\u88CF\u6709\u5E7E\u5718\u63C9\u8D77\u4F86\u7684\u4FE1\u7D19 
       \u662F\u5BEB\u7D66\u5973\u5152\u7684"
     description_eng: Shifu, here are some crumpled letters here, I think it's Gu
@@ -61610,23 +61782,31 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 1ef8fa1a27920f34d89d283f121d8b13, type: 3}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   - description_cht: "\u5BEB\u4E86\u4E9B\u5565"
     description_eng: What's on it?
     clip: {fileID: 8300000, guid: 9eefe805d5261d149bb735f5e2654378, type: 3}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   - description_cht: "\u4E00\u4E9B\u5929\u5730\u826F\u5FC3\u7684\u8A71 \u60F3\u7D66\u5973\u5152\u9053\u6B49 
       \u770B\u4F86\u6C92\u8B93\u5973\u5152\u770B\u5230"
     description_eng: He's apologizing to the daughter, but he didn't give it to her
     clip: {fileID: 8300000, guid: e87e8f1d60c4062458354d7948b786ea, type: 3}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   image: {fileID: 0}
   highLightMat: {fileID: 0}
   restrictMovement: 0
   oneTimeDialogue: 1
   isSwitch: 0
   interactiveSwitch: []
+  logX: 0
+  logY: 0
   actor: {fileID: 0}
   funcToCall: 
 --- !u!23 &1460798299
@@ -63545,7 +63725,7 @@ Transform:
   - {fileID: 1189402787}
   - {fileID: 1038301389}
   m_Father: {fileID: 0}
-  m_RootOrder: 55
+  m_RootOrder: 56
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1518162518
 PrefabInstance:
@@ -63982,6 +64162,7 @@ MonoBehaviour:
   knockbackAmount: 30
   dot_interval: 0
   ResetPos: {x: 73, y: 2, z: 43}
+  BearMesh: {fileID: 0}
   myAC: {fileID: 0}
   phase: 1
   ghostRider: {fileID: 1522016188}
@@ -63996,6 +64177,7 @@ MonoBehaviour:
   walkable: 1
   hittedStates: {fileID: 995283456}
   knockedBack: 0
+  EnemyCanvas: {fileID: 0}
   breakable: 0
   breakMeter: 0
   breakMeterMax: 20
@@ -64949,12 +65131,16 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 72c9bca81ad0b6d4eb779ebcc3fc421b, type: 3}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   image: {fileID: 0}
   highLightMat: {fileID: 0}
   restrictMovement: 0
   oneTimeDialogue: 1
   isSwitch: 0
   interactiveSwitch: []
+  logX: 0
+  logY: 0
   actor: {fileID: 0}
   funcToCall: 
 --- !u!23 &1547216978
@@ -67448,23 +67634,31 @@ MonoBehaviour:
     clip: {fileID: 0}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   - description_cht: "\u5E2B\u5085  \u9019\u5EDA\u623F\u88CF\u7684\u5200\u770B\u8D77\u4F86\u6CBE\u904E\u8840 
       \u5200\u53E3\u7684\u7D05\u8272\u90FD\u767C\u9ED1\u4E86"
     description_eng: Shifu, these knives in the kitchen, their blade are dark red
     clip: {fileID: 8300000, guid: aca232124960b074eb4f83c2cdf3a05a, type: 3}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   - description_cht: "\u90A3\u6CBE\u8840\u6B21\u6578\u4E0D\u5C11  \u800C\u4E14\u6709\u9EDE\u6642\u9593\u4E86"
     description_eng: Sounds like their bloodstained for a long time
     clip: {fileID: 8300000, guid: 844769ce9f68cab4ca43cb4dc642d69f, type: 3}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   image: {fileID: 0}
   highLightMat: {fileID: 0}
   restrictMovement: 0
   oneTimeDialogue: 1
   isSwitch: 0
   interactiveSwitch: []
+  logX: 0
+  logY: 0
   actor: {fileID: 0}
   funcToCall: 
 --- !u!23 &1626390665
@@ -67753,6 +67947,102 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1630268442}
   m_Mesh: {fileID: -7759331768739107841, guid: 983fbbd44043de749826e4aefe788655, type: 3}
+--- !u!1 &1634169139
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1634169143}
+  - component: {fileID: 1634169142}
+  - component: {fileID: 1634169141}
+  - component: {fileID: 1634169140}
+  m_Layer: 0
+  m_Name: Fire
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!135 &1634169140
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634169139}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1634169141
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634169139}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: fbb24075a99d03a47b711d40e2302eeb, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1634169142
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634169139}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1634169143
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634169139}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 54.406, y: 4.577, z: 34.429}
+  m_LocalScale: {x: 0.4260326, y: 0.4260326, z: 0.4260326}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 50
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1635108710
 GameObject:
   m_ObjectHideFlags: 0
@@ -68890,6 +69180,7 @@ MonoBehaviour:
   knockbackAmount: 0
   dot_interval: 0
   ResetPos: {x: 0, y: 0, z: 0}
+  BearMesh: {fileID: 0}
   myAC: {fileID: 1658417428}
   phase: 1
   ghostRider: {fileID: 1658417433}
@@ -68904,6 +69195,7 @@ MonoBehaviour:
   walkable: 1
   hittedStates: {fileID: 0}
   knockedBack: 0
+  EnemyCanvas: {fileID: 0}
   breakable: 0
   breakMeter: 0
   breakMeterMax: 0
@@ -72082,12 +72374,16 @@ MonoBehaviour:
     clip: {fileID: 0}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   image: {fileID: 0}
   highLightMat: {fileID: 0}
   restrictMovement: 0
   oneTimeDialogue: 1
   isSwitch: 0
   interactiveSwitch: []
+  logX: 0
+  logY: 0
   actor: {fileID: 0}
   funcToCall: 
 --- !u!23 &1722667892
@@ -74617,8 +74913,9 @@ MonoBehaviour:
   knockbackAmount: 30
   dot_interval: 1
   ResetPos: {x: 73, y: 2, z: 43}
+  BearMesh: {fileID: 0}
   myAC: {fileID: 0}
-  phase: 2
+  phase: 0
   ghostRider: {fileID: 1770997394}
   target: {fileID: 61081865}
   AIAnimator: {fileID: 1102947580}
@@ -74631,6 +74928,7 @@ MonoBehaviour:
   walkable: 1
   hittedStates: {fileID: 858048439}
   knockedBack: 0
+  EnemyCanvas: {fileID: 0}
   breakable: 0
   breakMeter: 0
   breakMeterMax: 20
@@ -76212,6 +76510,7 @@ MonoBehaviour:
   knockbackAmount: 0
   dot_interval: 0
   ResetPos: {x: 0, y: 0, z: 0}
+  BearMesh: {fileID: 0}
   myAC: {fileID: 1820184043}
   phase: 1
   ghostRider: {fileID: 1820184048}
@@ -76226,6 +76525,7 @@ MonoBehaviour:
   walkable: 1
   hittedStates: {fileID: 213069590}
   knockedBack: 0
+  EnemyCanvas: {fileID: 0}
   breakable: 0
   breakMeter: 0
   breakMeterMax: 0
@@ -77130,7 +77430,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 52
+  m_RootOrder: 53
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1842839050
 PrefabInstance:
@@ -79567,12 +79867,16 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 749955604ef04094990aadd74ee4a74e, type: 3}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   image: {fileID: 0}
   highLightMat: {fileID: 0}
   restrictMovement: 0
   oneTimeDialogue: 1
   isSwitch: 0
   interactiveSwitch: []
+  logX: 0
+  logY: 0
   actor: {fileID: 0}
   funcToCall: 
 --- !u!23 &1902786270
@@ -80564,7 +80868,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 51
+  m_RootOrder: 52
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1933360442
 PrefabInstance:
@@ -82389,12 +82693,16 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 49e1a3b55ea1a2e49900f373f453cc7c, type: 3}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   image: {fileID: 0}
   highLightMat: {fileID: 0}
   restrictMovement: 0
   oneTimeDialogue: 1
   isSwitch: 0
   interactiveSwitch: []
+  logX: 0
+  logY: 0
   actor: {fileID: 0}
   funcToCall: 
 --- !u!23 &1968438310
@@ -84389,7 +84697,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 50
+  m_RootOrder: 51
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2026970793
 PrefabInstance:
@@ -87396,6 +87704,7 @@ MonoBehaviour:
   knockbackAmount: 0
   dot_interval: 0
   ResetPos: {x: 0, y: 0, z: 0}
+  BearMesh: {fileID: 0}
   myAC: {fileID: 2090170498}
   phase: 1
   ghostRider: {fileID: 2090170503}
@@ -87410,6 +87719,7 @@ MonoBehaviour:
   walkable: 1
   hittedStates: {fileID: 1386010579}
   knockedBack: 0
+  EnemyCanvas: {fileID: 0}
   breakable: 0
   breakMeter: 0
   breakMeterMax: 0
@@ -87691,12 +88001,16 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 95fd244315f05034a9e27257f6249224, type: 3}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   image: {fileID: 0}
   highLightMat: {fileID: 0}
   restrictMovement: 0
   oneTimeDialogue: 1
   isSwitch: 0
   interactiveSwitch: []
+  logX: 0
+  logY: 0
   actor: {fileID: 0}
   funcToCall: 
 --- !u!23 &2090734043
@@ -89219,23 +89533,31 @@ MonoBehaviour:
     clip: {fileID: 0}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   - description_cht: "\u5E2B\u5085  \u9019\u6709\u4E00\u5F35\u623F\u5C4B\u5167\u98A8\u6C34\u5716 
       \u9019\u4E0A\u9762\u6709\u4E9B\u8A18\u865F"
     description_eng: Shifu, I found a Feng Shui map, there's some symbol on it
     clip: {fileID: 8300000, guid: 5d1e8ce8e1e228d41bdade6f9fb31aff, type: 3}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   - description_cht: "\u7559\u610F\u4E00\u4E0B  \u53EF\u80FD\u6703\u6D3E\u4E0A\u7528\u5834"
     description_eng: Keep mind on the layout, might be useful
     clip: {fileID: 8300000, guid: a96afd41514992a4c8221f8a52b72b6d, type: 3}
     time: 0
     options: []
+    logX: 0
+    logY: 0
   image: {fileID: 0}
   highLightMat: {fileID: 0}
   restrictMovement: 0
   oneTimeDialogue: 1
   isSwitch: 0
   interactiveSwitch: []
+  logX: 0
+  logY: 0
   actor: {fileID: 0}
   funcToCall: 
 --- !u!23 &2120788424
@@ -90287,6 +90609,127 @@ Transform:
   m_Father: {fileID: 320575044}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 17.365198, y: 48.533894, z: -4.0540724}
+--- !u!1001 &2141725247
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1886515286115189544, guid: fd4eb37707ad7d145bd2c6fe16c0b3a7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1886515286115189544, guid: fd4eb37707ad7d145bd2c6fe16c0b3a7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810462558183411902, guid: fd4eb37707ad7d145bd2c6fe16c0b3a7, type: 3}
+      propertyPath: m_RootOrder
+      value: 57
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810462558183411902, guid: fd4eb37707ad7d145bd2c6fe16c0b3a7, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.26692998
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810462558183411902, guid: fd4eb37707ad7d145bd2c6fe16c0b3a7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2155
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810462558183411902, guid: fd4eb37707ad7d145bd2c6fe16c0b3a7, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.26692998
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810462558183411902, guid: fd4eb37707ad7d145bd2c6fe16c0b3a7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 54.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810462558183411902, guid: fd4eb37707ad7d145bd2c6fe16c0b3a7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810462558183411902, guid: fd4eb37707ad7d145bd2c6fe16c0b3a7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 34.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810462558183411902, guid: fd4eb37707ad7d145bd2c6fe16c0b3a7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810462558183411902, guid: fd4eb37707ad7d145bd2c6fe16c0b3a7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.00000008146034
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810462558183411902, guid: fd4eb37707ad7d145bd2c6fe16c0b3a7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810462558183411902, guid: fd4eb37707ad7d145bd2c6fe16c0b3a7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810462558183411902, guid: fd4eb37707ad7d145bd2c6fe16c0b3a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810462558183411902, guid: fd4eb37707ad7d145bd2c6fe16c0b3a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810462558183411902, guid: fd4eb37707ad7d145bd2c6fe16c0b3a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810462558183591448, guid: fd4eb37707ad7d145bd2c6fe16c0b3a7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810462558183608384, guid: fd4eb37707ad7d145bd2c6fe16c0b3a7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810462558183624936, guid: fd4eb37707ad7d145bd2c6fe16c0b3a7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810462558183640044, guid: fd4eb37707ad7d145bd2c6fe16c0b3a7, type: 3}
+      propertyPath: m_Name
+      value: CandlesSet
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810462558183640044, guid: fd4eb37707ad7d145bd2c6fe16c0b3a7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810462558183644784, guid: fd4eb37707ad7d145bd2c6fe16c0b3a7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810462558183653180, guid: fd4eb37707ad7d145bd2c6fe16c0b3a7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810462558183662376, guid: fd4eb37707ad7d145bd2c6fe16c0b3a7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7418126681823972830, guid: fd4eb37707ad7d145bd2c6fe16c0b3a7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7418126681823972830, guid: fd4eb37707ad7d145bd2c6fe16c0b3a7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 9194488891298711137, guid: fd4eb37707ad7d145bd2c6fe16c0b3a7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9194488891298711137, guid: fd4eb37707ad7d145bd2c6fe16c0b3a7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fd4eb37707ad7d145bd2c6fe16c0b3a7, type: 3}
 --- !u!1 &2141809395
 GameObject:
   m_ObjectHideFlags: 0
