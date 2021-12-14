@@ -74,6 +74,7 @@ public class SafehouseManager : MonoBehaviour
         if(isSafehouse != checkBoolChange && isSafehouse)   
         {
             Debug.Log("Safehouse");
+            AmbienceManager.ambienceManager.SafeHouseAmbiencePlay();//enter safehouse sound
             if(enemyScript != null)
                 enemyScript.ResetEnemy();
             PostProcessingManager.Me.StopAllCoroutines();
@@ -83,6 +84,7 @@ public class SafehouseManager : MonoBehaviour
         }
         else if(isSafehouse != checkBoolChange && !isSafehouse)
         {
+            AmbienceManager.ambienceManager.HallwayAmbiencePlay();//off safehouse
             PlayerScriptNew.me.walking = true;
             StartCoroutine(FadeCanvas(cg, 0f, fadeTime));
             RespawnPlayer(spawnPoint);
