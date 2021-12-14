@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class Enemy : MonoBehaviour
     public float knockbackAmount;
     public float dot_interval;
     public Vector3 ResetPos;
-
+    public GameObject BearMesh;
     public AIController myAC;
     public enum AIPhase { NotInBattle, InBattle1, InBattle2 };
     public AIPhase phase;
@@ -49,6 +50,7 @@ public class Enemy : MonoBehaviour
     public TextMeshProUGUI hittedStates;
     public bool knockedBack;
     public AIStateBase interruptedState;
+    public GameObject EnemyCanvas;
 
     [Header("Supply")]
     public bool breakable;
@@ -156,6 +158,8 @@ public class Enemy : MonoBehaviour
                 EnemyDialogueManagerScript.me.SpawnDialogueTrigger(0);
             }
             myAC.ChangeState(myAC.dieState);
+            FadeInManager.Me.StartCoroutine(UIManager.Me.FadeCanvas(FadeInManager.Me.GetComponent<CanvasGroup>(), 1, 3));
+            StartCoroutine(EndGame(3));
             return true;
         }
         else
@@ -163,24 +167,36 @@ public class Enemy : MonoBehaviour
 
     }
 
+    IEnumerator EndGame(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        SceneManager.LoadScene(2);
+    }
+
     public void ResetEnemy()
     {
         health = this.healthRecord;
         maxHealth = this.healthRecord;
-        shield = this.shieldRecord - 200;
-        maxShield = this.shieldRecord - 200;
+        shield = maxShield;
+        //maxShield = 200;
         changeLimit = 2;
         Mother.BackKids();
-        this.GetComponent<NavMeshAgent>().enabled = false;
-        ChangePhase(AIPhase.NotInBattle, 1);
+        var item = GameObject.Find("GirlJournal");
+        if (item != null)
+        {
+            ChangePhase(AIPhase.NotInBattle, 1);
+            this.GetComponent<NavMeshAgent>().enabled = false;
+            BearMesh.SetActive(false);
+            this.GetComponent<MeshRenderer>().enabled = false;
+            this.GetComponent<CapsuleCollider>().enabled = false;
+            myTrigger.GetComponent<AtkTrigger>().onAtkTrigger = false;
+            myTrigger.myMR.enabled = false;
+        }
         myAC.ChangeState(myAC.idleState);
         this.transform.position = ResetPos;
-        this.GetComponent<MeshRenderer>().enabled = false;
-        this.GetComponent<CapsuleCollider>().enabled = false;
         breakMeter_ui.enabled = false;
-        hittedStates.enabled = false;
-        myTrigger.GetComponent<AtkTrigger>().onAtkTrigger = false;
-        myTrigger.myMR.enabled = false;
+        //hittedStates.enabled = false;
+        EnemyCanvas.SetActive(false);
     }
 
     public void DealDmg(int dmgAmt)
@@ -351,11 +367,12 @@ public class Enemy : MonoBehaviour
     public void GotoLoc()
     {
         // go to specific location and stand still for dialogue
-        this.GetComponent<MeshRenderer>().enabled = true;
+        BearMesh.SetActive(true);
         this.GetComponent<CapsuleCollider>().enabled = true;
         this.GetComponent<NavMeshAgent>().enabled = true;
-        breakMeter_ui.enabled = true;
-        hittedStates.enabled = true;
+        //EnemyCanvas.SetActive(true);
+        ///breakMeter_ui.enabled = true;
+        //hittedStates.enabled = true;
         myTrigger.myMR.enabled = true;
         ChangePhase(AIPhase.InBattle1, 1);
         SafehouseManager.Me.canSafehouse = true;

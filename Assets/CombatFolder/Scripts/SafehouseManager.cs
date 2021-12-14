@@ -71,7 +71,7 @@ public class SafehouseManager : MonoBehaviour
             timer += Time.deltaTime;
         }
         //when bool is changed, do once
-        if(isSafehouse != checkBoolChange && isSafehouse)
+        if(isSafehouse != checkBoolChange && isSafehouse)   
         {
             Debug.Log("Safehouse");
             if(enemyScript != null)
@@ -79,11 +79,11 @@ public class SafehouseManager : MonoBehaviour
             PostProcessingManager.Me.StopAllCoroutines();
             PostProcessingManager.Me.StartCoroutine(PostProcessingManager.Me.ResetFilter());
             StartCoroutine(FadeCanvas(cg, 1f, fadeTime));
-            PlayerScriptNew.me.gameObject.SetActive(false);
             checkBoolChange = isSafehouse;
         }
         else if(isSafehouse != checkBoolChange && !isSafehouse)
         {
+            PlayerScriptNew.me.walking = true;
             StartCoroutine(FadeCanvas(cg, 0f, fadeTime));
             RespawnPlayer(spawnPoint);
             WallHider.me.roomPlayerIsIn = WallHider.Room.corridor;
@@ -107,7 +107,8 @@ public class SafehouseManager : MonoBehaviour
 
     public void RespawnPlayer(Transform SpawnPoint)
     {
-        PlayerScriptNew.me.transform.position = new Vector3(SpawnPoint.position.x, PlayerScript.me.transform.position.y, SpawnPoint.position.z);
+        PlayerScriptNew.me.transform.position = new Vector3(SpawnPoint.position.x, PlayerScript.me.transform.position.y , SpawnPoint.position.z);
+        PlayerScriptNew.me.transform.Find("PlayerModel").localPosition = Vector3.zero;
         PlayerScriptNew.me.hp = 30;
         PlayerScriptNew.me.dead = false;
         PlayerScriptNew.me.gameObject.SetActive(true);
