@@ -13,9 +13,12 @@ public class AmbienceManager : MonoBehaviour
     
     public AudioClip[] ambienceClips; //0 is hall way, 1 is living room
 
-    private BoxCollider hallwayTrigger;
-    private BoxCollider roomtrigger;
-    private BoxCollider balconyTrigger;
+    public BoxCollider hallwayTrigger;
+    public BoxCollider roomTriggerOne;
+    public BoxCollider balconyTriggerOne;
+    public BoxCollider roomTriggerTwo;
+    public BoxCollider balconyTriggerTwo;
+    public BoxCollider roomTriggerThree;
 
     private void Awake()
     {
@@ -31,8 +34,7 @@ public class AmbienceManager : MonoBehaviour
     {
         ambienceSource = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("RealPlayer");
-        hallwayTrigger = GameObject.Find("HallwayTrigger").GetComponent<BoxCollider>();
-        roomtrigger = GameObject.Find("RoomTrigger").GetComponent<BoxCollider>();
+
     }
 
     void Update()
@@ -47,12 +49,12 @@ public class AmbienceManager : MonoBehaviour
             HallwayAmbiencePlay();
         }
 
-        if (other == roomtrigger)
+        if (other == roomTriggerOne || other == roomTriggerTwo || other == roomTriggerThree)
         {
             RoomAmbiencePlay();
         }
 
-        if(other == balconyTrigger)
+        if(other == balconyTriggerOne || other == balconyTriggerTwo)
         {
             BalconyAmbiencePlay();
         }
