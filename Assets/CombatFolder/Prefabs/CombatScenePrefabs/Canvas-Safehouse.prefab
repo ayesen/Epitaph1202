@@ -451,7 +451,7 @@ Canvas:
   m_GameObject: {fileID: 6290434996199622126}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -461,7 +461,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!114 &5068007353727252073
 MonoBehaviour:
@@ -529,7 +529,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canSafehouse: 0
   isSafehouse: 0
-  isCheatOn: 1
+  isCheatOn: 0
   hideTime: 5
   fadeTime: 1
   enemyScript: {fileID: 0}

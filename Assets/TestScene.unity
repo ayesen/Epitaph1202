@@ -2050,7 +2050,7 @@ MonoBehaviour:
     iS: 1
     doThis: 9
     toWhom: 0
-    forHowMuch: 0
+    forHowMuch: 3
     myModifiers:
     - modifierType: 1
       plus: 0
@@ -2058,6 +2058,7 @@ MonoBehaviour:
     forHowLong: 10
   lifespan: 3
   matIcon: {fileID: 21300000, guid: d94a77db26ae1444cbfdc3015cd7bac1, type: 3}
+  Description: Every time you deal damage to enemy, heal 3 hp for 10 seconds
 --- !u!4 &50473586
 Transform:
   m_ObjectHideFlags: 0
@@ -2942,7 +2943,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5603555314290144243, guid: 227da076e12dbfa4b990f022b9a9dc8e, type: 3}
       propertyPath: hp
-      value: 1000
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5603555314290144243, guid: 227da076e12dbfa4b990f022b9a9dc8e, type: 3}
       propertyPath: spd
@@ -4034,7 +4035,7 @@ Light:
   m_BounceIntensity: 2
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 4.5904e-41, y: 0, z: 0, w: -0.000000069174355}
+  m_BoundingSphereOverride: {x: 4.5904e-41, y: 0, z: 0, w: 6.009127e-39}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -9284,7 +9285,7 @@ Light:
   m_BounceIntensity: 2
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1.02e-43, y: 4.5209e-41, z: 7.74e-43, w: -1.921137e+20}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -12724,7 +12725,7 @@ Light:
   m_BounceIntensity: 2
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 7.72e-43, y: NaN, z: 0, w: -0.000000017776998}
+  m_BoundingSphereOverride: {x: 4.5904e-41, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -24449,6 +24450,7 @@ MonoBehaviour:
     forHowLong: 0
   lifespan: 3
   matIcon: {fileID: 21300000, guid: 960d7177b594964499b31089eee3ba49, type: 3}
+  Description: Deal 5 damage and knock back enemy
 --- !u!4 &552890082
 Transform:
   m_ObjectHideFlags: 0
@@ -26124,7 +26126,7 @@ Light:
   m_BounceIntensity: 2
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 4.5904e-41, y: 0, z: 0, w: 6.345983e+16}
+  m_BoundingSphereOverride: {x: 4.5904e-41, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -45351,7 +45353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7688550c798a4ec48b9b1eb8c5a9d383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 999
+  amount: 1
   amount_max: 0
   myEffects:
   - when: 0
@@ -45362,7 +45364,8 @@ MonoBehaviour:
     myModifiers: []
     forHowLong: 5
   lifespan: 0.01
-  matIcon: {fileID: 0}
+  matIcon: {fileID: 21300000, guid: 6d7587efe376e9547ace804df02d22f0, type: 3}
+  Description: Summon a little bear to fight with you
 --- !u!4 &1032884328
 Transform:
   m_ObjectHideFlags: 0
@@ -48510,7 +48513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7688550c798a4ec48b9b1eb8c5a9d383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 999
+  amount: 1
   amount_max: 0
   myEffects:
   - when: 0
@@ -48529,6 +48532,7 @@ MonoBehaviour:
     forHowLong: 0
   lifespan: 0.1
   matIcon: {fileID: 21300000, guid: a00008f2586e79646a888f054861b3b2, type: 3}
+  Description: Create a soundwave attack
 --- !u!4 &1092794033
 Transform:
   m_ObjectHideFlags: 0
@@ -50226,7 +50230,7 @@ Light:
   m_BounceIntensity: 2
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 3.06e-42, y: 6e-44, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 4.5904e-41, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -53957,7 +53961,7 @@ Light:
   m_BounceIntensity: 2
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 4.5904e-41, y: 0, z: 0, w: 3.4e-44}
+  m_BoundingSphereOverride: {x: 4.5904e-41, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -55371,7 +55375,7 @@ Light:
   m_BounceIntensity: 2
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 7.72e-43, y: -0.000000056510743, z: 7.72e-43, w: -0.005402327}
+  m_BoundingSphereOverride: {x: 4.5904e-41, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -56460,6 +56464,7 @@ MonoBehaviour:
     forHowLong: 0
   lifespan: 3
   matIcon: {fileID: 21300000, guid: 8008d6579dc6491428d80ba95171dac2, type: 3}
+  Description: Deal 5 damage on time and 5 break meter
 --- !u!4 &1286690109
 Transform:
   m_ObjectHideFlags: 0
@@ -57886,7 +57891,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &1329833562
 Light:
   m_ObjectHideFlags: 0
@@ -63554,8 +63559,8 @@ MonoBehaviour:
   health: 10
   maxHealth: 10
   moveSpeed: 0
-  shield: 20
-  maxShield: 20
+  shield: 500
+  maxShield: 500
   atkSpd: 2
   attackamt: 0
   preAtkSpd: 2
@@ -63587,8 +63592,8 @@ MonoBehaviour:
   knockedBack: 0
   EnemyCanvas: {fileID: 1895330800}
   breakable: 1
-  breakMeter: 0
-  breakMeterMax: 20
+  breakMeter: 10
+  breakMeterMax: 10
   recovery_wait: 2
   recovery_spd: 0.2
   breakMeter_ui: {fileID: 240798370}
@@ -63683,7 +63688,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1455679837}
   m_LocalRotation: {x: -0, y: 0.92387956, z: -0, w: 0.38268343}
-  m_LocalPosition: {x: 71.53, y: 2, z: 24.02}
+  m_LocalPosition: {x: 68.75, y: 2, z: 60.57}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 1979612656}
@@ -69763,43 +69768,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3552839045908388445, guid: 5aaf25c21c3690d488a6cc96fd1acdad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.764
+      value: -2.69
       objectReference: {fileID: 0}
     - target: {fileID: 3552839045908388445, guid: 5aaf25c21c3690d488a6cc96fd1acdad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.286
+      value: -1.44
       objectReference: {fileID: 0}
     - target: {fileID: 3552839045908388445, guid: 5aaf25c21c3690d488a6cc96fd1acdad, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 23.578
+      value: 31.94
       objectReference: {fileID: 0}
     - target: {fileID: 3552839045908388445, guid: 5aaf25c21c3690d488a6cc96fd1acdad, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.43843523
+      value: 0.18271226
       objectReference: {fileID: 0}
     - target: {fileID: 3552839045908388445, guid: 5aaf25c21c3690d488a6cc96fd1acdad, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.8209208
+      value: -0.34032923
       objectReference: {fileID: 0}
     - target: {fileID: 3552839045908388445, guid: 5aaf25c21c3690d488a6cc96fd1acdad, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.02894717
+      value: -0.36929345
       objectReference: {fileID: 0}
     - target: {fileID: 3552839045908388445, guid: 5aaf25c21c3690d488a6cc96fd1acdad, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.3647268
+      value: -0.8452305
       objectReference: {fileID: 0}
     - target: {fileID: 3552839045908388445, guid: 5aaf25c21c3690d488a6cc96fd1acdad, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -135.675
+      value: -131.52701
       objectReference: {fileID: 0}
     - target: {fileID: 3552839045908388445, guid: 5aaf25c21c3690d488a6cc96fd1acdad, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -60.755005
+      value: -138.377
       objectReference: {fileID: 0}
     - target: {fileID: 3552839045908388445, guid: 5aaf25c21c3690d488a6cc96fd1acdad, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 30.897003
+      value: 4.975998
       objectReference: {fileID: 0}
     - target: {fileID: 8934067671141188672, guid: 5aaf25c21c3690d488a6cc96fd1acdad, type: 3}
       propertyPath: m_Name
@@ -75206,7 +75211,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5386807058118991575, guid: 7266e1f51c219634889a73c9569544dd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.16
+      value: -4.05
       objectReference: {fileID: 0}
     - target: {fileID: 5386807058118991575, guid: 7266e1f51c219634889a73c9569544dd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -75214,7 +75219,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5386807058118991575, guid: 7266e1f51c219634889a73c9569544dd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 27.5
+      value: 24.6
       objectReference: {fileID: 0}
     - target: {fileID: 5386807058118991575, guid: 7266e1f51c219634889a73c9569544dd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -81881,6 +81886,7 @@ MonoBehaviour:
     forHowLong: 0
   lifespan: 3
   matIcon: {fileID: 21300000, guid: 40fadc3026110954d8815002de124a44, type: 3}
+  Description: Cast 3 times simultaneously
 --- !u!4 &1875390916
 Transform:
   m_ObjectHideFlags: 0
@@ -88098,7 +88104,7 @@ Light:
   m_BounceIntensity: 2
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 4.5904e-41, y: 0, z: 0, w: 3e-45}
+  m_BoundingSphereOverride: {x: 4.5904e-41, y: 0, z: 0, w: 9.1858e-41}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -88560,7 +88566,7 @@ PrefabInstance:
     - target: {fileID: 8354202477693154229, guid: 233e6e696c7c03c44a147aaebc5af99e, type: 3}
       propertyPath: smallBearPrefab
       value: 
-      objectReference: {fileID: 4696270329065464475, guid: db469ff6d31b97d4cba11ece5ae7e8e7, type: 3}
+      objectReference: {fileID: 1087830168452021571, guid: af38073ddf595db4eb4ebaa95fdb4191, type: 3}
     - target: {fileID: 8354202477693154229, guid: 233e6e696c7c03c44a147aaebc5af99e, type: 3}
       propertyPath: AOECollisionPrefab
       value: 
@@ -93076,7 +93082,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6480628095242817361}
   m_LocalRotation: {x: 0.6828394, y: 0.18365823, z: -0.18365814, w: 0.68283945}
-  m_LocalPosition: {x: -26.48, y: -2.601, z: 12.71}
+  m_LocalPosition: {x: -19.208, y: -1.28, z: 19.422}
   m_LocalScale: {x: 0.06, y: 0.06, z: 0.06}
   m_Children: []
   m_Father: {fileID: 1422977151}
@@ -93700,7 +93706,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 159576194780000601}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0038646352, y: 0.012, z: -0.003231421}
+  m_LocalPosition: {x: 0.01, y: 0.012, z: -0.0123}
   m_LocalScale: {x: 1.5671, y: 1.5671, z: 1.5671}
   m_Children: []
   m_Father: {fileID: 7940591560215003270}
@@ -94935,7 +94941,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7312004522768128572}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -29.37, y: -2.672, z: 10.02}
+  m_LocalPosition: {x: -27.098, y: -2.672, z: 10.473}
   m_LocalScale: {x: 15, y: 15, z: 15}
   m_Children:
   - {fileID: 2880946083718294145}

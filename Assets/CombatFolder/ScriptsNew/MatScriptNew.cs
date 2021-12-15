@@ -11,6 +11,7 @@ public class MatScriptNew : MonoBehaviour
 	public List<EffectStructNew> myEffects;
 	public float lifespan;
 	public Sprite matIcon;
+	public string Description;
 
 	private void Start()
 	{

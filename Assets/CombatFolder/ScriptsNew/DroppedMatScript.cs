@@ -27,6 +27,7 @@ public class DroppedMatScript : MonoBehaviour
 				{
 					PlayerScriptNew.me.matSlots[3] = myMat;
 					PlayerScriptNew.me.matSlots[3].GetComponent<MatScriptNew>().amount = 1;
+					UIManager.Me.UI_ChangeIcon();
 					Destroy(gameObject);
 				}
 			}
