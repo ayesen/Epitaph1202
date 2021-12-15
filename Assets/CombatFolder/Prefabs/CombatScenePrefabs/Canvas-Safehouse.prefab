@@ -527,9 +527,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 749200d4dbc1f7c429b1bd23d9ec7fd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canSafehouse: 0
   isSafehouse: 0
+  isCheatOn: 1
   hideTime: 5
   fadeTime: 1
+  enemyScript: {fileID: 0}
   spawnPoint: {fileID: 0}
 --- !u!1 &6628723436302135884
 GameObject:

@@ -64,6 +64,14 @@ public class ChangeInventory : MonoBehaviour
             }
         }
 
+        if(choosenMatIndex == 3)
+            {
+                if (!isChanging)
+                    choosenMatIndex = 4;
+                else
+                    choosenMatIndex = 2;
+            }
+
         if (!isChanging)
         {
             //choosen mat

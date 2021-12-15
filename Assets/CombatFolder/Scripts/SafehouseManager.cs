@@ -7,6 +7,7 @@ public class SafehouseManager : MonoBehaviour
     private float timer;
     public bool canSafehouse;
     public bool isSafehouse;
+    public bool isCheatOn;
     public float hideTime;
     public float fadeTime;
     private CanvasGroup cg;
@@ -52,7 +53,7 @@ public class SafehouseManager : MonoBehaviour
         {
             isSafehouse = false;
         }
-        else if (Input.GetKeyDown(KeyCode.B) && !isSafehouse)
+        else if (Input.GetKeyDown(KeyCode.B) && !isSafehouse && isCheatOn)
         {
             isSafehouse = true;
         }
@@ -73,7 +74,8 @@ public class SafehouseManager : MonoBehaviour
         //when bool is changed, do once
         if(isSafehouse != checkBoolChange && isSafehouse)   
         {
-            Debug.Log("Safehouse");
+            //Debug.Log("Safehouse");
+            ResetMatAmount();
             AmbienceManager.ambienceManager.SafeHouseAmbiencePlay();//enter safehouse sound
             if(enemyScript != null)
                 enemyScript.ResetEnemy();
@@ -89,7 +91,6 @@ public class SafehouseManager : MonoBehaviour
             StartCoroutine(FadeCanvas(cg, 0f, fadeTime));
             RespawnPlayer(spawnPoint);
             WallHider.me.roomPlayerIsIn = WallHider.Room.corridor;
-            ResetMatAmount();
             PlayerScriptNew.me.selectedMats.Clear();
             checkBoolChange = isSafehouse;
             if(enemyScript.isPhaseTwo)
