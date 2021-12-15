@@ -91,7 +91,6 @@ public class EffectStorage : MonoBehaviour
 		ee.GetComponent<Rigidbody>().isKinematic = false;
 		Vector3 adjustedEEPos = new Vector3(ee.transform.position.x, ee.transform.position.y + 2f, ee.transform.position.z);
 		Vector3 dir = adjustedEEPos - erPos;
-		print(adjustedEEPos);
 		print(erPos);
 		ee.GetComponent<Rigidbody>().AddForce(dir.normalized * amount, ForceMode.Impulse);
 		StartCoroutine(SetEnemyKnockedState(ee));
@@ -121,9 +120,9 @@ public class EffectStorage : MonoBehaviour
 	}
 	private void GetDroppableMats()
 	{
-		foreach (var mat in PlayerScriptNew.me.matSlots)
+		for (int i = 0; i < 3; i++)
 		{
-			droppableMat.Add(mat);
+			droppableMat.Add(PlayerScriptNew.me.matSlots[i]);
 		}
 	}
 	private void BreakNSpawnMat(GameObject enemy) //! remember to drag boss to mainEnemyInThisLevel
