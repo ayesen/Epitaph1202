@@ -28,4 +28,14 @@ public class EffectManagerScriptHolder : MonoBehaviour
 			ui.GetComponent<TextMeshProUGUI>().text = "";
 		}
 	}
+
+	public void CastShoutSound()
+    {
+		SoundMan.SoundManager.PlayerCast();
+    }
+
+	public void PlayerWalkingSound()
+    {
+		SoundMan.SoundManager.ManWalk();
+    }
 }

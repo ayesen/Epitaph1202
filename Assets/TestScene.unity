@@ -251,8 +251,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fabfd9a3aa8c345a768b6bb8c003e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
-  maxHealth: 20
+  health: 5
+  maxHealth: 5
   moveSpeed: 1
   shield: 0
   maxShield: 0
@@ -271,6 +271,7 @@ MonoBehaviour:
   BearMesh: {fileID: 473677500}
   myAC: {fileID: 15641239}
   phase: 1
+  isPhaseTwo: 0
   ghostRider: {fileID: 0}
   target: {fileID: 1440344667}
   AIAnimator: {fileID: 473677501}
@@ -23217,8 +23218,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fabfd9a3aa8c345a768b6bb8c003e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
-  maxHealth: 20
+  health: 5
+  maxHealth: 5
   moveSpeed: 1
   shield: 0
   maxShield: 0
@@ -23237,6 +23238,7 @@ MonoBehaviour:
   BearMesh: {fileID: 1208502501}
   myAC: {fileID: 529925735}
   phase: 0
+  isPhaseTwo: 0
   ghostRider: {fileID: 0}
   target: {fileID: 1440344667}
   AIAnimator: {fileID: 1208502502}
@@ -30723,8 +30725,8 @@ MonoBehaviour:
   interactiveSwitch: []
   logX: 4
   logY: 4
-  actor: {fileID: 0}
-  funcToCall: 
+  actor: {fileID: 1998540223}
+  funcToCall: DaughterRoomMusic
 --- !u!23 &694068550
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -37603,8 +37605,8 @@ MonoBehaviour:
   interactiveSwitch: []
   logX: 0
   logY: 0
-  actor: {fileID: 0}
-  funcToCall: 
+  actor: {fileID: 1998540223}
+  funcToCall: YangtaiPuzzleMusic
 --- !u!23 &865814394
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -47015,7 +47017,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1092726423
 Transform:
   m_ObjectHideFlags: 0
@@ -51894,7 +51896,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1221222380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61747,6 +61749,7 @@ MonoBehaviour:
   BearMesh: {fileID: 862493571}
   myAC: {fileID: 0}
   phase: 0
+  isPhaseTwo: 0
   ghostRider: {fileID: 1455679843}
   target: {fileID: 1440344667}
   AIAnimator: {fileID: 862493572}
@@ -67629,10 +67632,10 @@ MonoBehaviour:
   Page5: {fileID: 1031893406}
   PageBase:
   - {fileID: 21300000, guid: 25f2204d5a08ea148b1fe07b6c5f1b74, type: 3}
-  - {fileID: 21300000, guid: 6acc775610bd24ab6a5696c73dc024da, type: 3}
-  - {fileID: 21300000, guid: 5d55b87390a8740ee9f30ef959802d60, type: 3}
-  - {fileID: 21300000, guid: 553154beafada4847aa67a3c52efe491, type: 3}
-  - {fileID: 21300000, guid: 489bec8db00574a8c888cad881e93e97, type: 3}
+  - {fileID: 21300000, guid: 2d5e9f1dd2602ec44964239fef56941e, type: 3}
+  - {fileID: 21300000, guid: 4e1530beb7ef9944e9d18fdca602ff7b, type: 3}
+  - {fileID: 21300000, guid: 86537bfa4e02c4044a43afd5025e3ca8, type: 3}
+  - {fileID: 21300000, guid: 9126ccd676572954c94782e7e3407f89, type: 3}
   P1Cover:
   - {fileID: 21300000, guid: 575635cb898dd488c904d94c35634169, type: 3}
   - {fileID: 21300000, guid: e86383e3eeabd43c69af718a0fd2a6a8, type: 3}
@@ -70104,8 +70107,8 @@ MonoBehaviour:
   interactiveSwitch: []
   logX: 0
   logY: 0
-  actor: {fileID: 0}
-  funcToCall: 
+  actor: {fileID: 1998540223}
+  funcToCall: BathRoomBloodMusic
 --- !u!23 &1665053447
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -72215,8 +72218,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fabfd9a3aa8c345a768b6bb8c003e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
-  maxHealth: 20
+  health: 5
+  maxHealth: 5
   moveSpeed: 1
   shield: 0
   maxShield: 0
@@ -72235,6 +72238,7 @@ MonoBehaviour:
   BearMesh: {fileID: 1814636468}
   myAC: {fileID: 1725539216}
   phase: 1
+  isPhaseTwo: 0
   ghostRider: {fileID: 0}
   target: {fileID: 1440344667}
   AIAnimator: {fileID: 1814636469}
@@ -80087,7 +80091,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1895330801
 RectTransform:
   m_ObjectHideFlags: 0
@@ -82206,7 +82210,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1945875301
 RectTransform:
   m_ObjectHideFlags: 0
@@ -84881,6 +84885,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dced8f40fe0b05c479d67dac6d04c74e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BGMAudioSource: {fileID: 0}
   battleMusic: {fileID: 8300000, guid: 7c8b4466c9bdd4173b710ac3d01b07a1, type: 3}
   daughterRoom: {fileID: 8300000, guid: 637ed25e6c43642f1b35b37c12817c73, type: 3}
   bathroomBlood: {fileID: 8300000, guid: 7f6a2e340268649d3a3dc48a219a3ecf, type: 3}
