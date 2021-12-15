@@ -30,6 +30,7 @@ public class Enemy : MonoBehaviour
     public enum AIPhase { NotInBattle, InBattle1, InBattle2 };
     public AIPhase phase;
     public bool isPhaseTwo = false;
+    public bool doorTrigger = false;
 
     [Header("NAV MESH")]
     public NavMeshAgent ghostRider;
@@ -87,7 +88,7 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         
-        HittedStatesIndication();
+        //HittedStatesIndication();
         AIDead();
         PhaseSetting();
         BreakMeter_recovery();
@@ -96,6 +97,7 @@ public class Enemy : MonoBehaviour
 		{
             ReactivateNavMesh();
         }
+        
     }
 
     public void EnterHittedState(float hitTimer)
@@ -153,20 +155,21 @@ public class Enemy : MonoBehaviour
 
     public bool AIDead()
     {
+       
         if (health <= 0)
         {
-            if (gameObject == EnemyDialogueManagerScript.me.enemy)
+            /*if (gameObject == EnemyDialogueManagerScript.me.enemy)
             {
                 EnemyDialogueManagerScript.me.SpawnDialogueTrigger(0);
-            }
+            }*/
             myAC.ChangeState(myAC.dieState);
-            FadeInManager.Me.StartCoroutine(UIManager.Me.FadeCanvas(FadeInManager.Me.GetComponent<CanvasGroup>(), 1, 3));
+            //FadeInManager.Me.StartCoroutine(UIManager.Me.FadeCanvas(FadeInManager.Me.GetComponent<CanvasGroup>(), 1, 3));
+            //StartCoroutine(EndGame(3));
             if (MusicIsStopped == false)
             {
                 BGMMan.bGMManger.EndBattleMusic();
                 MusicIsStopped = true;
             }
-            StartCoroutine(EndGame(3));
             return true;
         }
         else
@@ -174,9 +177,9 @@ public class Enemy : MonoBehaviour
 
     }
 
-    IEnumerator EndGame(float waitTime)
+    public IEnumerator EndGame()
     {
-        yield return new WaitForSeconds(waitTime);
+        yield return new WaitForSeconds(3f);
         SceneManager.LoadScene(2);
     }
 

@@ -7,6 +7,7 @@ public class PuzzelManager : MonoBehaviour
     public GameObject Door;
     public List<GameObject> Triggers = new List<GameObject>();
     public bool canOpen = false;
+    public GameObject Enemy;
 
     void Start()
     {
@@ -22,6 +23,16 @@ public class PuzzelManager : MonoBehaviour
 
         }
 
+
+        if(this.name == "Storage")
+        {
+            if(Enemy.GetComponent<Enemy>().doorTrigger)
+            {
+                canOpen = true;
+            }
+        }
+
+        
         if(canOpen == true)
         {
             Door.GetComponent<DoorScript>().OpenFront();
