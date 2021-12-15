@@ -152,7 +152,10 @@ public class PlayerScriptNew : MonoBehaviour
 			#endregion
 			#region movement
 			if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) &&
-				anim.GetCurrentAnimatorStateInfo(0).IsName("testIdle")) // if in walk state, walk
+				!anim.GetCurrentAnimatorStateInfo(0).IsName("testWindup") &&
+				!anim.GetCurrentAnimatorStateInfo(0).IsName("testATK") &&
+				!anim.GetCurrentAnimatorStateInfo(0).IsName("testBackswing"))
+				//anim.GetCurrentAnimatorStateInfo(0).IsName("testIdle")) // if in walk state, walk
 			{
 				walking = true;
 			}
@@ -203,12 +206,12 @@ public class PlayerScriptNew : MonoBehaviour
 				else
 				{
 					walkingDir = new Vector3(0, 0, 0);
-					anim.CrossFade("testIdle", .3f);
-					walking = false;
 					forwarding = false;
 					backwarding = false;
 					lefting = false;
 					righting = false;
+					anim.CrossFade("testIdle", .3f);
+					walking = false;
 				}
 
 				if (walkingDir.magnitude > 0)
@@ -221,6 +224,17 @@ public class PlayerScriptNew : MonoBehaviour
 							anim.CrossFade("testWalk", .3f);
 							forwarding = true;
 							backwarding = false;
+							lefting = false;
+							righting = false;
+						}
+					}
+					else if (Vector3.Angle(walkingDir, transform.forward) > 135 && Vector3.Angle(walkingDir, transform.forward) < 225)
+					{
+						if (!backwarding)
+						{
+							anim.CrossFade("Player_Walking_Backwards", .3f);
+							forwarding = false;
+							backwarding = true;
 							lefting = false;
 							righting = false;
 						}
@@ -279,17 +293,7 @@ public class PlayerScriptNew : MonoBehaviour
 							}
 						}
 					}
-					else if (Vector3.Angle(walkingDir, transform.forward) > 135 && Vector3.Angle(walkingDir, transform.forward) < 225)
-					{
-						if (!backwarding)
-						{
-							anim.CrossFade("Player_Walking_Backwards", .3f);
-							forwarding = false;
-							backwarding = true;
-							lefting = false;
-							righting = false;
-						}
-					}
+					
 				}
 			}
 
@@ -318,7 +322,11 @@ public class PlayerScriptNew : MonoBehaviour
 			// check for attack button press
 			if (selectedMats.Count > 0 &&  // check if player has mat activated
 				(anim.GetCurrentAnimatorStateInfo(0).IsName("testIdle") || // if player in idle state
-				walking))  // if player in walk state
+				walking ||
+				anim.GetCurrentAnimatorStateInfo(0).IsName("testWalk") ||
+				anim.GetCurrentAnimatorStateInfo(0).IsName("Player_Walking_Backwards") ||
+				anim.GetCurrentAnimatorStateInfo(0).IsName("Player_Walking_Left") ||
+				anim.GetCurrentAnimatorStateInfo(0).IsName("Player_Walking_Right")))  // if player in walk state
 			{
 				if (Input.GetMouseButtonUp(0)) // if left click
 				{
@@ -337,12 +345,26 @@ public class PlayerScriptNew : MonoBehaviour
 						{
 							mat.GetComponent<MatScriptNew>().amount--;
 						}
-						anim.Play("testWindup"); // player anticipation clip and call effect manager's casting event in clip
+						//anim.Play("testWindup"); // player anticipation clip and call effect manager's casting event in clip
+						anim.CrossFade("testWindup", 0.1f);
 					}
 					else
 					{
 						print("YOU DON'T HAVE ENOUGH MATERIALS!!!");
 					}
+				}
+			}
+			if (Input.GetMouseButtonUp(0))
+			{
+				if (selectedMats.Count > 0 &&  // check if player has mat activated
+				(anim.GetCurrentAnimatorStateInfo(0).IsName("testIdle") || // if player in idle state
+				walking))
+				{
+
+				}
+				else
+				{
+					print(walking);
 				}
 			}
 		}
