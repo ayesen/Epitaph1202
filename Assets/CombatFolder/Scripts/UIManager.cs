@@ -70,12 +70,14 @@ public class UIManager : MonoBehaviour
             isHided = true;
             StartCoroutine(FadeCanvas(cg, 0f, fadeTime));
         }
-        if (Input.anyKeyDown && 
-            !(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.E)))
+        if (Input.anyKeyDown)
         {
-            timer = 0;
-            isHided = false;
-            StartCoroutine(FadeCanvas(cg, 1f, fadeTime));
+            if(!(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.E)))
+            {
+                timer = 0;
+                isHided = false;
+                StartCoroutine(FadeCanvas(cg, 1f, fadeTime));
+            }
         }
     }
 

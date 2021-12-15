@@ -48,16 +48,21 @@ public class PlayerScriptNew : MonoBehaviour
 
 	private void Start()
     {
+		checkBoolChange = dead;
         anim = playerModel.GetComponent<Animator>();
 		enemy = GameObject.FindGameObjectWithTag("Enemy");
     }
 
 	private void Update()
 	{
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.K) && SafehouseManager.Me.isCheatOn)
         {
 			hp = 0;
         }
+		print("selected Mats count: " + selectedMats.Count);
+		print("walking: " + walking);
+		print("current clip: " + anim.GetCurrentAnimatorStateInfo(0).fullPathHash);
+		print("atkButtonPressed: " + atkButtonPressed);
 		Death();
 		if (!dead && !SafehouseManager.Me.isSafehouse)
 		{
@@ -98,62 +103,68 @@ public class PlayerScriptNew : MonoBehaviour
 			#endregion
 			#region activate and deactivate mats
 			// activate mats
-			if (Input.GetKeyUp(KeyCode.Alpha1) && matSlots[0] != null)
-			{
-				SoundMan.SoundManager.MaterialSelect();
-				if (selectedMats.Contains(matSlots[0]))
+			if (!anim.GetCurrentAnimatorStateInfo(0).IsName("testWindup") &&
+				!anim.GetCurrentAnimatorStateInfo(0).IsName("testATK") &&
+                !anim.GetCurrentAnimatorStateInfo(0).IsName("testBackswing"))
+            {
+				if (Input.GetKeyUp(KeyCode.Alpha1) && matSlots[0] != null)
 				{
-					selectedMats.Remove(matSlots[0]);
+					SoundMan.SoundManager.MaterialSelect();
+					if (selectedMats.Contains(matSlots[0]))
+					{
+						selectedMats.Remove(matSlots[0]);
+					}
+					else
+					{
+						if (matSlots[0].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
+							selectedMats.Add(matSlots[0]);
+					}
+					EffectManagerNew.me.RefreshCurrentMats();
 				}
-				else
+				else if (Input.GetKeyUp(KeyCode.Alpha2) && matSlots[1] != null)
 				{
-					if(matSlots[0].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
-						selectedMats.Add(matSlots[0]);
+					SoundMan.SoundManager.MaterialSelect();
+					if (selectedMats.Contains(matSlots[1]))
+					{
+						selectedMats.Remove(matSlots[1]);
+					}
+					else
+					{
+						if (matSlots[1].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
+							selectedMats.Add(matSlots[1]);
+					}
+					EffectManagerNew.me.RefreshCurrentMats();
 				}
-				EffectManagerNew.me.RefreshCurrentMats();
+				else if (Input.GetKeyUp(KeyCode.Alpha3) && matSlots[2] != null)
+				{
+					SoundMan.SoundManager.MaterialSelect();
+					if (selectedMats.Contains(matSlots[2]))
+					{
+						selectedMats.Remove(matSlots[2]);
+					}
+					else
+					{
+						if (matSlots[2].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
+							selectedMats.Add(matSlots[2]);
+					}
+					EffectManagerNew.me.RefreshCurrentMats();
+				}
+				else if (Input.GetKeyUp(KeyCode.Alpha4) && matSlots[3] != null)
+				{
+					SoundMan.SoundManager.MaterialSelect();
+					if (selectedMats.Contains(matSlots[3]))
+					{
+						selectedMats.Remove(matSlots[3]);
+					}
+					else
+					{
+						if (matSlots[3].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
+							selectedMats.Add(matSlots[3]);
+					}
+					EffectManagerNew.me.RefreshCurrentMats();
+				}
 			}
-			else if (Input.GetKeyUp(KeyCode.Alpha2) && matSlots[1] != null)
-			{
-				SoundMan.SoundManager.MaterialSelect();
-				if (selectedMats.Contains(matSlots[1]))
-				{
-					selectedMats.Remove(matSlots[1]);
-				}
-				else
-				{
-					if (matSlots[1].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
-						selectedMats.Add(matSlots[1]);
-				}
-				EffectManagerNew.me.RefreshCurrentMats();
-			}
-			else if (Input.GetKeyUp(KeyCode.Alpha3) && matSlots[2] != null)
-			{
-				SoundMan.SoundManager.MaterialSelect();
-				if (selectedMats.Contains(matSlots[2]))
-				{
-					selectedMats.Remove(matSlots[2]);
-				}
-				else
-				{
-					if (matSlots[2].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
-						selectedMats.Add(matSlots[2]);
-				}
-				EffectManagerNew.me.RefreshCurrentMats();
-			}
-			else if (Input.GetKeyUp(KeyCode.Alpha4) && matSlots[3] != null)
-			{
-				SoundMan.SoundManager.MaterialSelect();
-				if (selectedMats.Contains(matSlots[3]))
-				{
-					selectedMats.Remove(matSlots[3]);
-				}
-				else
-				{
-					if (matSlots[3].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
-						selectedMats.Add(matSlots[3]);
-				}
-				EffectManagerNew.me.RefreshCurrentMats();
-			}
+			
 			#endregion
 			#region movement
 			if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) &&
@@ -164,6 +175,7 @@ public class PlayerScriptNew : MonoBehaviour
 				//anim.GetCurrentAnimatorStateInfo(0).IsName("testIdle")) // if in walk state, walk
 			{
 				walking = true;
+				atkButtonPressed = false;
 			}
 			if (walking)
 			{
@@ -323,6 +335,22 @@ public class PlayerScriptNew : MonoBehaviour
 					selectedMats.Remove(matSlots[3]);
 				matSlots[3] = null;
 				UIManager.Me.UI_ChangeIcon();
+            }
+			for(int i = 0; i<matSlots.Count; i++)
+            {
+				if(matSlots[i] != null)
+                {
+					if(matSlots[i].GetComponent<MatScriptNew>().amount <= 0)
+                    {
+						if (selectedMats.Contains(matSlots[i]))
+							selectedMats.Remove(matSlots[i]);
+						if (matSlots[i].CompareTag("BossMat"))
+						{
+							matSlots[i] = null;
+							UIManager.Me.UI_ChangeIcon();
+						}
+                    }
+                }
             }
 			#endregion
 			// check for attack button press

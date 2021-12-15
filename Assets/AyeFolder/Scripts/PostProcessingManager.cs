@@ -91,7 +91,8 @@ public class PostProcessingManager : MonoBehaviour
 
     public IEnumerator ResetFilter()
     {
-        
+        yield return new WaitForSeconds(1);
+
         float time = 0;
         float timecolor = 0;
         float timevig = 0;

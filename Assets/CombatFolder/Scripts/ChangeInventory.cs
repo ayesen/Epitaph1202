@@ -64,6 +64,14 @@ public class ChangeInventory : MonoBehaviour
             }
         }
 
+        if(choosenMatIndex == 3)
+            {
+                if (!isChanging)
+                    choosenMatIndex = 4;
+                else
+                    choosenMatIndex = 2;
+            }
+
         if (!isChanging)
         {
             //choosen mat
@@ -119,9 +127,11 @@ public class ChangeInventory : MonoBehaviour
             choosenCircle.enabled = true;
             choosenCircle.GetComponent<RectTransform>().localPosition = DisplayInventory.Me.GetPosition(choosenMatIndex - 4) + Vector3.up * 190f;
         }
-        //Show description
-        if(PlayerScriptNew.me.matSlots[choosenMatIndex] != null)
-            description.text = PlayerScriptNew.me.matSlots[choosenMatIndex].name;
+            //Show description
+            if (PlayerScriptNew.me.matSlots[choosenMatIndex] != null)
+                description.text = PlayerScriptNew.me.matSlots[choosenMatIndex].GetComponent<MatScriptNew>().Description;
+            else
+                description.text = "";
         }
     }
 

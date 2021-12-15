@@ -163,6 +163,7 @@ public class Enemy : MonoBehaviour
                 EnemyDialogueManagerScript.me.SpawnDialogueTrigger(0);
             }*/
             myAC.ChangeState(myAC.dieState);
+            EnemyCanvas.SetActive(false);
             //FadeInManager.Me.StartCoroutine(UIManager.Me.FadeCanvas(FadeInManager.Me.GetComponent<CanvasGroup>(), 1, 3));
             //StartCoroutine(EndGame(3));
             if (MusicIsStopped == false)
@@ -187,6 +188,7 @@ public class Enemy : MonoBehaviour
     {
         health = this.healthRecord;
         maxHealth = this.healthRecord;
+        maxShield = 30;
         shield = maxShield;
         //maxShield = 200;
         changeLimit = 2;
@@ -206,9 +208,9 @@ public class Enemy : MonoBehaviour
         ChangePhase(AIPhase.NotInBattle, 1);
         myAC.ChangeState(myAC.idleState);
         this.transform.position = ResetPos;
-        breakMeter_ui.enabled = false;
+        //breakMeter_ui.enabled = false;
         //hittedStates.enabled = false;
-        EnemyCanvas.SetActive(false);
+        //EnemyCanvas.SetActive(false);
     }
 
     public void DealDmg(int dmgAmt)

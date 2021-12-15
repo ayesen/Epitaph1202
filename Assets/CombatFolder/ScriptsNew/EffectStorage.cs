@@ -104,6 +104,7 @@ public class EffectStorage : MonoBehaviour
 	#region BREAK
 	public void Break(EffectHolderScript ehs, GameObject enemy)
 	{
+		GetDroppableMats();
 		if (enemy.GetComponent<Enemy>() != null &&
 			enemy.GetComponent<Enemy>().breakable &&
 			droppableMat.Count > 0)
@@ -120,9 +121,13 @@ public class EffectStorage : MonoBehaviour
 	}
 	private void GetDroppableMats()
 	{
+		droppableMat.Clear();
 		for (int i = 0; i < 3; i++)
 		{
-			droppableMat.Add(PlayerScriptNew.me.matSlots[i]);
+			if (PlayerScriptNew.me.matSlots[i] != null)
+            {
+				droppableMat.Add(PlayerScriptNew.me.matSlots[i]);
+			}
 		}
 	}
 	private void BreakNSpawnMat(GameObject enemy) //! remember to drag boss to mainEnemyInThisLevel
