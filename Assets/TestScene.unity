@@ -15138,7 +15138,7 @@ MonoBehaviour:
     logY: 0
   image: {fileID: 0}
   highLightMat: {fileID: 0}
-  restrictMovement: 0
+  restrictMovement: 1
   oneTimeDialogue: 1
   isSwitch: 0
   interactiveSwitch: []
@@ -34568,7 +34568,7 @@ MonoBehaviour:
     logY: 0
   image: {fileID: 0}
   highLightMat: {fileID: 0}
-  restrictMovement: 0
+  restrictMovement: 1
   oneTimeDialogue: 1
   isSwitch: 0
   interactiveSwitch: []
@@ -91385,7 +91385,7 @@ MonoBehaviour:
     logY: 0
   image: {fileID: 0}
   highLightMat: {fileID: 0}
-  restrictMovement: 0
+  restrictMovement: 1
   oneTimeDialogue: 1
   isSwitch: 0
   interactiveSwitch: []
