@@ -16,6 +16,7 @@ public class EffectManagerScriptHolder : MonoBehaviour
 
 	public void Casting()
 	{
+		PlayerScriptNew.me.atkButtonPressed = false;
 		ConditionStruct cs = new ConditionStruct
 		{
 			condition = EffectStructNew.Condition.casting,

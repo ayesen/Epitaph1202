@@ -20,6 +20,7 @@ public class PlayerScriptNew : MonoBehaviour
 	[Header("Mat")]
 	public List<GameObject> selectedMats; // mats activated
 	public List<GameObject> matSlots; // inventory
+	public bool atkButtonPressed = false; // for checking if player has already pressed the button
 	[Header("Temp UI")]
 	public TextMeshProUGUI mat1;
 	public TextMeshProUGUI mat2;
@@ -158,7 +159,8 @@ public class PlayerScriptNew : MonoBehaviour
 			if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) &&
 				!anim.GetCurrentAnimatorStateInfo(0).IsName("testWindup") &&
 				!anim.GetCurrentAnimatorStateInfo(0).IsName("testATK") &&
-				!anim.GetCurrentAnimatorStateInfo(0).IsName("testBackswing"))
+				!anim.GetCurrentAnimatorStateInfo(0).IsName("testBackswing") &&
+				!anim.GetCurrentAnimatorStateInfo(0).IsName("readingText"))
 				//anim.GetCurrentAnimatorStateInfo(0).IsName("testIdle")) // if in walk state, walk
 			{
 				walking = true;
@@ -332,10 +334,12 @@ public class PlayerScriptNew : MonoBehaviour
 				anim.GetCurrentAnimatorStateInfo(0).IsName("Player_Walking_Left") ||
 				anim.GetCurrentAnimatorStateInfo(0).IsName("Player_Walking_Right")))  // if player in walk state
 			{
-				if (Input.GetMouseButtonUp(0)) // if left click
+				if (!atkButtonPressed && Input.GetMouseButtonUp(0)) // if left click
 				{
+					atkButtonPressed = true;
 					walking = false;
 					bool goodToGo = true;
+					// check if player has any mat left
 					foreach (var mat in selectedMats)
 					{
 						if (mat.GetComponent<MatScriptNew>().amount <= 0)
@@ -343,7 +347,7 @@ public class PlayerScriptNew : MonoBehaviour
 							goodToGo = false;
 						}
 					}
-					if (goodToGo)
+					if (goodToGo) // there is enough mat
 					{
 						foreach (var mat in selectedMats)
 						{
