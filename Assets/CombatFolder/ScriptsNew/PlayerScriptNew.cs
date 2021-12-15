@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Animations;
 
 public class PlayerScriptNew : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PlayerScriptNew : MonoBehaviour
 	public float spd;
 	public float rot_spd;
 	private GameObject enemy;
+	[HideInInspector]
     public Animator anim;
     public GameObject playerModel;
     public float deathTime;
@@ -26,6 +28,10 @@ public class PlayerScriptNew : MonoBehaviour
 	[Header("Walking Animation")]
 	private Vector3 walkingDir;
 	public bool walking;
+	private bool forwarding;
+	private bool backwarding;
+	private bool lefting;
+	private bool righting;
 
 	// backswing cancel
 	private GameObject lastMat;
@@ -200,42 +206,94 @@ public class PlayerScriptNew : MonoBehaviour
 				}
 				else
 				{
-					anim.Play("testIdle");
+					walkingDir = new Vector3(0, 0, 0);
+					anim.CrossFade("testIdle", .3f);
 					walking = false;
+					forwarding = false;
+					backwarding = false;
+					lefting = false;
+					righting = false;
 				}
 
-				if (Vector3.Angle(walkingDir, transform.forward) < 45 && Vector3.Angle(walkingDir, transform.forward) > -45)
+				if (walkingDir.magnitude > 0)
 				{
-					anim.Play("testWalk");
-				}
-				else if (Vector3.Angle(walkingDir, transform.forward) > 45 && Vector3.Angle(walkingDir, transform.forward) < 135)
-				{
-					if (transform.forward.z < 0 || transform.forward.x < 0)
+					if (Vector3.Angle(walkingDir, transform.forward) < 45 && Vector3.Angle(walkingDir, transform.forward) > -45)
 					{
-						if (walkingDir.x > 0 || walkingDir.z < 0)
+						//anim.Play("testWalk");
+						if (!forwarding)
 						{
-							anim.Play("Player_Walking_Left");
-						}
-						else if (walkingDir.x < 0 || walkingDir.z > 0)
-						{
-							anim.Play("Player_Walking_Right");
+							anim.CrossFade("testWalk", .3f);
+							forwarding = true;
+							backwarding = false;
+							lefting = false;
+							righting = false;
 						}
 					}
-					else if (transform.forward.z > 0 || transform.forward.x > 0)
+					else if (Vector3.Angle(walkingDir, transform.forward) > 45 && Vector3.Angle(walkingDir, transform.forward) < 135)
 					{
-						if (walkingDir.x > 0 || walkingDir.z < 0)
+						if (transform.forward.z < 0 || transform.forward.x < 0)
 						{
-							anim.Play("Player_Walking_Right");
+							if (walkingDir.x > 0 || walkingDir.z < 0)
+							{
+								//anim.Play("Player_Walking_Left");
+								if (!lefting)
+								{
+									anim.CrossFade("Player_Walking_Left", .3f);
+									forwarding = false;
+									backwarding = false;
+									lefting = true;
+									righting = false;
+								}
+							}
+							else if (walkingDir.x < 0 || walkingDir.z > 0)
+							{
+								if (!righting)
+								{
+									anim.CrossFade("Player_Walking_Right", .3f);
+									forwarding = false;
+									backwarding = false;
+									lefting = false;
+									righting = true;
+								}
+							}
 						}
-						else if (walkingDir.x < 0 || walkingDir.z > 0)
+						else if (transform.forward.z > 0 || transform.forward.x > 0)
 						{
-							anim.Play("Player_Walking_Left");
+							if (walkingDir.x > 0 || walkingDir.z < 0)
+							{
+								if (!righting)
+								{
+									anim.CrossFade("Player_Walking_Right", .3f);
+									forwarding = false;
+									backwarding = false;
+									lefting = false;
+									righting = true;
+								}
+							}
+							else if (walkingDir.x < 0 || walkingDir.z > 0)
+							{
+								if (!lefting)
+								{
+									anim.CrossFade("Player_Walking_Left", .3f);
+									forwarding = false;
+									backwarding = false;
+									lefting = true;
+									righting = false;
+								}
+							}
 						}
 					}
-				}
-				else if (Vector3.Angle(walkingDir, transform.forward) > 135 && Vector3.Angle(walkingDir, transform.forward) < 225)
-				{
-					anim.Play("Player_Walking_Backwards");
+					else if (Vector3.Angle(walkingDir, transform.forward) > 135 && Vector3.Angle(walkingDir, transform.forward) < 225)
+					{
+						if (!backwarding)
+						{
+							anim.CrossFade("Player_Walking_Backwards", .3f);
+							forwarding = false;
+							backwarding = true;
+							lefting = false;
+							righting = false;
+						}
+					}
 				}
 			}
 
