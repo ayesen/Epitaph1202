@@ -34,7 +34,7 @@ public class DroppedMatScript : MonoBehaviour
 			{
 				foreach (var mat in PlayerScriptNew.me.matSlots)
 				{
-					if (mat.name == myMat.name)
+					if (mat != null && mat.name == myMat.name)
 					{
 						MatScriptNew ms = mat.GetComponent<MatScriptNew>();
 						ms.amount += amount;

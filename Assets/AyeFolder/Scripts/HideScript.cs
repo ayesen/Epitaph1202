@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WallScript : MonoBehaviour
+public class HideScript : MonoBehaviour
 {
     public bool whenLivingRoom;
     public bool whenRestroom;
