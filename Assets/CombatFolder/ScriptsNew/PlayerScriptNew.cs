@@ -93,6 +93,7 @@ public class PlayerScriptNew : MonoBehaviour
 			// activate mats
 			if (Input.GetKeyUp(KeyCode.Alpha1) && matSlots[0] != null)
 			{
+				SoundMan.SoundManager.MaterialSelect();
 				if (selectedMats.Contains(matSlots[0]))
 				{
 					selectedMats.Remove(matSlots[0]);
@@ -106,6 +107,7 @@ public class PlayerScriptNew : MonoBehaviour
 			}
 			else if (Input.GetKeyUp(KeyCode.Alpha2) && matSlots[1] != null)
 			{
+				SoundMan.SoundManager.MaterialSelect();
 				if (selectedMats.Contains(matSlots[1]))
 				{
 					selectedMats.Remove(matSlots[1]);
@@ -119,6 +121,7 @@ public class PlayerScriptNew : MonoBehaviour
 			}
 			else if (Input.GetKeyUp(KeyCode.Alpha3) && matSlots[2] != null)
 			{
+				SoundMan.SoundManager.MaterialSelect();
 				if (selectedMats.Contains(matSlots[2]))
 				{
 					selectedMats.Remove(matSlots[2]);
@@ -132,6 +135,7 @@ public class PlayerScriptNew : MonoBehaviour
 			}
 			else if (Input.GetKeyUp(KeyCode.Alpha4) && matSlots[3] != null)
 			{
+				SoundMan.SoundManager.MaterialSelect();
 				if (selectedMats.Contains(matSlots[3]))
 				{
 					selectedMats.Remove(matSlots[3]);
@@ -292,6 +296,7 @@ public class PlayerScriptNew : MonoBehaviour
 	public void LoseHealth_player(int amt)
 	{
 		hp -= amt;
+		SoundMan.SoundManager.PlayerHitten();
 	}
 	public void Death()
 	{

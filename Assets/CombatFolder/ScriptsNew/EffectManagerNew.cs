@@ -310,6 +310,7 @@ public class EffectManagerNew : MonoBehaviour
 		}
 		spawnCount = 1;
 		hitCount = 1;
+		SoundMan.SoundManager.CastFlying();
 	}
 
 	private void DefaultSpawn(int hitAmount)

@@ -13,6 +13,7 @@ public class BreakableWallScript : MonoBehaviour
 		if (Vector3.Distance(enemy.transform.position, transform.position) < breakRange)
 		{
 			Instantiate(wallbreak_vfx, transform.position, enemy.transform.rotation * Quaternion.AngleAxis(180, Vector3.up));
+			SoundMan.SoundManager.WallBreaks();
 			Destroy(gameObject);
 		}
 	}

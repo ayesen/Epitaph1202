@@ -75,7 +75,7 @@ public class AmbienceManager : MonoBehaviour
         if (ambienceSource.clip != ambienceClips[1])
         {
             ambienceSource.clip = ambienceClips[1];
-            ambienceSource.volume = 1f;
+            ambienceSource.volume = 0.5f;
             ambienceSource.Play();
         }
     }
@@ -92,6 +92,7 @@ public class AmbienceManager : MonoBehaviour
 
     public void SafeHouseAmbiencePlay()
     {
+        BGMMan.bGMManger.BGMAudioSource.Stop();
         ambienceSource.clip = ambienceClips[3];
         ambienceSource.volume = 1f;
         ambienceSource.Play();

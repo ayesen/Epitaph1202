@@ -34,10 +34,12 @@ public class ChangeInventory : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             choosenMatIndex += 1;
+            SoundMan.SoundManager.SafehouseMaterialSelect();
         }
         else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             choosenMatIndex -= 1;
+            SoundMan.SoundManager.SafehouseMaterialSelect();
         }
         else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
@@ -46,6 +48,7 @@ public class ChangeInventory : MonoBehaviour
                 if (choosenMatIndex <= DI.Amount_Of_Inventory - 1)
                 {
                     choosenMatIndex += 4;
+                    SoundMan.SoundManager.SafehouseMaterialSelect();
                 }
             }
         }
@@ -56,6 +59,7 @@ public class ChangeInventory : MonoBehaviour
                 if (choosenMatIndex - 4 >= 4)
                 {
                     choosenMatIndex -= 4;
+                    SoundMan.SoundManager.SafehouseMaterialSelect();
                 }
             }
         }
@@ -68,6 +72,7 @@ public class ChangeInventory : MonoBehaviour
                 choosenMat = choosenMatIndex;
                 choosenMatIndex = 0;
                 isChanging = true;
+                SoundMan.SoundManager.SafehouseMaterialSelect();
             }
             //Limit range
             if (choosenMatIndex - 4 > DI.Amount_Of_Inventory - 1)
@@ -88,6 +93,7 @@ public class ChangeInventory : MonoBehaviour
                 UIManager.Me.UI_ChangeIcon();
                 isChanging = false;
                 choosenMatIndex = 4;
+                SoundMan.SoundManager.SafehouseMaterialSwap();
             }
 
             if(choosenMatIndex < 0)

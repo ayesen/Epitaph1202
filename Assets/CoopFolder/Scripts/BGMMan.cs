@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BGMMan : MonoBehaviour
 {
-    AudioSource BGMAudioSource;
+    public static BGMMan bGMManger;
+    public AudioSource BGMAudioSource;
 
     public AudioClip battleMusic;
     public AudioClip daughterRoom;
@@ -12,6 +13,15 @@ public class BGMMan : MonoBehaviour
     public AudioClip yangTaiPuzzle;
     public AudioClip theme;
 
+    private void Awake()
+    {
+        if (bGMManger != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        bGMManger = this;
+    }
     private void Start()
     {
         BGMAudioSource = GetComponent<AudioSource>();

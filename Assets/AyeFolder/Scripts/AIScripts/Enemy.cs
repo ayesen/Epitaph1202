@@ -29,6 +29,7 @@ public class Enemy : MonoBehaviour
     public AIController myAC;
     public enum AIPhase { NotInBattle, InBattle1, InBattle2 };
     public AIPhase phase;
+    public bool isPhaseTwo = false;
 
     [Header("NAV MESH")]
     public NavMeshAgent ghostRider;
@@ -70,6 +71,7 @@ public class Enemy : MonoBehaviour
     //private
     private int healthRecord;
     private int shieldRecord;
+    private bool MusicIsStopped = false;
 
     private void Awake()
     {
@@ -159,6 +161,11 @@ public class Enemy : MonoBehaviour
             }
             myAC.ChangeState(myAC.dieState);
             FadeInManager.Me.StartCoroutine(UIManager.Me.FadeCanvas(FadeInManager.Me.GetComponent<CanvasGroup>(), 1, 3));
+            if (MusicIsStopped == false)
+            {
+                BGMMan.bGMManger.EndBattleMusic();
+                MusicIsStopped = true;
+            }
             StartCoroutine(EndGame(3));
             return true;
         }
@@ -184,7 +191,6 @@ public class Enemy : MonoBehaviour
         var item = GameObject.Find("GirlJournal");
         if (item != null)
         {
-            ChangePhase(AIPhase.NotInBattle, 1);
             this.GetComponent<NavMeshAgent>().enabled = false;
             BearMesh.SetActive(false);
             this.GetComponent<MeshRenderer>().enabled = false;
@@ -192,6 +198,9 @@ public class Enemy : MonoBehaviour
             myTrigger.GetComponent<AtkTrigger>().onAtkTrigger = false;
             myTrigger.myMR.enabled = false;
         }
+        else
+            isPhaseTwo = true;
+        ChangePhase(AIPhase.NotInBattle, 1);
         myAC.ChangeState(myAC.idleState);
         this.transform.position = ResetPos;
         breakMeter_ui.enabled = false;
@@ -248,6 +257,7 @@ public class Enemy : MonoBehaviour
             else
                 this.shield -= hurtAmt;
         }
+        SoundMan.SoundManager.EnemyHitten();
     }
 
     public void ChangeSpd(int ChangeAmt)
@@ -334,6 +344,7 @@ public class Enemy : MonoBehaviour
         float dmgRange = 12;
         float soundWaveDmg = dmgRange - AIToPlayerDist(); //can change later
         StartCoroutine(this.GetComponent<AIEffectManager>().StartSoundWave());
+        SoundMan.SoundManager.BearRoar();
         if (AIToPlayerDist() <= dmgRange)
         {
             
@@ -371,11 +382,17 @@ public class Enemy : MonoBehaviour
         this.GetComponent<CapsuleCollider>().enabled = true;
         this.GetComponent<NavMeshAgent>().enabled = true;
         //EnemyCanvas.SetActive(true);
-        ///breakMeter_ui.enabled = true;
+        breakMeter_ui.enabled = true;
         //hittedStates.enabled = true;
         myTrigger.myMR.enabled = true;
         ChangePhase(AIPhase.InBattle1, 1);
         SafehouseManager.Me.canSafehouse = true;
+        BGMMan.bGMManger.StartBattleMusic();
+        var item = GameObject.Find("GirlJournal");
+        if (item == null)
+        {
+            isPhaseTwo = true;
+        }
     }
 
     private void BreakMeter_recovery()

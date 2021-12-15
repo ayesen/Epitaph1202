@@ -113,7 +113,15 @@ public class LogManager : MonoBehaviour
         var canGroup = GetComponent<CanvasGroup>();
 
         StartCoroutine(DoFade(canGroup, canGroup.alpha, mFaded ? 1:0));
-        
+
+        if (mFaded)
+        {
+            SoundMan.SoundManager.LogOpen();
+        }
+        else
+        {
+            SoundMan.SoundManager.LogClose();
+        }
         mFaded = !mFaded;
         //pageBase.enabled = !pageBase.enabled;
     }
@@ -135,7 +143,8 @@ public class LogManager : MonoBehaviour
     {
     	if(currentPage>0){
     		currentPage--;
-    	}
+            SoundMan.SoundManager.LogChangePage();
+        }       
     	ChangePage();
     }
 
@@ -143,8 +152,9 @@ public class LogManager : MonoBehaviour
     {
     	if(currentPage<PageBase.Count-1){
     		currentPage++;
-    	}
-    	ChangePage();
+            SoundMan.SoundManager.LogChangePage();
+        }
+        ChangePage();
     }
 
     private void ChangePage()

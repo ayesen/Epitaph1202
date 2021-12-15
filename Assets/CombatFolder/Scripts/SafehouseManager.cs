@@ -92,6 +92,14 @@ public class SafehouseManager : MonoBehaviour
             ResetMatAmount();
             PlayerScriptNew.me.selectedMats.Clear();
             checkBoolChange = isSafehouse;
+            if(enemyScript.isPhaseTwo)
+            {
+                enemyScript.GotoLoc();
+            }
+            if(enemyScript.phase != Enemy.AIPhase.NotInBattle)
+            {
+                BGMMan.bGMManger.StartBattleMusic();
+            }
         }
     }
 
