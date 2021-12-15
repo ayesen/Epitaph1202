@@ -56,6 +56,7 @@ public class SoundMan : MonoBehaviour
         lastBPOne = clipNum;
         source.clip = battleVOPhaseOne[clipNum];
         //source.transform.position = pos;
+        source.volume = 1;
         source.Play();
     }
 
