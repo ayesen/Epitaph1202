@@ -18,11 +18,12 @@ public class AIStateDie : AIStateBase
             myEnemy.Mother.BackKids();
 
         }
+        myEnemy.doorTrigger = true;
     }
 
     public override void Update(Enemy myEnemy)
     {
-        myEnemy.hittedStates.text = "DEAD";
+        //myEnemy.hittedStates.text = "DEAD";
         myEnemy.GetComponent<CapsuleCollider>().enabled = false;
     }
 
@@ -30,6 +31,6 @@ public class AIStateDie : AIStateBase
     {
         myEnemy.myTrigger.myMR.enabled = true;
         myEnemy.ghostRider.enabled = true;
-        myEnemy.hittedStates.text = "";
+        //myEnemy.hittedStates.text = "";
     }
 }

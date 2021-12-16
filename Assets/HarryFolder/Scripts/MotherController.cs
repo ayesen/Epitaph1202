@@ -68,7 +68,7 @@ public class MotherController : MonoBehaviour
             kidChild.GetComponent<Rigidbody>().useGravity = true;
             kidChild.GetComponent<CapsuleCollider>().enabled = true;
             kidChild.GetComponent<Enemy>().ChangePhase(Enemy.AIPhase.InBattle1, 1);
-            kidChild.GetComponent<Enemy>().EnemyCanvas.SetActive(true);
+            //kidChild.GetComponent<Enemy>().EnemyCanvas.SetActive(true);
         }
     }
 

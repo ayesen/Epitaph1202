@@ -24,14 +24,26 @@ public class SmallBear : Enemy
 
     void Update()
     {
-        HittedStatesIndication();
-        AIDead();
+        SmallBearDie();
         //Debug.Log(phase);
         //Debug.Log(myAC.currentState);
         if (knockedBack)
         {
             ReactivateNavMesh();
         }
+    }
+
+    public bool SmallBearDie()
+    {
+        if (health <= 0)
+        {
+
+            myAC.ChangeState(myAC.dieState);
+
+            return true;
+        }
+        else
+            return false;
     }
 
     public void ResetSmallBear()

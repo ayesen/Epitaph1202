@@ -54,6 +54,7 @@ public class DialogueScript : MonoBehaviour
 				if (Input.GetKeyUp(KeyCode.E) &&
 					player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("testIdle"))
 				{
+					SoundMan.SoundManager.ItemInspection();
 					inspected = true;
 					ObjectInspectorManagerScript.me.ShowText(this);
 					foreach (GameObject interactable in interactiveSwitch)

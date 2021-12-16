@@ -29,6 +29,8 @@ public class Enemy : MonoBehaviour
     public AIController myAC;
     public enum AIPhase { NotInBattle, InBattle1, InBattle2 };
     public AIPhase phase;
+    public bool isPhaseTwo = false;
+    public bool doorTrigger = false;
 
     [Header("NAV MESH")]
     public NavMeshAgent ghostRider;
@@ -70,6 +72,7 @@ public class Enemy : MonoBehaviour
     //private
     private int healthRecord;
     private int shieldRecord;
+    private bool MusicIsStopped = false;
 
     private void Awake()
     {
@@ -85,7 +88,7 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         
-        HittedStatesIndication();
+        //HittedStatesIndication();
         AIDead();
         PhaseSetting();
         BreakMeter_recovery();
@@ -94,6 +97,7 @@ public class Enemy : MonoBehaviour
 		{
             ReactivateNavMesh();
         }
+        
     }
 
     public void EnterHittedState(float hitTimer)
@@ -151,15 +155,22 @@ public class Enemy : MonoBehaviour
 
     public bool AIDead()
     {
+       
         if (health <= 0)
         {
-            if (gameObject == EnemyDialogueManagerScript.me.enemy)
+            /*if (gameObject == EnemyDialogueManagerScript.me.enemy)
             {
                 EnemyDialogueManagerScript.me.SpawnDialogueTrigger(0);
-            }
+            }*/
             myAC.ChangeState(myAC.dieState);
-            FadeInManager.Me.StartCoroutine(UIManager.Me.FadeCanvas(FadeInManager.Me.GetComponent<CanvasGroup>(), 1, 3));
-            StartCoroutine(EndGame(3));
+            EnemyCanvas.SetActive(false);
+            //FadeInManager.Me.StartCoroutine(UIManager.Me.FadeCanvas(FadeInManager.Me.GetComponent<CanvasGroup>(), 1, 3));
+            //StartCoroutine(EndGame(3));
+            if (MusicIsStopped == false)
+            {
+                BGMMan.bGMManger.EndBattleMusic();
+                MusicIsStopped = true;
+            }
             return true;
         }
         else
@@ -167,9 +178,9 @@ public class Enemy : MonoBehaviour
 
     }
 
-    IEnumerator EndGame(float waitTime)
+    public IEnumerator EndGame()
     {
-        yield return new WaitForSeconds(waitTime);
+        yield return new WaitForSeconds(3f);
         SceneManager.LoadScene(2);
     }
 
@@ -177,6 +188,7 @@ public class Enemy : MonoBehaviour
     {
         health = this.healthRecord;
         maxHealth = this.healthRecord;
+        maxShield = 30;
         shield = maxShield;
         //maxShield = 200;
         changeLimit = 2;
@@ -184,7 +196,6 @@ public class Enemy : MonoBehaviour
         var item = GameObject.Find("GirlJournal");
         if (item != null)
         {
-            ChangePhase(AIPhase.NotInBattle, 1);
             this.GetComponent<NavMeshAgent>().enabled = false;
             BearMesh.SetActive(false);
             this.GetComponent<MeshRenderer>().enabled = false;
@@ -192,11 +203,14 @@ public class Enemy : MonoBehaviour
             myTrigger.GetComponent<AtkTrigger>().onAtkTrigger = false;
             myTrigger.myMR.enabled = false;
         }
+        else
+            isPhaseTwo = true;
+        ChangePhase(AIPhase.NotInBattle, 1);
         myAC.ChangeState(myAC.idleState);
         this.transform.position = ResetPos;
-        breakMeter_ui.enabled = false;
+        //breakMeter_ui.enabled = false;
         //hittedStates.enabled = false;
-        EnemyCanvas.SetActive(false);
+        //EnemyCanvas.SetActive(false);
     }
 
     public void DealDmg(int dmgAmt)
@@ -248,6 +262,7 @@ public class Enemy : MonoBehaviour
             else
                 this.shield -= hurtAmt;
         }
+        SoundMan.SoundManager.EnemyHitten();
     }
 
     public void ChangeSpd(int ChangeAmt)
@@ -334,6 +349,7 @@ public class Enemy : MonoBehaviour
         float dmgRange = 12;
         float soundWaveDmg = dmgRange - AIToPlayerDist(); //can change later
         StartCoroutine(this.GetComponent<AIEffectManager>().StartSoundWave());
+        SoundMan.SoundManager.BearRoar();
         if (AIToPlayerDist() <= dmgRange)
         {
             
@@ -371,11 +387,17 @@ public class Enemy : MonoBehaviour
         this.GetComponent<CapsuleCollider>().enabled = true;
         this.GetComponent<NavMeshAgent>().enabled = true;
         //EnemyCanvas.SetActive(true);
-        ///breakMeter_ui.enabled = true;
+        breakMeter_ui.enabled = true;
         //hittedStates.enabled = true;
         myTrigger.myMR.enabled = true;
         ChangePhase(AIPhase.InBattle1, 1);
         SafehouseManager.Me.canSafehouse = true;
+        BGMMan.bGMManger.StartBattleMusic();
+        var item = GameObject.Find("GirlJournal");
+        if (item == null)
+        {
+            isPhaseTwo = true;
+        }
     }
 
     private void BreakMeter_recovery()
