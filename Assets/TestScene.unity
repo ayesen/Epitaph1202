@@ -179,6 +179,31 @@ Transform:
   m_Father: {fileID: 349881336}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -75.78061, y: 59.677444, z: -47.618027}
+--- !u!1 &7768692 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5170476654600708343, guid: 6a441ec942eb0ee448d8a226903f08aa, type: 3}
+  m_PrefabInstance: {fileID: 1929495779}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7768696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7768692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whenLivingRoom: 1
+  whenRestroom: 0
+  whenCorridor: 0
+  whenSmallCorridor: 0
+  whenStorage: 0
+  whenMasterRoom: 0
+  whenBalcony: 0
+  whenDaughtorRoom: 0
 --- !u!1 &15156632 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9e592cc02f66095408f9d1bc0dd2f9a8, type: 3}
@@ -2048,9 +2073,9 @@ MonoBehaviour:
   myEffects:
   - when: 1
     iS: 1
-    doThis: 9
+    doThis: 10
     toWhom: 0
-    forHowMuch: 3
+    forHowMuch: 0
     myModifiers:
     - modifierType: 1
       plus: 0
@@ -2058,7 +2083,7 @@ MonoBehaviour:
     forHowLong: 10
   lifespan: 3
   matIcon: {fileID: 21300000, guid: d94a77db26ae1444cbfdc3015cd7bac1, type: 3}
-  Description: Every time you deal damage to enemy, heal 3 hp for 10 seconds
+  Description: Every time you deal damage to enemy, heal half of damage for 10 seconds
 --- !u!4 &50473586
 Transform:
   m_ObjectHideFlags: 0
@@ -6796,6 +6821,31 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 148447453}
   m_Mesh: {fileID: 664456749670281567, guid: 87131f0531dc15b45b03e1a0d2dcaac0, type: 3}
+--- !u!1 &149476637 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5170476654600708343, guid: 6a441ec942eb0ee448d8a226903f08aa, type: 3}
+  m_PrefabInstance: {fileID: 965171028}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &149476641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149476637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whenLivingRoom: 1
+  whenRestroom: 0
+  whenCorridor: 0
+  whenSmallCorridor: 0
+  whenStorage: 0
+  whenMasterRoom: 0
+  whenBalcony: 0
+  whenDaughtorRoom: 0
 --- !u!1001 &152420967
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9041,6 +9091,10 @@ PrefabInstance:
       value: Dirt1 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 3881166022566316704, guid: b06be6f252e1a7c478a3aca724a226c2, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 3881166022566316704, guid: b06be6f252e1a7c478a3aca724a226c2, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -9783,6 +9837,10 @@ PrefabInstance:
     - target: {fileID: 4419985703529668554, guid: 1aebdaf470ddbe54ea913d0934e4aad4, type: 3}
       propertyPath: m_Name
       value: Crack4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419985703529668554, guid: 1aebdaf470ddbe54ea913d0934e4aad4, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 4419985703529668554, guid: 1aebdaf470ddbe54ea913d0934e4aad4, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -19429,6 +19487,31 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 446178937}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &451433679 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5170476654600708343, guid: 6a441ec942eb0ee448d8a226903f08aa, type: 3}
+  m_PrefabInstance: {fileID: 1933623453}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &451433683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451433679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whenLivingRoom: 1
+  whenRestroom: 0
+  whenCorridor: 0
+  whenSmallCorridor: 0
+  whenStorage: 0
+  whenMasterRoom: 0
+  whenBalcony: 0
+  whenDaughtorRoom: 0
 --- !u!1001 &453537696
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22327,6 +22410,10 @@ PrefabInstance:
       value: Crack1
       objectReference: {fileID: 0}
     - target: {fileID: 220231467068092133, guid: 4943b991c4711cb4ea7059b9095831a5, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 220231467068092133, guid: 4943b991c4711cb4ea7059b9095831a5, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -22803,6 +22890,51 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &515106621 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1900166248470557466, guid: 1226ef475a2090249af89a99210da723, type: 3}
+  m_PrefabInstance: {fileID: 1234139259}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &515106622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515106621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whenLivingRoom: 1
+  whenRestroom: 0
+  whenCorridor: 0
+  whenSmallCorridor: 0
+  whenStorage: 0
+  whenMasterRoom: 0
+  whenBalcony: 0
+  whenDaughtorRoom: 0
+--- !u!114 &515106626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515106621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whenLivingRoom: 0
+  whenRestroom: 0
+  whenCorridor: 0
+  whenSmallCorridor: 0
+  whenStorage: 0
+  whenMasterRoom: 0
+  whenBalcony: 0
+  whenDaughtorRoom: 0
 --- !u!1001 &516386452
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25143,6 +25275,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GirlDrawings2
       objectReference: {fileID: 0}
+    - target: {fileID: 984474668452113207, guid: 8fb07d0c24e2b8a42aa89567d80e0bf1, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     - target: {fileID: 3021508650414592309, guid: 8fb07d0c24e2b8a42aa89567d80e0bf1, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -25759,6 +25895,51 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 581179982}
   m_Mesh: {fileID: 664456749670281567, guid: 87131f0531dc15b45b03e1a0d2dcaac0, type: 3}
+--- !u!1 &581860637 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1900166248470557466, guid: 1226ef475a2090249af89a99210da723, type: 3}
+  m_PrefabInstance: {fileID: 1809203547}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &581860638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581860637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whenLivingRoom: 1
+  whenRestroom: 0
+  whenCorridor: 0
+  whenSmallCorridor: 0
+  whenStorage: 0
+  whenMasterRoom: 0
+  whenBalcony: 0
+  whenDaughtorRoom: 0
+--- !u!114 &581860642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581860637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whenLivingRoom: 0
+  whenRestroom: 0
+  whenCorridor: 0
+  whenSmallCorridor: 0
+  whenStorage: 0
+  whenMasterRoom: 0
+  whenBalcony: 0
+  whenDaughtorRoom: 0
 --- !u!1 &586082269
 GameObject:
   m_ObjectHideFlags: 0
@@ -28576,6 +28757,51 @@ MonoBehaviour:
   whenMasterRoom: 0
   whenBalcony: 0
   whenDaughtorRoom: 0
+--- !u!1 &649686519 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1900166248470557466, guid: 1226ef475a2090249af89a99210da723, type: 3}
+  m_PrefabInstance: {fileID: 926191272}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &649686520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649686519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whenLivingRoom: 1
+  whenRestroom: 0
+  whenCorridor: 0
+  whenSmallCorridor: 0
+  whenStorage: 0
+  whenMasterRoom: 0
+  whenBalcony: 0
+  whenDaughtorRoom: 0
+--- !u!114 &649686524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649686519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whenLivingRoom: 0
+  whenRestroom: 0
+  whenCorridor: 0
+  whenSmallCorridor: 0
+  whenStorage: 0
+  whenMasterRoom: 0
+  whenBalcony: 0
+  whenDaughtorRoom: 0
 --- !u!1001 &650153894
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30883,6 +31109,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dirt6
       objectReference: {fileID: 0}
+    - target: {fileID: 5916971105792109489, guid: 1bd9f4bf6872102449ca7ed1a47dba78, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bd9f4bf6872102449ca7ed1a47dba78, type: 3}
 --- !u!4 &686142023 stripped
@@ -31867,6 +32097,10 @@ PrefabInstance:
     - target: {fileID: 8406150714521028140, guid: 462196d96c6212b4798e2382b09ea489, type: 3}
       propertyPath: m_Name
       value: Dirt3 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406150714521028140, guid: 462196d96c6212b4798e2382b09ea489, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 8406150714521028140, guid: 462196d96c6212b4798e2382b09ea489, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -34491,6 +34725,31 @@ Transform:
   m_Father: {fileID: 1450485235}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -11.038, z: 0}
+--- !u!1 &766301264 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4990331436267830227, guid: bc8a4e91e7c2c394eb4bd942198f9a06, type: 3}
+  m_PrefabInstance: {fileID: 2002986032}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &766301268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766301264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whenLivingRoom: 1
+  whenRestroom: 0
+  whenCorridor: 0
+  whenSmallCorridor: 0
+  whenStorage: 0
+  whenMasterRoom: 0
+  whenBalcony: 0
+  whenDaughtorRoom: 0
 --- !u!1 &767137240
 GameObject:
   m_ObjectHideFlags: 0
@@ -37248,6 +37507,31 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 834091175}
   m_Mesh: {fileID: 3861478300804232965, guid: 702329ba245b9b64a9b5cfed2981b67e, type: 3}
+--- !u!1 &836343021 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2628721955396091650, guid: 84cf6157a1e820140a4ed7b38f0b4224, type: 3}
+  m_PrefabInstance: {fileID: 1543131021}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &836343025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836343021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whenLivingRoom: 1
+  whenRestroom: 0
+  whenCorridor: 0
+  whenSmallCorridor: 0
+  whenStorage: 0
+  whenMasterRoom: 0
+  whenBalcony: 0
+  whenDaughtorRoom: 0
 --- !u!1 &836912409
 GameObject:
   m_ObjectHideFlags: 0
@@ -38634,7 +38918,7 @@ MonoBehaviour:
     logY: 0
   image: {fileID: 0}
   highLightMat: {fileID: 0}
-  restrictMovement: 0
+  restrictMovement: 1
   oneTimeDialogue: 1
   isSwitch: 0
   interactiveSwitch: []
@@ -40973,6 +41257,10 @@ PrefabInstance:
       value: Reward
       objectReference: {fileID: 0}
     - target: {fileID: 1900166248470557466, guid: 1226ef475a2090249af89a99210da723, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1900166248470557466, guid: 1226ef475a2090249af89a99210da723, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -42564,6 +42852,10 @@ PrefabInstance:
     - target: {fileID: 5170476654600708343, guid: 6a441ec942eb0ee448d8a226903f08aa, type: 3}
       propertyPath: m_Name
       value: Dirt4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5170476654600708343, guid: 6a441ec942eb0ee448d8a226903f08aa, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 5170476654600708343, guid: 6a441ec942eb0ee448d8a226903f08aa, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -49285,6 +49577,10 @@ PrefabInstance:
       value: Dirt1
       objectReference: {fileID: 0}
     - target: {fileID: 3881166022566316704, guid: b06be6f252e1a7c478a3aca724a226c2, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 3881166022566316704, guid: b06be6f252e1a7c478a3aca724a226c2, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -52266,6 +52562,51 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1193452690}
   m_Mesh: {fileID: 3861478300804232965, guid: 702329ba245b9b64a9b5cfed2981b67e, type: 3}
+--- !u!1 &1196731093 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3881166022566316704, guid: b06be6f252e1a7c478a3aca724a226c2, type: 3}
+  m_PrefabInstance: {fileID: 1124366983}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1196731094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196731093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whenLivingRoom: 1
+  whenRestroom: 0
+  whenCorridor: 0
+  whenSmallCorridor: 0
+  whenStorage: 0
+  whenMasterRoom: 0
+  whenBalcony: 0
+  whenDaughtorRoom: 0
+--- !u!114 &1196731098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196731093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whenLivingRoom: 0
+  whenRestroom: 0
+  whenCorridor: 0
+  whenSmallCorridor: 0
+  whenStorage: 0
+  whenMasterRoom: 0
+  whenBalcony: 0
+  whenDaughtorRoom: 0
 --- !u!1 &1196931696
 GameObject:
   m_ObjectHideFlags: 0
@@ -53480,6 +53821,31 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 2245453605569360607, guid: 227da076e12dbfa4b990f022b9a9dc8e, type: 3}
   m_PrefabInstance: {fileID: 53153128}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1221042896 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4990331436267830227, guid: bc8a4e91e7c2c394eb4bd942198f9a06, type: 3}
+  m_PrefabInstance: {fileID: 1366820653}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1221042900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221042896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whenLivingRoom: 1
+  whenRestroom: 0
+  whenCorridor: 0
+  whenSmallCorridor: 0
+  whenStorage: 0
+  whenMasterRoom: 0
+  whenBalcony: 0
+  whenDaughtorRoom: 0
 --- !u!1 &1221222379
 GameObject:
   m_ObjectHideFlags: 0
@@ -54367,6 +54733,10 @@ PrefabInstance:
     - target: {fileID: 1900166248470557466, guid: 1226ef475a2090249af89a99210da723, type: 3}
       propertyPath: m_Name
       value: Reward (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1900166248470557466, guid: 1226ef475a2090249af89a99210da723, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 1900166248470557466, guid: 1226ef475a2090249af89a99210da723, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -56455,16 +56825,9 @@ MonoBehaviour:
     forHowMuch: 5
     myModifiers: []
     forHowLong: 10
-  - when: 0
-    iS: 0
-    doThis: 3
-    toWhom: 1
-    forHowMuch: 5
-    myModifiers: []
-    forHowLong: 0
   lifespan: 3
   matIcon: {fileID: 21300000, guid: 8008d6579dc6491428d80ba95171dac2, type: 3}
-  Description: Deal 5 damage on time and 5 break meter
+  Description: Deal 5 break meter
 --- !u!4 &1286690109
 Transform:
   m_ObjectHideFlags: 0
@@ -58571,6 +58934,10 @@ PrefabInstance:
       value: Dirt3
       objectReference: {fileID: 0}
     - target: {fileID: 8406150714521028140, guid: 462196d96c6212b4798e2382b09ea489, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406150714521028140, guid: 462196d96c6212b4798e2382b09ea489, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -59332,6 +59699,10 @@ PrefabInstance:
     - target: {fileID: 4990331436267830227, guid: bc8a4e91e7c2c394eb4bd942198f9a06, type: 3}
       propertyPath: m_Name
       value: Dirt5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990331436267830227, guid: bc8a4e91e7c2c394eb4bd942198f9a06, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 4990331436267830227, guid: bc8a4e91e7c2c394eb4bd942198f9a06, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -61995,6 +62366,10 @@ PrefabInstance:
     - target: {fileID: 2655076248060508934, guid: 5fc07c3f855fc874495af679a2c7da5c, type: 3}
       propertyPath: m_Name
       value: Canlender
+      objectReference: {fileID: 0}
+    - target: {fileID: 2655076248060508934, guid: 5fc07c3f855fc874495af679a2c7da5c, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 2655076248060508934, guid: 5fc07c3f855fc874495af679a2c7da5c, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -65314,6 +65689,26 @@ MonoBehaviour:
   logY: 2
   actor: {fileID: 0}
   funcToCall: 
+--- !u!114 &1487761282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487761279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whenLivingRoom: 1
+  whenRestroom: 0
+  whenCorridor: 0
+  whenSmallCorridor: 0
+  whenStorage: 0
+  whenMasterRoom: 0
+  whenBalcony: 0
+  whenDaughtorRoom: 0
 --- !u!1 &1488021471 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2120530788957801534, guid: 7a99f412c8751ea4b94e43687b986ef4, type: 3}
@@ -66566,6 +66961,10 @@ PrefabInstance:
       value: Crack3
       objectReference: {fileID: 0}
     - target: {fileID: 4886651038897186610, guid: 99952861e65c4e44bab6c861e516f2c9, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 4886651038897186610, guid: 99952861e65c4e44bab6c861e516f2c9, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -66576,6 +66975,31 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1359898471369788420, guid: 99952861e65c4e44bab6c861e516f2c9, type: 3}
   m_PrefabInstance: {fileID: 1511204050}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1511946044 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8406150714521028140, guid: 462196d96c6212b4798e2382b09ea489, type: 3}
+  m_PrefabInstance: {fileID: 695804026}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1511946048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511946044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whenLivingRoom: 1
+  whenRestroom: 0
+  whenCorridor: 0
+  whenSmallCorridor: 0
+  whenStorage: 0
+  whenMasterRoom: 0
+  whenBalcony: 0
+  whenDaughtorRoom: 0
 --- !u!1001 &1512901095
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67533,6 +67957,10 @@ PrefabInstance:
     - target: {fileID: 2628721955396091650, guid: 84cf6157a1e820140a4ed7b38f0b4224, type: 3}
       propertyPath: m_Name
       value: Crack2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628721955396091650, guid: 84cf6157a1e820140a4ed7b38f0b4224, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 2628721955396091650, guid: 84cf6157a1e820140a4ed7b38f0b4224, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -68633,6 +69061,10 @@ PrefabInstance:
     - target: {fileID: 4410516502721082725, guid: 854c349a7e0e16e47b8d5aaab471284a, type: 3}
       propertyPath: m_Name
       value: Dirt2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4410516502721082725, guid: 854c349a7e0e16e47b8d5aaab471284a, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 4410516502721082725, guid: 854c349a7e0e16e47b8d5aaab471284a, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -69820,6 +70252,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5aaf25c21c3690d488a6cc96fd1acdad, type: 3}
+--- !u!1 &1585475812 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5916971105792109489, guid: 1bd9f4bf6872102449ca7ed1a47dba78, type: 3}
+  m_PrefabInstance: {fileID: 686142022}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1585475816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585475812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whenLivingRoom: 1
+  whenRestroom: 0
+  whenCorridor: 0
+  whenSmallCorridor: 0
+  whenStorage: 0
+  whenMasterRoom: 0
+  whenBalcony: 0
+  whenDaughtorRoom: 0
 --- !u!1001 &1586067349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70583,6 +71040,31 @@ MonoBehaviour:
   logY: 0
   actor: {fileID: 0}
   funcToCall: 
+--- !u!1 &1608730051 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4886651038897186610, guid: 99952861e65c4e44bab6c861e516f2c9, type: 3}
+  m_PrefabInstance: {fileID: 1511204050}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1608730055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608730051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whenLivingRoom: 1
+  whenRestroom: 0
+  whenCorridor: 0
+  whenSmallCorridor: 0
+  whenStorage: 0
+  whenMasterRoom: 0
+  whenBalcony: 0
+  whenDaughtorRoom: 0
 --- !u!1001 &1608788513
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -71315,6 +71797,76 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7629811779324647873, guid: af278184522e1e54d84251dbe6d79573, type: 3}
+--- !u!1 &1630541365 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3881166022566316704, guid: b06be6f252e1a7c478a3aca724a226c2, type: 3}
+  m_PrefabInstance: {fileID: 2048120935}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1630541369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630541365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whenLivingRoom: 1
+  whenRestroom: 0
+  whenCorridor: 0
+  whenSmallCorridor: 0
+  whenStorage: 0
+  whenMasterRoom: 0
+  whenBalcony: 0
+  whenDaughtorRoom: 0
+--- !u!1 &1633135348 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2655076248060508934, guid: 5fc07c3f855fc874495af679a2c7da5c, type: 3}
+  m_PrefabInstance: {fileID: 1420187150}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1633135349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1633135348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whenLivingRoom: 1
+  whenRestroom: 0
+  whenCorridor: 0
+  whenSmallCorridor: 0
+  whenStorage: 0
+  whenMasterRoom: 0
+  whenBalcony: 0
+  whenDaughtorRoom: 0
+--- !u!114 &1633135353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1633135348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whenLivingRoom: 0
+  whenRestroom: 0
+  whenCorridor: 0
+  whenSmallCorridor: 0
+  whenStorage: 0
+  whenMasterRoom: 0
+  whenBalcony: 0
+  whenDaughtorRoom: 0
 --- !u!1001 &1637129152
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -71740,6 +72292,31 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1648787348}
   m_Mesh: {fileID: 3861478300804232965, guid: 702329ba245b9b64a9b5cfed2981b67e, type: 3}
+--- !u!1 &1650092534 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8406150714521028140, guid: 462196d96c6212b4798e2382b09ea489, type: 3}
+  m_PrefabInstance: {fileID: 1338936420}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1650092538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650092534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whenLivingRoom: 1
+  whenRestroom: 0
+  whenCorridor: 0
+  whenSmallCorridor: 0
+  whenStorage: 0
+  whenMasterRoom: 0
+  whenBalcony: 0
+  whenDaughtorRoom: 0
 --- !u!1 &1650473710 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: af278184522e1e54d84251dbe6d79573, type: 3}
@@ -77272,6 +77849,56 @@ Transform:
   m_Father: {fileID: 1732893145}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -1.348559, y: -0.0021681087, z: 0.6893388}
+--- !u!1 &1792128435 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4410516502721082725, guid: 854c349a7e0e16e47b8d5aaab471284a, type: 3}
+  m_PrefabInstance: {fileID: 1568625337}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1792128439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792128435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whenLivingRoom: 1
+  whenRestroom: 0
+  whenCorridor: 0
+  whenSmallCorridor: 0
+  whenStorage: 0
+  whenMasterRoom: 0
+  whenBalcony: 0
+  whenDaughtorRoom: 0
+--- !u!1 &1797615272 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4419985703529668554, guid: 1aebdaf470ddbe54ea913d0934e4aad4, type: 3}
+  m_PrefabInstance: {fileID: 228882693}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1797615276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797615272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whenLivingRoom: 1
+  whenRestroom: 0
+  whenCorridor: 0
+  whenSmallCorridor: 0
+  whenStorage: 0
+  whenMasterRoom: 0
+  whenBalcony: 0
+  whenDaughtorRoom: 0
 --- !u!1001 &1798404874
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -78072,6 +78699,10 @@ PrefabInstance:
       value: Reward (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1900166248470557466, guid: 1226ef475a2090249af89a99210da723, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1900166248470557466, guid: 1226ef475a2090249af89a99210da723, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -78777,6 +79408,31 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1819137538}
   m_Mesh: {fileID: 3861478300804232965, guid: 702329ba245b9b64a9b5cfed2981b67e, type: 3}
+--- !u!1 &1824917309 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 220231467068092133, guid: 4943b991c4711cb4ea7059b9095831a5, type: 3}
+  m_PrefabInstance: {fileID: 507626900}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1824917313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824917309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whenLivingRoom: 1
+  whenRestroom: 0
+  whenCorridor: 0
+  whenSmallCorridor: 0
+  whenStorage: 0
+  whenMasterRoom: 0
+  whenBalcony: 0
+  whenDaughtorRoom: 0
 --- !u!1 &1828069609
 GameObject:
   m_ObjectHideFlags: 0
@@ -79120,6 +79776,10 @@ PrefabInstance:
     - target: {fileID: 2628721955396091650, guid: 84cf6157a1e820140a4ed7b38f0b4224, type: 3}
       propertyPath: m_Name
       value: Crack2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628721955396091650, guid: 84cf6157a1e820140a4ed7b38f0b4224, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 2628721955396091650, guid: 84cf6157a1e820140a4ed7b38f0b4224, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -84618,6 +85278,10 @@ PrefabInstance:
       value: Dirt4 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 5170476654600708343, guid: 6a441ec942eb0ee448d8a226903f08aa, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5170476654600708343, guid: 6a441ec942eb0ee448d8a226903f08aa, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -84694,6 +85358,10 @@ PrefabInstance:
     - target: {fileID: 5170476654600708343, guid: 6a441ec942eb0ee448d8a226903f08aa, type: 3}
       propertyPath: m_Name
       value: Dirt4 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5170476654600708343, guid: 6a441ec942eb0ee448d8a226903f08aa, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 5170476654600708343, guid: 6a441ec942eb0ee448d8a226903f08aa, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -87749,6 +88417,10 @@ PrefabInstance:
       value: Dirt5 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 4990331436267830227, guid: bc8a4e91e7c2c394eb4bd942198f9a06, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990331436267830227, guid: bc8a4e91e7c2c394eb4bd942198f9a06, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -89103,6 +89775,31 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2039700629}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2040312368 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2628721955396091650, guid: 84cf6157a1e820140a4ed7b38f0b4224, type: 3}
+  m_PrefabInstance: {fileID: 1836413295}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2040312372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040312368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whenLivingRoom: 1
+  whenRestroom: 0
+  whenCorridor: 0
+  whenSmallCorridor: 0
+  whenStorage: 0
+  whenMasterRoom: 0
+  whenBalcony: 0
+  whenDaughtorRoom: 0
 --- !u!1001 &2040499822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -89583,6 +90280,10 @@ PrefabInstance:
     - target: {fileID: 3881166022566316704, guid: b06be6f252e1a7c478a3aca724a226c2, type: 3}
       propertyPath: m_Name
       value: Dirt1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3881166022566316704, guid: b06be6f252e1a7c478a3aca724a226c2, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 3881166022566316704, guid: b06be6f252e1a7c478a3aca724a226c2, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -92571,6 +93272,31 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7629811779324647873, guid: af278184522e1e54d84251dbe6d79573, type: 3}
+--- !u!1 &2126861124 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3881166022566316704, guid: b06be6f252e1a7c478a3aca724a226c2, type: 3}
+  m_PrefabInstance: {fileID: 211003680}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2126861128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126861124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whenLivingRoom: 1
+  whenRestroom: 0
+  whenCorridor: 0
+  whenSmallCorridor: 0
+  whenStorage: 0
+  whenMasterRoom: 0
+  whenBalcony: 0
+  whenDaughtorRoom: 0
 --- !u!4 &2131427880 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 930128578134245830, guid: 3c4c474342c411d408ff97a76ac9132f, type: 3}
