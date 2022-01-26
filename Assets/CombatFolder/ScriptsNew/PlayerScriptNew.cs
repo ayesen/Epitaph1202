@@ -236,6 +236,8 @@ public class PlayerScriptNew : MonoBehaviour
             #region Detect Boss Slot
 			if(matSlots[3] != null && matSlots[3].GetComponent<MatScriptNew>().amount <= 0)
             {
+				if(selectedMats.Contains(matSlots[3]))
+					selectedMats.Remove(matSlots[3]);
 				matSlots[3] = null;
 				UIManager.Me.UI_ChangeIcon();
             }
