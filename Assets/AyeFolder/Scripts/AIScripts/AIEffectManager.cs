@@ -10,10 +10,7 @@ public class AIEffectManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.J))
-        {
-            StartCoroutine(StartSoundWave());
-        }
+
     }
 
     public void ResetSoundWave()

@@ -11,6 +11,17 @@ public class AIStateWalking : AIStateBase
         myEnemy.AIAnimator.Play("Walk");
         myEnemy.myTrigger.myMR.enabled = false;
         myEnemy.ghostRider.isStopped = false;
+        if (myEnemy.name == "Bear")
+        {
+            if (myEnemy.phase == Enemy.AIPhase.InBattle1)
+            {
+                SoundMan.SoundManager.BattlePhaseOneVO();
+            }
+            else if (myEnemy.phase == Enemy.AIPhase.InBattle2)
+            {
+                SoundMan.SoundManager.BattlePhaseTwoVO();
+            }
+        }
     }
 
     public override void Update(Enemy myEnemy)

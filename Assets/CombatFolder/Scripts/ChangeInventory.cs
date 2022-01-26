@@ -28,14 +28,18 @@ public class ChangeInventory : MonoBehaviour
 
     void Update()
     {
-        //Move the square, choose inventory
+        if (SafehouseManager.Me.isSafehouse)
+        {
+                    //Move the square, choose inventory
         if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             choosenMatIndex += 1;
+            SoundMan.SoundManager.SafehouseMaterialSelect();
         }
         else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             choosenMatIndex -= 1;
+            SoundMan.SoundManager.SafehouseMaterialSelect();
         }
         else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
@@ -44,6 +48,7 @@ public class ChangeInventory : MonoBehaviour
                 if (choosenMatIndex <= DI.Amount_Of_Inventory - 1)
                 {
                     choosenMatIndex += 4;
+                    SoundMan.SoundManager.SafehouseMaterialSelect();
                 }
             }
         }
@@ -54,9 +59,18 @@ public class ChangeInventory : MonoBehaviour
                 if (choosenMatIndex - 4 >= 4)
                 {
                     choosenMatIndex -= 4;
+                    SoundMan.SoundManager.SafehouseMaterialSelect();
                 }
             }
         }
+
+        if(choosenMatIndex == 3)
+            {
+                if (!isChanging)
+                    choosenMatIndex = 4;
+                else
+                    choosenMatIndex = 2;
+            }
 
         if (!isChanging)
         {
@@ -66,6 +80,7 @@ public class ChangeInventory : MonoBehaviour
                 choosenMat = choosenMatIndex;
                 choosenMatIndex = 0;
                 isChanging = true;
+                SoundMan.SoundManager.SafehouseMaterialSelect();
             }
             //Limit range
             if (choosenMatIndex - 4 > DI.Amount_Of_Inventory - 1)
@@ -86,6 +101,7 @@ public class ChangeInventory : MonoBehaviour
                 UIManager.Me.UI_ChangeIcon();
                 isChanging = false;
                 choosenMatIndex = 4;
+                SoundMan.SoundManager.SafehouseMaterialSwap();
             }
 
             if(choosenMatIndex < 0)
@@ -111,15 +127,24 @@ public class ChangeInventory : MonoBehaviour
             choosenCircle.enabled = true;
             choosenCircle.GetComponent<RectTransform>().localPosition = DisplayInventory.Me.GetPosition(choosenMatIndex - 4) + Vector3.up * 190f;
         }
-        //Show description
-        description.text = PlayerScriptNew.me.matSlots[choosenMatIndex].name;
+            //Show description
+            if (PlayerScriptNew.me.matSlots[choosenMatIndex] != null)
+                description.text = PlayerScriptNew.me.matSlots[choosenMatIndex].GetComponent<MatScriptNew>().Description;
+            else
+                description.text = "";
+        }
     }
 
     public void ChangeMat(int choosenMat, int targetMat)
     {
-        GameObject temp = PlayerScriptNew.me.matSlots[choosenMat];
-        PlayerScriptNew.me.matSlots[choosenMat] = PlayerScriptNew.me.matSlots[targetMat];
-        PlayerScriptNew.me.matSlots[targetMat] = temp;
+        GameObject temp = PlayerScriptNew.me.matSlots[targetMat];
+        PlayerScriptNew.me.matSlots[targetMat] = PlayerScriptNew.me.matSlots[choosenMat];
+        PlayerScriptNew.me.matSlots[choosenMat] = temp;
+        if (PlayerScriptNew.me.matSlots[targetMat] == null)
+        {
+            Debug.Log("choosenMat null");
+            PlayerScriptNew.me.matSlots.RemoveAt(targetMat);
+        }
     }
     public Vector3 GetPosition(int i)
     {

@@ -49,12 +49,12 @@ public class PlayerScript : MonoBehaviour
 		Death();
 		if(!dead)
 		{ 
-		// simple movement for now
-		if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) &&
-			anim.GetCurrentAnimatorStateInfo(0).IsName("testIdle")) // if in idel state and a movement key pressed, go into walk state
-		{
-			anim.Play("testWalk");
-		}
+			// simple movement for now
+			if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) &&
+				anim.GetCurrentAnimatorStateInfo(0).IsName("testIdle")) // if in idel state and a movement key pressed, go into walk state
+			{
+				anim.Play("testWalk");
+			}
 			if (anim.GetCurrentAnimatorStateInfo(0).IsName("testWalk")) // if in walk state, walk
 			{
 				// walking diagonally

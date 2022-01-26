@@ -17,6 +17,7 @@ TagManager:
   - Inventory
   - EnemyInfoUI
   - PlayerSpawnedBear
+  - BossMat
   layers:
   - Default
   - TransparentFX

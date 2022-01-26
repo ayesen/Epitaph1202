@@ -19,7 +19,7 @@ public class MotherController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        /*if (Input.GetKeyDown(KeyCode.R))
         {
             foreach (GameObject kid in kidsHouse)
             {
@@ -53,7 +53,7 @@ public class MotherController : MonoBehaviour
                 kids[i].transform.position = Vector3.Lerp(kids[i].transform.position, kidsHouse[i].transform.position, Time.time);
             }
             
-        }
+        }*/
     }
 
     public void OutKids()
@@ -68,6 +68,7 @@ public class MotherController : MonoBehaviour
             kidChild.GetComponent<Rigidbody>().useGravity = true;
             kidChild.GetComponent<CapsuleCollider>().enabled = true;
             kidChild.GetComponent<Enemy>().ChangePhase(Enemy.AIPhase.InBattle1, 1);
+            //kidChild.GetComponent<Enemy>().EnemyCanvas.SetActive(true);
         }
     }
 
@@ -75,7 +76,7 @@ public class MotherController : MonoBehaviour
     {
         for (int i = 0; i < kids.Count; i++)
         {
-
+            kids[i].GetComponent<Enemy>().EnemyCanvas.SetActive(false);
             kids[i].GetComponent<SmallBear>().ResetSmallBear();
             kids[i].transform.SetParent(kidsHouse[i].transform);
             kids[i].GetComponent<Rigidbody>().useGravity = false;

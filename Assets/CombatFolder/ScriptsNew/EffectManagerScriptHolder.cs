@@ -16,6 +16,7 @@ public class EffectManagerScriptHolder : MonoBehaviour
 
 	public void Casting()
 	{
+		PlayerScriptNew.me.atkButtonPressed = false;
 		ConditionStruct cs = new ConditionStruct
 		{
 			condition = EffectStructNew.Condition.casting,
@@ -28,4 +29,14 @@ public class EffectManagerScriptHolder : MonoBehaviour
 			ui.GetComponent<TextMeshProUGUI>().text = "";
 		}
 	}
+
+	public void CastShoutSound()
+    {
+		SoundMan.SoundManager.PlayerCast();
+    }
+
+	public void PlayerWalkingSound()
+    {
+		SoundMan.SoundManager.ManWalk();
+    }
 }
