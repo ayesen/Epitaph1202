@@ -210,7 +210,7 @@ public class Enemy : MonoBehaviour
         this.transform.position = ResetPos;
         //breakMeter_ui.enabled = false;
         //hittedStates.enabled = false;
-        //EnemyCanvas.SetActive(false);
+        EnemyCanvas.SetActive(false);
     }
 
     public void DealDmg(int dmgAmt)
@@ -383,6 +383,7 @@ public class Enemy : MonoBehaviour
     public void GotoLoc()
     {
         // go to specific location and stand still for dialogue
+        EnemyCanvas.SetActive(true);
         BearMesh.SetActive(true);
         this.GetComponent<CapsuleCollider>().enabled = true;
         this.GetComponent<NavMeshAgent>().enabled = true;

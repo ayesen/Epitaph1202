@@ -52,7 +52,11 @@ public class DialogueScript : MonoBehaviour
 			{
 				mr.material = highLightMat;
 				if (Input.GetKeyUp(KeyCode.E) &&
-					player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("testIdle"))
+					(player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("testIdle") ||
+					player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("testWalk") ||
+					player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Player_Walking_Right") ||
+					player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Player_Walking_Left") ||
+					player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Player_Walking_Backwards")))
 				{
 					SoundMan.SoundManager.ItemInspection();
 					inspected = true;

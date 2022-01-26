@@ -322,7 +322,7 @@ public class PlayerScriptNew : MonoBehaviour
 				var target = new Vector3(enemy.transform.position.x, transform.position.y, enemy.transform.position.z);
 				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target - transform.position), rot_spd * Time.deltaTime);
 			}
-			else
+			else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("readingText"))
 			{
 				var target = new Vector3(MouseManager.me.mousePos.x, transform.position.y, MouseManager.me.mousePos.z);
 				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target - transform.position), rot_spd * Time.deltaTime);
