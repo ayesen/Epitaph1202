@@ -381,8 +381,8 @@ public class PlayerScriptNew : MonoBehaviour
 						{
 							mat.GetComponent<MatScriptNew>().amount--;
 						}
-						//anim.Play("testWindup"); // player anticipation clip and call effect manager's casting event in clip
-						anim.CrossFade("testWindup", 0.1f);
+						anim.Play("testWindup"); // player anticipation clip and call effect manager's casting event in clip
+						//anim.CrossFade("testWindup", 0.1f);
 					}
 					else
 					{
