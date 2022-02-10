@@ -132,4 +132,14 @@ MonoBehaviour:
   myEffects: []
   hit_amount: 0
   hit_interval: 0.2
+  dummyEffectForDmg:
+    when: 0
+    iS: 0
+    doThis: 1
+    toWhom: 1
+    forHowMuch: 0
+    atk: 0
+    amp: 0
+    myModifiers: []
+    forHowLong: 0
   collisionPrefab: {fileID: 3171771419032561606, guid: 8464666b7d5edac438f7e31026d878ac, type: 3}

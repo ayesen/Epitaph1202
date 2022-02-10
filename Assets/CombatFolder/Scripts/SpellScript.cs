@@ -13,6 +13,7 @@ public class SpellScript : MonoBehaviour
 	public float hit_interval;
 	private float lifespan;
 	private float deathTimer;
+	public EffectStructNew dummyEffectForDmg;
 	[Header("LASTWORD EVENT")]
 	public GameObject collisionPrefab;
 
@@ -86,13 +87,25 @@ public class SpellScript : MonoBehaviour
 				}
 				if (recordEffect)
 				{
-					foreach (var effect in myEffects)
+					float dummyATK = 0;
+					float dummyAMP = 0;
+					for (int i = 0; i < myEffects.Count; i++) // loop through each effect this spell contains
 					{
-						if (effect.toWhom == EffectStructNew.Target.collisionEnemy)
+						if (myEffects[i].toWhom == EffectStructNew.Target.collisionEnemy) // check if the effect is applied when collidiing an enemy
 						{
-							EffectManagerNew.me.SpawnEffectHolders(hit.gameObject, effect, gameObject.transform.position);
+							dummyATK += myEffects[i].atk; // add effects' atk together to dummy atk
+							dummyAMP += myEffects[i].amp; // add effects' amp together to dummy amp
+							EffectStructNew tempEffectStruct = myEffects[i]; // temp struct so that we can alter the effects' atk and amp
+							tempEffectStruct.atk = 0; // set to zero since we took the atk out
+							tempEffectStruct.amp = 0;
+							myEffects[i] = tempEffectStruct; // set it back
+							EffectManagerNew.me.SpawnEffectHolders(hit.gameObject, myEffects[i], gameObject.transform.position); // record effects (without atk and amp) to the enemy
 						}
 					}
+					// record dmg effect dummy to deal dmg
+					dummyEffectForDmg.amp = dummyAMP;
+					dummyEffectForDmg.atk = dummyATK;
+					EffectManagerNew.me.SpawnEffectHolders(hit.gameObject, dummyEffectForDmg, gameObject.transform.position);
 				}
 				// vfx
 				if (fragments != null)
