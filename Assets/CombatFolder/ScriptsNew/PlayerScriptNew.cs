@@ -59,10 +59,10 @@ public class PlayerScriptNew : MonoBehaviour
         {
 			hp = 0;
         }
-		print("selected Mats count: " + selectedMats.Count);
-		print("walking: " + walking);
-		print("current clip: " + anim.GetCurrentAnimatorStateInfo(0).fullPathHash);
-		print("atkButtonPressed: " + atkButtonPressed);
+		//print("selected Mats count: " + selectedMats.Count);
+		//print("walking: " + walking);
+		//print("current clip: " + anim.GetCurrentAnimatorStateInfo(0).fullPathHash);
+		//print("atkButtonPressed: " + atkButtonPressed);
 		Death();
 		if (!dead && !SafehouseManager.Me.isSafehouse)
 		{
@@ -400,7 +400,7 @@ public class PlayerScriptNew : MonoBehaviour
 				}
 				else
 				{
-					print(walking);
+					//print(walking);
 				}
 			}
 		}
