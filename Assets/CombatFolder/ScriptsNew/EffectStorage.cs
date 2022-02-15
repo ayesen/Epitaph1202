@@ -34,14 +34,17 @@ public class EffectStorage : MonoBehaviour
 	#region DMG
 	public void HurtEnemy(EffectHolderScript ehs, GameObject enemy)
 	{
-		enemy.GetComponent<Enemy>().LoseHealth((int)ehs.myEffect.forHowMuch);
-		enemy.GetComponent<CombatInfoScript>().infoToDisplay.Add("dealt " + (int)ehs.myEffect.forHowMuch + " dmg");
+		float finalDmg = Mathf.Clamp(((ehs.myEffect.atk - enemy.GetComponent<Enemy>().def) * ehs.myEffect.amp), 0, float.MaxValue); // dmg = (atk - def) * amp
+
+		enemy.GetComponent<Enemy>().LoseHealth((int)finalDmg);
+		enemy.GetComponent<CombatInfoScript>().infoToDisplay.Add("dealt " + (int)finalDmg + " dmg");
 	}
 	public void HurtEnemyBasedOnDis(EffectHolderScript ehs, GameObject enemy, float dis)
 	{
-		float dmgToDeal = 1f / dis * ehs.myEffect.forHowMuch;
+		float finalDmg = (ehs.myEffect.atk - enemy.GetComponent<Enemy>().def) * ehs.myEffect.amp;
+		float dmgToDeal = 1f / dis * finalDmg;
 		enemy.GetComponent<Enemy>().LoseHealth((int)dmgToDeal);
-		enemy.GetComponent<CombatInfoScript>().infoToDisplay.Add("dealt " + (int)ehs.myEffect.forHowMuch + " dmg");
+		enemy.GetComponent<CombatInfoScript>().infoToDisplay.Add("dealt " + (int)dmgToDeal + " dmg");
 	}
 	public void DotEnemy(EffectHolderScript ehs, GameObject enemy)
 	{
@@ -54,7 +57,8 @@ public class EffectStorage : MonoBehaviour
 		while (timer > 0)
 		{
 			timer--;
-			enemy.GetComponent<Enemy>().LoseHealth((int)ehs.myEffect.forHowMuch);
+			float finalDmg = (ehs.myEffect.atk - enemy.GetComponent<Enemy>().def) * ehs.myEffect.amp;
+			enemy.GetComponent<Enemy>().LoseHealth((int)finalDmg);
 			SpawnParticle(fragments_dot, enemy.transform.position);
 			yield return new WaitForSeconds(dot_interval);
 		}
@@ -91,7 +95,7 @@ public class EffectStorage : MonoBehaviour
 		ee.GetComponent<Rigidbody>().isKinematic = false;
 		Vector3 adjustedEEPos = new Vector3(ee.transform.position.x, ee.transform.position.y + 2f, ee.transform.position.z);
 		Vector3 dir = adjustedEEPos - erPos;
-		print(erPos);
+		//print(erPos);
 		ee.GetComponent<Rigidbody>().AddForce(dir.normalized * amount, ForceMode.Impulse);
 		StartCoroutine(SetEnemyKnockedState(ee));
 	}

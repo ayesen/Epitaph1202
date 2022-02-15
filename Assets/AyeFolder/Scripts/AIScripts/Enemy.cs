@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class Enemy : MonoBehaviour
 {
     [Header("BASIC")]
+    public float def;
     public int health;
     public int maxHealth;
     public int moveSpeed;
