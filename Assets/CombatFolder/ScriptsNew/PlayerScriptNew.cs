@@ -33,6 +33,8 @@ public class PlayerScriptNew : MonoBehaviour
 	private bool backwarding;
 	private bool lefting;
 	private bool righting;
+	[Header("Joystick Controll")]
+	public float joystickSensitivity;//0~1
 
 	// backswing cancel
 	private GameObject lastMat;
@@ -107,7 +109,7 @@ public class PlayerScriptNew : MonoBehaviour
 				!anim.GetCurrentAnimatorStateInfo(0).IsName("testATK") &&
                 !anim.GetCurrentAnimatorStateInfo(0).IsName("testBackswing"))
             {
-				if (Input.GetKeyUp(KeyCode.Alpha1) && matSlots[0] != null)
+				if (Input.GetKeyUp(KeyCode.Alpha1) || Input.GetButtonUp("XButton") && matSlots[0] != null)
 				{
 					SoundMan.SoundManager.MaterialSelect();
 					if (selectedMats.Contains(matSlots[0]))
@@ -121,7 +123,7 @@ public class PlayerScriptNew : MonoBehaviour
 					}
 					EffectManagerNew.me.RefreshCurrentMats();
 				}
-				else if (Input.GetKeyUp(KeyCode.Alpha2) && matSlots[1] != null)
+				else if (Input.GetKeyUp(KeyCode.Alpha2) || Input.GetButtonUp("YButton") && matSlots[1] != null)
 				{
 					SoundMan.SoundManager.MaterialSelect();
 					if (selectedMats.Contains(matSlots[1]))
@@ -135,7 +137,7 @@ public class PlayerScriptNew : MonoBehaviour
 					}
 					EffectManagerNew.me.RefreshCurrentMats();
 				}
-				else if (Input.GetKeyUp(KeyCode.Alpha3) && matSlots[2] != null)
+				else if (Input.GetKeyUp(KeyCode.Alpha3) || Input.GetButtonUp("BButton") && matSlots[2] != null)
 				{
 					SoundMan.SoundManager.MaterialSelect();
 					if (selectedMats.Contains(matSlots[2]))
@@ -149,7 +151,7 @@ public class PlayerScriptNew : MonoBehaviour
 					}
 					EffectManagerNew.me.RefreshCurrentMats();
 				}
-				else if (Input.GetKeyUp(KeyCode.Alpha4) && matSlots[3] != null)
+				else if (Input.GetKeyUp(KeyCode.Alpha4) || Input.GetButtonUp("AButton") && matSlots[3] != null)
 				{
 					SoundMan.SoundManager.MaterialSelect();
 					if (selectedMats.Contains(matSlots[3]))
@@ -164,10 +166,49 @@ public class PlayerScriptNew : MonoBehaviour
 					EffectManagerNew.me.RefreshCurrentMats();
 				}
 			}
-			
+
 			#endregion
-			#region movement
-			if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) &&
+			#region gamepad movement
+			//Move
+			if(Mathf.Abs(Input.GetAxis("LeftJoystickHorizontal")) >= joystickSensitivity ||
+				Mathf.Abs(Input.GetAxis("LeftJoystickVertical")) >= joystickSensitivity ||
+				Mathf.Sqrt(Mathf.Pow(Input.GetAxis("LeftJoystickHorizontal"), 2) + Mathf.Pow(Input.GetAxis("LeftJoystickVertical"), 2)) >= joystickSensitivity)
+            {
+				if(!anim.GetCurrentAnimatorStateInfo(0).IsName("testWindup") &&
+				!anim.GetCurrentAnimatorStateInfo(0).IsName("testATK") &&
+				!anim.GetCurrentAnimatorStateInfo(0).IsName("testBackswing") &&
+				!anim.GetCurrentAnimatorStateInfo(0).IsName("readingText") &&
+				atkButtonPressed == false)
+                {
+					walking = true;
+                }
+            }
+            if (walking)
+            {
+				if (Mathf.Abs(Input.GetAxis("LeftJoystickHorizontal")) >= joystickSensitivity ||
+					Mathf.Abs(Input.GetAxis("LeftJoystickVertical")) >= joystickSensitivity ||
+					Mathf.Sqrt(Mathf.Pow(Input.GetAxis("LeftJoystickHorizontal"), 2) + Mathf.Pow(Input.GetAxis("LeftJoystickVertical"), 2)) >= joystickSensitivity)
+				{
+					transform.position = new Vector3(transform.position.x + Input.GetAxis("LeftJoystickHorizontal") * spd * Time.deltaTime, transform.position.y,
+					transform.position.z + Input.GetAxis("LeftJoystickVertical") * -1 * spd * Time.deltaTime);
+				}
+                else
+                {
+					walking = false;
+				}
+            }
+			//Rotate
+			if(Mathf.Abs(Input.GetAxis("RightJoystickHorizontal")) >= joystickSensitivity ||
+				Mathf.Abs(Input.GetAxis("RightJoystickVertical")) >= joystickSensitivity ||
+				Mathf.Sqrt(Mathf.Pow(Input.GetAxis("RightJoystickHorizontal"), 2) + Mathf.Pow(Input.GetAxis("RightJoystickHorizontal"), 2)) >= joystickSensitivity)
+            {
+				var joypos = Mathf.Atan2(Input.GetAxis("RightJoystickHorizontal"), Input.GetAxis("RightJoystickVertical") * -1) * Mathf.Rad2Deg;
+				transform.eulerAngles = new Vector3(transform.eulerAngles.x, joypos, transform.eulerAngles.z);
+			}
+            #endregion
+            #region movement
+			/*
+            if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) &&
 				!anim.GetCurrentAnimatorStateInfo(0).IsName("testWindup") &&
 				!anim.GetCurrentAnimatorStateInfo(0).IsName("testATK") &&
 				!anim.GetCurrentAnimatorStateInfo(0).IsName("testBackswing") &&
@@ -322,11 +363,13 @@ public class PlayerScriptNew : MonoBehaviour
 				var target = new Vector3(enemy.transform.position.x, transform.position.y, enemy.transform.position.z);
 				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target - transform.position), rot_spd * Time.deltaTime);
 			}
+			/*
 			else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("readingText"))
 			{
 				var target = new Vector3(MouseManager.me.mousePos.x, transform.position.y, MouseManager.me.mousePos.z);
 				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target - transform.position), rot_spd * Time.deltaTime);
 			}
+			*/
             #endregion
             #region Detect Boss Slot
 			if(matSlots[3] != null && matSlots[3].GetComponent<MatScriptNew>().amount <= 0)
@@ -362,7 +405,7 @@ public class PlayerScriptNew : MonoBehaviour
 				anim.GetCurrentAnimatorStateInfo(0).IsName("Player_Walking_Left") ||
 				anim.GetCurrentAnimatorStateInfo(0).IsName("Player_Walking_Right")))  // if player in walk state
 			{
-				if (!atkButtonPressed && Input.GetMouseButtonUp(0)) // if left click
+				if (Input.GetMouseButtonUp(0) || Input.GetAxis("RT") > 0 && !atkButtonPressed) // if left click
 				{
 					atkButtonPressed = true;
 					walking = false;
@@ -390,7 +433,7 @@ public class PlayerScriptNew : MonoBehaviour
 					}
 				}
 			}
-			if (Input.GetMouseButtonUp(0))
+			if (Input.GetMouseButtonUp(0) || Input.GetAxis("RT") > 0)
 			{
 				if (selectedMats.Count > 0 &&  // check if player has mat activated
 				(anim.GetCurrentAnimatorStateInfo(0).IsName("testIdle") || // if player in idle state
