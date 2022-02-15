@@ -590,6 +590,7 @@ MonoBehaviour:
   hp: 20
   spd: 10
   rot_spd: 4
+  anim: {fileID: 0}
   playerModel: {fileID: 7577041118973501038}
   deathTime: 1.5
   dead: 0
@@ -599,11 +600,13 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  atkButtonPressed: 0
   mat1: {fileID: 0}
   mat2: {fileID: 0}
   mat3: {fileID: 0}
   mat4: {fileID: 0}
   walking: 0
+  joystickSensitivity: 0.1
 --- !u!114 &114750589119298922
 MonoBehaviour:
   m_ObjectHideFlags: 0
