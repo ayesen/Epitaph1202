@@ -70,7 +70,7 @@ public class UIManager : MonoBehaviour
             isHided = true;
             StartCoroutine(FadeCanvas(cg, 0f, fadeTime));
         }
-        if (Input.anyKeyDown)
+        if (Input.anyKeyDown || Input.GetAxis("LT") != 0 || Input.GetAxis("RT") != 0)
         {
             if(!(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.E)))
             {

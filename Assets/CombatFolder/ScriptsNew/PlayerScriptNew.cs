@@ -168,7 +168,7 @@ public class PlayerScriptNew : MonoBehaviour
 			}
 
 			#endregion
-			#region gamepad movement
+			#region controller movement
 			//Move
 			if(Mathf.Abs(Input.GetAxis("LeftJoystickHorizontal")) >= joystickSensitivity ||
 				Mathf.Abs(Input.GetAxis("LeftJoystickVertical")) >= joystickSensitivity ||
@@ -417,31 +417,6 @@ public class PlayerScriptNew : MonoBehaviour
 			}
 			*/
             #endregion
-            #region Detect Boss Slot
-			if(matSlots[3] != null && matSlots[3].GetComponent<MatScriptNew>().amount <= 0)
-            {
-				if(selectedMats.Contains(matSlots[3]))
-					selectedMats.Remove(matSlots[3]);
-				matSlots[3] = null;
-				UIManager.Me.UI_ChangeIcon();
-            }
-			for(int i = 0; i<matSlots.Count; i++)
-            {
-				if(matSlots[i] != null)
-                {
-					if(matSlots[i].GetComponent<MatScriptNew>().amount <= 0)
-                    {
-						if (selectedMats.Contains(matSlots[i]))
-							selectedMats.Remove(matSlots[i]);
-						if (matSlots[i].CompareTag("BossMat"))
-						{
-							matSlots[i] = null;
-							UIManager.Me.UI_ChangeIcon();
-						}
-                    }
-                }
-            }
-			#endregion
 			// check for attack button press
 			if (selectedMats.Count > 0 &&  // check if player has mat activated
 				(anim.GetCurrentAnimatorStateInfo(0).IsName("testIdle") || // if player in idle state
@@ -471,7 +446,8 @@ public class PlayerScriptNew : MonoBehaviour
 							mat.GetComponent<MatScriptNew>().amount--;
 						}
 						anim.Play("testWindup"); // player anticipation clip and call effect manager's casting event in clip
-						//anim.CrossFade("testWindup", 0.1f);
+												 //anim.CrossFade("testWindup", 0.1f);
+						selectedMats.Clear();
 					}
 					else
 					{
@@ -494,6 +470,38 @@ public class PlayerScriptNew : MonoBehaviour
 			}
 		}
     }
+	private void MatCD()
+    {
+		//Detect & delete boss mat
+		if (matSlots[3] != null && matSlots[3].GetComponent<MatScriptNew>().amount <= 0)
+		{
+			if (selectedMats.Contains(matSlots[3]))
+				selectedMats.Remove(matSlots[3]);
+			matSlots[3] = null;
+			UIManager.Me.UI_ChangeIcon();
+		}
+
+		/*
+		for(int i = 0; i<matSlots.Count; i++)
+		{
+			if(matSlots[i] != null)
+			{
+				if(matSlots[i].GetComponent<MatScriptNew>().amount <= 0)
+				{
+					if (selectedMats.Contains(matSlots[i]))
+						selectedMats.Remove(matSlots[i]);
+					if (matSlots[i].CompareTag("BossMat"))
+					{
+						matSlots[i] = null;
+						UIManager.Me.UI_ChangeIcon();
+					}
+				}
+			}
+		}
+		*/
+
+	}
+
 	public void LoseHealth_player(int amt)
 	{
 		hp -= amt;
