@@ -191,19 +191,34 @@ public class PlayerScriptNew : MonoBehaviour
 				{
 					transform.position = new Vector3(transform.position.x + Input.GetAxis("LeftJoystickHorizontal") * spd * Time.deltaTime, transform.position.y,
 					transform.position.z + Input.GetAxis("LeftJoystickVertical") * -1 * spd * Time.deltaTime);
+					walkingDir = new Vector3(Input.GetAxis("LeftJoystickHorizontal"), 0, Input.GetAxis("LeftJoystickVertical") * -1);
 				}
                 else
                 {
 					walking = false;
+					forwarding = false;
+					backwarding = false;
+					lefting = false;
+					righting = false;
+					anim.CrossFade("testIdle", .3f);
+					walkingDir = Vector3.zero;
 				}
             }
 			//Rotate
-			if(Mathf.Abs(Input.GetAxis("RightJoystickHorizontal")) >= joystickSensitivity ||
-				Mathf.Abs(Input.GetAxis("RightJoystickVertical")) >= joystickSensitivity ||
-				Mathf.Sqrt(Mathf.Pow(Input.GetAxis("RightJoystickHorizontal"), 2) + Mathf.Pow(Input.GetAxis("RightJoystickHorizontal"), 2)) >= joystickSensitivity)
+			if(Input.GetAxis("LT") > 0)
             {
-				var joypos = Mathf.Atan2(Input.GetAxis("RightJoystickHorizontal"), Input.GetAxis("RightJoystickVertical") * -1) * Mathf.Rad2Deg;
-				transform.eulerAngles = new Vector3(transform.eulerAngles.x, joypos, transform.eulerAngles.z);
+				var target = new Vector3(enemy.transform.position.x, transform.position.y, enemy.transform.position.z);
+				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target - transform.position), rot_spd * Time.deltaTime);
+			}
+			else if(Mathf.Abs(Input.GetAxis("RightJoystickHorizontal")) >= joystickSensitivity ||
+				Mathf.Abs(Input.GetAxis("RightJoystickVertical")) >= joystickSensitivity ||
+				Mathf.Sqrt(Mathf.Pow(Input.GetAxis("RightJoystickHorizontal"), 2) + Mathf.Pow(Input.GetAxis("RightJoystickHorizontal"), 2)) >= joystickSensitivity &&
+				Input.GetAxis("LT") == 0)
+            {
+				//var joypos = Mathf.Atan2(Input.GetAxis("RightJoystickHorizontal"), Input.GetAxis("RightJoystickVertical") * -1) * Mathf.Rad2Deg;
+				var target = new Vector3(Input.GetAxis("RightJoystickHorizontal"), 0, Input.GetAxis("RightJoystickVertical") * -1);
+				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target), rot_spd * Time.deltaTime);
+				//transform.eulerAngles = Vector3.Slerp(transform.rotation.eulerAngles, new Vector3(transform.eulerAngles.x, joypos, transform.eulerAngles.z), rot_spd * Time.deltaTime);
 			}
             #endregion
             #region movement
@@ -218,8 +233,11 @@ public class PlayerScriptNew : MonoBehaviour
 				walking = true;
 				atkButtonPressed = false;
 			}
+			*/
+
 			if (walking)
 			{
+				/*
 				// walking diagonally
 				if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
 				{
@@ -272,10 +290,11 @@ public class PlayerScriptNew : MonoBehaviour
 					anim.CrossFade("testIdle", .3f);
 					walking = false;
 				}
+			*/
 
 				if (walkingDir.magnitude > 0)
 				{
-					if (Vector3.Angle(walkingDir, transform.forward) < 45 && Vector3.Angle(walkingDir, transform.forward) > -45)
+					if (Vector3.Angle(walkingDir, transform.forward) < 45)
 					{
 						//anim.Play("testWalk");
 						if (!forwarding)
@@ -287,7 +306,7 @@ public class PlayerScriptNew : MonoBehaviour
 							righting = false;
 						}
 					}
-					else if (Vector3.Angle(walkingDir, transform.forward) > 135 && Vector3.Angle(walkingDir, transform.forward) < 225)
+					else if (Vector3.Angle(walkingDir, transform.forward) > 135)
 					{
 						if (!backwarding)
 						{
@@ -300,6 +319,31 @@ public class PlayerScriptNew : MonoBehaviour
 					}
 					else if (Vector3.Angle(walkingDir, transform.forward) > 45 && Vector3.Angle(walkingDir, transform.forward) < 135)
 					{
+						Vector3 cross = Vector3.Cross(transform.forward, walkingDir);
+						if(cross.y > 0)
+                        {
+							if (!righting)
+							{
+								anim.CrossFade("Player_Walking_Right", .3f);
+								forwarding = false;
+								backwarding = false;
+								lefting = false;
+								righting = true;
+							}
+						}
+						else if(cross.y < 0)
+                        {
+							if (!lefting)
+							{
+								anim.CrossFade("Player_Walking_Left", .3f);
+								forwarding = false;
+								backwarding = false;
+								lefting = true;
+								righting = false;
+							}
+						}
+
+						/*
 						if (transform.forward.z < 0 || transform.forward.x < 0)
 						{
 							if (walkingDir.x > 0 || walkingDir.z < 0)
@@ -351,11 +395,13 @@ public class PlayerScriptNew : MonoBehaviour
 								}
 							}
 						}
+						*/
 					}
 					
 				}
 			}
 
+			/*
 			// look at mouse pos(not changing y-axis)
 			//! if this doesn't work properly, check game objects' layers, and make sure the mouse manager ignores the proper layers
 			if (Input.GetMouseButton(1))
@@ -363,7 +409,7 @@ public class PlayerScriptNew : MonoBehaviour
 				var target = new Vector3(enemy.transform.position.x, transform.position.y, enemy.transform.position.z);
 				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target - transform.position), rot_spd * Time.deltaTime);
 			}
-			/*
+			
 			else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("readingText"))
 			{
 				var target = new Vector3(MouseManager.me.mousePos.x, transform.position.y, MouseManager.me.mousePos.z);
