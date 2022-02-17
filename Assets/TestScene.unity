@@ -157,7 +157,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5123133}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftUpLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 15641239}
   - component: {fileID: 15641238}
   - component: {fileID: 15641237}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Test2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -322,6 +322,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   def: 0
+  def_weak: 0
+  edr: 0
+  edr_atk: 0
+  edr_normal: 0
+  stun_threshold: 0
+  down_time: 0
+  poise: 0
+  poise_max: 0
   health: 5
   maxHealth: 5
   moveSpeed: 1
@@ -894,7 +902,7 @@ GameObject:
   m_Component:
   - component: {fileID: 28695289}
   - component: {fileID: 28695290}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6652,7 +6660,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 139729545}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7325,7 +7333,7 @@ GameObject:
   m_Component:
   - component: {fileID: 167091123}
   - component: {fileID: 167091124}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7348,7 +7356,7 @@ Transform:
   - {fileID: 1505114473}
   m_Father: {fileID: 862493576}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 1.3361475, y: -7.859734, z: 2.4414535}
+  m_LocalEulerAnglesHint: {x: -11.807254, y: -22.691795, z: 2.4555926}
 --- !u!64 &167091124
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8766,7 +8774,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 199555432}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11449,7 +11457,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 260819726}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RightArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13503,7 +13511,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 318053909}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14837,7 +14845,7 @@ GameObject:
   - component: {fileID: 341838823}
   - component: {fileID: 341838822}
   - component: {fileID: 341838821}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Atk2Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15245,7 +15253,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 349138323}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15277,7 +15285,7 @@ GameObject:
   m_Component:
   - component: {fileID: 349881336}
   - component: {fileID: 349881337}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18833,7 +18841,7 @@ GameObject:
   m_Component:
   - component: {fileID: 439398508}
   - component: {fileID: 439398509}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20198,7 +20206,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 468259736}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RightFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20586,7 +20594,7 @@ GameObject:
   - component: {fileID: 473677503}
   - component: {fileID: 473677501}
   - component: {fileID: 473677502}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bearMesh2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23893,7 +23901,7 @@ GameObject:
   - component: {fileID: 529925735}
   - component: {fileID: 529925734}
   - component: {fileID: 529925733}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Test1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -23953,6 +23961,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   def: 0
+  def_weak: 0
+  edr: 0
+  edr_atk: 0
+  edr_normal: 0
+  stun_threshold: 0
+  down_time: 0
+  poise: 0
+  poise_max: 0
   health: 5
   maxHealth: 5
   moveSpeed: 1
@@ -24360,7 +24376,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 542127403}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26840,7 +26856,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 593263846}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RightForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27158,7 +27174,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 613940270}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27178,7 +27194,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1505114473}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 10.421804, y: 6.8959494, z: -1.1633948}
+  m_LocalEulerAnglesHint: {x: 5.042457, y: -1.8861032, z: -3.2833214}
 --- !u!1 &614433807
 GameObject:
   m_ObjectHideFlags: 0
@@ -27190,7 +27206,7 @@ GameObject:
   - component: {fileID: 614433808}
   - component: {fileID: 614433810}
   - component: {fileID: 614433809}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29593,7 +29609,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 654093950}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33364,7 +33380,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 729217757}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RightHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33826,7 +33842,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 743419841}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34536,7 +34552,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 761618353}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34556,7 +34572,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1243848613}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 28.501244, y: -4.650201, z: -18.073177}
+  m_LocalEulerAnglesHint: {x: -62.519485, y: -3.4364324, z: -27.213682}
 --- !u!1001 &763428916
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35503,7 +35519,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 790188423}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35608,7 +35624,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 793614732}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RightHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38822,7 +38838,7 @@ GameObject:
   - component: {fileID: 862493574}
   - component: {fileID: 862493572}
   - component: {fileID: 862493573}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bearMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39228,7 +39244,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 868363407}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyKidsBase (these needs to stay inactive until it is needed) (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41289,7 +41305,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 924445830}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42584,7 +42600,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 956900279}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RightUpLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42605,7 +42621,7 @@ Transform:
   - {fileID: 1297252893}
   m_Father: {fileID: 167091123}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 31.120504, y: -172.64134, z: -170.60886}
+  m_LocalEulerAnglesHint: {x: -3.5990036, y: -164.46292, z: 156.14714}
 --- !u!1 &958314007
 GameObject:
   m_ObjectHideFlags: 0
@@ -44100,7 +44116,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 995933150}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RightLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45989,7 +46005,7 @@ GameObject:
   - component: {fileID: 1039625109}
   - component: {fileID: 1039625108}
   - component: {fileID: 1039625112}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SmallBearAtkTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46570,7 +46586,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1052389871}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RightForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49995,7 +50011,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1132075541}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RightArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50016,7 +50032,7 @@ Transform:
   - {fileID: 2111350335}
   m_Father: {fileID: 1505114473}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: -16.677744, y: -169.02998, z: -119.184105}
+  m_LocalEulerAnglesHint: {x: 15.561301, y: 157.33551, z: -136.89331}
 --- !u!1 &1134129153
 GameObject:
   m_ObjectHideFlags: 0
@@ -50262,7 +50278,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1137935781}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RightUpLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51485,7 +51501,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1171543563}
   - component: {fileID: 1171543564}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Target Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53144,7 +53160,7 @@ GameObject:
   - component: {fileID: 1208502504}
   - component: {fileID: 1208502502}
   - component: {fileID: 1208502503}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bearMesh1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54886,7 +54902,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1234486620}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftUpLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55247,7 +55263,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1243848613}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55268,7 +55284,7 @@ Transform:
   - {fileID: 761618353}
   m_Father: {fileID: 2141846518}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 1.1502585, y: 14.373951, z: 11.332393}
+  m_LocalEulerAnglesHint: {x: -3.2832808, y: 70.819374, z: -9.756813}
 --- !u!1 &1244128790
 GameObject:
   m_ObjectHideFlags: 0
@@ -55375,7 +55391,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1244234688}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RightUpLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55720,7 +55736,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1253222110}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57046,7 +57062,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1288828367}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RightFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57066,7 +57082,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1297252893}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -0.98782665, y: -0.021417648, z: 2.447846}
+  m_LocalEulerAnglesHint: {x: -0.05166201, y: 0.000072872186, z: 0.000021349328}
 --- !u!1001 &1290520304
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57220,7 +57236,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1297252893}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RightLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57241,7 +57257,7 @@ Transform:
   - {fileID: 1288828367}
   m_Father: {fileID: 956900279}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 42.006695, y: -0.0005045487, z: -3.1614702}
+  m_LocalEulerAnglesHint: {x: 80.42177, y: -43.888126, z: -46.040787}
 --- !u!1 &1302145442 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1668839863094758044, guid: 90a04e9ffd54ca843b9e9561a06704df, type: 3}
@@ -57303,9 +57319,9 @@ MonoBehaviour:
     iS: 0
     doThis: 1
     toWhom: 1
-    forHowMuch: 5
-    atk: 2
-    amp: 2
+    forHowMuch: 0
+    atk: 1
+    amp: 5
     myModifiers: []
     forHowLong: 0
   lifespan: 3
@@ -57571,7 +57587,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1311469734}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RightLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58226,7 +58242,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1327558505}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RightFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58569,7 +58585,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1331380470}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyKidsBase (these needs to stay inactive until it is needed) (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58697,7 +58713,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1332978874}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RightArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59089,7 +59105,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1339101986}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftUpLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60440,7 +60456,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1377998009}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RightUpLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61885,7 +61901,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1400840659}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62762,7 +62778,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1421967264}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RightForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63949,7 +63965,7 @@ GameObject:
   - component: {fileID: 1455679840}
   - component: {fileID: 1455679839}
   - component: {fileID: 1455679838}
-  m_Layer: 15
+  m_Layer: 6
   m_Name: Bear
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -64064,6 +64080,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   def: 3
+  def_weak: 2
+  edr: 1
+  edr_atk: 0.5
+  edr_normal: 1
+  stun_threshold: 2
+  down_time: 5
+  poise: 20
+  poise_max: 0
   health: 10
   maxHealth: 10
   moveSpeed: 0
@@ -66127,7 +66151,7 @@ GameObject:
   - component: {fileID: 1492590228}
   - component: {fileID: 1492590227}
   - component: {fileID: 1492590226}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DmgRangeIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66470,7 +66494,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1497609944}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67002,7 +67026,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1505114473}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67025,7 +67049,7 @@ Transform:
   - {fileID: 1132075541}
   m_Father: {fileID: 167091123}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 7.013826, y: 6.742727, z: -5.263405}
+  m_LocalEulerAnglesHint: {x: 10.622764, y: -9.751778, z: 4.069512}
 --- !u!1001 &1511204050
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67791,7 +67815,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1532521500}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68920,7 +68944,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1565606213}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftUpLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68941,7 +68965,7 @@ Transform:
   - {fileID: 1575611253}
   m_Father: {fileID: 167091123}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -7.3433623, y: -9.279638, z: -5.8486924}
+  m_LocalEulerAnglesHint: {x: -50.347797, y: -3.5542197, z: -9.116697}
 --- !u!1001 &1567556798
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69845,7 +69869,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1575611253}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69866,7 +69890,7 @@ Transform:
   - {fileID: 2035906687}
   m_Father: {fileID: 1565606213}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 78.81205, y: -31.544333, z: -45.540943}
+  m_LocalEulerAnglesHint: {x: 62.663116, y: 8.122869, z: 1.9098545}
 --- !u!1 &1580285475
 GameObject:
   m_ObjectHideFlags: 0
@@ -74242,7 +74266,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1698305009}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RightHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74875,7 +74899,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1716874652}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75102,7 +75126,7 @@ GameObject:
   - component: {fileID: 1725539216}
   - component: {fileID: 1725539215}
   - component: {fileID: 1725539214}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Test3
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -75162,6 +75186,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   def: 0
+  def_weak: 0
+  edr: 0
+  edr_atk: 0
+  edr_normal: 0
+  stun_threshold: 0
+  down_time: 0
+  poise: 0
+  poise_max: 0
   health: 5
   maxHealth: 5
   moveSpeed: 1
@@ -75775,7 +75807,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1731695742}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75883,7 +75915,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1732893145}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RightLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77304,7 +77336,7 @@ GameObject:
   - component: {fileID: 1778158888}
   - component: {fileID: 1778158887}
   - component: {fileID: 1778158891}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SmallBearAtkTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77413,7 +77445,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1782282763}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RightHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77433,7 +77465,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2111350335}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 38.534912, y: -7.588047, z: -26.770514}
+  m_LocalEulerAnglesHint: {x: -25.772617, y: 5.1524744, z: 2.1474133}
 --- !u!1 &1783213537
 GameObject:
   m_ObjectHideFlags: 0
@@ -77962,7 +77994,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1791881577}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RightFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79222,7 +79254,7 @@ GameObject:
   - component: {fileID: 1814193985}
   - component: {fileID: 1814193984}
   - component: {fileID: 1814193988}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SmallBearAtkTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79335,7 +79367,7 @@ GameObject:
   - component: {fileID: 1814636471}
   - component: {fileID: 1814636469}
   - component: {fileID: 1814636470}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bearMesh3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80872,7 +80904,7 @@ GameObject:
   - component: {fileID: 1848655446}
   - component: {fileID: 1848655445}
   - component: {fileID: 1848655444}
-  m_Layer: 15
+  m_Layer: 6
   m_Name: SoundWave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82216,7 +82248,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1871209726}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83456,7 +83488,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1896115237}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85173,7 +85205,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1923353961}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85324,7 +85356,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1925371794}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RightArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85859,7 +85891,7 @@ GameObject:
   - component: {fileID: 1950843608}
   - component: {fileID: 1950843610}
   - component: {fileID: 1950843609}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87224,7 +87256,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1970325421}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87473,7 +87505,7 @@ GameObject:
   - component: {fileID: 1979612654}
   - component: {fileID: 1979612653}
   - component: {fileID: 1979612657}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Atk1Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87584,7 +87616,7 @@ GameObject:
   - component: {fileID: 1980406575}
   - component: {fileID: 1980406577}
   - component: {fileID: 1980406576}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88815,7 +88847,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2010090623}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyKidsBase (these needs to stay inactive until it is needed)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89527,7 +89559,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2035906687}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89547,7 +89579,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1575611253}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0.7160921, y: 1.997144, z: 2.7821953}
+  m_LocalEulerAnglesHint: {x: -0.051764034, y: 0.000023275712, z: 0.000031996555}
 --- !u!1 &2036310536
 GameObject:
   m_ObjectHideFlags: 0
@@ -90476,7 +90508,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2051526820}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91208,7 +91240,7 @@ GameObject:
   - component: {fileID: 2077722714}
   - component: {fileID: 2077722716}
   - component: {fileID: 2077722715}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92034,7 +92066,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2106749658}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92211,7 +92243,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2111350335}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RightForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92232,7 +92264,7 @@ Transform:
   - {fileID: 1782282763}
   m_Father: {fileID: 1132075541}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0.36317867, y: 4.2804537, z: 7.0595274}
+  m_LocalEulerAnglesHint: {x: 5.391847, y: 84.09968, z: 38.987827}
 --- !u!1 &2111432735
 GameObject:
   m_ObjectHideFlags: 0
@@ -93689,7 +93721,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2141846518}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93710,7 +93742,7 @@ Transform:
   - {fileID: 1243848613}
   m_Father: {fileID: 1505114473}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 9.247253, y: 12.009061, z: 54.66797}
+  m_LocalEulerAnglesHint: {x: 3.0991757, y: 9.700772, z: 47.43911}
 --- !u!1 &2144474240 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4427744949850716547, guid: 0fe51eb8f1e101f449ad1925b1278193, type: 3}

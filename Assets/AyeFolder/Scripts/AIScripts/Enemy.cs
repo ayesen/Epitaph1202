@@ -7,8 +7,16 @@ using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
-    [Header("BASIC")]
+    [Header("BASICS")]
     public float def;
+    public float def_weak;
+    public float edr; // endurance: 0 ~ 1
+    public float edr_atk;
+    public float edr_normal;
+    public float stun_threshold; // when the poise dmg is greater than stun threshold, enemy's animation will be interrupted
+    public float down_time; // how long the enemy stay downed when downed
+    public float poise;
+    public float poise_max;
     public int health;
     public int maxHealth;
     public int moveSpeed;
@@ -84,11 +92,11 @@ public class Enemy : MonoBehaviour
         health = maxHealth;
         PhaseSetting();
         Mother = GetComponent<MotherController>();
+        poise_max = poise;
     }
 
     private void Update()
     {
-        
         //HittedStatesIndication();
         AIDead();
         PhaseSetting();
@@ -98,18 +106,41 @@ public class Enemy : MonoBehaviour
 		{
             ReactivateNavMesh();
         }
-        
+        ChangeEdrBasedOnStates();
     }
+
+    private void ChangeEdrBasedOnStates()
+	{
+        // low edr
+		if (myAC.currentState == myAC.preAttackState || myAC.currentState == myAC.attackState)
+		{
+            edr = edr_atk;
+		}
+		else
+		{
+            edr = edr_normal;
+		}
+	}
 
     public void EnterHittedState(float hitTimer)
     {
+        print("enter hitted state");
         hittedTime = hitTimer;
-        interruptedState = myAC.currentState;
+        //interruptedState = myAC.currentState;
         if (myAC.currentState != myAC.changePhaseState || myAC.currentState!= myAC.dieState)
         {
             myAC.ChangeState(myAC.hittedState);
         }
     }
+
+    public void EnterDownedState()
+	{
+        hittedTime = down_time;
+        if (myAC.currentState != myAC.changePhaseState || myAC.currentState != myAC.dieState)
+		{
+            myAC.ChangeState(myAC.downedState);
+		}
+	}
 
     public void ChangePhase(AIPhase phaseName, int time)
     {
@@ -156,7 +187,6 @@ public class Enemy : MonoBehaviour
 
     public bool AIDead()
     {
-       
         if (health <= 0)
         {
             /*if (gameObject == EnemyDialogueManagerScript.me.enemy)
@@ -176,7 +206,6 @@ public class Enemy : MonoBehaviour
         }
         else
             return false;
-
     }
 
     public IEnumerator EndGame()

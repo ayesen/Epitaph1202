@@ -14,6 +14,7 @@ public class SpellScript : MonoBehaviour
 	private float lifespan;
 	private float deathTimer;
 	public EffectStructNew dummyEffectForDmg;
+	public EffectStructNew dummyEffectForBreak;
 	[Header("LASTWORD EVENT")]
 	public GameObject collisionPrefab;
 
@@ -88,13 +89,15 @@ public class SpellScript : MonoBehaviour
 				if (recordEffect)
 				{
 					float dummyATK = 0;
-					float dummyAMP = 0;
+					float dummyAMP = 1;
+					float dummy_break_amp = 0;
 					for (int i = 0; i < myEffects.Count; i++) // loop through each effect this spell contains
 					{
 						if (myEffects[i].toWhom == EffectStructNew.Target.collisionEnemy) // check if the effect is applied when collidiing an enemy
 						{
-							dummyATK += myEffects[i].atk; // add effects' atk together to dummy atk
-							dummyAMP += myEffects[i].amp; // add effects' amp together to dummy amp
+							dummyATK += myEffects[i].atk; // add effects' atks together to dummy atk
+							dummyAMP *= myEffects[i].amp; // times effects' amps together to dummy amp
+							dummy_break_amp += myEffects[i].amp; // add amp toghther to break
 							EffectStructNew tempEffectStruct = myEffects[i]; // temp struct so that we can alter the effects' atk and amp
 							tempEffectStruct.atk = 0; // set to zero since we took the atk out
 							tempEffectStruct.amp = 0;
@@ -105,7 +108,9 @@ public class SpellScript : MonoBehaviour
 					// record dmg effect dummy to deal dmg
 					dummyEffectForDmg.amp = dummyAMP;
 					dummyEffectForDmg.atk = dummyATK;
+					dummyEffectForBreak.amp = dummy_break_amp;
 					EffectManagerNew.me.SpawnEffectHolders(hit.gameObject, dummyEffectForDmg, gameObject.transform.position);
+					EffectManagerNew.me.SpawnEffectHolders(hit.gameObject, dummyEffectForBreak, gameObject.transform.position);
 				}
 				// vfx
 				if (fragments != null)
