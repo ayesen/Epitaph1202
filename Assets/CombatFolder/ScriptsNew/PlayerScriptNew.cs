@@ -33,6 +33,8 @@ public class PlayerScriptNew : MonoBehaviour
 	private bool backwarding;
 	private bool lefting;
 	private bool righting;
+	[Header("Joystick Controll")]
+	public float joystickSensitivity;//0~1
 
 	// backswing cancel
 	private GameObject lastMat;
@@ -107,7 +109,7 @@ public class PlayerScriptNew : MonoBehaviour
 				!anim.GetCurrentAnimatorStateInfo(0).IsName("testATK") &&
                 !anim.GetCurrentAnimatorStateInfo(0).IsName("testBackswing"))
             {
-				if (Input.GetKeyUp(KeyCode.Alpha1) && matSlots[0] != null)
+				if (Input.GetKeyUp(KeyCode.Alpha1) || Input.GetButtonUp("XButton") && matSlots[0] != null)
 				{
 					SoundMan.SoundManager.MaterialSelect();
 					if (selectedMats.Contains(matSlots[0]))
@@ -121,7 +123,7 @@ public class PlayerScriptNew : MonoBehaviour
 					}
 					EffectManagerNew.me.RefreshCurrentMats();
 				}
-				else if (Input.GetKeyUp(KeyCode.Alpha2) && matSlots[1] != null)
+				else if (Input.GetKeyUp(KeyCode.Alpha2) || Input.GetButtonUp("YButton") && matSlots[1] != null)
 				{
 					SoundMan.SoundManager.MaterialSelect();
 					if (selectedMats.Contains(matSlots[1]))
@@ -135,7 +137,7 @@ public class PlayerScriptNew : MonoBehaviour
 					}
 					EffectManagerNew.me.RefreshCurrentMats();
 				}
-				else if (Input.GetKeyUp(KeyCode.Alpha3) && matSlots[2] != null)
+				else if (Input.GetKeyUp(KeyCode.Alpha3) || Input.GetButtonUp("BButton") && matSlots[2] != null)
 				{
 					SoundMan.SoundManager.MaterialSelect();
 					if (selectedMats.Contains(matSlots[2]))
@@ -149,7 +151,7 @@ public class PlayerScriptNew : MonoBehaviour
 					}
 					EffectManagerNew.me.RefreshCurrentMats();
 				}
-				else if (Input.GetKeyUp(KeyCode.Alpha4) && matSlots[3] != null)
+				else if (Input.GetKeyUp(KeyCode.Alpha4) || Input.GetButtonUp("AButton") && matSlots[3] != null)
 				{
 					SoundMan.SoundManager.MaterialSelect();
 					if (selectedMats.Contains(matSlots[3]))
@@ -164,10 +166,64 @@ public class PlayerScriptNew : MonoBehaviour
 					EffectManagerNew.me.RefreshCurrentMats();
 				}
 			}
-			
+
 			#endregion
-			#region movement
-			if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) &&
+			#region controller movement
+			//Move
+			if(Mathf.Abs(Input.GetAxis("LeftJoystickHorizontal")) >= joystickSensitivity ||
+				Mathf.Abs(Input.GetAxis("LeftJoystickVertical")) >= joystickSensitivity ||
+				Mathf.Sqrt(Mathf.Pow(Input.GetAxis("LeftJoystickHorizontal"), 2) + Mathf.Pow(Input.GetAxis("LeftJoystickVertical"), 2)) >= joystickSensitivity)
+            {
+				if(!anim.GetCurrentAnimatorStateInfo(0).IsName("testWindup") &&
+				!anim.GetCurrentAnimatorStateInfo(0).IsName("testATK") &&
+				!anim.GetCurrentAnimatorStateInfo(0).IsName("testBackswing") &&
+				!anim.GetCurrentAnimatorStateInfo(0).IsName("readingText") &&
+				atkButtonPressed == false)
+                {
+					walking = true;
+                }
+            }
+            if (walking)
+            {
+				if (Mathf.Abs(Input.GetAxis("LeftJoystickHorizontal")) >= joystickSensitivity ||
+					Mathf.Abs(Input.GetAxis("LeftJoystickVertical")) >= joystickSensitivity ||
+					Mathf.Sqrt(Mathf.Pow(Input.GetAxis("LeftJoystickHorizontal"), 2) + Mathf.Pow(Input.GetAxis("LeftJoystickVertical"), 2)) >= joystickSensitivity)
+				{
+					transform.position = new Vector3(transform.position.x + Input.GetAxis("LeftJoystickHorizontal") * spd * Time.deltaTime, transform.position.y,
+					transform.position.z + Input.GetAxis("LeftJoystickVertical") * -1 * spd * Time.deltaTime);
+					walkingDir = new Vector3(Input.GetAxis("LeftJoystickHorizontal"), 0, Input.GetAxis("LeftJoystickVertical") * -1);
+				}
+                else
+                {
+					walking = false;
+					forwarding = false;
+					backwarding = false;
+					lefting = false;
+					righting = false;
+					anim.CrossFade("testIdle", .3f);
+					walkingDir = Vector3.zero;
+				}
+            }
+			//Rotate
+			if(Input.GetAxis("LT") > 0)
+            {
+				var target = new Vector3(enemy.transform.position.x, transform.position.y, enemy.transform.position.z);
+				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target - transform.position), rot_spd * Time.deltaTime);
+			}
+			else if(Mathf.Abs(Input.GetAxis("RightJoystickHorizontal")) >= joystickSensitivity ||
+				Mathf.Abs(Input.GetAxis("RightJoystickVertical")) >= joystickSensitivity ||
+				Mathf.Sqrt(Mathf.Pow(Input.GetAxis("RightJoystickHorizontal"), 2) + Mathf.Pow(Input.GetAxis("RightJoystickHorizontal"), 2)) >= joystickSensitivity &&
+				Input.GetAxis("LT") == 0)
+            {
+				//var joypos = Mathf.Atan2(Input.GetAxis("RightJoystickHorizontal"), Input.GetAxis("RightJoystickVertical") * -1) * Mathf.Rad2Deg;
+				var target = new Vector3(Input.GetAxis("RightJoystickHorizontal"), 0, Input.GetAxis("RightJoystickVertical") * -1);
+				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target), rot_spd * Time.deltaTime);
+				//transform.eulerAngles = Vector3.Slerp(transform.rotation.eulerAngles, new Vector3(transform.eulerAngles.x, joypos, transform.eulerAngles.z), rot_spd * Time.deltaTime);
+			}
+            #endregion
+            #region movement
+			/*
+            if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) &&
 				!anim.GetCurrentAnimatorStateInfo(0).IsName("testWindup") &&
 				!anim.GetCurrentAnimatorStateInfo(0).IsName("testATK") &&
 				!anim.GetCurrentAnimatorStateInfo(0).IsName("testBackswing") &&
@@ -177,8 +233,11 @@ public class PlayerScriptNew : MonoBehaviour
 				walking = true;
 				atkButtonPressed = false;
 			}
+			*/
+
 			if (walking)
 			{
+				/*
 				// walking diagonally
 				if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
 				{
@@ -231,10 +290,11 @@ public class PlayerScriptNew : MonoBehaviour
 					anim.CrossFade("testIdle", .3f);
 					walking = false;
 				}
+			*/
 
 				if (walkingDir.magnitude > 0)
 				{
-					if (Vector3.Angle(walkingDir, transform.forward) < 45 && Vector3.Angle(walkingDir, transform.forward) > -45)
+					if (Vector3.Angle(walkingDir, transform.forward) < 45)
 					{
 						//anim.Play("testWalk");
 						if (!forwarding)
@@ -246,7 +306,7 @@ public class PlayerScriptNew : MonoBehaviour
 							righting = false;
 						}
 					}
-					else if (Vector3.Angle(walkingDir, transform.forward) > 135 && Vector3.Angle(walkingDir, transform.forward) < 225)
+					else if (Vector3.Angle(walkingDir, transform.forward) > 135)
 					{
 						if (!backwarding)
 						{
@@ -259,6 +319,31 @@ public class PlayerScriptNew : MonoBehaviour
 					}
 					else if (Vector3.Angle(walkingDir, transform.forward) > 45 && Vector3.Angle(walkingDir, transform.forward) < 135)
 					{
+						Vector3 cross = Vector3.Cross(transform.forward, walkingDir);
+						if(cross.y > 0)
+                        {
+							if (!righting)
+							{
+								anim.CrossFade("Player_Walking_Right", .3f);
+								forwarding = false;
+								backwarding = false;
+								lefting = false;
+								righting = true;
+							}
+						}
+						else if(cross.y < 0)
+                        {
+							if (!lefting)
+							{
+								anim.CrossFade("Player_Walking_Left", .3f);
+								forwarding = false;
+								backwarding = false;
+								lefting = true;
+								righting = false;
+							}
+						}
+
+						/*
 						if (transform.forward.z < 0 || transform.forward.x < 0)
 						{
 							if (walkingDir.x > 0 || walkingDir.z < 0)
@@ -310,11 +395,13 @@ public class PlayerScriptNew : MonoBehaviour
 								}
 							}
 						}
+						*/
 					}
 					
 				}
 			}
 
+			/*
 			// look at mouse pos(not changing y-axis)
 			//! if this doesn't work properly, check game objects' layers, and make sure the mouse manager ignores the proper layers
 			if (Input.GetMouseButton(1))
@@ -322,37 +409,14 @@ public class PlayerScriptNew : MonoBehaviour
 				var target = new Vector3(enemy.transform.position.x, transform.position.y, enemy.transform.position.z);
 				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target - transform.position), rot_spd * Time.deltaTime);
 			}
+			
 			else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("readingText"))
 			{
 				var target = new Vector3(MouseManager.me.mousePos.x, transform.position.y, MouseManager.me.mousePos.z);
 				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target - transform.position), rot_spd * Time.deltaTime);
 			}
+			*/
             #endregion
-            #region Detect Boss Slot
-			if(matSlots[3] != null && matSlots[3].GetComponent<MatScriptNew>().amount <= 0)
-            {
-				if(selectedMats.Contains(matSlots[3]))
-					selectedMats.Remove(matSlots[3]);
-				matSlots[3] = null;
-				UIManager.Me.UI_ChangeIcon();
-            }
-			for(int i = 0; i<matSlots.Count; i++)
-            {
-				if(matSlots[i] != null)
-                {
-					if(matSlots[i].GetComponent<MatScriptNew>().amount <= 0)
-                    {
-						if (selectedMats.Contains(matSlots[i]))
-							selectedMats.Remove(matSlots[i]);
-						if (matSlots[i].CompareTag("BossMat"))
-						{
-							matSlots[i] = null;
-							UIManager.Me.UI_ChangeIcon();
-						}
-                    }
-                }
-            }
-			#endregion
 			// check for attack button press
 			if (selectedMats.Count > 0 &&  // check if player has mat activated
 				(anim.GetCurrentAnimatorStateInfo(0).IsName("testIdle") || // if player in idle state
@@ -362,7 +426,7 @@ public class PlayerScriptNew : MonoBehaviour
 				anim.GetCurrentAnimatorStateInfo(0).IsName("Player_Walking_Left") ||
 				anim.GetCurrentAnimatorStateInfo(0).IsName("Player_Walking_Right")))  // if player in walk state
 			{
-				if (!atkButtonPressed && Input.GetMouseButtonUp(0)) // if left click
+				if (Input.GetMouseButtonUp(0) || Input.GetAxis("RT") > 0 && !atkButtonPressed) // if left click
 				{
 					atkButtonPressed = true;
 					walking = false;
@@ -382,7 +446,8 @@ public class PlayerScriptNew : MonoBehaviour
 							mat.GetComponent<MatScriptNew>().amount--;
 						}
 						anim.Play("testWindup"); // player anticipation clip and call effect manager's casting event in clip
-						//anim.CrossFade("testWindup", 0.1f);
+												 //anim.CrossFade("testWindup", 0.1f);
+						selectedMats.Clear();
 					}
 					else
 					{
@@ -390,7 +455,7 @@ public class PlayerScriptNew : MonoBehaviour
 					}
 				}
 			}
-			if (Input.GetMouseButtonUp(0))
+			if (Input.GetMouseButtonUp(0) || Input.GetAxis("RT") > 0)
 			{
 				if (selectedMats.Count > 0 &&  // check if player has mat activated
 				(anim.GetCurrentAnimatorStateInfo(0).IsName("testIdle") || // if player in idle state
@@ -405,6 +470,38 @@ public class PlayerScriptNew : MonoBehaviour
 			}
 		}
     }
+	private void MatCD()
+    {
+		//Detect & delete boss mat
+		if (matSlots[3] != null && matSlots[3].GetComponent<MatScriptNew>().amount <= 0)
+		{
+			if (selectedMats.Contains(matSlots[3]))
+				selectedMats.Remove(matSlots[3]);
+			matSlots[3] = null;
+			UIManager.Me.UI_ChangeIcon();
+		}
+
+		/*
+		for(int i = 0; i<matSlots.Count; i++)
+		{
+			if(matSlots[i] != null)
+			{
+				if(matSlots[i].GetComponent<MatScriptNew>().amount <= 0)
+				{
+					if (selectedMats.Contains(matSlots[i]))
+						selectedMats.Remove(matSlots[i]);
+					if (matSlots[i].CompareTag("BossMat"))
+					{
+						matSlots[i] = null;
+						UIManager.Me.UI_ChangeIcon();
+					}
+				}
+			}
+		}
+		*/
+
+	}
+
 	public void LoseHealth_player(int amt)
 	{
 		hp -= amt;
