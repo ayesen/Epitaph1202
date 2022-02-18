@@ -42,11 +42,11 @@ public class EffectStorage : MonoBehaviour
 		// poise dmg
 		float finalPD = ehs.myEffect.atk / es.edr;
 		es.poise -= finalPD;
-		if (es.poise <= 0)
+		if (es.poise <= 0) // check downed
 		{
 			es.EnterDownedState();
 			es.poise = es.poise_max;
-		}else if (finalPD > es.stun_threshold)
+		}else if (finalPD > es.stun_threshold) // check stunned
 		{
 			if (es.myAC.currentState != es.myAC.downedState)
 			{
@@ -54,7 +54,11 @@ public class EffectStorage : MonoBehaviour
 			}
 		}
 		print("dealt " + finalPD + " poise damage");
-		// check downed
+		// break dmg
+		if (ehs.myEffect.doThis == EffectStructNew.Effect.ampDummy)
+		{
+			// CD(int amp);
+		}
 	}
 	public void HurtEnemyBasedOnDis(EffectHolderScript ehs, GameObject enemy, float dis)
 	{
