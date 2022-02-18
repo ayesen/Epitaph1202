@@ -70,7 +70,7 @@ public class EffectManagerNew : MonoBehaviour
 					EnemyHitEvent();
 				}
 				//NoneEvents();
-				print("condition processed: " + conditionProcess.condition + " condition trigger: " + conditionProcess.conditionTrigger);
+				//print("condition processed: " + conditionProcess.condition + " condition trigger: " + conditionProcess.conditionTrigger);
 				conditionProcessList.Remove(conditionProcess);
 			}
 		}

@@ -16,7 +16,7 @@ public class AIController : MonoBehaviour
     public AIStateBase changePhaseState = new AIStateChangePhase();
     public AIStateBase hittedState = new AIStateHitted();
     public AIStateBase dieState = new AIStateDie();
-
+    public AIStateBase downedState = new AIStateDowned();
 
     public void ChangeState(AIStateBase newState)
     {
@@ -49,5 +49,6 @@ public class AIController : MonoBehaviour
     void Update()
     {
         currentState.Update(myEnemy);
+        //Debug.Log(currentState);
     }
 }
