@@ -23,9 +23,15 @@ public class MatScriptNew : MonoBehaviour
 
     private void Update()
     {
-        if(amount < amount_max)
+        if(CD <= 0 && amount < amount_max)
         {
-			
+			amount++;
+			int overdose = CD;
+			if (amount == amount_max)
+				CD = CD_max;
+			else
+				CD = CD_max + overdose;
+			Debug.Log("MatScriptNew: " + gameObject.ToString() + CD);
         }
     }
 }

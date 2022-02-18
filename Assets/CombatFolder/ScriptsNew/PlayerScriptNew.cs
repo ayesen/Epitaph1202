@@ -61,6 +61,10 @@ public class PlayerScriptNew : MonoBehaviour
         {
 			hp = 0;
         }
+        if (Input.GetKeyDown(KeyCode.F6))
+        {
+			RecovMatCD(2);
+        }
 		//print("selected Mats count: " + selectedMats.Count);
 		//print("walking: " + walking);
 		//print("current clip: " + anim.GetCurrentAnimatorStateInfo(0).fullPathHash);
@@ -445,6 +449,14 @@ public class PlayerScriptNew : MonoBehaviour
 						{
 							mat.GetComponent<MatScriptNew>().amount--;
 						}
+
+						if (matSlots[3] != null && matSlots[3].GetComponent<MatScriptNew>().amount <= 0)//Detect boss mat and delete if used
+						{
+							if (selectedMats.Contains(matSlots[3]))
+								selectedMats.Remove(matSlots[3]);
+							matSlots[3] = null;
+							UIManager.Me.UI_ChangeIcon();
+						}
 						anim.Play("testWindup"); // player anticipation clip and call effect manager's casting event in clip
 												 //anim.CrossFade("testWindup", 0.1f);
 						selectedMats.Clear();
@@ -470,36 +482,19 @@ public class PlayerScriptNew : MonoBehaviour
 			}
 		}
     }
-	private void MatCD()
+	public void RecovMatCD(int breakAmp)
     {
-		//Detect & delete boss mat
-		if (matSlots[3] != null && matSlots[3].GetComponent<MatScriptNew>().amount <= 0)
-		{
-			if (selectedMats.Contains(matSlots[3]))
-				selectedMats.Remove(matSlots[3]);
-			matSlots[3] = null;
-			UIManager.Me.UI_ChangeIcon();
-		}
-
-		/*
-		for(int i = 0; i<matSlots.Count; i++)
-		{
-			if(matSlots[i] != null)
+		for (int i = 0; i < 3; i++)
+        {
+			if (matSlots[i] != null)
 			{
-				if(matSlots[i].GetComponent<MatScriptNew>().amount <= 0)
+				if (matSlots[i].GetComponent<MatScriptNew>().amount < matSlots[i].GetComponent<MatScriptNew>().amount_max)
 				{
-					if (selectedMats.Contains(matSlots[i]))
-						selectedMats.Remove(matSlots[i]);
-					if (matSlots[i].CompareTag("BossMat"))
-					{
-						matSlots[i] = null;
-						UIManager.Me.UI_ChangeIcon();
-					}
+					matSlots[i].GetComponent<MatScriptNew>().CD -= breakAmp;
+					Debug.Log("[PlayerScriptNew]RemoveMatCD: " + matSlots[i].ToString() + matSlots[i].GetComponent<MatScriptNew>().CD);
 				}
 			}
 		}
-		*/
-
 	}
 
 	public void LoseHealth_player(int amt)
