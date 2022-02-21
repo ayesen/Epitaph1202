@@ -57,7 +57,7 @@ public class EffectStorage : MonoBehaviour
 		// break dmg
 		if (ehs.myEffect.doThis == EffectStructNew.Effect.ampDummy)
 		{
-			// CD(int amp);
+			PlayerScriptNew.me.RecovMatCD((int)ehs.myEffect.amp);
 		}
 	}
 	public void HurtEnemyBasedOnDis(EffectHolderScript ehs, GameObject enemy, float dis)

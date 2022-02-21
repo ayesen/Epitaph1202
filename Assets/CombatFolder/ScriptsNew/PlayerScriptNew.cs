@@ -123,11 +123,14 @@ public class PlayerScriptNew : MonoBehaviour
 					else
 					{
 						if (matSlots[0].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
+						{
 							selectedMats.Add(matSlots[0]);
+							anim.SetTrigger("selected");
+						}
 					}
 					EffectManagerNew.me.RefreshCurrentMats();
 				}
-				else if (Input.GetKeyUp(KeyCode.Alpha2) || Input.GetButtonUp("YButton") && matSlots[1] != null)
+				if (Input.GetKeyUp(KeyCode.Alpha2) || Input.GetButtonUp("YButton") && matSlots[1] != null)
 				{
 					SoundMan.SoundManager.MaterialSelect();
 					if (selectedMats.Contains(matSlots[1]))
@@ -137,11 +140,14 @@ public class PlayerScriptNew : MonoBehaviour
 					else
 					{
 						if (matSlots[1].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
+						{
 							selectedMats.Add(matSlots[1]);
+							anim.SetTrigger("selected");
+						}
 					}
 					EffectManagerNew.me.RefreshCurrentMats();
 				}
-				else if (Input.GetKeyUp(KeyCode.Alpha3) || Input.GetButtonUp("BButton") && matSlots[2] != null)
+				if (Input.GetKeyUp(KeyCode.Alpha3) || Input.GetButtonUp("BButton") && matSlots[2] != null)
 				{
 					SoundMan.SoundManager.MaterialSelect();
 					if (selectedMats.Contains(matSlots[2]))
@@ -151,11 +157,14 @@ public class PlayerScriptNew : MonoBehaviour
 					else
 					{
 						if (matSlots[2].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
+						{
+							anim.SetTrigger("selected");
 							selectedMats.Add(matSlots[2]);
+						}
 					}
 					EffectManagerNew.me.RefreshCurrentMats();
 				}
-				else if (Input.GetKeyUp(KeyCode.Alpha4) || Input.GetButtonUp("AButton") && matSlots[3] != null)
+				if (Input.GetKeyUp(KeyCode.Alpha4) || Input.GetButtonUp("AButton") && matSlots[3] != null)
 				{
 					SoundMan.SoundManager.MaterialSelect();
 					if (selectedMats.Contains(matSlots[3]))
@@ -165,7 +174,9 @@ public class PlayerScriptNew : MonoBehaviour
 					else
 					{
 						if (matSlots[3].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
+						{
 							selectedMats.Add(matSlots[3]);
+						}
 					}
 					EffectManagerNew.me.RefreshCurrentMats();
 				}
@@ -299,7 +310,8 @@ public class PlayerScriptNew : MonoBehaviour
 					backwarding = false;
 					lefting = false;
 					righting = false;
-					anim.CrossFade("testIdle", .3f);
+					//anim.CrossFade("testIdle", .3f);
+					anim.Play("testIdle");
 					walking = false;
 				}
 
@@ -310,7 +322,8 @@ public class PlayerScriptNew : MonoBehaviour
 						//anim.Play("testWalk");
 						if (!forwarding)
 						{
-							anim.CrossFade("testWalk", .3f);
+							//anim.CrossFade("testWalk", .3f);
+							anim.Play("testWalk");
 							forwarding = true;
 							backwarding = false;
 							lefting = false;
@@ -321,7 +334,8 @@ public class PlayerScriptNew : MonoBehaviour
 					{
 						if (!backwarding)
 						{
-							anim.CrossFade("Player_Walking_Backwards", .3f);
+							//anim.CrossFade("Player_Walking_Backwards", .3f);
+							anim.Play("Player_Walking_Backwards");
 							forwarding = false;
 							backwarding = true;
 							lefting = false;
@@ -335,7 +349,8 @@ public class PlayerScriptNew : MonoBehaviour
                         {
 							if (!righting)
 							{
-								anim.CrossFade("Player_Walking_Right", .3f);
+								//anim.CrossFade("Player_Walking_Right", .3f);
+								anim.Play("Player_Walking_Right");
 								forwarding = false;
 								backwarding = false;
 								lefting = false;
@@ -346,7 +361,8 @@ public class PlayerScriptNew : MonoBehaviour
                         {
 							if (!lefting)
 							{
-								anim.CrossFade("Player_Walking_Left", .3f);
+								//anim.CrossFade("Player_Walking_Left", .3f);
+								anim.Play("Player_Walking_Left");
 								forwarding = false;
 								backwarding = false;
 								lefting = true;
@@ -439,7 +455,8 @@ public class PlayerScriptNew : MonoBehaviour
 				anim.GetCurrentAnimatorStateInfo(0).IsName("testWalk") ||
 				anim.GetCurrentAnimatorStateInfo(0).IsName("Player_Walking_Backwards") ||
 				anim.GetCurrentAnimatorStateInfo(0).IsName("Player_Walking_Left") ||
-				anim.GetCurrentAnimatorStateInfo(0).IsName("Player_Walking_Right")))  // if player in walk state
+				anim.GetCurrentAnimatorStateInfo(0).IsName("Player_Walking_Right") ||  // if player in walk state
+				anim.GetCurrentAnimatorStateInfo(0).IsName("selectMat"))) // if player in select mat state
 			{
 				if (Input.GetMouseButtonUp(0) || Input.GetAxis("RT") > 0 && !atkButtonPressed) // if left click
 				{
@@ -469,7 +486,7 @@ public class PlayerScriptNew : MonoBehaviour
 							UIManager.Me.UI_ChangeIcon();
 						}
 						anim.Play("testWindup"); // player anticipation clip and call effect manager's casting event in clip
-												 //anim.CrossFade("testWindup", 0.1f);
+						// anim.CrossFade("testWindup", 0.1f);
 						selectedMats.Clear();
 					}
 					else
