@@ -10,13 +10,6 @@ public class Enemy : MonoBehaviour
     [Header("BASICS")]
     public float def;
     public float def_weak;
-    public float edr; // endurance: 0 ~ 1
-    public float edr_atk;
-    public float edr_normal;
-    public float stun_threshold; // when the poise dmg is greater than stun threshold, enemy's animation will be interrupted
-    public float down_time; // how long the enemy stay downed when downed
-    public float poise;
-    public float poise_max;
     public int health;
     public int maxHealth;
     public int moveSpeed;
@@ -40,6 +33,19 @@ public class Enemy : MonoBehaviour
     public AIPhase phase;
     public bool isPhaseTwo = false;
     public bool doorTrigger = false;
+
+    [Header("Stun")]
+    public float edr; // endurance: 0 ~ 1
+    public float edr_atk;
+    public float edr_normal;
+    public float stun_threshold; // when the poise dmg is greater than stun threshold, enemy's animation will be interrupted
+    public float down_time; // how long the enemy stay downed when downed
+    public float downPoise;
+    public float downPoise_max;
+    public float stunPoise;
+    public float stunPoise_max;
+    private float spRegenTimer;
+    public float spRegenTime;
 
     [Header("NAV MESH")]
     public NavMeshAgent ghostRider;
@@ -92,7 +98,9 @@ public class Enemy : MonoBehaviour
         health = maxHealth;
         PhaseSetting();
         Mother = GetComponent<MotherController>();
-        poise_max = poise;
+        downPoise_max = downPoise;
+        stunPoise_max = stunPoise;
+
     }
 
     private void Update()
@@ -107,6 +115,7 @@ public class Enemy : MonoBehaviour
             ReactivateNavMesh();
         }
         ChangeEdrBasedOnStates();
+        RegenerateStunPoise();
     }
 
     private void ChangeEdrBasedOnStates()
@@ -494,4 +503,16 @@ public class Enemy : MonoBehaviour
             }
         }
     }
+
+    private void RegenerateStunPoise()
+	{
+        if (stunPoise < stunPoise_max)
+		{
+            spRegenTimer += Time.deltaTime;
+            if (spRegenTimer >= spRegenTime)
+			{
+                stunPoise = stunPoise_max;
+			}
+		}
+	}
 }
