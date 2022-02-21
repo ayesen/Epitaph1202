@@ -28503,7 +28503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amount: 10
-  CD: 0
+  CD: 6
   amount_max: 0
   myEffects:
   - when: 0
@@ -57319,7 +57319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amount: 10
-  CD: 0
+  CD: 5
   amount_max: 0
   myEffects:
   - when: 0
