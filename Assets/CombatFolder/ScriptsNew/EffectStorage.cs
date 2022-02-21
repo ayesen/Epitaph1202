@@ -41,16 +41,17 @@ public class EffectStorage : MonoBehaviour
 		enemy.GetComponent<CombatInfoScript>().infoToDisplay.Add("dealt " + (int)finalDmg + " dmg");
 		// poise dmg
 		float finalPD = ehs.myEffect.atk / es.edr;
-		es.poise -= finalPD;
-		if (es.poise <= 0) // check downed
+		es.downPoise -= finalPD;
+		es.stunPoise -= finalPD;
+		if (es.downPoise <= 0) // check downed
 		{
 			es.EnterDownedState();
-			es.poise = es.poise_max;
-		}else if (finalPD > es.stun_threshold) // check stunned
+			es.downPoise = es.downPoise_max;
+		}else if (es.stunPoise <= 0) // check stunned
 		{
 			if (es.myAC.currentState != es.myAC.downedState)
 			{
-				es.EnterHittedState(3);
+				es.EnterHittedState(1);
 			}
 		}
 		print("dealt " + finalPD + " poise damage");
