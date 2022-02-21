@@ -108,7 +108,6 @@ public class SpellScript : MonoBehaviour
 					// record dmg effect dummy to deal dmg
 					dummyEffectForDmg.amp = dummyAMP;
 					dummyEffectForDmg.atk = dummyATK;
-					dummyEffectForDmg.doThis = EffectStructNew.Effect.atkDummy;
 					dummyEffectForBreak.amp = dummy_break_amp;
 					dummyEffectForBreak.doThis = EffectStructNew.Effect.ampDummy;
 					EffectManagerNew.me.SpawnEffectHolders(hit.gameObject, dummyEffectForDmg, gameObject.transform.position);
