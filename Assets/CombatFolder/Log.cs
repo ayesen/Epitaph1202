@@ -200,10 +200,15 @@
 // 02/09/2021
 // combat 3.0
 	// dmg
-		// x(atk1 + atk2) x (amp1 + amp2)
+		// x(atk1 + atk2) x (amp1 x amp2)
 		// dot's each tick also needs to be computed
 	// stun
-		// atk1 + atk2
+		// xatk1 + atk2
+		// play animation
+			// downed
+				// xdef down when downed
+			// xstunned (interrupted)
+	// animation when selecting mats
 	// break
 		// amp1 + amp2
 	// heal

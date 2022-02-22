@@ -34,10 +34,32 @@ public class EffectStorage : MonoBehaviour
 	#region DMG
 	public void HurtEnemy(EffectHolderScript ehs, GameObject enemy)
 	{
-		float finalDmg = Mathf.Clamp(((ehs.myEffect.atk - enemy.GetComponent<Enemy>().def) * ehs.myEffect.amp), 0, float.MaxValue); // dmg = (atk - def) * amp
-
-		enemy.GetComponent<Enemy>().LoseHealth((int)finalDmg);
+		Enemy es = enemy.GetComponent<Enemy>();
+		// hp dmg
+		float finalDmg = Mathf.Clamp((ehs.myEffect.atk - es.def) * ehs.myEffect.amp, 0, float.MaxValue); // dmg = (atk - def) * amp
+		es.LoseHealth((int)finalDmg);
 		enemy.GetComponent<CombatInfoScript>().infoToDisplay.Add("dealt " + (int)finalDmg + " dmg");
+		// poise dmg
+		float finalPD = ehs.myEffect.atk / es.edr;
+		es.downPoise -= finalPD;
+		es.stunPoise -= finalPD;
+		if (es.downPoise <= 0) // check downed
+		{
+			es.EnterDownedState();
+			es.downPoise = es.downPoise_max;
+		}else if (es.stunPoise <= 0) // check stunned
+		{
+			if (es.myAC.currentState != es.myAC.downedState)
+			{
+				es.EnterHittedState(1);
+			}
+		}
+		print("dealt " + finalPD + " poise damage");
+		// break dmg
+		if (ehs.myEffect.doThis == EffectStructNew.Effect.ampDummy)
+		{
+			PlayerScriptNew.me.RecovMatCD((int)ehs.myEffect.amp);
+		}
 	}
 	public void HurtEnemyBasedOnDis(EffectHolderScript ehs, GameObject enemy, float dis)
 	{

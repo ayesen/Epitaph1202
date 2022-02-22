@@ -7,8 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
-    [Header("BASIC")]
+    [Header("BASICS")]
     public float def;
+    public float def_weak;
     public int health;
     public int maxHealth;
     public int moveSpeed;
@@ -32,6 +33,19 @@ public class Enemy : MonoBehaviour
     public AIPhase phase;
     public bool isPhaseTwo = false;
     public bool doorTrigger = false;
+
+    [Header("Stun")]
+    public float edr; // endurance: 0 ~ 1
+    public float edr_atk;
+    public float edr_normal;
+    public float stun_threshold; // when the poise dmg is greater than stun threshold, enemy's animation will be interrupted
+    public float down_time; // how long the enemy stay downed when downed
+    public float downPoise;
+    public float downPoise_max;
+    public float stunPoise;
+    public float stunPoise_max;
+    private float spRegenTimer;
+    public float spRegenTime;
 
     [Header("NAV MESH")]
     public NavMeshAgent ghostRider;
@@ -84,11 +98,13 @@ public class Enemy : MonoBehaviour
         health = maxHealth;
         PhaseSetting();
         Mother = GetComponent<MotherController>();
+        downPoise_max = downPoise;
+        stunPoise_max = stunPoise;
+
     }
 
     private void Update()
     {
-        
         //HittedStatesIndication();
         AIDead();
         PhaseSetting();
@@ -98,18 +114,42 @@ public class Enemy : MonoBehaviour
 		{
             ReactivateNavMesh();
         }
-        
+        ChangeEdrBasedOnStates();
+        RegenerateStunPoise();
     }
+
+    private void ChangeEdrBasedOnStates()
+	{
+        // low edr
+		if (myAC.currentState == myAC.preAttackState || myAC.currentState == myAC.attackState)
+		{
+            edr = edr_atk;
+		}
+		else
+		{
+            edr = edr_normal;
+		}
+	}
 
     public void EnterHittedState(float hitTimer)
     {
+        print("enter hitted state");
         hittedTime = hitTimer;
-        interruptedState = myAC.currentState;
+        //interruptedState = myAC.currentState;
         if (myAC.currentState != myAC.changePhaseState || myAC.currentState!= myAC.dieState)
         {
             myAC.ChangeState(myAC.hittedState);
         }
     }
+
+    public void EnterDownedState()
+	{
+        hittedTime = down_time;
+        if (myAC.currentState != myAC.changePhaseState || myAC.currentState != myAC.dieState)
+		{
+            myAC.ChangeState(myAC.downedState);
+		}
+	}
 
     public void ChangePhase(AIPhase phaseName, int time)
     {
@@ -156,7 +196,6 @@ public class Enemy : MonoBehaviour
 
     public bool AIDead()
     {
-       
         if (health <= 0)
         {
             /*if (gameObject == EnemyDialogueManagerScript.me.enemy)
@@ -176,7 +215,6 @@ public class Enemy : MonoBehaviour
         }
         else
             return false;
-
     }
 
     public IEnumerator EndGame()
@@ -465,4 +503,16 @@ public class Enemy : MonoBehaviour
             }
         }
     }
+
+    private void RegenerateStunPoise()
+	{
+        if (stunPoise < stunPoise_max)
+		{
+            spRegenTimer += Time.deltaTime;
+            if (spRegenTimer >= spRegenTime)
+			{
+                stunPoise = stunPoise_max;
+			}
+		}
+	}
 }

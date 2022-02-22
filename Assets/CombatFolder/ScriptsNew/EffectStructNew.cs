@@ -38,7 +38,9 @@ public struct EffectStructNew
 		knockBack,
 		spawnAOEDetectionAfterDeath,
 		spawnSmallBearAfterDeath,
-		heal
+		heal,
+		atkDummy,
+		ampDummy
 	};
 	[Header("EFFECTS")]
 	public Effect doThis;

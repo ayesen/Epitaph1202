@@ -61,6 +61,10 @@ public class PlayerScriptNew : MonoBehaviour
         {
 			hp = 0;
         }
+        if (Input.GetKeyDown(KeyCode.F6))
+        {
+			RecovMatCD(2);
+        }
 		//print("selected Mats count: " + selectedMats.Count);
 		//print("walking: " + walking);
 		//print("current clip: " + anim.GetCurrentAnimatorStateInfo(0).fullPathHash);
@@ -107,7 +111,8 @@ public class PlayerScriptNew : MonoBehaviour
 			// activate mats
 			if (!anim.GetCurrentAnimatorStateInfo(0).IsName("testWindup") &&
 				!anim.GetCurrentAnimatorStateInfo(0).IsName("testATK") &&
-                !anim.GetCurrentAnimatorStateInfo(0).IsName("testBackswing"))
+                !anim.GetCurrentAnimatorStateInfo(0).IsName("testBackswing") &&
+				!anim.GetCurrentAnimatorStateInfo(0).IsName("readingText"))
             {
 				if (Input.GetKeyUp(KeyCode.Alpha1) || Input.GetButtonUp("XButton") && matSlots[0] != null)
 				{
@@ -119,11 +124,14 @@ public class PlayerScriptNew : MonoBehaviour
 					else
 					{
 						if (matSlots[0].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
+						{
 							selectedMats.Add(matSlots[0]);
+							anim.SetTrigger("selected");
+						}
 					}
 					EffectManagerNew.me.RefreshCurrentMats();
 				}
-				else if (Input.GetKeyUp(KeyCode.Alpha2) || Input.GetButtonUp("YButton") && matSlots[1] != null)
+				if (Input.GetKeyUp(KeyCode.Alpha2) || Input.GetButtonUp("YButton") && matSlots[1] != null)
 				{
 					SoundMan.SoundManager.MaterialSelect();
 					if (selectedMats.Contains(matSlots[1]))
@@ -133,11 +141,14 @@ public class PlayerScriptNew : MonoBehaviour
 					else
 					{
 						if (matSlots[1].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
+						{
 							selectedMats.Add(matSlots[1]);
+							anim.SetTrigger("selected");
+						}
 					}
 					EffectManagerNew.me.RefreshCurrentMats();
 				}
-				else if (Input.GetKeyUp(KeyCode.Alpha3) || Input.GetButtonUp("BButton") && matSlots[2] != null)
+				if (Input.GetKeyUp(KeyCode.Alpha3) || Input.GetButtonUp("BButton") && matSlots[2] != null)
 				{
 					SoundMan.SoundManager.MaterialSelect();
 					if (selectedMats.Contains(matSlots[2]))
@@ -147,11 +158,14 @@ public class PlayerScriptNew : MonoBehaviour
 					else
 					{
 						if (matSlots[2].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
+						{
+							anim.SetTrigger("selected");
 							selectedMats.Add(matSlots[2]);
+						}
 					}
 					EffectManagerNew.me.RefreshCurrentMats();
 				}
-				else if (Input.GetKeyUp(KeyCode.Alpha4) || Input.GetButtonUp("AButton") && matSlots[3] != null)
+				if (Input.GetKeyUp(KeyCode.Alpha4) || Input.GetButtonUp("AButton") && matSlots[3] != null)
 				{
 					SoundMan.SoundManager.MaterialSelect();
 					if (selectedMats.Contains(matSlots[3]))
@@ -161,7 +175,9 @@ public class PlayerScriptNew : MonoBehaviour
 					else
 					{
 						if (matSlots[3].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
+						{
 							selectedMats.Add(matSlots[3]);
+						}
 					}
 					EffectManagerNew.me.RefreshCurrentMats();
 				}
@@ -169,6 +185,7 @@ public class PlayerScriptNew : MonoBehaviour
 
 			#endregion
 			#region controller movement
+			/*
 			//Move
 			if(Mathf.Abs(Input.GetAxis("LeftJoystickHorizontal")) >= joystickSensitivity ||
 				Mathf.Abs(Input.GetAxis("LeftJoystickVertical")) >= joystickSensitivity ||
@@ -215,15 +232,16 @@ public class PlayerScriptNew : MonoBehaviour
 				Mathf.Sqrt(Mathf.Pow(Input.GetAxis("RightJoystickHorizontal"), 2) + Mathf.Pow(Input.GetAxis("RightJoystickHorizontal"), 2)) >= joystickSensitivity &&
 				Input.GetAxis("LT") == 0)
             {
-				//var joypos = Mathf.Atan2(Input.GetAxis("RightJoystickHorizontal"), Input.GetAxis("RightJoystickVertical") * -1) * Mathf.Rad2Deg;
 				var target = new Vector3(Input.GetAxis("RightJoystickHorizontal"), 0, Input.GetAxis("RightJoystickVertical") * -1);
 				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target), rot_spd * Time.deltaTime);
-				//transform.eulerAngles = Vector3.Slerp(transform.rotation.eulerAngles, new Vector3(transform.eulerAngles.x, joypos, transform.eulerAngles.z), rot_spd * Time.deltaTime);
 			}
+			*/
             #endregion
             #region movement
-			/*
-            if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) &&
+            if (((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) ||
+				Mathf.Abs(Input.GetAxis("LeftJoystickHorizontal")) >= joystickSensitivity ||
+				Mathf.Abs(Input.GetAxis("LeftJoystickVertical")) >= joystickSensitivity ||
+				Mathf.Sqrt(Mathf.Pow(Input.GetAxis("LeftJoystickHorizontal"), 2) + Mathf.Pow(Input.GetAxis("LeftJoystickVertical"), 2)) >= joystickSensitivity) &&
 				!anim.GetCurrentAnimatorStateInfo(0).IsName("testWindup") &&
 				!anim.GetCurrentAnimatorStateInfo(0).IsName("testATK") &&
 				!anim.GetCurrentAnimatorStateInfo(0).IsName("testBackswing") &&
@@ -233,11 +251,9 @@ public class PlayerScriptNew : MonoBehaviour
 				walking = true;
 				atkButtonPressed = false;
 			}
-			*/
 
 			if (walking)
 			{
-				/*
 				// walking diagonally
 				if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
 				{
@@ -280,6 +296,14 @@ public class PlayerScriptNew : MonoBehaviour
 					transform.position = new Vector3(transform.position.x + spd * Time.deltaTime, transform.position.y, transform.position.z);
 					walkingDir = new Vector3(spd, 0, 0);
 				}
+				else if(Mathf.Abs(Input.GetAxis("LeftJoystickHorizontal")) >= joystickSensitivity ||
+					Mathf.Abs(Input.GetAxis("LeftJoystickVertical")) >= joystickSensitivity ||
+					Mathf.Sqrt(Mathf.Pow(Input.GetAxis("LeftJoystickHorizontal"), 2) + Mathf.Pow(Input.GetAxis("LeftJoystickVertical"), 2)) >= joystickSensitivity)
+				{
+					transform.position = new Vector3(transform.position.x + Input.GetAxis("LeftJoystickHorizontal") * spd * Time.deltaTime, transform.position.y,
+					transform.position.z + Input.GetAxis("LeftJoystickVertical") * -1 * spd * Time.deltaTime);
+					walkingDir = new Vector3(Input.GetAxis("LeftJoystickHorizontal"), 0, Input.GetAxis("LeftJoystickVertical") * -1);
+				}
 				else
 				{
 					walkingDir = new Vector3(0, 0, 0);
@@ -287,10 +311,10 @@ public class PlayerScriptNew : MonoBehaviour
 					backwarding = false;
 					lefting = false;
 					righting = false;
-					anim.CrossFade("testIdle", .3f);
+					//anim.CrossFade("testIdle", .3f);
+					anim.Play("testIdle");
 					walking = false;
 				}
-			*/
 
 				if (walkingDir.magnitude > 0)
 				{
@@ -299,7 +323,8 @@ public class PlayerScriptNew : MonoBehaviour
 						//anim.Play("testWalk");
 						if (!forwarding)
 						{
-							anim.CrossFade("testWalk", .3f);
+							//anim.CrossFade("testWalk", .3f);
+							anim.Play("testWalk");
 							forwarding = true;
 							backwarding = false;
 							lefting = false;
@@ -310,7 +335,8 @@ public class PlayerScriptNew : MonoBehaviour
 					{
 						if (!backwarding)
 						{
-							anim.CrossFade("Player_Walking_Backwards", .3f);
+							//anim.CrossFade("Player_Walking_Backwards", .3f);
+							anim.Play("Player_Walking_Backwards");
 							forwarding = false;
 							backwarding = true;
 							lefting = false;
@@ -324,7 +350,8 @@ public class PlayerScriptNew : MonoBehaviour
                         {
 							if (!righting)
 							{
-								anim.CrossFade("Player_Walking_Right", .3f);
+								//anim.CrossFade("Player_Walking_Right", .3f);
+								anim.Play("Player_Walking_Right");
 								forwarding = false;
 								backwarding = false;
 								lefting = false;
@@ -335,14 +362,14 @@ public class PlayerScriptNew : MonoBehaviour
                         {
 							if (!lefting)
 							{
-								anim.CrossFade("Player_Walking_Left", .3f);
+								//anim.CrossFade("Player_Walking_Left", .3f);
+								anim.Play("Player_Walking_Left");
 								forwarding = false;
 								backwarding = false;
 								lefting = true;
 								righting = false;
 							}
 						}
-
 						/*
 						if (transform.forward.z < 0 || transform.forward.x < 0)
 						{
@@ -370,6 +397,7 @@ public class PlayerScriptNew : MonoBehaviour
 								}
 							}
 						}
+						*/
 						else if (transform.forward.z > 0 || transform.forward.x > 0)
 						{
 							if (walkingDir.x > 0 || walkingDir.z < 0)
@@ -395,27 +423,31 @@ public class PlayerScriptNew : MonoBehaviour
 								}
 							}
 						}
-						*/
 					}
 					
 				}
 			}
 
-			/*
 			// look at mouse pos(not changing y-axis)
 			//! if this doesn't work properly, check game objects' layers, and make sure the mouse manager ignores the proper layers
-			if (Input.GetMouseButton(1))
+			if (Input.GetMouseButton(1) || Input.GetAxis("LT") > 0)
 			{
 				var target = new Vector3(enemy.transform.position.x, transform.position.y, enemy.transform.position.z);
 				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target - transform.position), rot_spd * Time.deltaTime);
 			}
-			
+			else if (Mathf.Abs(Input.GetAxis("RightJoystickHorizontal")) >= joystickSensitivity ||
+				Mathf.Abs(Input.GetAxis("RightJoystickVertical")) >= joystickSensitivity ||
+				Mathf.Sqrt(Mathf.Pow(Input.GetAxis("RightJoystickHorizontal"), 2) + Mathf.Pow(Input.GetAxis("RightJoystickHorizontal"), 2)) >= joystickSensitivity &&
+				Input.GetAxis("LT") == 0)
+			{
+				var target = new Vector3(Input.GetAxis("RightJoystickHorizontal"), 0, Input.GetAxis("RightJoystickVertical") * -1);
+				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target), rot_spd * Time.deltaTime);
+			}
 			else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("readingText"))
 			{
 				var target = new Vector3(MouseManager.me.mousePos.x, transform.position.y, MouseManager.me.mousePos.z);
 				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target - transform.position), rot_spd * Time.deltaTime);
 			}
-			*/
             #endregion
 			// check for attack button press
 			if (selectedMats.Count > 0 &&  // check if player has mat activated
@@ -424,7 +456,8 @@ public class PlayerScriptNew : MonoBehaviour
 				anim.GetCurrentAnimatorStateInfo(0).IsName("testWalk") ||
 				anim.GetCurrentAnimatorStateInfo(0).IsName("Player_Walking_Backwards") ||
 				anim.GetCurrentAnimatorStateInfo(0).IsName("Player_Walking_Left") ||
-				anim.GetCurrentAnimatorStateInfo(0).IsName("Player_Walking_Right")))  // if player in walk state
+				anim.GetCurrentAnimatorStateInfo(0).IsName("Player_Walking_Right") ||  // if player in walk state
+				anim.GetCurrentAnimatorStateInfo(0).IsName("selectMat"))) // if player in select mat state
 			{
 				if (Input.GetMouseButtonUp(0) || Input.GetAxis("RT") > 0 && !atkButtonPressed) // if left click
 				{
@@ -445,8 +478,16 @@ public class PlayerScriptNew : MonoBehaviour
 						{
 							mat.GetComponent<MatScriptNew>().amount--;
 						}
+
+						if (matSlots[3] != null && matSlots[3].GetComponent<MatScriptNew>().amount <= 0)//Detect boss mat and delete if used
+						{
+							if (selectedMats.Contains(matSlots[3]))
+								selectedMats.Remove(matSlots[3]);
+							matSlots[3] = null;
+							UIManager.Me.UI_ChangeIcon();
+						}
 						anim.Play("testWindup"); // player anticipation clip and call effect manager's casting event in clip
-												 //anim.CrossFade("testWindup", 0.1f);
+						// anim.CrossFade("testWindup", 0.1f);
 						selectedMats.Clear();
 					}
 					else
@@ -470,36 +511,19 @@ public class PlayerScriptNew : MonoBehaviour
 			}
 		}
     }
-	private void MatCD()
+	public void RecovMatCD(int breakAmp)
     {
-		//Detect & delete boss mat
-		if (matSlots[3] != null && matSlots[3].GetComponent<MatScriptNew>().amount <= 0)
-		{
-			if (selectedMats.Contains(matSlots[3]))
-				selectedMats.Remove(matSlots[3]);
-			matSlots[3] = null;
-			UIManager.Me.UI_ChangeIcon();
-		}
-
-		/*
-		for(int i = 0; i<matSlots.Count; i++)
-		{
-			if(matSlots[i] != null)
+		for (int i = 0; i < 3; i++)
+        {
+			if (matSlots[i] != null)
 			{
-				if(matSlots[i].GetComponent<MatScriptNew>().amount <= 0)
+				if (matSlots[i].GetComponent<MatScriptNew>().amount < matSlots[i].GetComponent<MatScriptNew>().amount_max)
 				{
-					if (selectedMats.Contains(matSlots[i]))
-						selectedMats.Remove(matSlots[i]);
-					if (matSlots[i].CompareTag("BossMat"))
-					{
-						matSlots[i] = null;
-						UIManager.Me.UI_ChangeIcon();
-					}
+					matSlots[i].GetComponent<MatScriptNew>().CD -= breakAmp;
+					Debug.Log("[PlayerScriptNew]RemoveMatCD: " + matSlots[i].ToString() + matSlots[i].GetComponent<MatScriptNew>().CD);
 				}
 			}
 		}
-		*/
-
 	}
 
 	public void LoseHealth_player(int amt)
