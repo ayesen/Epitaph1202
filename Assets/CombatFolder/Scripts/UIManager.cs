@@ -31,6 +31,11 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI slot2_TMP;
     public TextMeshProUGUI slot3_TMP;
 
+    [Header("UI_CD")]
+    public TextMeshProUGUI slot0_CD;
+    public TextMeshProUGUI slot1_CD;
+    public TextMeshProUGUI slot2_CD;
+
     private bool isHided;
     private CanvasGroup cg;
 
@@ -63,6 +68,7 @@ public class UIManager : MonoBehaviour
     {
         UI_SelectMat();
         UI_ChangeAmount();
+        UI_CD();
 
         timer += Time.deltaTime;
         if(timer >= hideTime & !isHided)
@@ -77,6 +83,34 @@ public class UIManager : MonoBehaviour
                 timer = 0;
                 isHided = false;
                 StartCoroutine(FadeCanvas(cg, 1f, fadeTime));
+            }
+        }
+    }
+
+    public void UI_CD()
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            if(PlayerScriptNew.me.matSlots[i] != null
+               && PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().amount < PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().amount_max)
+            {
+                print("CD");
+                if (i == 0)
+                    slot0_CD.text = "" + PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().CD;
+                else if(i == 1)
+                    slot1_CD.text = "" + PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().CD;
+                else if(i == 2)
+                    slot2_CD.text = "" + PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().CD;
+            }
+            else if(PlayerScriptNew.me.matSlots[i] == null
+                    || PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().amount >= PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().amount_max)
+            {
+                if(i == 0)
+                    slot0_CD.text = "";
+                else if(i == 1)
+                    slot1_CD.text = "";
+                else if(i == 2)
+                    slot2_CD.text = "";
             }
         }
     }

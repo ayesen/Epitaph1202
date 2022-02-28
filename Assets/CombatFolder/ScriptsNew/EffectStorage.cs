@@ -39,6 +39,8 @@ public class EffectStorage : MonoBehaviour
 		float finalDmg = Mathf.Clamp((ehs.myEffect.atk - es.def) * ehs.myEffect.amp, 0, float.MaxValue); // dmg = (atk - def) * amp
 		es.LoseHealth((int)finalDmg);
 		enemy.GetComponent<CombatInfoScript>().infoToDisplay.Add("dealt " + (int)finalDmg + " dmg");
+		if (FloatTextManager.Me.damageText && (int)finalDmg != 0)//float damage text
+			FloatTextManager.Me.SpawnFloatText(enemy, ""+ (int)finalDmg, FloatTextManager.TypeOfText.Damage);
 		// poise dmg
 		float finalPD = ehs.myEffect.atk / es.edr;
 		es.downPoise -= finalPD;
@@ -55,10 +57,14 @@ public class EffectStorage : MonoBehaviour
 			}
 		}
 		print("dealt " + finalPD + " poise damage");
+		if (FloatTextManager.Me.poiseDamageText && (int)finalPD != 0)//float PD text
+			FloatTextManager.Me.SpawnFloatText(enemy, "" + finalPD, FloatTextManager.TypeOfText.poiseDamage);
 		// break dmg
 		if (ehs.myEffect.doThis == EffectStructNew.Effect.ampDummy)
 		{
 			PlayerScriptNew.me.RecovMatCD((int)ehs.myEffect.amp);
+			if (FloatTextManager.Me.CDText && (int)ehs.myEffect.amp != 0)//float CD text
+				FloatTextManager.Me.SpawnFloatText(enemy, "" + (int)ehs.myEffect.amp, FloatTextManager.TypeOfText.Damage);
 		}
 	}
 	public void HurtEnemyBasedOnDis(EffectHolderScript ehs, GameObject enemy, float dis)
@@ -67,6 +73,8 @@ public class EffectStorage : MonoBehaviour
 		float dmgToDeal = 1f / dis * finalDmg;
 		enemy.GetComponent<Enemy>().LoseHealth((int)dmgToDeal);
 		enemy.GetComponent<CombatInfoScript>().infoToDisplay.Add("dealt " + (int)dmgToDeal + " dmg");
+		if (FloatTextManager.Me.damageText && (int)finalDmg != 0)// float damage text
+			FloatTextManager.Me.SpawnFloatText(enemy, "" + (int)finalDmg, FloatTextManager.TypeOfText.Damage);
 	}
 	public void DotEnemy(EffectHolderScript ehs, GameObject enemy)
 	{
@@ -82,6 +90,8 @@ public class EffectStorage : MonoBehaviour
 			float finalDmg = (ehs.myEffect.atk - enemy.GetComponent<Enemy>().def) * ehs.myEffect.amp;
 			enemy.GetComponent<Enemy>().LoseHealth((int)finalDmg);
 			SpawnParticle(fragments_dot, enemy.transform.position);
+			if (FloatTextManager.Me.damageText && (int)finalDmg != 0)
+				FloatTextManager.Me.SpawnFloatText(enemy, "" + (int)finalDmg, FloatTextManager.TypeOfText.Damage);
 			yield return new WaitForSeconds(dot_interval);
 		}
 	}
