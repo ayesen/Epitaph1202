@@ -41,6 +41,7 @@ public class EffectStorage : MonoBehaviour
 		enemy.GetComponent<CombatInfoScript>().infoToDisplay.Add("dealt " + (int)finalDmg + " dmg");
 		// poise dmg
 		float finalPD = ehs.myEffect.atk / es.edr;
+		print(es.edr);
 		es.downPoise -= finalPD;
 		es.stunPoise -= finalPD;
 		if (es.downPoise <= 0) // check downed
@@ -143,7 +144,7 @@ public class EffectStorage : MonoBehaviour
 		// break dmg
 		if (ehs.myEffect.doThis == EffectStructNew.Effect.ampDummy)
 		{
-			print((int)ehs.myEffect.amp);
+			//print((int)ehs.myEffect.amp);
 			PlayerScriptNew.me.RecovMatCD((int)ehs.myEffect.amp);
 		}
 	}

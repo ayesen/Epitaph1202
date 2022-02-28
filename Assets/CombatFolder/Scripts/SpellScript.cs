@@ -93,7 +93,7 @@ public class SpellScript : MonoBehaviour
 					float dummy_break_amp = 0;
 					for (int i = 0; i < myEffects.Count; i++) // loop through each effect this spell contains
 					{
-						if (myEffects[i].toWhom == EffectStructNew.Target.collisionEnemy) // check if the effect is applied when collidiing an enemy
+						//if (myEffects[i].toWhom == EffectStructNew.Target.collisionEnemy) // check if the effect is applied when collidiing an enemy
 						{
 							dummyATK += myEffects[i].atk; // add effects' atks together to dummy atk
 							dummyAMP *= myEffects[i].amp; // times effects' amps together to dummy amp
