@@ -323,13 +323,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   def: 0
   def_weak: 0
-  edr: 0
-  edr_atk: 0
-  edr_normal: 0
-  stun_threshold: 0
-  down_time: 0
-  poise: 0
-  poise_max: 0
   health: 5
   maxHealth: 5
   moveSpeed: 1
@@ -352,6 +345,16 @@ MonoBehaviour:
   phase: 1
   isPhaseTwo: 0
   doorTrigger: 0
+  edr: 0
+  edr_atk: 0
+  edr_normal: 0
+  stun_threshold: 0
+  down_time: 0
+  downPoise: 0
+  downPoise_max: 0
+  stunPoise: 0
+  stunPoise_max: 0
+  spRegenTime: 0
   ghostRider: {fileID: 0}
   target: {fileID: 1440344667}
   AIAnimator: {fileID: 473677501}
@@ -23963,13 +23966,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   def: 0
   def_weak: 0
-  edr: 0
-  edr_atk: 0
-  edr_normal: 0
-  stun_threshold: 0
-  down_time: 0
-  poise: 0
-  poise_max: 0
   health: 5
   maxHealth: 5
   moveSpeed: 1
@@ -23992,6 +23988,16 @@ MonoBehaviour:
   phase: 0
   isPhaseTwo: 0
   doorTrigger: 0
+  edr: 0
+  edr_atk: 0
+  edr_normal: 0
+  stun_threshold: 0
+  down_time: 0
+  downPoise: 0
+  downPoise_max: 0
+  stunPoise: 0
+  stunPoise_max: 0
+  spRegenTime: 0
   ghostRider: {fileID: 0}
   target: {fileID: 1440344667}
   AIAnimator: {fileID: 1208502502}
@@ -64088,13 +64094,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   def: 3
   def_weak: 2
-  edr: 1
-  edr_atk: 0.5
-  edr_normal: 1
-  stun_threshold: 2
-  down_time: 5
-  poise: 20
-  poise_max: 0
   health: 10
   maxHealth: 10
   moveSpeed: 0
@@ -64117,6 +64116,16 @@ MonoBehaviour:
   phase: 0
   isPhaseTwo: 0
   doorTrigger: 0
+  edr: 1
+  edr_atk: 0.5
+  edr_normal: 1
+  stun_threshold: 2
+  down_time: 5
+  downPoise: 20
+  downPoise_max: 0
+  stunPoise: 5
+  stunPoise_max: 0
+  spRegenTime: 1
   ghostRider: {fileID: 1455679843}
   target: {fileID: 1440344667}
   AIAnimator: {fileID: 862493572}
@@ -75194,13 +75203,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   def: 0
   def_weak: 0
-  edr: 0
-  edr_atk: 0
-  edr_normal: 0
-  stun_threshold: 0
-  down_time: 0
-  poise: 0
-  poise_max: 0
   health: 5
   maxHealth: 5
   moveSpeed: 1
@@ -75223,6 +75225,16 @@ MonoBehaviour:
   phase: 1
   isPhaseTwo: 0
   doorTrigger: 0
+  edr: 0
+  edr_atk: 0
+  edr_normal: 0
+  stun_threshold: 0
+  down_time: 0
+  downPoise: 0
+  downPoise_max: 0
+  stunPoise: 0
+  stunPoise_max: 0
+  spRegenTime: 0
   ghostRider: {fileID: 0}
   target: {fileID: 1440344667}
   AIAnimator: {fileID: 1814636469}
