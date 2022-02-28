@@ -55,11 +55,7 @@ public class EffectStorage : MonoBehaviour
 			}
 		}
 		print("dealt " + finalPD + " poise damage");
-		// break dmg
-		if (ehs.myEffect.doThis == EffectStructNew.Effect.ampDummy)
-		{
-			PlayerScriptNew.me.RecovMatCD((int)ehs.myEffect.amp);
-		}
+		
 	}
 	public void HurtEnemyBasedOnDis(EffectHolderScript ehs, GameObject enemy, float dis)
 	{
@@ -128,21 +124,27 @@ public class EffectStorage : MonoBehaviour
 	}
 	#endregion
 	#region BREAK
-	public void Break(EffectHolderScript ehs, GameObject enemy)
+	public void Break(EffectHolderScript ehs)//, GameObject enemy)
 	{
-		GetDroppableMats();
-		if (enemy.GetComponent<Enemy>() != null &&
-			enemy.GetComponent<Enemy>().breakable &&
-			droppableMat.Count > 0)
+		//GetDroppableMats();
+		//if (enemy.GetComponent<Enemy>() != null &&
+		//	enemy.GetComponent<Enemy>().breakable &&
+		//	droppableMat.Count > 0)
+		//{
+		//	Enemy eS = enemy.GetComponent<Enemy>();
+		//	eS.breakMeter -= ehs.myEffect.forHowMuch;
+		//	enemy.GetComponent<CombatInfoScript>().infoToDisplay.Add("dealt " + (int)ehs.myEffect.forHowMuch + " break dmg");
+		//	if (eS.breakMeter <= 0)
+		//	{
+		//		eS.breakMeter = eS.breakMeterMax;
+		//		BreakNSpawnMat(enemy);
+		//	}
+		//}
+		// break dmg
+		if (ehs.myEffect.doThis == EffectStructNew.Effect.ampDummy)
 		{
-			Enemy eS = enemy.GetComponent<Enemy>();
-			eS.breakMeter -= ehs.myEffect.forHowMuch;
-			enemy.GetComponent<CombatInfoScript>().infoToDisplay.Add("dealt " + (int)ehs.myEffect.forHowMuch + " break dmg");
-			if (eS.breakMeter <= 0)
-			{
-				eS.breakMeter = eS.breakMeterMax;
-				BreakNSpawnMat(enemy);
-			}
+			print((int)ehs.myEffect.amp);
+			PlayerScriptNew.me.RecovMatCD((int)ehs.myEffect.amp);
 		}
 	}
 	private void GetDroppableMats()

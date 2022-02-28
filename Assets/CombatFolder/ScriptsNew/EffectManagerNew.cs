@@ -222,7 +222,7 @@ public class EffectManagerNew : MonoBehaviour
 					}
 					if (ehs.myEffect.doThis == EffectStructNew.Effect.break_atk)
 					{
-						EffectStorage.me.Break(ehs, enemy);
+						//EffectStorage.me.Break(ehs, enemy);
 						ehs.destroy = true;
 					}
 					if (ehs.myEffect.doThis == EffectStructNew.Effect.knockBack)
@@ -233,6 +233,11 @@ public class EffectManagerNew : MonoBehaviour
 					if (ehs.myEffect.doThis == EffectStructNew.Effect.hurt_basedOnDis)
 					{
 						EffectStorage.me.HurtEnemyBasedOnDis(ehs, enemy, Vector3.Distance(ehs.myCreatorPos, enemy.transform.position));
+						ehs.destroy = true;
+					}
+					if (ehs.myEffect.doThis == EffectStructNew.Effect.ampDummy)
+					{
+						EffectStorage.me.Break(ehs);
 						ehs.destroy = true;
 					}
 				}
@@ -274,7 +279,7 @@ public class EffectManagerNew : MonoBehaviour
 						}
 						if (ehs.myEffect.doThis == EffectStructNew.Effect.break_atk)
 						{
-							EffectStorage.me.Break(ehs, enemy);
+							//EffectStorage.me.Break(ehs, enemy);
 						}
 					}
 				}
