@@ -111,7 +111,8 @@ public class PlayerScriptNew : MonoBehaviour
 			// activate mats
 			if (!anim.GetCurrentAnimatorStateInfo(0).IsName("testWindup") &&
 				!anim.GetCurrentAnimatorStateInfo(0).IsName("testATK") &&
-                !anim.GetCurrentAnimatorStateInfo(0).IsName("testBackswing"))
+                !anim.GetCurrentAnimatorStateInfo(0).IsName("testBackswing") &&
+				!anim.GetCurrentAnimatorStateInfo(0).IsName("readingText"))
             {
 				if (Input.GetKeyUp(KeyCode.Alpha1) || Input.GetButtonUp("XButton") && matSlots[0] != null)
 				{
@@ -237,10 +238,10 @@ public class PlayerScriptNew : MonoBehaviour
 			*/
             #endregion
             #region movement
-            if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) ||
+            if (((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) ||
 				Mathf.Abs(Input.GetAxis("LeftJoystickHorizontal")) >= joystickSensitivity ||
 				Mathf.Abs(Input.GetAxis("LeftJoystickVertical")) >= joystickSensitivity ||
-				Mathf.Sqrt(Mathf.Pow(Input.GetAxis("LeftJoystickHorizontal"), 2) + Mathf.Pow(Input.GetAxis("LeftJoystickVertical"), 2)) >= joystickSensitivity &&
+				Mathf.Sqrt(Mathf.Pow(Input.GetAxis("LeftJoystickHorizontal"), 2) + Mathf.Pow(Input.GetAxis("LeftJoystickVertical"), 2)) >= joystickSensitivity) &&
 				!anim.GetCurrentAnimatorStateInfo(0).IsName("testWindup") &&
 				!anim.GetCurrentAnimatorStateInfo(0).IsName("testATK") &&
 				!anim.GetCurrentAnimatorStateInfo(0).IsName("testBackswing") &&

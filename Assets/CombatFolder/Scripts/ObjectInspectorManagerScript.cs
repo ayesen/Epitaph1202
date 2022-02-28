@@ -41,11 +41,15 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 	private AudioSource aS;
 	public float advanceOffset;
 
+	// for axis works only once
+	private bool axisInUse;
+
 	private void Awake()
 	{
 		me = this;
 		objectDes_ui_cht.text = "";
 		objectDes_ui_eng.text = "";
+		axisInUse = false;
 	}
 
 	private void Start()
@@ -156,7 +160,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 			}
 			else // if the dialogue requires player to press a button to proceed
 			{
-				if (Input.GetKeyUp(KeyCode.E) && !optionsDisplaying) // if no options being displayed, loop through text
+				if ((Input.GetKeyUp(KeyCode.E) || Input.GetButtonUp("AButton")) && !optionsDisplaying) // if no options being displayed, loop through text
 				{
 					if (index < dialogueToShow.Count - 1)
 					{
@@ -207,29 +211,37 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 					optionSelection.SetActive(true);
 					RectTransform rt = optionSelection.GetComponent<RectTransform>();
 					rt.position = new Vector3(options[optionIndex].GetComponent<RectTransform>().position.x, options[optionIndex].GetComponent<RectTransform>().position.y + 50f, rt.position.z);
-					if (Input.GetKeyUp(KeyCode.DownArrow))
+					if (Input.GetKeyUp(KeyCode.DownArrow) || Input.GetAxis("VerticalArrow") < 0)
 					{
-						if (optionIndex < options.Count - 1)
-						{
-							optionIndex++;
-						}
-						else
-						{
-							optionIndex = 0;
+                        if (!axisInUse)
+                        {
+							if (optionIndex < options.Count - 1)
+							{
+								optionIndex++;
+							}
+							else
+							{
+								optionIndex = 0;
+							}
+							axisInUse = true;
 						}
 					}
-					else if (Input.GetKeyUp(KeyCode.UpArrow))
+					else if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetAxis("VerticalArrow") > 0)
 					{
-						if (optionIndex > 0)
-						{
-							optionIndex--;
+                        if (!axisInUse)
+                        {
+							if (optionIndex > 0)
+							{
+								optionIndex--;
+							}
+							else
+							{
+								optionIndex = options.Count - 1;
+							}
 						}
-						else
-						{
-							optionIndex = options.Count - 1;
-						}
+						axisInUse = true;
 					}
-					else if (Input.GetKeyDown(KeyCode.E))
+					else if (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("AButton"))
 					{
 						for (int i = dialogueToShow[index].options[optionIndex].dialogues.Count - 1; i >= 0 ; i--)
 						{
@@ -253,6 +265,10 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 							aS.Play();
 						}
 					}
+					else if (Input.GetAxis("VerticalArrow") == 0)
+                    {
+						axisInUse = false;
+                    }
 				}
 			}
 		}
