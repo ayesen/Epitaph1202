@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class MatScriptNew : MonoBehaviour
 {
 	public int amount;
+	public int CD;
+	private int CD_max;
 	[HideInInspector]
 	public int amount_max;
 	public List<EffectStructNew> myEffects;
@@ -16,5 +18,20 @@ public class MatScriptNew : MonoBehaviour
 	private void Start()
 	{
 		amount_max = amount;
+		CD_max = CD;
 	}
+
+    private void Update()
+    {
+        if(CD <= 0 && amount < amount_max)
+        {
+			amount++;
+			int overdose = CD;
+			if (amount == amount_max)
+				CD = CD_max;
+			else
+				CD = CD_max + overdose;
+			Debug.Log("MatScriptNew: " + gameObject.ToString() + CD);
+        }
+    }
 }

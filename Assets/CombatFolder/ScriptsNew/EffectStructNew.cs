@@ -5,7 +5,6 @@ using UnityEngine;
 [System.Serializable]
 public struct EffectStructNew
 {
-	
 	public enum ConditionTriggeredBy // describe for this effect to take place, who need to trigger the condition
 	{
 		anyone, // anyone who triggers the condition
@@ -39,7 +38,9 @@ public struct EffectStructNew
 		knockBack,
 		spawnAOEDetectionAfterDeath,
 		spawnSmallBearAfterDeath,
-		heal
+		heal,
+		atkDummy,
+		ampDummy
 	};
 	[Header("EFFECTS")]
 	public Effect doThis;
@@ -57,6 +58,8 @@ public struct EffectStructNew
 		dmgDealt
 	}
 	public float forHowMuch; // describes the effect numericals
+	public float atk; // ¹¥»÷
+	public float amp; // ±¶ÂÊ
 	public List<ModifierStruct> myModifiers; // describes the modifier to numericals
 	public float forHowLong; // describes how long this effect will last
 }
