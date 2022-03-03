@@ -52,7 +52,8 @@ public class PlayerScriptNew : MonoBehaviour
     {
 		checkBoolChange = dead;
         anim = playerModel.GetComponent<Animator>();
-		enemy = GameObject.FindGameObjectWithTag("Enemy");
+		//enemy = GameObject.FindGameObjectWithTag("Enemy");
+		enemy = EffectStorage.me.mainEnemyOfThisLevel;
     }
 
 	private void Update()
@@ -520,7 +521,8 @@ public class PlayerScriptNew : MonoBehaviour
 				if (matSlots[i].GetComponent<MatScriptNew>().amount < matSlots[i].GetComponent<MatScriptNew>().amount_max)
 				{
 					matSlots[i].GetComponent<MatScriptNew>().CD -= breakAmp;
-					Debug.Log("[PlayerScriptNew]RemoveMatCD: " + matSlots[i].ToString() + matSlots[i].GetComponent<MatScriptNew>().CD);
+					//print(matSlots[i].ToString()+": "+breakAmp);
+					//Debug.Log("[PlayerScriptNew]RemoveMatCD: " + matSlots[i].ToString() + matSlots[i].GetComponent<MatScriptNew>().CD);
 				}
 			}
 		}

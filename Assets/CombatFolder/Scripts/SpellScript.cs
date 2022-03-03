@@ -81,7 +81,7 @@ public class SpellScript : MonoBehaviour
 				bool recordEffect = true;
 				foreach (var effect in myEffects) // if this spell spawn hit detection collider after death, effects should be passed to the collider instead
 				{
-					if (effect.doThis == EffectStructNew.Effect.spawnAOEDetectionAfterDeath)
+					if (effect.doThis == EffectStructNew.Effect.spawnAOEDetectionAfterDeath || effect.doThis == EffectStructNew.Effect.spawnSmallBearAfterDeath)
 					{
 						recordEffect = false;
 					}
@@ -93,7 +93,7 @@ public class SpellScript : MonoBehaviour
 					float dummy_break_amp = 0;
 					for (int i = 0; i < myEffects.Count; i++) // loop through each effect this spell contains
 					{
-						if (myEffects[i].toWhom == EffectStructNew.Target.collisionEnemy) // check if the effect is applied when collidiing an enemy
+						//if (myEffects[i].toWhom == EffectStructNew.Target.collisionEnemy) // check if the effect is applied when collidiing an enemy
 						{
 							dummyATK += myEffects[i].atk; // add effects' atks together to dummy atk
 							dummyAMP *= myEffects[i].amp; // times effects' amps together to dummy amp
@@ -102,7 +102,7 @@ public class SpellScript : MonoBehaviour
 							tempEffectStruct.atk = 0; // set to zero since we took the atk out
 							tempEffectStruct.amp = 0;
 							myEffects[i] = tempEffectStruct; // set it back
-							EffectManagerNew.me.SpawnEffectHolders(hit.gameObject, myEffects[i], gameObject.transform.position); // record effects (without atk and amp) to the enemy
+							//EffectManagerNew.me.SpawnEffectHolders(hit.gameObject, myEffects[i], gameObject.transform.position); // record effects (without atk and amp) to the enemy
 						}
 					}
 					// record dmg effect dummy to deal dmg

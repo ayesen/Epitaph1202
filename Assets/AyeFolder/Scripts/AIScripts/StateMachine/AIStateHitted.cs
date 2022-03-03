@@ -8,7 +8,7 @@ public class AIStateHitted : AIStateBase
     //public float myEnemyVelocity;
     public override void StartState(Enemy myEnemy)
     {
-        Debug.Log("start hitted state");
+        //Debug.Log("start hitted state");
         myEnemy.ghostRider.enabled = false;
         myEnemy.AIAnimator.Play("Hitted", 0, 0);
     }
