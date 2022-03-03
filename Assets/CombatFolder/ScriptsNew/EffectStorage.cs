@@ -39,6 +39,8 @@ public class EffectStorage : MonoBehaviour
 		float finalDmg = Mathf.Clamp((ehs.myEffect.atk - es.def) * ehs.myEffect.amp, 0, float.MaxValue); // dmg = (atk - def) * amp
 		//print(ehs.myEffect.atk);
 		es.LoseHealth((int)finalDmg);
+		if (FloatTextManager.Me.damageText && (int)finalDmg != 0)//float damage text
+			FloatTextManager.Me.SpawnFloatText(enemy, ""+ (int)finalDmg, FloatTextManager.TypeOfText.Damage);
 		// poise dmg
 		float finalPD = ehs.myEffect.atk / es.edr;
 		//print("edr: "+es.edr);
@@ -55,32 +57,19 @@ public class EffectStorage : MonoBehaviour
 				es.EnterHittedState(1);
 			}
 		}
-		//print("dealt " + finalPD + " poise damage");
+		print("dealt " + finalPD + " poise damage");
+		// break dmg
+		if (ehs.myEffect.doThis == EffectStructNew.Effect.ampDummy)
+		{
+			PlayerScriptNew.me.RecovMatCD((int)ehs.myEffect.amp);
+		}
 	}
 	public void HurtEnemyBasedOnDis(EffectHolderScript ehs, GameObject enemy, float dis)
 	{
-		Enemy es = enemy.GetComponent<Enemy>();
-		// hp dmg
-		float finalDmg = Mathf.Clamp((ehs.myEffect.atk - es.def) * ehs.myEffect.amp, 0, float.MaxValue); // dmg = (atk - def) * amp
-		float dmgToDeal = 1f / dis * finalDmg; // ¾àÀë³ËÇø
-		es.LoseHealth((int)dmgToDeal);
-		// poise dmg
-		float finalPD = ehs.myEffect.atk / es.edr;
-		//print("edr: "+es.edr);
-		es.downPoise -= finalPD;
-		es.stunPoise -= finalPD;
-		if (es.downPoise <= 0) // check downed
-		{
-			es.EnterDownedState();
-			es.downPoise = es.downPoise_max;
-		}
-		else if (es.stunPoise <= 0) // check stunned
-		{
-			if (es.myAC.currentState != es.myAC.downedState)
-			{
-				es.EnterHittedState(1);
-			}
-		}
+		float finalDmg = (ehs.myEffect.atk - enemy.GetComponent<Enemy>().def) * ehs.myEffect.amp;
+		float dmgToDeal = 1f / dis * finalDmg;
+		enemy.GetComponent<Enemy>().LoseHealth((int)dmgToDeal);
+		enemy.GetComponent<CombatInfoScript>().infoToDisplay.Add("dealt " + (int)dmgToDeal + " dmg");
 	}
 	public void DotEnemy(EffectHolderScript ehs, GameObject enemy)
 	{
@@ -96,6 +85,8 @@ public class EffectStorage : MonoBehaviour
 			float finalDmg = (ehs.myEffect.atk - enemy.GetComponent<Enemy>().def) * ehs.myEffect.amp;
 			enemy.GetComponent<Enemy>().LoseHealth((int)finalDmg);
 			SpawnParticle(fragments_dot, enemy.transform.position);
+			if (FloatTextManager.Me.damageText && (int)finalDmg != 0)
+				FloatTextManager.Me.SpawnFloatText(enemy, "" + (int)finalDmg, FloatTextManager.TypeOfText.Damage);
 			yield return new WaitForSeconds(dot_interval);
 		}
 	}
