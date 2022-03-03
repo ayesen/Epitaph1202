@@ -237,7 +237,7 @@ public class EffectManagerNew : MonoBehaviour
 					}
 					if (ehs.myEffect.doThis == EffectStructNew.Effect.ampDummy)
 					{
-						EffectStorage.me.Break(ehs);
+						EffectStorage.me.Break(ehs, enemy);
 						ehs.destroy = true;
 					}
 				}

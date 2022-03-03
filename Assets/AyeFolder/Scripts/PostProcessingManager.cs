@@ -126,7 +126,7 @@ public class PostProcessingManager : MonoBehaviour
 
         while (CA.colorFilter.value != Color.black)
         {
-            Debug.Log("black");
+            //Debug.Log("black");
             time += Time.fixedDeltaTime/5;
             timecolor += Time.fixedDeltaTime/10;
             timevig += Time.fixedDeltaTime/10;
