@@ -110,3 +110,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeSpan: 0
+  myEffects: []
+  dummyEffectForDmg:
+    when: 0
+    iS: 0
+    doThis: 1
+    toWhom: 1
+    forHowMuch: 0
+    atk: 0
+    amp: 0
+    myModifiers: []
+    forHowLong: 0
+  dummyEffectForBreak:
+    when: 0
+    iS: 0
+    doThis: 0
+    toWhom: 0
+    forHowMuch: 0
+    atk: 0
+    amp: 0
+    myModifiers: []
+    forHowLong: 0

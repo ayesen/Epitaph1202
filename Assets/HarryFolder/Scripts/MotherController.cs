@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using System.Collections.Generic;
 using UnityEngine.AI;
 
 public class MotherController : MonoBehaviour
@@ -58,18 +57,32 @@ public class MotherController : MonoBehaviour
 
     public void OutKids()
     {
-        foreach (GameObject kid in kidsHouse)
-        {
-            GameObject kidChild = kid.transform.GetChild(0).gameObject;
+		for (int i = (GetComponent<Enemy>().changeLimit) * 3; i < (GetComponent<Enemy>().changeLimit) * 3 + 3; i++)
+		{
+            GameObject kidChild = kidsHouse[i].transform.GetChild(0).gameObject;
             kids.Add(kidChild);
-            kidChild.gameObject.SetActive(true);
             kidChild.GetComponent<Kids>().enabled = true;
+            kidChild.GetComponent<SmallBear>().enabled = true;
+            kidChild.GetComponent<AIController>().enabled = true;
             kidChild.transform.parent = null;
             kidChild.GetComponent<Rigidbody>().useGravity = true;
             kidChild.GetComponent<CapsuleCollider>().enabled = true;
             kidChild.GetComponent<Enemy>().ChangePhase(Enemy.AIPhase.InBattle1, 1);
-            //kidChild.GetComponent<Enemy>().EnemyCanvas.SetActive(true);
         }
+        //foreach (GameObject kid in kidsHouse)
+        //{
+        //    GameObject kidChild = kid.transform.GetChild(0).gameObject;
+        //    kids.Add(kidChild);
+        //    //kidChild.gameObject.SetActive(true);
+        //    kidChild.GetComponent<Kids>().enabled = true;
+        //    kidChild.GetComponent<SmallBear>().enabled = true;
+        //    kidChild.GetComponent<AIController>().enabled = true;
+        //    kidChild.transform.parent = null;
+        //    kidChild.GetComponent<Rigidbody>().useGravity = true;
+        //    kidChild.GetComponent<CapsuleCollider>().enabled = true;
+        //    kidChild.GetComponent<Enemy>().ChangePhase(Enemy.AIPhase.InBattle1, 1);
+        //    //kidChild.GetComponent<Enemy>().EnemyCanvas.SetActive(true);
+        //}
     }
 
     public void BackKids()
@@ -88,8 +101,8 @@ public class MotherController : MonoBehaviour
             kids[i].GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
             kids[i].GetComponent<Rigidbody>().rotation = Quaternion.Euler(0, 0, 0);
             kids[i].GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);*/
-            kids[i].transform.position = Vector3.Lerp(kids[i].transform.position, kidsHouse[i].transform.position, Time.time);
-            kids[i].SetActive(false);
+            //kids[i].transform.position = Vector3.Lerp(kids[i].transform.position, kidsHouse[i].transform.position, Time.time);
+            //kids[i].SetActive(false);
         }
     }
 
