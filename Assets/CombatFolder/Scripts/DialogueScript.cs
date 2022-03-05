@@ -1,12 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 
 public class DialogueScript : MonoBehaviour
 {
-    public float triggerRange; // the distance for player to trigger the dialogue
-    public bool autoTrigger; // if this dialogue is triggered automatically
+	public float triggerRange; // the distance for player to trigger the dialogue
+	public bool autoTrigger; // if this dialogue is triggered automatically
 	public bool autoAdvance; //! if this dialogue advances automatically or the player needs to press an interation button, dialogues with options should not be auto advance!
+	public bool areaTrigger; //If this is entering a Mesh Trigger Zone
+	public float displayDelayed;
 	public List<DialogueStruct> texts; // the text to be shown
 	public Sprite image; // the image to be shown
 	private GameObject player;
@@ -22,8 +26,8 @@ public class DialogueScript : MonoBehaviour
 	public int logY;
 
 
-	[Header("Custimizable End Action")]
-	public GameObject actor;
+
+	[Header("Custimizable End Action")] public GameObject actor;
 	public string funcToCall;
 
 	private void Start()
@@ -33,6 +37,7 @@ public class DialogueScript : MonoBehaviour
 			mr = GetComponent<MeshRenderer>();
 			defaultMat = mr.material;
 		}
+
 		inspected = false;
 		player = GameObject.FindGameObjectWithTag("Player");
 		foreach (var line in texts)
@@ -46,37 +51,50 @@ public class DialogueScript : MonoBehaviour
 
 	private void Update()
 	{
-		if (player != null && Vector3.Distance(player.transform.position, transform.position) < triggerRange && (!inspected || !oneTimeDialogue))
+		
+		if (player != null && Vector3.Distance(player.transform.position, transform.position) < triggerRange &&
+		    (!inspected || !oneTimeDialogue))
 		{
 			if (!autoTrigger) // highlight item, show text after pressing E
 			{
 				mr.material = highLightMat;
 				if ((Input.GetKeyUp(KeyCode.E) || Input.GetAxis("HorizontalArrow") > 0) &&
-					(player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("testIdle") ||
-					player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("testWalk") ||
-					player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Player_Walking_Right") ||
-					player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Player_Walking_Left") ||
-					player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Player_Walking_Backwards")))
+				    (player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("testIdle") ||
+				     player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("testWalk") ||
+				     player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0)
+					     .IsName("Player_Walking_Right") ||
+				     player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0)
+					     .IsName("Player_Walking_Left") ||
+				     player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0)
+					     .IsName("Player_Walking_Backwards")))
 				{
-					SoundMan.SoundManager.ItemInspection();
+					if (displayDelayed <= 0f)
+					{
+						SoundMan.SoundManager.ItemInspection();
+						inspected = true;
+						ObjectInspectorManagerScript.me.ShowText(this);
+						foreach (GameObject interactable in interactiveSwitch)
+						{
+							interactable.SetActive(true);
+						}
+
+						LogManager.LOGManager.CoverSetActive(logX, logY);
+					}
+				}
+			}
+			else // auto show text
+			{
+				if (displayDelayed <= 0f)
+				{
 					inspected = true;
 					ObjectInspectorManagerScript.me.ShowText(this);
 					foreach (GameObject interactable in interactiveSwitch)
 					{
 						interactable.SetActive(true);
 					}
+
 					LogManager.LOGManager.CoverSetActive(logX, logY);
 				}
-			}
-			else // auto show text
-			{
-				inspected = true;
-				ObjectInspectorManagerScript.me.ShowText(this);
-				foreach (GameObject interactable in interactiveSwitch)
-				{
-					interactable.SetActive(true);
-				}
-				LogManager.LOGManager.CoverSetActive(logX, logY);
 			}
 		}
 		else
@@ -87,4 +105,29 @@ public class DialogueScript : MonoBehaviour
 			}
 		}
 	}
+
+	public void OnTriggerEnter(Collider other)
+	{
+		if (other.CompareTag("Player") && areaTrigger)
+		{
+			StartCoroutine(dialogue()); 
+			Debug.Log("Player in Range");
+		}
+	}
+
+	IEnumerator dialogue()
+	{
+		yield return new WaitForSeconds (displayDelayed);
+		inspected = true;
+		ObjectInspectorManagerScript.me.ShowText(this);
+		foreach (GameObject interactable in interactiveSwitch)
+		{
+			interactable.SetActive(true);
+		}
+
+		LogManager.LOGManager.CoverSetActive(logX, logY);
+		Destroy(this.gameObject);
+	}
 }
+
+	
