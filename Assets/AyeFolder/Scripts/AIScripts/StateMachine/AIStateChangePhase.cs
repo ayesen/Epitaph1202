@@ -20,26 +20,30 @@ public class AIStateChangePhase : AIStateBase
 
     public override void Update(Enemy myEnemy)
     {
-        changePhaseTimer += Time.fixedDeltaTime;
-        if (changePhaseTimer > myEnemy.changePhaseTime)
-        {
-            myEnemy.myAC.ChangeState(myEnemy.myAC.idleState);
-        }
-
-
-    }
+		changePhaseTimer += Time.fixedDeltaTime;
+		//Debug.Log(changePhaseTimer);
+		if (changePhaseTimer > myEnemy.changePhaseTime)
+		{
+			myEnemy.myAC.ChangeState(myEnemy.myAC.idleState);
+		}
+	}
 
     public override void LeaveState(Enemy myEnemy)
     {
+        changePhaseTimer = 0;
         if (myEnemy.Mother != null)
         {
             if (myEnemy.phase == Enemy.AIPhase.InBattle2)
             {
+                myEnemy.walkable = false;
+                myEnemy.def = myEnemy.def_weak;
                 myEnemy.Mother.OutKids();
             }
             else if (myEnemy.phase == Enemy.AIPhase.InBattle1)
             {
-                myEnemy.Mother.BackKids();
+                myEnemy.walkable = true;
+                myEnemy.def = myEnemy.def_normal;
+                //myEnemy.Mother.BackKids();
             }
         }
     }

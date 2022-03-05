@@ -15,7 +15,7 @@ public class AIStateDie : AIStateBase
 
         if(myEnemy.Mother != null)
         {
-            myEnemy.Mother.BackKids();
+            //myEnemy.Mother.BackKids();
 
         }
         myEnemy.doorTrigger = true;

@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
 {
     [Header("BASICS")]
     public float def;
+    public float def_normal;
     public float def_weak;
     public int health;
     public int maxHealth;
@@ -89,6 +90,11 @@ public class Enemy : MonoBehaviour
     private int shieldRecord;
     private bool MusicIsStopped = false;
 
+    [Header("PHASE 2 TIMER")]
+    public float duration_phase2;
+    private float timer_phase2;
+    
+
     private void Awake()
     {
         this.healthRecord = maxHealth;
@@ -100,7 +106,6 @@ public class Enemy : MonoBehaviour
         Mother = GetComponent<MotherController>();
         downPoise_max = downPoise;
         stunPoise_max = stunPoise;
-
     }
 
     private void Update()
@@ -116,6 +121,12 @@ public class Enemy : MonoBehaviour
         }
         ChangeEdrBasedOnStates();
         RegenerateStunPoise();
+        Phase2Duration();
+        if (edr == 0)
+		{
+            //Time.timeScale = 0;
+		}
+        //print("current state: "+myAC.currentState);
     }
 
     private void ChangeEdrBasedOnStates()
@@ -125,7 +136,7 @@ public class Enemy : MonoBehaviour
 		{
             edr = edr_atk;
 		}
-		else
+		else // high edr
 		{
             edr = edr_normal;
 		}
@@ -133,7 +144,7 @@ public class Enemy : MonoBehaviour
 
     public void EnterHittedState(float hitTimer)
     {
-        print("enter hitted state");
+        //print("enter hitted state");
         hittedTime = hitTimer;
         //interruptedState = myAC.currentState;
         if (myAC.currentState != myAC.changePhaseState || myAC.currentState!= myAC.dieState)
@@ -165,16 +176,17 @@ public class Enemy : MonoBehaviour
     {
         if (phase == AIPhase.InBattle1)
         {
-            atkSpd = 2;
-            preAtkSpd = 2;
+            atkSpd = 5;
+            preAtkSpd = 5;
             atkTime = 1;
             postAtkSpd = 2;
             attackamt = 5;
-
+            
             myTriggerObj = GameObject.Find("Atk1Trigger");
             if (shield <= 0)
             {
-                ChangePhase(AIPhase.InBattle2, 20);
+                timer_phase2 = duration_phase2;
+                ChangePhase(AIPhase.InBattle2, 1);
             }
         }
         else if (phase == AIPhase.InBattle2)
@@ -183,12 +195,12 @@ public class Enemy : MonoBehaviour
             preAtkSpd = 5;
             atkTime = 1;
             postAtkSpd = 2;
-            attackamt = 2;
+            attackamt = 25;
             myTriggerObj = GameObject.Find("Atk2Trigger");
-            if (health < healthLimit && changeLimit > 0)
+            if ((health < healthLimit || timer_phase2 <= 0) && changeLimit > 0)
             {
                 shield = maxShield;
-                ChangePhase(AIPhase.InBattle1, 10);
+                ChangePhase(AIPhase.InBattle1, 1);
             }
         }
         myTrigger = myTriggerObj.GetComponent<AtkTrigger>();
@@ -232,7 +244,7 @@ public class Enemy : MonoBehaviour
         shield = maxShield;
         //maxShield = 200;
         changeLimit = 2;
-        Mother.BackKids();
+        //Mother.BackKids();
         var item = GameObject.Find("GirlJournal");
         if (item != null)
         {
@@ -258,7 +270,7 @@ public class Enemy : MonoBehaviour
         if (target.gameObject.CompareTag("Player"))
         {
             target.GetComponent<PlayerScriptNew>().LoseHealth_player(dmgAmt);
-            Debug.Log(dmgAmt);
+            //Debug.Log(dmgAmt);
         }
         if (target.gameObject.CompareTag("Enemy"))
         {
@@ -283,7 +295,7 @@ public class Enemy : MonoBehaviour
         {
             EffectManagerNew.me.conditionProcessList.Add(cs);
         }
-        print("dealt " + hurtAmt + " damage to " + gameObject.name);
+        //print("dealt " + hurtAmt + " damage to " + gameObject.name);
 
         // og code
         if (myAC.currentState != myAC.changePhaseState)
@@ -380,6 +392,10 @@ public class Enemy : MonoBehaviour
             Vector3 dir = Receiver.transform.position - AttackerPos;
             Receiver.GetComponent<Rigidbody>().AddForce(dir.normalized * KnockBackAmt, ForceMode.Impulse);
             DealDmg(attackamt);
+            if (GetComponent<CollisionDetectorScript>())
+			{
+                GetComponent<CollisionDetectorScript>().InflictEffects(Receiver);
+			}
         }
     }
 
@@ -387,16 +403,15 @@ public class Enemy : MonoBehaviour
     {
         myTrigger.myMR.material.color = new Color(0, 0.5f, 1, 1);
         float dmgRange = 12;
-        float soundWaveDmg = dmgRange - AIToPlayerDist(); //can change later
-        StartCoroutine(this.GetComponent<AIEffectManager>().StartSoundWave());
+        float soundWaveDmg_decay = AIToPlayerDist()*AIToPlayerDist(); //can change later
+        StartCoroutine(GetComponent<AIEffectManager>().StartSoundWave());
         SoundMan.SoundManager.BearRoar();
         if (AIToPlayerDist() <= dmgRange)
         {
-            
-            DealDmg(attackamt * (int)soundWaveDmg);
+            DealDmg((int)(attackamt / soundWaveDmg_decay) * 5);
+            print("bear roar dmg: "+(int)(attackamt / soundWaveDmg_decay) * 5);
             StartCoroutine(EnemyDotDmg(5f, 1));
         }
-
     }
 
     public float AIToPlayerDist()
@@ -500,7 +515,6 @@ public class Enemy : MonoBehaviour
                 knockedBack = false;
 
                 myAC.ChangeState(interruptedState);
-
             }
         }
     }
@@ -515,5 +529,16 @@ public class Enemy : MonoBehaviour
                 stunPoise = stunPoise_max;
 			}
 		}
+	}
+
+    private void Phase2Duration()
+	{
+        if (phase == AIPhase.InBattle2)
+		{
+            if (timer_phase2 > 0)
+            {
+                timer_phase2 -= Time.deltaTime;
+            }
+        }
 	}
 }

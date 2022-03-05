@@ -31,14 +31,11 @@ public class AIStatePreAttack : AIStateBase
             {
                 myEnemy.myAC.ChangeState(myEnemy.myAC.attackState);
             }
-
         }
         else if (!myEnemy.attackable)
         {
             myEnemy.myAC.ChangeState(myEnemy.myAC.idleState);
         }
-
-
     }
 
     public override void LeaveState(Enemy myEnemy)

@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 3838170087850077127}
   - component: {fileID: 7476091846062572935}
   m_Layer: 0
-  m_Name: small bear prefab
+  m_Name: Small Bear Prefab
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,7 +97,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1087830168452021571}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.01, y: 0, z: 0.79}
   m_LocalScale: {x: 1.6079004, y: 1.6079001, z: 1.6079004}
   m_Children:
@@ -334,6 +334,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fabfd9a3aa8c345a768b6bb8c003e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  def: 0
+  def_normal: 0
+  def_weak: 0
   health: 5
   maxHealth: 5
   moveSpeed: 1
@@ -356,6 +359,16 @@ MonoBehaviour:
   phase: 0
   isPhaseTwo: 0
   doorTrigger: 0
+  edr: 0
+  edr_atk: 0
+  edr_normal: 0
+  stun_threshold: 0
+  down_time: 0
+  downPoise: 0
+  downPoise_max: 0
+  stunPoise: 0
+  stunPoise_max: 0
+  spRegenTime: 0
   ghostRider: {fileID: 0}
   target: {fileID: 0}
   AIAnimator: {fileID: 7685174444115306451}
@@ -379,6 +392,7 @@ MonoBehaviour:
   eventTarget: {fileID: 0}
   stopDis: 0
   dialogueTrigger: {fileID: 0}
+  duration_phase2: 0
 --- !u!114 &6992877877134007319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -432,7 +446,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeSpan: 0
-  myEffects: []
+  myEffects:
+  - when: 0
+    iS: 0
+    doThis: 1
+    toWhom: 1
+    forHowMuch: 0
+    atk: 5
+    amp: 2
+    myModifiers: []
+    forHowLong: 0
+  dummyEffectForDmg:
+    when: 0
+    iS: 0
+    doThis: 1
+    toWhom: 1
+    forHowMuch: 0
+    atk: 0
+    amp: 0
+    myModifiers: []
+    forHowLong: 0
+  dummyEffectForBreak:
+    when: 0
+    iS: 0
+    doThis: 1
+    toWhom: 1
+    forHowMuch: 0
+    atk: 0
+    amp: 0
+    myModifiers: []
+    forHowLong: 0
 --- !u!1 &1543602049633861838
 GameObject:
   m_ObjectHideFlags: 0
