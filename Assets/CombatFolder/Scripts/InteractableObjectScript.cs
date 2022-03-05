@@ -20,7 +20,6 @@ public class InteractableObjectScript : MonoBehaviour
 
     public void Reaction()
 	{
-		print("have reaction");
 		if (objectsToShow.Count > 0) // show things
 		{
 			foreach (var thing in objectsToShow)
