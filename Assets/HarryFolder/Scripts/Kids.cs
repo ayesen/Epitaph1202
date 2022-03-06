@@ -37,7 +37,7 @@ public class Kids : MonoBehaviour
         {
             print("got no papa");
             timer += Time.deltaTime;
-            if (timer >=2f)
+            if (timer >= 2f)
             {
                 self = this.gameObject.GetComponent<NavMeshAgent>();
                 self.enabled = true;

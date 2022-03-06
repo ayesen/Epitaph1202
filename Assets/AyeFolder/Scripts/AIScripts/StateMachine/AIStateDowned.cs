@@ -5,12 +5,10 @@ using UnityEngine;
 public class AIStateDowned : AIStateBase
 {
     public float hitTimer;
-    private float og_def;
     public override void StartState(Enemy myEnemy)
     {
         myEnemy.ghostRider.enabled = false;
         myEnemy.AIAnimator.Play("Downed");
-        og_def = myEnemy.def;
         myEnemy.def = myEnemy.def_weak;
     }
 
@@ -31,6 +29,6 @@ public class AIStateDowned : AIStateBase
     public override void LeaveState(Enemy myEnemy)
     {
         myEnemy.ghostRider.enabled = true;
-        myEnemy.def = og_def;
+        myEnemy.def = myEnemy.def_normal;
     }
 }

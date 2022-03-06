@@ -7,9 +7,13 @@ using UnityEngine.Rendering.Universal;
 public class PostProcessingManager : MonoBehaviour
 {
     public Volume PpVolume;
+    public GameObject PolicePPM;
     ColorAdjustments CA;
     Vignette Vig;
     ChromaticAberration ChrAb;
+    PaniniProjection FishEye;
+    DepthOfField DOF;
+    LensDistortion LD;
 
     private static PostProcessingManager me = null;
     public static PostProcessingManager Me
@@ -32,26 +36,21 @@ public class PostProcessingManager : MonoBehaviour
         PpVolume.profile.TryGet<ColorAdjustments>(out CA);
         PpVolume.profile.TryGet<Vignette>(out Vig);
         PpVolume.profile.TryGet<ChromaticAberration>(out ChrAb);
+        PpVolume.profile.TryGet<PaniniProjection>(out FishEye);
+        PpVolume.profile.TryGet<LensDistortion>(out LD);
+        PpVolume.profile.TryGet<DepthOfField>(out DOF);
     }
     private void Update()
     {
-        /*if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.P))
         {
+            StartCoroutine(DistorsionFilter());
+        }
+        if(Input.GetKeyDown(KeyCode.O))
+        {
+            StartCoroutine(ResetPolice()); 
+        }
 
-            StartCoroutine(DeadFilter());
-        }
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            StartCoroutine(ResetFilter()); 
-        }
-        if(Input.GetKeyDown(KeyCode.Q))
-        {
-            ChangeFilter();
-        }
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            GetBack();
-        }*/
     }
 
     public void Reset()
@@ -126,7 +125,7 @@ public class PostProcessingManager : MonoBehaviour
 
         while (CA.colorFilter.value != Color.black)
         {
-            Debug.Log("black");
+            //Debug.Log("black");
             time += Time.fixedDeltaTime/5;
             timecolor += Time.fixedDeltaTime/10;
             timevig += Time.fixedDeltaTime/10;
@@ -141,6 +140,74 @@ public class PostProcessingManager : MonoBehaviour
         {
             SafehouseManager.Me.isSafehouse = true;
         }
+    }
+
+    public IEnumerator PoliceSenceEffect()
+    {
+        if (CA != null)
+        {
+            float time = 0;
+            float originalSat = CA.saturation.value;
+            float originalDist = FishEye.distance.value;
+
+            while (CA.saturation.value != -100)
+            {
+                Debug.Log("black");
+                time += Time.fixedDeltaTime;
+                CA.saturation.value = Mathf.Lerp(originalSat, -100, time);
+                //FishEye.distance.value = Mathf.Lerp(originalDist, 0.5f, time);
+                yield return null;
+            }
+
+            FishEye.distance.value = 0.5f;
+        }
+    }
+
+    public IEnumerator ResetPolice()
+    {
+        if (CA != null)
+        {
+            PolicePPM.GetComponent<PoliceSencePPManager>().StartCoroutine(PolicePPM.GetComponent<PoliceSencePPManager>().ResetPanini());
+            float time = 0;
+            float originalSat = CA.saturation.value;
+            float originalDist = FishEye.distance.value;
+
+            while (CA.saturation.value != 0)
+            {
+                Debug.Log("resetP");
+                time += Time.fixedDeltaTime;
+                CA.saturation.value = Mathf.Lerp(originalSat, 0, time);
+                //FishEye.distance.value = Mathf.Lerp(originalDist, 0, time);
+                yield return null;
+            }
+        }
+
+        
+    }
+
+    public IEnumerator DistorsionFilter()
+    {
+        if (DOF != null && LD != null)
+        {
+            PolicePPM.GetComponent<PoliceSencePPManager>().StartCoroutine(PolicePPM.GetComponent<PoliceSencePPManager>().PoliceDistorsionFilter());
+            float distAmount = 0.7f;
+            float distance = 0.1f;
+            StartCoroutine(PoliceSenceEffect());
+
+            while (distAmount >= 0)
+            {
+                LD.intensity.value = distAmount;
+                DOF.focusDistance.value = distance;
+                distAmount -= 0.01f;
+                distance += 0.04f;
+                yield return new WaitForSecondsRealtime(0.01f);
+            }
+
+            LD.intensity.value = 0;
+            DOF.focusDistance.value = 10;
+
+        }
+
     }
 
 }

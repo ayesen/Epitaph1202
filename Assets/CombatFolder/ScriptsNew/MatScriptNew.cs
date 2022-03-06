@@ -31,7 +31,7 @@ public class MatScriptNew : MonoBehaviour
 				CD = CD_max;
 			else
 				CD = CD_max + overdose;
-			Debug.Log("MatScriptNew: " + gameObject.ToString() + CD);
+			//Debug.Log("MatScriptNew: " + gameObject.ToString() + CD);
         }
     }
 }

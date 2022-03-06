@@ -128,6 +128,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myMat: {fileID: 0}
   amount: 0
-  attractDis: 3
+  attractDis: 10
   killDis: 0.5
-  attractSpd: 2
+  attractSpd: 4

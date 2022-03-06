@@ -8,7 +8,7 @@ public class SmallBear : Enemy
 
     private void Awake()
     {
-        Debug.Log(this.gameObject.name);
+        //Debug.Log(this.gameObject.name);
         this.smallBearHealthRecord = maxHealth;
         myTrigger = myTriggerObj.GetComponent<AtkTrigger>();
         myAC = GetComponent<AIController>();
@@ -37,7 +37,6 @@ public class SmallBear : Enemy
     {
         if (health <= 0)
         {
-
             myAC.ChangeState(myAC.dieState);
 
             return true;
@@ -52,6 +51,4 @@ public class SmallBear : Enemy
         health = this.smallBearHealthRecord;
         ChangePhase(AIPhase.NotInBattle, 0);
     }
-    
-
 }
