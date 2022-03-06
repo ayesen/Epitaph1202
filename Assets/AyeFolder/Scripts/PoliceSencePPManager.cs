@@ -7,14 +7,19 @@ using UnityEngine.Rendering.Universal;
 public class PoliceSencePPManager : MonoBehaviour
 {
     public Volume PolicePpVolume;
+    public GameObject PoliceSenseCam;
+    PaniniProjection FishEye;
     DepthOfField DOF;
     LensDistortion LD;
+
 
     private void Awake()
     {
         
         PolicePpVolume.profile.TryGet<LensDistortion>(out LD);
         PolicePpVolume.profile.TryGet<DepthOfField>(out DOF);
+        PolicePpVolume.profile.TryGet<PaniniProjection>(out FishEye);
+
     }
 
 
@@ -23,11 +28,36 @@ public class PoliceSencePPManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            StartCoroutine(DistorsionFilter());
+            StartCoroutine(PoliceDistorsionFilter());
         }
     }
-    public IEnumerator DistorsionFilter()
+
+
+
+    public IEnumerator ResetPanini()
     {
+        if (FishEye != null)
+        {
+
+            float time = 0;
+            float originalDist = FishEye.distance.value;
+
+            while (FishEye.distance.value != 0)
+            {
+                Debug.Log("resetP");
+                time += Time.fixedDeltaTime*2;
+                FishEye.distance.value = Mathf.Lerp(originalDist, 0, time);
+                yield return null;
+            }
+        }
+        PoliceSenseCam.SetActive(false);
+        FishEye.distance.value = 0.7f;
+
+    }
+
+    public IEnumerator PoliceDistorsionFilter()
+    {
+        PoliceSenseCam.SetActive(true);
         if (DOF != null && LD != null)
         {
             float distAmount = 0.7f;

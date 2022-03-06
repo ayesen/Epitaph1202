@@ -7,7 +7,7 @@ using UnityEngine.Rendering.Universal;
 public class PostProcessingManager : MonoBehaviour
 {
     public Volume PpVolume;
-    public GameObject PoliceSenseCam;
+    public GameObject PolicePPM;
     ColorAdjustments CA;
     Vignette Vig;
     ChromaticAberration ChrAb;
@@ -167,7 +167,7 @@ public class PostProcessingManager : MonoBehaviour
     {
         if (CA != null)
         {
-            PoliceSenseCam.SetActive(false);
+            PolicePPM.GetComponent<PoliceSencePPManager>().StartCoroutine(PolicePPM.GetComponent<PoliceSencePPManager>().ResetPanini());
             float time = 0;
             float originalSat = CA.saturation.value;
             float originalDist = FishEye.distance.value;
@@ -182,14 +182,14 @@ public class PostProcessingManager : MonoBehaviour
             }
         }
 
-
+        
     }
 
     public IEnumerator DistorsionFilter()
     {
         if (DOF != null && LD != null)
         {
-            PoliceSenseCam.SetActive(true);
+            PolicePPM.GetComponent<PoliceSencePPManager>().StartCoroutine(PolicePPM.GetComponent<PoliceSencePPManager>().PoliceDistorsionFilter());
             float distAmount = 0.7f;
             float distance = 0.1f;
             StartCoroutine(PoliceSenceEffect());

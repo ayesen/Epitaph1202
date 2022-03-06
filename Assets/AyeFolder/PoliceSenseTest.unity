@@ -9943,6 +9943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PolicePpVolume: {fileID: 227768258}
+  PoliceSenseCam: {fileID: 1626640247}
 --- !u!114 &227768258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18535,7 +18536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PpVolume: {fileID: 423684083}
-  PoliceSenseCam: {fileID: 1626640247}
+  PolicePPM: {fileID: 227768256}
 --- !u!114 &423684083
 MonoBehaviour:
   m_ObjectHideFlags: 0
