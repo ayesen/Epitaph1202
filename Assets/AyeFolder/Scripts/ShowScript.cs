@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class ShowScript : MonoBehaviour
 {
+    public bool whenSpawnHallway;
+    public bool whenEntryWay;
     public bool whenLivingRoom;
-    public bool whenRestroom;
-    public bool whenCorridor;
-    public bool whenSmallCorridor;
-    public bool whenStorage;
-    public bool whenMasterRoom;
-    public bool whenBalcony;
-    public bool whenDaughtorRoom;
+    public bool whenKitchen;
+    public bool whenBalcany;
+    public bool whenSubLivingRoom;
+    public bool whenBathRoom;
+    public bool whenBedRoom;
+    public bool whemHideout;
+    public bool whenStudyRoom;
+    public bool whenStudyBalcony;
+    public bool whenSubHallway;
+    public bool whenSubBedRoom;
+    public bool whenSubBathRoom;
+    public bool whenCandleRoom;
+    public bool whenBossRoom;
 }
