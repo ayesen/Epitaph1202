@@ -74,9 +74,11 @@ public class CamSwitch : MonoBehaviour
 
         if (reset)
         {
+            theCam.enabled = true;
+            lerpCam.enabled = false;
             Destroy(lerpCam.gameObject);
             theCam.enabled = true;
-            
+            Destroy(this);
         }
             
             

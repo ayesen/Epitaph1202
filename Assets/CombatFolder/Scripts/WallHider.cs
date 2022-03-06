@@ -53,7 +53,7 @@ public class WallHider : MonoBehaviour
 				{
 					if (wall != null)
                     {
-						if (wall.GetComponent<HideScript>().whenSpawnHallway)
+						if (wall.GetComponent<ShowScript>().whenSpawnHallway)
 						{
 							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
 						}
@@ -65,7 +65,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var mask in _masks)
 				{
-					if (mask.GetComponent<HideScript>().whenSpawnHallway)
+					if (mask.GetComponent<ShowScript>().whenSpawnHallway)
 					{
 						mask.GetComponent<SpriteRenderer>().enabled = true;
 					}
@@ -76,7 +76,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var light in _lights)
 				{
-					if (light.GetComponent<HideScript>().whenSpawnHallway)
+					if (light.GetComponent<ShowScript>().whenSpawnHallway)
 					{
 						light.SetActive(true);
 					}
@@ -87,7 +87,7 @@ public class WallHider : MonoBehaviour
 				}
                 foreach (var floor in _floor)
                 {
-					if (floor.GetComponent<HideScript>().whenSpawnHallway)
+					if (floor.GetComponent<ShowScript>().whenSpawnHallway)
                     {
 						floor.GetComponent<MeshRenderer>().enabled = true;
                     }
@@ -102,7 +102,7 @@ public class WallHider : MonoBehaviour
 				{
 					if (wall != null)
                     {
-						if (wall.GetComponent<HideScript>().whenEntryWay)
+						if (wall.GetComponent<ShowScript>().whenEntryWay)
 						{
 							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
 						}
@@ -114,7 +114,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var mask in _masks)
 				{
-					if (mask.GetComponent<HideScript>().whenEntryWay)
+					if (mask.GetComponent<ShowScript>().whenEntryWay)
 					{
 						mask.GetComponent<SpriteRenderer>().enabled = true;
 					}
@@ -125,7 +125,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var light in _lights)
 				{
-					if (light.GetComponent<HideScript>().whenEntryWay)
+					if (light.GetComponent<ShowScript>().whenEntryWay)
 					{
 						light.SetActive(true);
 					}
@@ -136,7 +136,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var floor in _floor)
 				{
-					if (floor.GetComponent<HideScript>().whenEntryWay)
+					if (floor.GetComponent<ShowScript>().whenEntryWay)
 					{
 						floor.GetComponent<MeshRenderer>().enabled = true;
 					}
@@ -151,7 +151,7 @@ public class WallHider : MonoBehaviour
 				{
 					if (wall != null)
                     {
-						if (wall.GetComponent<HideScript>().whenLivingRoom)
+						if (wall.GetComponent<ShowScript>().whenLivingRoom)
 						{
 							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
 						}
@@ -163,7 +163,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var mask in _masks)
 				{
-					if (mask.GetComponent<HideScript>().whenLivingRoom)
+					if (mask.GetComponent<ShowScript>().whenLivingRoom)
 					{
 						mask.GetComponent<SpriteRenderer>().enabled = true;
 					}
@@ -174,7 +174,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var light in _lights)
 				{
-					if (light.GetComponent<HideScript>().whenLivingRoom)
+					if (light.GetComponent<ShowScript>().whenLivingRoom)
 					{
 						light.SetActive(true);
 					}
@@ -185,7 +185,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var floor in _floor)
 				{
-					if (floor.GetComponent<HideScript>().whenLivingRoom)
+					if (floor.GetComponent<ShowScript>().whenLivingRoom)
 					{
 						floor.GetComponent<MeshRenderer>().enabled = true;
 					}
@@ -200,7 +200,7 @@ public class WallHider : MonoBehaviour
 				{
 					if (wall != null)
                     {
-						if (wall.GetComponent<HideScript>().whenKitchen)
+						if (wall.GetComponent<ShowScript>().whenKitchen)
 						{
 							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
 						}
@@ -212,7 +212,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var mask in _masks)
 				{
-					if (mask.GetComponent<HideScript>().whenKitchen)
+					if (mask.GetComponent<ShowScript>().whenKitchen)
 					{
 						mask.GetComponent<SpriteRenderer>().enabled = true;
 					}
@@ -223,7 +223,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var light in _lights)
 				{
-					if (light.GetComponent<HideScript>().whenKitchen)
+					if (light.GetComponent<ShowScript>().whenKitchen)
 					{
 						light.SetActive(true);
 					}
@@ -234,7 +234,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var floor in _floor)
 				{
-					if (floor.GetComponent<HideScript>().whenKitchen)
+					if (floor.GetComponent<ShowScript>().whenKitchen)
 					{
 						floor.GetComponent<MeshRenderer>().enabled = true;
 					}
@@ -247,7 +247,7 @@ public class WallHider : MonoBehaviour
 			case Room.balcany:
 				foreach (var wall in _walls)
 				{
-					if (wall.GetComponent<HideScript>().whenBalcany)
+					if (wall.GetComponent<ShowScript>().whenBalcany)
 					{
 						wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
 					}
@@ -258,7 +258,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var mask in _masks)
 				{
-					if (mask.GetComponent<HideScript>().whenBalcany)
+					if (mask.GetComponent<ShowScript>().whenBalcany)
 					{
 						mask.GetComponent<SpriteRenderer>().enabled = true;
 					}
@@ -269,7 +269,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var light in _lights)
 				{
-					if (light.GetComponent<HideScript>().whenBalcany)
+					if (light.GetComponent<ShowScript>().whenBalcany)
 					{
 						light.SetActive(true);
 					}
@@ -280,7 +280,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var floor in _floor)
 				{
-					if (floor.GetComponent<HideScript>().whenBalcany)
+					if (floor.GetComponent<ShowScript>().whenBalcany)
 					{
 						floor.GetComponent<MeshRenderer>().enabled = true;
 					}
@@ -295,7 +295,7 @@ public class WallHider : MonoBehaviour
 				{
 					if (wall != null)
                     {
-						if (wall.GetComponent<HideScript>().whenSubLivingRoom)
+						if (wall.GetComponent<ShowScript>().whenSubLivingRoom)
 						{
 							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
 						}
@@ -307,7 +307,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var mask in _masks)
 				{
-					if (mask.GetComponent<HideScript>().whenSubLivingRoom)
+					if (mask.GetComponent<ShowScript>().whenSubLivingRoom)
 					{
 						mask.GetComponent<SpriteRenderer>().enabled = true;
 					}
@@ -318,7 +318,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var light in _lights)
 				{
-					if (light.GetComponent<HideScript>().whenSubLivingRoom)
+					if (light.GetComponent<ShowScript>().whenSubLivingRoom)
 					{
 						light.SetActive(true);
 					}
@@ -329,7 +329,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var floor in _floor)
 				{
-					if (floor.GetComponent<HideScript>().whenSubLivingRoom)
+					if (floor.GetComponent<ShowScript>().whenSubLivingRoom)
 					{
 						floor.GetComponent<MeshRenderer>().enabled = true;
 					}
@@ -344,7 +344,7 @@ public class WallHider : MonoBehaviour
 				{
 					if (wall != null)
                     {
-						if (wall.GetComponent<HideScript>().whenBathRoom)
+						if (wall.GetComponent<ShowScript>().whenBathRoom)
 						{
 							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
 						}
@@ -356,7 +356,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var mask in _masks)
 				{
-					if (mask.GetComponent<HideScript>().whenBathRoom)
+					if (mask.GetComponent<ShowScript>().whenBathRoom)
 					{
 						mask.GetComponent<SpriteRenderer>().enabled = true;
 					}
@@ -367,7 +367,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var light in _lights)
 				{
-					if (light.GetComponent<HideScript>().whenBathRoom)
+					if (light.GetComponent<ShowScript>().whenBathRoom)
 					{
 						light.SetActive(true);
 					}
@@ -378,7 +378,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var floor in _floor)
 				{
-					if (floor.GetComponent<HideScript>().whenBathRoom)
+					if (floor.GetComponent<ShowScript>().whenBathRoom)
 					{
 						floor.GetComponent<MeshRenderer>().enabled = true;
 					}
@@ -393,7 +393,7 @@ public class WallHider : MonoBehaviour
 				{
 					if (wall != null)
                     {
-						if (wall.GetComponent<HideScript>().whenBedRoom)
+						if (wall.GetComponent<ShowScript>().whenBedRoom)
 						{
 							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
 						}
@@ -405,7 +405,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var mask in _masks)
 				{
-					if (mask.GetComponent<HideScript>().whenBedRoom)
+					if (mask.GetComponent<ShowScript>().whenBedRoom)
 					{
 						mask.GetComponent<SpriteRenderer>().enabled = true;
 					}
@@ -416,7 +416,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var light in _lights)
 				{
-					if (light.GetComponent<HideScript>().whenBedRoom)
+					if (light.GetComponent<ShowScript>().whenBedRoom)
 					{
 						light.SetActive(true);
 					}
@@ -427,7 +427,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var floor in _floor)
 				{
-					if (floor.GetComponent<HideScript>().whenBedRoom)
+					if (floor.GetComponent<ShowScript>().whenBedRoom)
 					{
 						floor.GetComponent<MeshRenderer>().enabled = true;
 					}
@@ -442,7 +442,7 @@ public class WallHider : MonoBehaviour
 				{
 					if (wall != null)
 					{
-						if (wall.GetComponent<HideScript>().whemHideout)
+						if (wall.GetComponent<ShowScript>().whemHideout)
 						{
 							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
 						}
@@ -454,7 +454,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var mask in _masks)
 				{
-					if (mask.GetComponent<HideScript>().whemHideout)
+					if (mask.GetComponent<ShowScript>().whemHideout)
 					{
 						mask.GetComponent<SpriteRenderer>().enabled = true;
 					}
@@ -465,7 +465,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var light in _lights)
 				{
-					if (light.GetComponent<HideScript>().whemHideout)
+					if (light.GetComponent<ShowScript>().whemHideout)
 					{
 						light.SetActive(true);
 					}
@@ -476,7 +476,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var floor in _floor)
 				{
-					if (floor.GetComponent<HideScript>().whemHideout)
+					if (floor.GetComponent<ShowScript>().whemHideout)
 					{
 						floor.GetComponent<MeshRenderer>().enabled = true;
 					}
@@ -491,7 +491,7 @@ public class WallHider : MonoBehaviour
 				{
 					if (wall != null)
 					{
-						if (wall.GetComponent<HideScript>().whenStudyRoom)
+						if (wall.GetComponent<ShowScript>().whenStudyRoom)
 						{
 							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
 						}
@@ -503,7 +503,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var mask in _masks)
 				{
-					if (mask.GetComponent<HideScript>().whenStudyRoom)
+					if (mask.GetComponent<ShowScript>().whenStudyRoom)
 					{
 						mask.GetComponent<SpriteRenderer>().enabled = true;
 					}
@@ -514,7 +514,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var light in _lights)
 				{
-					if (light.GetComponent<HideScript>().whenStudyRoom)
+					if (light.GetComponent<ShowScript>().whenStudyRoom)
 					{
 						light.SetActive(true);
 					}
@@ -525,7 +525,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var floor in _floor)
 				{
-					if (floor.GetComponent<HideScript>().whenStudyRoom)
+					if (floor.GetComponent<ShowScript>().whenStudyRoom)
 					{
 						floor.GetComponent<MeshRenderer>().enabled = true;
 					}
@@ -540,7 +540,7 @@ public class WallHider : MonoBehaviour
 				{
 					if (wall != null)
 					{
-						if (wall.GetComponent<HideScript>().whenStudyBalcony)
+						if (wall.GetComponent<ShowScript>().whenStudyBalcony)
 						{
 							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
 						}
@@ -552,7 +552,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var mask in _masks)
 				{
-					if (mask.GetComponent<HideScript>().whenStudyBalcony)
+					if (mask.GetComponent<ShowScript>().whenStudyBalcony)
 					{
 						mask.GetComponent<SpriteRenderer>().enabled = true;
 					}
@@ -563,7 +563,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var light in _lights)
 				{
-					if (light.GetComponent<HideScript>().whenStudyBalcony)
+					if (light.GetComponent<ShowScript>().whenStudyBalcony)
 					{
 						light.SetActive(true);
 					}
@@ -574,7 +574,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var floor in _floor)
 				{
-					if (floor.GetComponent<HideScript>().whenStudyBalcony)
+					if (floor.GetComponent<ShowScript>().whenStudyBalcony)
 					{
 						floor.GetComponent<MeshRenderer>().enabled = true;
 					}
@@ -589,7 +589,7 @@ public class WallHider : MonoBehaviour
 				{
 					if (wall != null)
 					{
-						if (wall.GetComponent<HideScript>().whenSubHallway)
+						if (wall.GetComponent<ShowScript>().whenSubHallway)
 						{
 							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
 						}
@@ -601,7 +601,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var mask in _masks)
 				{
-					if (mask.GetComponent<HideScript>().whenSubHallway)
+					if (mask.GetComponent<ShowScript>().whenSubHallway)
 					{
 						mask.GetComponent<SpriteRenderer>().enabled = true;
 					}
@@ -612,7 +612,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var light in _lights)
 				{
-					if (light.GetComponent<HideScript>().whenSubHallway)
+					if (light.GetComponent<ShowScript>().whenSubHallway)
 					{
 						light.SetActive(true);
 					}
@@ -623,7 +623,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var floor in _floor)
 				{
-					if (floor.GetComponent<HideScript>().whenSubHallway)
+					if (floor.GetComponent<ShowScript>().whenSubHallway)
 					{
 						floor.GetComponent<MeshRenderer>().enabled = true;
 					}
@@ -638,7 +638,7 @@ public class WallHider : MonoBehaviour
 				{
 					if (wall != null)
 					{
-						if (wall.GetComponent<HideScript>().whenSubBedRoom)
+						if (wall.GetComponent<ShowScript>().whenSubBedRoom)
 						{
 							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
 						}
@@ -650,7 +650,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var mask in _masks)
 				{
-					if (mask.GetComponent<HideScript>().whenSubBedRoom)
+					if (mask.GetComponent<ShowScript>().whenSubBedRoom)
 					{
 						mask.GetComponent<SpriteRenderer>().enabled = true;
 					}
@@ -661,7 +661,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var light in _lights)
 				{
-					if (light.GetComponent<HideScript>().whenSubBedRoom)
+					if (light.GetComponent<ShowScript>().whenSubBedRoom)
 					{
 						light.SetActive(true);
 					}
@@ -672,7 +672,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var floor in _floor)
 				{
-					if (floor.GetComponent<HideScript>().whenSubBedRoom)
+					if (floor.GetComponent<ShowScript>().whenSubBedRoom)
 					{
 						floor.GetComponent<MeshRenderer>().enabled = true;
 					}
@@ -687,7 +687,7 @@ public class WallHider : MonoBehaviour
 				{
 					if (wall != null)
 					{
-						if (wall.GetComponent<HideScript>().whenSubBathRoom)
+						if (wall.GetComponent<ShowScript>().whenSubBathRoom)
 						{
 							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
 						}
@@ -699,7 +699,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var mask in _masks)
 				{
-					if (mask.GetComponent<HideScript>().whenSubBathRoom)
+					if (mask.GetComponent<ShowScript>().whenSubBathRoom)
 					{
 						mask.GetComponent<SpriteRenderer>().enabled = true;
 					}
@@ -710,7 +710,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var light in _lights)
 				{
-					if (light.GetComponent<HideScript>().whenSubBathRoom)
+					if (light.GetComponent<ShowScript>().whenSubBathRoom)
 					{
 						light.SetActive(true);
 					}
@@ -721,7 +721,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var floor in _floor)
 				{
-					if (floor.GetComponent<HideScript>().whenSubBathRoom)
+					if (floor.GetComponent<ShowScript>().whenSubBathRoom)
 					{
 						floor.GetComponent<MeshRenderer>().enabled = true;
 					}
@@ -736,7 +736,7 @@ public class WallHider : MonoBehaviour
 				{
 					if (wall != null)
 					{
-						if (wall.GetComponent<HideScript>().whenCandleRoom)
+						if (wall.GetComponent<ShowScript>().whenCandleRoom)
 						{
 							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
 						}
@@ -748,7 +748,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var mask in _masks)
 				{
-					if (mask.GetComponent<HideScript>().whenCandleRoom)
+					if (mask.GetComponent<ShowScript>().whenCandleRoom)
 					{
 						mask.GetComponent<SpriteRenderer>().enabled = true;
 					}
@@ -759,7 +759,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var light in _lights)
 				{
-					if (light.GetComponent<HideScript>().whenCandleRoom)
+					if (light.GetComponent<ShowScript>().whenCandleRoom)
 					{
 						light.SetActive(true);
 					}
@@ -770,7 +770,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var floor in _floor)
 				{
-					if (floor.GetComponent<HideScript>().whenCandleRoom)
+					if (floor.GetComponent<ShowScript>().whenCandleRoom)
 					{
 						floor.GetComponent<MeshRenderer>().enabled = true;
 					}
@@ -785,7 +785,7 @@ public class WallHider : MonoBehaviour
 				{
 					if (wall != null)
 					{
-						if (wall.GetComponent<HideScript>().whenBossRoom)
+						if (wall.GetComponent<ShowScript>().whenBossRoom)
 						{
 							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
 						}
@@ -797,7 +797,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var mask in _masks)
 				{
-					if (mask.GetComponent<HideScript>().whenBossRoom)
+					if (mask.GetComponent<ShowScript>().whenBossRoom)
 					{
 						mask.GetComponent<SpriteRenderer>().enabled = true;
 					}
@@ -808,7 +808,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var light in _lights)
 				{
-					if (light.GetComponent<HideScript>().whenBossRoom)
+					if (light.GetComponent<ShowScript>().whenBossRoom)
 					{
 						light.SetActive(true);
 					}
@@ -819,7 +819,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var floor in _floor)
 				{
-					if (floor.GetComponent<HideScript>().whenBossRoom)
+					if (floor.GetComponent<ShowScript>().whenBossRoom)
 					{
 						floor.GetComponent<MeshRenderer>().enabled = true;
 					}
