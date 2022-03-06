@@ -17,6 +17,12 @@ public class CandleScript : MonoBehaviour
 			my_candlePuzzleManager.lightedCandles.Add(gameObject);
 		}
 
+		ShowStuffs();
+		HideStuffs(objects_toHide);
+	}
+
+	public void ShowStuffs()
+	{
 		if (objects_toShow.Count > 0) // show things
 		{
 			foreach (var thing in objects_toShow)
@@ -24,9 +30,13 @@ public class CandleScript : MonoBehaviour
 				thing.SetActive(true);
 			}
 		}
-		if (objects_toHide.Count > 0) // hide things
+	}
+
+	public void HideStuffs(List<GameObject> stuffsToHide)
+	{
+		if (stuffsToHide.Count > 0) // hide things
 		{
-			foreach (var thing in objects_toHide)
+			foreach (var thing in stuffsToHide)
 			{
 				thing.SetActive(false);
 			}
