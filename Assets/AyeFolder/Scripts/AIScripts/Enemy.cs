@@ -208,6 +208,7 @@ public class Enemy : MonoBehaviour
 
     public bool AIDead()
     {
+       
         if (health <= 0)
         {
             /*if (gameObject == EnemyDialogueManagerScript.me.enemy)
@@ -261,7 +262,7 @@ public class Enemy : MonoBehaviour
         this.transform.position = ResetPos;
         //breakMeter_ui.enabled = false;
         //hittedStates.enabled = false;
-        EnemyCanvas.SetActive(false);
+        //EnemyCanvas.SetActive(false);
     }
 
     public void DealDmg(int dmgAmt)

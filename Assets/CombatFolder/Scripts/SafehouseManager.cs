@@ -90,7 +90,7 @@ public class SafehouseManager : MonoBehaviour
             PlayerScriptNew.me.walking = true;
             StartCoroutine(FadeCanvas(cg, 0f, fadeTime));
             RespawnPlayer(spawnPoint);
-            WallHider.me.roomPlayerIsIn = WallHider.Room.corridor;
+            //WallHider.me.roomPlayerIsIn = WallHider.Room.corridor; // currently commented by HG
             PlayerScriptNew.me.selectedMats.Clear();
             checkBoolChange = isSafehouse;
             if(enemyScript.isPhaseTwo)
