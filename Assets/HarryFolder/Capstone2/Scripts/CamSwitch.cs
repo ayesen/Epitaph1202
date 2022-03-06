@@ -7,18 +7,18 @@ public class CamSwitch : MonoBehaviour
     [Header("Base Cam and Lerp Cam")]
     public Camera theCam; //Base cam we use
     private Camera lerpCam; //Duplicated cam for lerping
-    
+    public float distanceRemain;
     public GameObject targetCam;
     private Vector3 originalPos;
     private Quaternion originalQua;
     private Vector3 targetPos;
     private Quaternion targetQua;
     public float camSpeed;
-    public float triggerRange;
     public bool inZoom = false;
     public bool zoomIn = true;
     public bool zoomOut = false;
     public bool lerping = false;
+    public bool reset;
     public GameObject player;
     void Start()
     {
@@ -64,11 +64,16 @@ public class CamSwitch : MonoBehaviour
         if (!zoomIn && zoomOut)
         {
             ZoomOut();
+            player.SetActive(true);
+            if (Vector3.Distance(theCam.transform.position, lerpCam.transform.position) < distanceRemain)
+            {
+                
+                reset = true;
+            }
         }
 
-        if (Input.GetKeyDown(KeyCode.U))
+        if (reset)
         {
-            player.SetActive(true);
             Destroy(lerpCam.gameObject);
             theCam.enabled = true;
             
