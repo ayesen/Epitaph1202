@@ -44,7 +44,10 @@ public class WallHider : MonoBehaviour
 		_floor = GameObject.FindGameObjectsWithTag("Floor").ToList();
 		foreach (var wall in _walls)
 		{
-			//print(wall.gameObject.name);
+			if (wall.GetComponent<ShowScript>() == null)
+			{
+				print(wall.name);
+			}
 		}
 	}
 
@@ -91,14 +94,14 @@ public class WallHider : MonoBehaviour
 				}
                 foreach (var floor in _floor)
                 {
-					if (floor.GetComponent<ShowScript>().whenSpawnHallway)
-                    {
-						floor.GetComponent<MeshRenderer>().enabled = true;
-                    }
-                    else
-                    {
-						floor.GetComponent<MeshRenderer>().enabled = false;
-					}
+					// if (floor.GetComponent<ShowScript>().whenSpawnHallway)
+     //                {
+					// 	floor.GetComponent<MeshRenderer>().enabled = true;
+     //                }
+     //                else
+     //                {
+					// 	floor.GetComponent<MeshRenderer>().enabled = false;
+					// }
                 }
 				break;
 			case Room.entryWay:
@@ -190,14 +193,14 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var floor in _floor)
 				{
-					if (floor.GetComponent<ShowScript>().whenLivingRoom)
-					{
-						floor.GetComponent<MeshRenderer>().enabled = true;
-					}
-					else
-					{
-						floor.GetComponent<MeshRenderer>().enabled = false;
-					}
+					// if (floor.GetComponent<ShowScript>().whenLivingRoom)
+					// {
+					// 	floor.GetComponent<MeshRenderer>().enabled = true;
+					// }
+					// else
+					// {
+					// 	floor.GetComponent<MeshRenderer>().enabled = false;
+					// }
 				}
 				break;
 			case Room.kitchen:
@@ -239,14 +242,14 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var floor in _floor)
 				{
-					if (floor.GetComponent<ShowScript>().whenKitchen)
-					{
-						floor.GetComponent<MeshRenderer>().enabled = true;
-					}
-					else
-					{
-						floor.GetComponent<MeshRenderer>().enabled = false;
-					}
+					// if (floor.GetComponent<ShowScript>().whenKitchen)
+					// {
+					// 	floor.GetComponent<MeshRenderer>().enabled = true;
+					// }
+					// else
+					// {
+					// 	floor.GetComponent<MeshRenderer>().enabled = false;
+					// }
 				}
 				break;
 			case Room.balcany:
@@ -285,14 +288,14 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var floor in _floor)
 				{
-					if (floor.GetComponent<ShowScript>().whenBalcany)
-					{
-						floor.GetComponent<MeshRenderer>().enabled = true;
-					}
-					else
-					{
-						floor.GetComponent<MeshRenderer>().enabled = false;
-					}
+					// if (floor.GetComponent<ShowScript>().whenBalcany)
+					// {
+					// 	floor.GetComponent<MeshRenderer>().enabled = true;
+					// }
+					// else
+					// {
+					// 	floor.GetComponent<MeshRenderer>().enabled = false;
+					// }
 				}
 				break;
 			case Room.sublivingRoom:
@@ -334,14 +337,14 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var floor in _floor)
 				{
-					if (floor.GetComponent<ShowScript>().whenSubLivingRoom)
-					{
-						floor.GetComponent<MeshRenderer>().enabled = true;
-					}
-					else
-					{
-						floor.GetComponent<MeshRenderer>().enabled = false;
-					}
+					// if (floor.GetComponent<ShowScript>().whenSubLivingRoom)
+					// {
+					// 	floor.GetComponent<MeshRenderer>().enabled = true;
+					// }
+					// else
+					// {
+					// 	floor.GetComponent<MeshRenderer>().enabled = false;
+					// }
 				}
 				break;
 			case Room.bathroom:
