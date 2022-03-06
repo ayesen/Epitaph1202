@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Outline
-  m_Shader: {fileID: -6465566751694194690, guid: f61f352651c72c345b766073596111b6, type: 3}
+  m_Name: FireMat3
+  m_Shader: {fileID: -6465566751694194690, guid: e7dee8448d2e57f4984b3f64382c86b2, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -33,10 +33,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - ColorSensitivty: 1
-    - DepthIntensity: 1
-    - NormalIntensity: 1
-    - OutlineThickness: 1
+    - NoiseScale: 0.318
     m_Colors:
-    - OutlineColor: {r: 0.26415092, g: 0.061053753, b: 0.061053753, a: 0}
+    - InnerFlameColor: {r: 1, g: 0.9405478, b: 0.27830186, a: 0}
+    - OutterFlameColor: {r: 1, g: 0.20369089, b: 0.031372547, a: 0}
   m_BuildTextureStacks: []
