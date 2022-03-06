@@ -38,5 +38,5 @@ Material:
     - NormalIntensity: 1
     - OutlineThickness: 1
     m_Colors:
-    - OutlineColor: {r: 0, g: 0, b: 0, a: 0}
+    - OutlineColor: {r: 0.26415092, g: 0.061053753, b: 0.061053753, a: 0}
   m_BuildTextureStacks: []
