@@ -14,4 +14,7 @@ public class DialogueStruct
     public List<OptionStruct> options;
     public int logX;
     public int logY;
+
+    public bool rollBack;
+    public int rollBack_index;
 }
