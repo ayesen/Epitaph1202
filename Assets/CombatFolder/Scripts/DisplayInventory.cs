@@ -71,6 +71,7 @@ public class DisplayInventory : MonoBehaviour
                     Image obj = Instantiate(imagePrefab, Vector3.zero, Quaternion.identity, transform);
                     obj.sprite = PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().matIcon;
                     obj.GetComponent<RectTransform>().localPosition = GetPosition((i - 4));
+                    obj.GetComponent<RectTransform>().sizeDelta = new Vector2(200, 200);
                 }
             }
         }
@@ -83,7 +84,7 @@ public class DisplayInventory : MonoBehaviour
                 {
                     Image obj = Instantiate(imagePrefab, Vector3.zero, Quaternion.identity, transform);
                     obj.sprite = PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().matIcon;
-                    obj.GetComponent<RectTransform>().localPosition = GetPosition((i-4));
+                    obj.GetComponent<RectTransform>().localPosition = GetPosition((i - 4));
                     Amount_Of_Inventory += 1;
                 }
             }
@@ -101,7 +102,7 @@ public class DisplayInventory : MonoBehaviour
         else if (i == -1)
             return positionHolder_3.localPosition;
         else
-            return new Vector3(X_Start + (X_Space_Between_Items *(i % Number_Of_Column)), Y_Start + (-Y_Space_Between_Items * (i/Number_Of_Column)), 0f);
+            return new Vector3(X_Start + (X_Space_Between_Items * (i % Number_Of_Column)), Y_Start + (-Y_Space_Between_Items * (i / Number_Of_Column)), 0f);
     }
 
     private void CopyList()

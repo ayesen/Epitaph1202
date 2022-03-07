@@ -125,7 +125,7 @@ public class ChangeInventory : MonoBehaviour
         {
             choosenSquare.color = new Color32(227, 103, 31, 255);
             choosenCircle.enabled = true;
-            choosenCircle.GetComponent<RectTransform>().localPosition = DisplayInventory.Me.GetPosition(choosenMatIndex - 4) + Vector3.up * 190f;
+            choosenCircle.GetComponent<RectTransform>().localPosition = DisplayInventory.Me.GetPosition(choosenMatIndex - 4) + Vector3.up * 190f + Vector3.right * 50;
         }
             //Show description
             if (PlayerScriptNew.me.matSlots[choosenMatIndex] != null)
