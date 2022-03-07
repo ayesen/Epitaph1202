@@ -17,7 +17,7 @@ public class DialogueScript : MonoBehaviour
 	private Material defaultMat;
 	public Material highLightMat;
 	public bool restrictMovement; // does the player is prohibited from doing anything when reading
-	public bool oneTimeDialogue; //! is this dialogue can only be triggered once, dialogues with options should only be one time!
+	public bool oneTimeDialogue; //! can this dialogue be triggered only once, dialogues with options should set this to true!
 	private bool inspected;
 	private MeshRenderer mr;
 	public bool isSwitch;
@@ -51,7 +51,6 @@ public class DialogueScript : MonoBehaviour
 
 	private void Update()
 	{
-		
 		if (player != null && Vector3.Distance(player.transform.position, transform.position) < triggerRange &&
 		    (!inspected || !oneTimeDialogue))
 		{
@@ -110,12 +109,12 @@ public class DialogueScript : MonoBehaviour
 	{
 		if (other.CompareTag("Player") && areaTrigger)
 		{
-			StartCoroutine(dialogue()); 
+			StartCoroutine(Dialogue()); 
 			Debug.Log("Player in Range");
 		}
 	}
 
-	IEnumerator dialogue()
+	IEnumerator Dialogue()
 	{
 		yield return new WaitForSeconds (displayDelayed);
 		inspected = true;

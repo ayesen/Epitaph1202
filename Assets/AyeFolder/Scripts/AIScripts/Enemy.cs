@@ -39,7 +39,6 @@ public class Enemy : MonoBehaviour
     public float edr; // endurance: 0 ~ 1
     public float edr_atk;
     public float edr_normal;
-    public float stun_threshold; // when the poise dmg is greater than stun threshold, enemy's animation will be interrupted
     public float down_time; // how long the enemy stay downed when downed
     public float downPoise;
     public float downPoise_max;

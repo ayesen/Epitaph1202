@@ -7099,9 +7099,9 @@ MonoBehaviour:
   damage_Offset: {x: 0.5, y: 1.5, z: -0.5}
   CD_Offset: {x: 0, y: 1.5, z: 0}
   poiseDamage_Offset: {x: -0.5, y: 1.5, z: 0.5}
-  random_horizontal: 0
-  random_vertical: 0
-  random_anim: 0
+  random_horizontal: 0.5
+  random_vertical: 0.3
+  random_anim: 0.3
 --- !u!4 &170777868
 Transform:
   m_ObjectHideFlags: 0
