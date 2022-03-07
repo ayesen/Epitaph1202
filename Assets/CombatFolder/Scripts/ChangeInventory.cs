@@ -31,17 +31,17 @@ public class ChangeInventory : MonoBehaviour
         if (SafehouseManager.Me.isSafehouse)
         {
                     //Move the square, choose inventory
-        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetAxis("HorizontalArrow") > 0)
         {
             choosenMatIndex += 1;
             SoundMan.SoundManager.SafehouseMaterialSelect();
         }
-        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetAxis("HorizontalArrow") < 0)
         {
             choosenMatIndex -= 1;
             SoundMan.SoundManager.SafehouseMaterialSelect();
         }
-        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetAxis("VerticalArrow") < 0)
         {
             if (!isChanging)
             {
@@ -52,7 +52,7 @@ public class ChangeInventory : MonoBehaviour
                 }
             }
         }
-        else if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+        else if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetAxis("VerticalArrow") > 0)
         {
             if (!isChanging)
             {
@@ -75,7 +75,7 @@ public class ChangeInventory : MonoBehaviour
         if (!isChanging)
         {
             //choosen mat
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown("AButton"))
             {
                 choosenMat = choosenMatIndex;
                 choosenMatIndex = 0;
@@ -94,7 +94,7 @@ public class ChangeInventory : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown("AButton"))
             {
                 ChangeMat(choosenMatIndex, choosenMat);
                 DI.CreateDisplay();
@@ -125,7 +125,7 @@ public class ChangeInventory : MonoBehaviour
         {
             choosenSquare.color = new Color32(227, 103, 31, 255);
             choosenCircle.enabled = true;
-            choosenCircle.GetComponent<RectTransform>().localPosition = DisplayInventory.Me.GetPosition(choosenMatIndex - 4) + Vector3.up * 190f;
+            choosenCircle.GetComponent<RectTransform>().localPosition = DisplayInventory.Me.GetPosition(choosenMatIndex - 4) + Vector3.up * 190f + Vector3.right * 50;
         }
             //Show description
             if (PlayerScriptNew.me.matSlots[choosenMatIndex] != null)
