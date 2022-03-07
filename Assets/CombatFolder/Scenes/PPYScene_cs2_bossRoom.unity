@@ -221,6 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myEnemy: {fileID: 15641240}
+  tutBear: 0
 --- !u!114 &15641240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,7 +262,6 @@ MonoBehaviour:
   edr: 0
   edr_atk: 0
   edr_normal: 0
-  stun_threshold: 0
   down_time: 0
   downPoise: 0
   downPoise_max: 0
@@ -607,6 +607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myEnemy: {fileID: 17142804}
+  tutBear: 0
 --- !u!114 &17142804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -647,7 +648,6 @@ MonoBehaviour:
   edr: 0
   edr_atk: 0
   edr_normal: 0
-  stun_threshold: 0
   down_time: 0
   downPoise: 0
   downPoise_max: 0
@@ -905,6 +905,7 @@ GameObject:
   - component: {fileID: 17234504}
   - component: {fileID: 17234506}
   - component: {fileID: 17234505}
+  - component: {fileID: 17234507}
   m_Layer: 6
   m_Name: bear
   m_TagString: Untagged
@@ -935,7 +936,7 @@ MeshCollider:
   m_GameObject: {fileID: 17234503}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -1008,6 +1009,20 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.0053939223, y: 0.35153186, z: 0.18057927}
     m_Extent: {x: 0.9965413, y: 1.0654746, z: 0.8093394}
   m_DirtyAABB: 0
+--- !u!136 &17234507
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17234503}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.9965414
+  m_Height: 4.0930405
+  m_Direction: 1
+  m_Center: {x: -0.0053900937, y: 2.024708, z: 0.18058313}
 --- !u!1 &18106603 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 87131f0531dc15b45b03e1a0d2dcaac0, type: 3}
@@ -2470,6 +2485,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myEnemy: {fileID: 130506148}
+  tutBear: 0
 --- !u!114 &130506148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2510,7 +2526,6 @@ MonoBehaviour:
   edr: 0
   edr_atk: 0
   edr_normal: 0
-  stun_threshold: 0
   down_time: 0
   downPoise: 0
   downPoise_max: 0
@@ -4380,6 +4395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myEnemy: {fileID: 289837597}
+  tutBear: 0
 --- !u!114 &289837597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4420,7 +4436,6 @@ MonoBehaviour:
   edr: 0
   edr_atk: 0
   edr_normal: 0
-  stun_threshold: 0
   down_time: 0
   downPoise: 0
   downPoise_max: 0
@@ -6108,6 +6123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PpVolume: {fileID: 423684083}
+  PolicePPM: {fileID: 0}
 --- !u!114 &423684083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6222,6 +6238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myEnemy: {fileID: 434270339}
+  tutBear: 0
 --- !u!114 &434270339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6262,7 +6279,6 @@ MonoBehaviour:
   edr: 0
   edr_atk: 0
   edr_normal: 0
-  stun_threshold: 0
   down_time: 0
   downPoise: 0
   downPoise_max: 0
@@ -7738,12 +7754,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 529925732}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d8384a8056bdeb4e93d9c72e19287db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   myEnemy: {fileID: 529925736}
+  tutBear: 0
 --- !u!114 &529925736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7751,7 +7768,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 529925732}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79fabfd9a3aa8c345a768b6bb8c003e0, type: 3}
   m_Name: 
@@ -7784,7 +7801,6 @@ MonoBehaviour:
   edr: 0.5
   edr_atk: 0.5
   edr_normal: 0.5
-  stun_threshold: 0
   down_time: 0
   downPoise: 0
   downPoise_max: 0
@@ -8764,6 +8780,7 @@ GameObject:
   - component: {fileID: 614433808}
   - component: {fileID: 614433810}
   - component: {fileID: 614433809}
+  - component: {fileID: 614433811}
   m_Layer: 6
   m_Name: bear
   m_TagString: Untagged
@@ -8867,6 +8884,20 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.0053939223, y: 0.35153186, z: 0.18057927}
     m_Extent: {x: 0.9965413, y: 1.0654746, z: 0.8093394}
   m_DirtyAABB: 0
+--- !u!136 &614433811
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614433807}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  m_Radius: 0.9965414
+  m_Height: 3.7006187
+  m_Direction: 1
+  m_Center: {x: -0.005386321, y: 1.8284972, z: 0.18058124}
 --- !u!1 &637085467
 GameObject:
   m_ObjectHideFlags: 0
@@ -18262,6 +18293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myEnemy: {fileID: 1369079326}
+  tutBear: 0
 --- !u!114 &1369079326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18302,7 +18334,6 @@ MonoBehaviour:
   edr: 0
   edr_atk: 0
   edr_normal: 0
-  stun_threshold: 0
   down_time: 0
   downPoise: 0
   downPoise_max: 0
@@ -19867,6 +19898,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myEnemy: {fileID: 1455679844}
+  tutBear: 0
 --- !u!195 &1455679843
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -19929,7 +19961,6 @@ MonoBehaviour:
   edr: 0
   edr_atk: 0.3
   edr_normal: 1.2
-  stun_threshold: 15
   down_time: 5
   downPoise: 40
   downPoise_max: 0
@@ -23055,6 +23086,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myEnemy: {fileID: 1713988157}
+  tutBear: 0
 --- !u!114 &1713988157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23095,7 +23127,6 @@ MonoBehaviour:
   edr: 0
   edr_atk: 0
   edr_normal: 0
-  stun_threshold: 0
   down_time: 0
   downPoise: 0
   downPoise_max: 0
@@ -23543,6 +23574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myEnemy: {fileID: 1725539217}
+  tutBear: 0
 --- !u!114 &1725539217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23583,7 +23615,6 @@ MonoBehaviour:
   edr: 0
   edr_atk: 0
   edr_normal: 0
-  stun_threshold: 0
   down_time: 0
   downPoise: 0
   downPoise_max: 0
@@ -25858,6 +25889,62 @@ Transform:
   m_Father: {fileID: 1063876112}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -63.280254, y: -34.70472, z: 14.338762}
+--- !u!1 &1872123617
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1872123619}
+  - component: {fileID: 1872123618}
+  m_Layer: 0
+  m_Name: FloatTextManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1872123618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872123617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 727b69d8037851a458883c0fac3b5440, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatText: {fileID: 7484902780969850847, guid: 9857f627d1348ba45b843ce8027d4c37, type: 3}
+  damageText: 1
+  CDText: 1
+  poiseDamageText: 1
+  damageColor: {r: 0.754717, g: 0.23068707, b: 0.23068707, a: 1}
+  CDColor: {r: 0.24969736, g: 0.56433815, b: 0.7924528, a: 1}
+  poiseDamageColor: {r: 0.8301887, g: 0.5090514, b: 0.23809181, a: 1}
+  damage_Offset: {x: 0.5, y: 1.5, z: -0.5}
+  CD_Offset: {x: 0, y: 1.5, z: 0}
+  poiseDamage_Offset: {x: -0.5, y: 1.5, z: 0.5}
+  random_horizontal: 0.5
+  random_vertical: 0.5
+  random_anim: 0.5
+--- !u!4 &1872123619
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872123617}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 67.53302, y: 5.8634586, z: 18.07244}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 35
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1872592916
 GameObject:
   m_ObjectHideFlags: 0
@@ -26867,6 +26954,7 @@ GameObject:
   - component: {fileID: 1950843608}
   - component: {fileID: 1950843610}
   - component: {fileID: 1950843609}
+  - component: {fileID: 1950843611}
   m_Layer: 6
   m_Name: bear
   m_TagString: Untagged
@@ -26897,7 +26985,7 @@ MeshCollider:
   m_GameObject: {fileID: 1950843607}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -26970,6 +27058,20 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.0053939223, y: 0.35153186, z: 0.18057927}
     m_Extent: {x: 0.9965413, y: 1.0654746, z: 0.8093394}
   m_DirtyAABB: 0
+--- !u!136 &1950843611
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950843607}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.9965414
+  m_Height: 4.3714204
+  m_Direction: 1
+  m_Center: {x: -0.0053939647, y: 2.163898, z: 0.18057935}
 --- !u!1 &1951259612 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 702329ba245b9b64a9b5cfed2981b67e, type: 3}
@@ -27469,6 +27571,7 @@ GameObject:
   - component: {fileID: 1980406575}
   - component: {fileID: 1980406577}
   - component: {fileID: 1980406576}
+  - component: {fileID: 1980406578}
   m_Layer: 6
   m_Name: bear
   m_TagString: Untagged
@@ -27499,7 +27602,7 @@ MeshCollider:
   m_GameObject: {fileID: 1980406574}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -27572,6 +27675,20 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.0053939223, y: 0.35153186, z: 0.18057927}
     m_Extent: {x: 0.9965413, y: 1.0654746, z: 0.8093394}
   m_DirtyAABB: 0
+--- !u!136 &1980406578
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980406574}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.99654156
+  m_Height: 4
+  m_Direction: 1
+  m_Center: {x: -0.0053900923, y: 1.9330426, z: 0.1805812}
 --- !u!1 &1982087983
 GameObject:
   m_ObjectHideFlags: 0

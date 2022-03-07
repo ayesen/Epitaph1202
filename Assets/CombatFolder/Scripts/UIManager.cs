@@ -94,7 +94,6 @@ public class UIManager : MonoBehaviour
             if(PlayerScriptNew.me.matSlots[i] != null
                && PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().amount < PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().amount_max)
             {
-                print("CD");
                 if (i == 0)
                     slot0_CD.text = "" + PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().CD;
                 else if(i == 1)
