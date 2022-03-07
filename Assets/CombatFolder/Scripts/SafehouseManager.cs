@@ -49,7 +49,7 @@ public class SafehouseManager : MonoBehaviour
     void Update()
     {
         //Test change bool
-        if (Input.GetKeyDown(KeyCode.B) && isSafehouse)
+        if (Input.GetKeyDown(KeyCode.B) || Input.GetKeyDown("BButton") && isSafehouse)
         {
             isSafehouse = false;
         }
@@ -78,7 +78,7 @@ public class SafehouseManager : MonoBehaviour
             ResetMatAmount();
             AmbienceManager.ambienceManager.SafeHouseAmbiencePlay();//enter safehouse sound
             if(enemyScript != null)
-                enemyScript.ResetEnemy();
+                enemyScript.ResetEnemy(); // [Safehouse update]need some more detail
             PostProcessingManager.Me.StopAllCoroutines();
             PostProcessingManager.Me.StartCoroutine(PostProcessingManager.Me.ResetFilter());
             StartCoroutine(FadeCanvas(cg, 1f, fadeTime));
@@ -89,10 +89,11 @@ public class SafehouseManager : MonoBehaviour
             AmbienceManager.ambienceManager.HallwayAmbiencePlay();//off safehouse
             PlayerScriptNew.me.walking = true;
             StartCoroutine(FadeCanvas(cg, 0f, fadeTime));
-            RespawnPlayer(spawnPoint);
+            RespawnPlayer(spawnPoint); // [Safehouse update]need a location
             //WallHider.me.roomPlayerIsIn = WallHider.Room.corridor; // currently commented by HG
             PlayerScriptNew.me.selectedMats.Clear();
             checkBoolChange = isSafehouse;
+            /*
             if(enemyScript.isPhaseTwo)
             {
                 enemyScript.GotoLoc();
@@ -101,6 +102,7 @@ public class SafehouseManager : MonoBehaviour
             {
                 BGMMan.bGMManger.StartBattleMusic();
             }
+            */
         }
     }
 
