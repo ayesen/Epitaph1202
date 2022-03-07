@@ -181,6 +181,11 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 							aS.clip = dialogueToShow[index].clip;
 							aS.Play();
 						}
+						// roll back
+						if (dialogueToShow[index].rollBack)
+						{
+							dialogueToShow.Insert(index + 1, dialogueToShow[dialogueToShow[index].rollBack_index]);
+						}
 					}
 					else // when the dialogue ends
 					{
@@ -245,7 +250,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 					{
 						for (int i = dialogueToShow[index].options[optionIndex].dialogues.Count - 1; i >= 0 ; i--)
 						{
-							dialogueToShow.Insert(index+1, dialogueToShow[index].options[optionIndex].dialogues[i]);
+							dialogueToShow.Insert(index + 1, dialogueToShow[index].options[optionIndex].dialogues[i]);
 						}
 						// foreach (var dialogue in dialogueToShow[index].options[optionIndex].dialogues)
 						// {

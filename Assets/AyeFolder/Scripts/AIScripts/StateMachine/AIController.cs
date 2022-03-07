@@ -18,6 +18,9 @@ public class AIController : MonoBehaviour
     public AIStateBase dieState = new AIStateDie();
     public AIStateBase downedState = new AIStateDowned();
 
+    // for tutorial bear only
+    public bool tutBear;
+
     public void ChangeState(AIStateBase newState)
     {
         if (currentState != null)
@@ -50,5 +53,9 @@ public class AIController : MonoBehaviour
     {
         currentState.Update(myEnemy);
         //Debug.Log(currentState);
+        if (tutBear)
+		{
+            TutorialManagerScript.me.tutBear_currentState = currentState;
+		}
     }
 }

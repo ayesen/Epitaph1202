@@ -15,7 +15,8 @@ public class AIStateDowned : AIStateBase
     public override void Update(Enemy myEnemy)
     {
         hitTimer += Time.deltaTime;
-        if (hitTimer > myEnemy.hittedTime)
+        if (hitTimer > myEnemy.hittedTime &&
+            !myEnemy.GetComponent<AIController>().tutBear)
         {
             if (myEnemy.interruptedState != myEnemy.myAC.dieState || myEnemy.interruptedState != myEnemy.myAC.changePhaseState)
             {
