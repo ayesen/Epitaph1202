@@ -120,7 +120,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 					imageBG.SetActive(false);
 					blurMask.SetActive(false);
 					imageDisplayer.SetActive(false);
-					LogManager.LOGManager.CoverSetActive(dialogueToShow[index].logX, dialogueToShow[index].logY);
+					//! LogManager.LOGManager.CoverSetActive(dialogueToShow[index].logX, dialogueToShow[index].logY); comment back when log is in
 					if (index < dialogueToShow.Count - 1)
 					{
 						index++;
