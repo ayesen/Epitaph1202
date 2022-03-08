@@ -256,7 +256,8 @@ public class Enemy : MonoBehaviour
         }
         else
             isPhaseTwo = true;
-        ChangePhase(AIPhase.NotInBattle, 1);
+        //ChangePhase(AIPhase.NotInBattle, 1); // [Safehouse update] currently commented by Takaya
+        gameObject.SetActive(false);
         myAC.ChangeState(myAC.idleState);
         this.transform.position = ResetPos;
         //breakMeter_ui.enabled = false;
@@ -445,7 +446,8 @@ public class Enemy : MonoBehaviour
         breakMeter_ui.enabled = true;
         //hittedStates.enabled = true;
         myTrigger.myMR.enabled = true;
-        ChangePhase(AIPhase.InBattle1, 1);
+        //ChangePhase(AIPhase.InBattle1, 1); // [Safehouse update] currently commented by Takaya
+        gameObject.SetActive(true);
         SafehouseManager.Me.canSafehouse = true;
         BGMMan.bGMManger.StartBattleMusic();
         var item = GameObject.Find("GirlJournal");
