@@ -80,6 +80,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 		// show options
 		if (dialogueToShow[index].options.Count > 0) // if there are options for this line
 		{
+			print("show options");
 			ShowOptions();
 		}
 
@@ -173,6 +174,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 						objectDes_ui_eng.text = dialogueToShow[index].description_eng;
 						if (dialogueToShow[index].options.Count > 0) // if there are options after this line
 						{
+							print("show option");
 							ShowOptions();
 						}
 						// play audio
@@ -254,7 +256,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 						}
 						// foreach (var dialogue in dialogueToShow[index].options[optionIndex].dialogues)
 						// {
-						// 	dialogueToShow.Insert(index+1, dialogue);               
+						// 	dialogueToShow.Insert(index+1, dialogue);
 						// }
 						optionSelection.SetActive(false);
 						foreach (var option in options)
