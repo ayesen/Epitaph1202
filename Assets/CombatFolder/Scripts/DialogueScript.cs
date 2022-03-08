@@ -83,8 +83,10 @@ public class DialogueScript : MonoBehaviour
 			}
 			else // auto show text
 			{
+				print("?");
 				if (displayDelayed <= 0f)
 				{
+					print("!");
 					inspected = true;
 					ObjectInspectorManagerScript.me.ShowText(this);
 					foreach (GameObject interactable in interactiveSwitch)
@@ -92,7 +94,7 @@ public class DialogueScript : MonoBehaviour
 						interactable.SetActive(true);
 					}
 
-					LogManager.LOGManager.CoverSetActive(logX, logY);
+					//! LogManager.LOGManager.CoverSetActive(logX, logY); comment back when log is in
 				}
 			}
 		}

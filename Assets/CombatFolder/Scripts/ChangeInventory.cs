@@ -75,7 +75,7 @@ public class ChangeInventory : MonoBehaviour
         if (!isChanging)
         {
             //choosen mat
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown("AButton"))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("AButton"))
             {
                 choosenMat = choosenMatIndex;
                 choosenMatIndex = 0;
@@ -94,7 +94,7 @@ public class ChangeInventory : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown("AButton"))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("AButton"))
             {
                 ChangeMat(choosenMatIndex, choosenMat);
                 DI.CreateDisplay();
