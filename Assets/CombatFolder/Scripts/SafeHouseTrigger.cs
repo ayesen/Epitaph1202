@@ -4,23 +4,21 @@ using UnityEngine;
 
 public class SafeHouseTrigger : MonoBehaviour
 {
-    
+    public Material highlightMaterial;
     void Start()
     {
         
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
-        
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player") && SafehouseManager.Me.canSafehouse)
+        if (Vector3.Distance(transform.position, PlayerScriptNew.me.transform.position) < 5)
         {
-            SafehouseManager.Me.isSafehouse = true;
+            GetComponent<MeshRenderer>().material = 
+            if (Input.GetKeyDown(KeyCode.E) || Input.GetAxis("HorizontalArrow") > 0)
+            {
+                SafehouseManager.Me.isSafehouse = true;
+            }
         }
     }
 }
