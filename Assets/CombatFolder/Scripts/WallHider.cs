@@ -63,6 +63,7 @@ public class WallHider : MonoBehaviour
 						if (wall.GetComponent<ShowScript>().whenSpawnHallway)
 						{
 							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+							//wall.GetComponent<Renderer>().material.color.a = 0.5f;
 						}
 						else
 						{
