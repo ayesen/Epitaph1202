@@ -1272,7 +1272,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6290434996199622126}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -1290,7 +1290,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canSafehouse: 1
   isSafehouse: 0
-  isCheatOn: 0
+  isCheatOn: 1
   hideTime: 5
   fadeTime: 1
   enemyScript: {fileID: 0}

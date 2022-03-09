@@ -77,14 +77,19 @@ public class DialogueScript : MonoBehaviour
 							interactable.SetActive(true);
 						}
 
-						LogManager.LOGManager.CoverSetActive(logX, logY);
+						if (LogManager.LOGManager != null)
+						{
+							LogManager.LOGManager.CoverSetActive(logX, logY);
+						}
 					}
 				}
 			}
 			else // auto show text
 			{
+				print("?");
 				if (displayDelayed <= 0f)
 				{
+					print("!");
 					inspected = true;
 					ObjectInspectorManagerScript.me.ShowText(this);
 					foreach (GameObject interactable in interactiveSwitch)
@@ -92,7 +97,10 @@ public class DialogueScript : MonoBehaviour
 						interactable.SetActive(true);
 					}
 
-					LogManager.LOGManager.CoverSetActive(logX, logY);
+					if (LogManager.LOGManager != null)
+					{
+						LogManager.LOGManager.CoverSetActive(logX, logY);
+					}
 				}
 			}
 		}
