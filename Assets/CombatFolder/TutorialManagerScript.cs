@@ -19,7 +19,7 @@ public class TutorialManagerScript : MonoBehaviour
 	public AIStateBase tutBear_currentState;
 
 	// open door
-	public DoorScript doorToOpen;
+	public List<DoorScript> doorToOpen;
 
 	// dialogues
 	public GameObject dialg_pd;
@@ -48,7 +48,6 @@ public class TutorialManagerScript : MonoBehaviour
 
 	private void Update()
 	{
-		print(tut_state);
 		TutStateMachine();
 		if (tut_state != 0 && tut_state != state_finished) 
 		{
@@ -84,9 +83,13 @@ public class TutorialManagerScript : MonoBehaviour
 		{
 			dialg_finished.GetComponent<DialogueScript>().enabled = true;
 			tut_state = state_finished;
-			if (doorToOpen != null)
+
+			if (doorToOpen.Count > 0)
 			{
-				doorToOpen.OpenFront();
+				foreach (var door in doorToOpen)
+				{
+					door.OpenFront();
+				}
 			}
 		}
 	}
