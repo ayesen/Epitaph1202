@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,9 @@ public class PostProcessingManager : MonoBehaviour
     PaniniProjection FishEye;
     DepthOfField DOF;
     LensDistortion LD;
+    private bool isQueuing;
+    private bool PS_Running;
+    private Queue<IEnumerator> coroutinesQueue = new Queue<IEnumerator>();
 
     private static PostProcessingManager me = null;
     public static PostProcessingManager Me
@@ -40,17 +44,29 @@ public class PostProcessingManager : MonoBehaviour
         PpVolume.profile.TryGet<LensDistortion>(out LD);
         PpVolume.profile.TryGet<DepthOfField>(out DOF);
     }
+
+    private void Start()
+    {
+        StartCoroutine(CoroutineCoordinator());
+    }
+
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P))
+        if(Input.GetKeyDown(KeyCode.P) && coroutinesQueue.Count <= 0)
         {
-            StartCoroutine(DistorsionFilter());
+            PS_Running = true;
+            coroutinesQueue.Enqueue(DistorsionFilter());
         }
-        if(Input.GetKeyDown(KeyCode.O))
+        if(Input.GetKeyUp(KeyCode.P) && PS_Running)
         {
-            StartCoroutine(ResetPolice()); 
+            coroutinesQueue.Enqueue(ResetPolice());
+            PS_Running = false;
         }
 
+        print(coroutinesQueue.ToString());
+        
+        if (coroutinesQueue.Count > 0)
+            isQueuing = true;
     }
 
     public void Reset()
@@ -142,6 +158,16 @@ public class PostProcessingManager : MonoBehaviour
         }
     }
 
+    private IEnumerator CoroutineCoordinator()
+    {
+        while (true)
+        {
+            while (coroutinesQueue.Count > 0)
+                yield return StartCoroutine(coroutinesQueue.Dequeue());
+            yield return null;
+        }
+    }
+    
     public IEnumerator PoliceSenceEffect()
     {
         if (CA != null)
@@ -159,7 +185,7 @@ public class PostProcessingManager : MonoBehaviour
                 yield return null;
             }
 
-            FishEye.distance.value = 0.5f;
+            //FishEye.distance.value = 0.5f;
         }
     }
 
@@ -175,11 +201,13 @@ public class PostProcessingManager : MonoBehaviour
             while (CA.saturation.value != 0)
             {
                 Debug.Log("resetP");
-                time += Time.fixedDeltaTime;
+                time += Time.deltaTime;
                 CA.saturation.value = Mathf.Lerp(originalSat, 0, time);
                 //FishEye.distance.value = Mathf.Lerp(originalDist, 0, time);
                 yield return null;
             }
+
+            CA.saturation.value = 0;
         }
 
         
@@ -200,12 +228,11 @@ public class PostProcessingManager : MonoBehaviour
                 DOF.focusDistance.value = distance;
                 distAmount -= 0.01f;
                 distance += 0.04f;
-                yield return new WaitForSecondsRealtime(0.01f);
+                yield return new WaitForSecondsRealtime(0.01f * Time.deltaTime);
             }
 
             LD.intensity.value = 0;
             DOF.focusDistance.value = 10;
-
         }
 
     }

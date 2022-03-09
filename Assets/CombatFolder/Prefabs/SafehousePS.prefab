@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2428356572914651697}
   - component: {fileID: 2428356572914651698}
   - component: {fileID: -8229329370112040131}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: SafehousePS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
