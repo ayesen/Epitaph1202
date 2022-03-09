@@ -21135,6 +21135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a29f98390fb0f0c44b79684dec1ffd93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 0}
 --- !u!65 &492879812
 BoxCollider:
   m_ObjectHideFlags: 0
