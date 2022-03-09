@@ -64,10 +64,28 @@ public class EffectStorage : MonoBehaviour
 	}
 	public void HurtEnemyBasedOnDis(EffectHolderScript ehs, GameObject enemy, float dis)
 	{
-		float finalDmg = (ehs.myEffect.atk - enemy.GetComponent<Enemy>().def) * ehs.myEffect.amp;
-		float dmgToDeal = 1f / dis * finalDmg;
-		enemy.GetComponent<Enemy>().LoseHealth((int)dmgToDeal);
-		enemy.GetComponent<CombatInfoScript>().infoToDisplay.Add("dealt " + (int)dmgToDeal + " dmg");
+		Enemy es = enemy.GetComponent<Enemy>();
+		// hp dmg
+		float finalDmg = Mathf.Clamp((ehs.myEffect.atk - es.def) * ehs.myEffect.amp, 0, float.MaxValue); // dmg = (atk - def) * amp
+		float dmgToDeal = 1f / dis * finalDmg; //
+		es.LoseHealth((int)dmgToDeal);
+		// poise dmg
+		float finalPD = ehs.myEffect.atk / es.edr;
+		//print("edr: "+es.edr);
+		es.downPoise -= finalPD;
+		es.stunPoise -= finalPD;
+		if (es.downPoise <= 0) // check downed
+		{
+			es.EnterDownedState();
+			es.downPoise = es.downPoise_max;
+		}
+		else if (es.stunPoise <= 0) // check stunned
+		{
+			if (es.myAC.currentState != es.myAC.downedState)
+			{
+				es.EnterHittedState(1);
+			}
+		}
 	}
 	public void DotEnemy(EffectHolderScript ehs, GameObject enemy)
 	{
