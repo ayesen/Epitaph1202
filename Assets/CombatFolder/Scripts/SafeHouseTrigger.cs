@@ -14,7 +14,7 @@ public class SafeHouseTrigger : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, PlayerScriptNew.me.transform.position) < 5)
         {
-            GetComponent<MeshRenderer>().material = 
+            GetComponent<MeshRenderer>().material = highlightMaterial;
             if (Input.GetKeyDown(KeyCode.E) || Input.GetAxis("HorizontalArrow") > 0)
             {
                 SafehouseManager.Me.isSafehouse = true;

@@ -77,7 +77,10 @@ public class DialogueScript : MonoBehaviour
 							interactable.SetActive(true);
 						}
 
-						LogManager.LOGManager.CoverSetActive(logX, logY);
+						if (LogManager.LOGManager != null)
+						{
+							LogManager.LOGManager.CoverSetActive(logX, logY);
+						}
 					}
 				}
 			}
@@ -94,7 +97,10 @@ public class DialogueScript : MonoBehaviour
 						interactable.SetActive(true);
 					}
 
-					//! LogManager.LOGManager.CoverSetActive(logX, logY); comment back when log is in
+					if (LogManager.LOGManager != null)
+					{
+						LogManager.LOGManager.CoverSetActive(logX, logY);
+					}
 				}
 			}
 		}
