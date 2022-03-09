@@ -52,19 +52,17 @@ public class PostProcessingManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P) && coroutinesQueue.Count <= 0)
+        if(Input.GetButtonDown("LB") && coroutinesQueue.Count <= 0) // Move this shit mountain into playerScriptNew
         {
             PS_Running = true;
             coroutinesQueue.Enqueue(DistorsionFilter());
         }
-        if(Input.GetKeyUp(KeyCode.P) && PS_Running)
+        if(Input.GetButtonUp("LB") && PS_Running)
         {
             coroutinesQueue.Enqueue(ResetPolice());
             PS_Running = false;
         }
 
-        print(coroutinesQueue.ToString());
-        
         if (coroutinesQueue.Count > 0)
             isQueuing = true;
     }

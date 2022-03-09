@@ -56,7 +56,7 @@ public class DialogueScript : MonoBehaviour
 		{
 			if (!autoTrigger) // highlight item, show text after pressing E
 			{
-				mr.material = highLightMat;
+				//mr.material = highLightMat;
 				if ((Input.GetKeyUp(KeyCode.E) || Input.GetAxis("HorizontalArrow") > 0) &&
 				    (player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("testIdle") ||
 				     player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("testWalk") ||
@@ -86,10 +86,8 @@ public class DialogueScript : MonoBehaviour
 			}
 			else // auto show text
 			{
-				print("?");
 				if (displayDelayed <= 0f)
 				{
-					print("!");
 					inspected = true;
 					ObjectInspectorManagerScript.me.ShowText(this);
 					foreach (GameObject interactable in interactiveSwitch)
@@ -108,7 +106,7 @@ public class DialogueScript : MonoBehaviour
 		{
 			if (mr != null)
 			{
-				mr.material = defaultMat;
+				//mr.material = defaultMat;
 			}
 		}
 	}

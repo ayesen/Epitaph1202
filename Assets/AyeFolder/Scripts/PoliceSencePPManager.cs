@@ -11,6 +11,7 @@ public class PoliceSencePPManager : MonoBehaviour
     PaniniProjection FishEye;
     DepthOfField DOF;
     LensDistortion LD;
+    public GameObject DirectionalLight;
 
 
     private void Awake()
@@ -39,6 +40,7 @@ public class PoliceSencePPManager : MonoBehaviour
             }
         }
         PoliceSenseCam.SetActive(false);
+        DirectionalLight.SetActive(false);
         FishEye.distance.value = 0.7f;
 
     }
@@ -46,6 +48,7 @@ public class PoliceSencePPManager : MonoBehaviour
     public IEnumerator PoliceDistorsionFilter()
     {
         PoliceSenseCam.SetActive(true);
+        DirectionalLight.SetActive(true);
         if (DOF != null && LD != null)
         {
             float distAmount = 0.8f;

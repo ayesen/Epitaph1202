@@ -15,6 +15,7 @@ public class DoorSwitchScript : MonoBehaviour
 				if (door.isOpen)
 				{
 					door.CloseFront();
+					Destroy(this.gameObject);
 				}
 			}
 		}
