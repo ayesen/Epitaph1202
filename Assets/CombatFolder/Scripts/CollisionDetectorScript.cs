@@ -19,6 +19,7 @@ public class CollisionDetectorScript : MonoBehaviour
 	{
 		if (!CompareTag("PlayerSpawnedBear"))
 		{
+			print(other.gameObject.name);
 			InflictEffects(other.gameObject);
 		}
 	}
@@ -67,6 +68,10 @@ public class CollisionDetectorScript : MonoBehaviour
 						EffectManagerNew.me.SpawnEffectHolders(PlayerScript.me.gameObject, effect, gameObject.transform.position);
 					}
 				}	
+			}
+			else
+			{
+				print(target.gameObject.name + ": " + target.gameObject.tag);
 			}
 		}
 	}

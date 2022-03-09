@@ -6,12 +6,22 @@ public class DoorScript : MonoBehaviour
 {
     public Animator DoorAnimator;
     public bool isOpen = false;
+
+    public enum doorAnim
+    {
+        doorDefault,
+        openFront,
+        openBack,
+        closeFront,
+        closeBack   
+    }
+
+    public doorAnim animState;
     void Start()
     {
         
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.B))
@@ -24,6 +34,30 @@ public class DoorScript : MonoBehaviour
         }
     }
 
+    public void ControllDoor()
+    {
+        string stateName = "";
+        switch (animState)
+        {
+            case doorAnim.openFront:
+                stateName = "DoorFrontOpen";
+                break;
+            case doorAnim.openBack:
+                stateName = "DoorBackOpen";
+                break;
+            case doorAnim.closeFront:
+                stateName = "DoorFrontClose";
+                break;
+            case doorAnim.closeBack:
+                stateName = "DoorBackClose";
+                break;
+            default:
+                stateName = "DoorFrontOpen";
+                break;
+        }
+        DoorAnimator.Play(stateName);
+    }
+    
     public void OpenFront()
     {
         DoorAnimator.Play("DoorFrontOpen");

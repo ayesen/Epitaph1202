@@ -88,7 +88,7 @@ public class TutorialManagerScript : MonoBehaviour
 			{
 				foreach (var door in doorToOpen)
 				{
-					door.OpenFront();
+					door.ControllDoor();
 				}
 			}
 		}

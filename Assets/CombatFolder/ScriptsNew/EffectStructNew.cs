@@ -58,8 +58,8 @@ public struct EffectStructNew
 		dmgDealt
 	}
 	public float forHowMuch; // describes the effect numericals
-	public float atk; // ¹¥»÷
-	public float amp; // ±¶ÂÊ
+	public float atk; // æ”»å‡»
+	public float amp; // å€ç‡
 	public List<ModifierStruct> myModifiers; // describes the modifier to numericals
 	public float forHowLong; // describes how long this effect will last
 }

@@ -34,7 +34,7 @@ public class SmallBearRoomManager : MonoBehaviour
 				{
 					foreach (var door in doors_iCtrl)
 					{
-						door.OpenFront();
+						door.ControllDoor();
 					}
 				}
 			}

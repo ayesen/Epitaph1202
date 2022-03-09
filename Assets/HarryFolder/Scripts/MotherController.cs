@@ -59,7 +59,7 @@ public class MotherController : MonoBehaviour
     {
 		for (int i = (GetComponent<Enemy>().changeLimit) * 3; i < (GetComponent<Enemy>().changeLimit) * 3 + 3; i++)
 		{
-            GameObject kidChild = kidsHouse[i].transform.GetChild(0).gameObject;
+            GameObject kidChild = kidsHouse[i].gameObject;
             kids.Add(kidChild);
             kidChild.GetComponent<Kids>().enabled = true;
             kidChild.GetComponent<SmallBear>().enabled = true;
