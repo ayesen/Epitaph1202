@@ -34,6 +34,7 @@ public class CandlePuzzleManager : MonoBehaviour
 				{
 					if (!door.isOpen)
 					{
+						print("fuck my life");
 						door.OpenFront();
 					}
 				}
