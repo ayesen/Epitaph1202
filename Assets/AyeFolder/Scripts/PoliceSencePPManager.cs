@@ -21,19 +21,7 @@ public class PoliceSencePPManager : MonoBehaviour
         PolicePpVolume.profile.TryGet<PaniniProjection>(out FishEye);
 
     }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            StartCoroutine(PoliceDistorsionFilter());
-        }
-    }
-
-
-
+    
     public IEnumerator ResetPanini()
     {
         if (FishEye != null)
@@ -45,7 +33,7 @@ public class PoliceSencePPManager : MonoBehaviour
             while (FishEye.distance.value != 0)
             {
                 Debug.Log("resetP");
-                time += Time.fixedDeltaTime*2;
+                time += Time.deltaTime*2;
                 FishEye.distance.value = Mathf.Lerp(originalDist, 0, time);
                 yield return null;
             }
@@ -60,7 +48,7 @@ public class PoliceSencePPManager : MonoBehaviour
         PoliceSenseCam.SetActive(true);
         if (DOF != null && LD != null)
         {
-            float distAmount = 0.7f;
+            float distAmount = 0.8f;
             float distance = 0.1f;
 
             while (distAmount >= 0)
@@ -68,8 +56,8 @@ public class PoliceSencePPManager : MonoBehaviour
                 LD.intensity.value = distAmount;
                 DOF.focusDistance.value = distance;
                 distAmount -= 0.01f;
-                distance += 0.04f;
-                yield return new WaitForSecondsRealtime(0.01f);
+                distance += 0.03f;
+                yield return new WaitForSecondsRealtime(0.005f * Time.deltaTime);
             }
 
             LD.intensity.value = 0;

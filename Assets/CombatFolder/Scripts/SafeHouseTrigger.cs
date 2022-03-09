@@ -4,21 +4,34 @@ using UnityEngine;
 
 public class SafeHouseTrigger : MonoBehaviour
 {
-    public Material highlightMaterial;
+    private bool doOnce;
+    private bool isClose;
     void Start()
     {
-        
+        doOnce = isClose;
     }
     
     void Update()
     {
         if (Vector3.Distance(transform.position, PlayerScriptNew.me.transform.position) < 5)
         {
-            GetComponent<MeshRenderer>().material = 
-            if (Input.GetKeyDown(KeyCode.E) || Input.GetAxis("HorizontalArrow") > 0)
+            isClose = true;
+            if (Input.GetKeyDown(KeyCode.E) || Input.GetAxis("HorizontalArrow") > 0 && !SafehouseManager.Me.isSafehouse)
             {
                 SafehouseManager.Me.isSafehouse = true;
             }
+        }
+        else
+        {
+            isClose = false;
+        }
+        if (doOnce != isClose && isClose)
+        {
+            doOnce = isClose;
+        }
+        else if (doOnce != isClose && !isClose)
+        {
+            doOnce = isClose;
         }
     }
 }
