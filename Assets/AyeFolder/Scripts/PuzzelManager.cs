@@ -35,7 +35,7 @@ public class PuzzelManager : MonoBehaviour
         
         if(canOpen == true)
         {
-            Door.GetComponent<DoorScript>().OpenFront();
+            Door.GetComponent<DoorScript>().ControllDoor();
         }
 
     }

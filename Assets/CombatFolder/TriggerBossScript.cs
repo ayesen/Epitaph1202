@@ -12,6 +12,8 @@ public class TriggerBossScript : MonoBehaviour
         if (other.CompareTag(("Player")))
         {
             boss.phase = Enemy.AIPhase.InBattle1;
+            Destroy(gameObject);
         }
+        
     }
 }

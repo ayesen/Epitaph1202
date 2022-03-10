@@ -7874,7 +7874,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 529925732}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d8384a8056bdeb4e93d9c72e19287db, type: 3}
   m_Name: 
@@ -7888,7 +7888,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 529925732}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79fabfd9a3aa8c345a768b6bb8c003e0, type: 3}
   m_Name: 
@@ -20141,15 +20141,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kidsHouse:
-  - {fileID: 2010090622}
-  - {fileID: 868363406}
-  - {fileID: 1331380469}
-  - {fileID: 1864294962}
-  - {fileID: 1867641986}
-  - {fileID: 552693454}
-  - {fileID: 1164498144}
-  - {fileID: 754831136}
-  - {fileID: 1103165787}
+  - {fileID: 529925732}
+  - {fileID: 15641236}
+  - {fileID: 1725539213}
+  - {fileID: 130506143}
+  - {fileID: 434270334}
+  - {fileID: 17142799}
+  - {fileID: 289837592}
+  - {fileID: 1713988152}
+  - {fileID: 1369079321}
+  kids_House: []
   kids: []
 --- !u!54 &1455679841
 Rigidbody:
@@ -20228,7 +20229,7 @@ MonoBehaviour:
   preAtkSpd: 2
   atkTime: 1
   postAtkSpd: 2
-  changePhaseTime: 0
+  changePhaseTime: 3
   healthLimit: 30
   changeLimit: 3
   hittedTime: 0
@@ -20237,7 +20238,7 @@ MonoBehaviour:
   ResetPos: {x: 73, y: 2, z: 43}
   BearMesh: {fileID: 862493571}
   myAC: {fileID: 0}
-  phase: 0
+  phase: 1
   isPhaseTwo: 0
   doorTrigger: 0
   edr: 0

@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class MotherController : MonoBehaviour
 {
     public GameObject[] kidsHouse;
+    public List<GameObject> kids_House;
     public List<GameObject> kids;
     //public GameObject []kids;
     // Start is called before the first frame update
@@ -59,17 +60,19 @@ public class MotherController : MonoBehaviour
     {
 		for (int i = (GetComponent<Enemy>().changeLimit) * 3; i < (GetComponent<Enemy>().changeLimit) * 3 + 3; i++)
 		{
-            GameObject kidChild = kidsHouse[i].transform.GetChild(0).gameObject;
+            GameObject kidChild = kidsHouse[i].gameObject;
             kids.Add(kidChild);
             kidChild.GetComponent<Kids>().enabled = true;
             kidChild.GetComponent<SmallBear>().enabled = true;
             kidChild.GetComponent<AIController>().enabled = true;
+            kidChild.GetComponent<EffectHoldersHolderScript>().enabled = true;
             kidChild.transform.parent = null;
             kidChild.GetComponent<Rigidbody>().useGravity = true;
             kidChild.GetComponent<CapsuleCollider>().enabled = true;
-            kidChild.GetComponent<Enemy>().ChangePhase(Enemy.AIPhase.InBattle1, 1);
+            //kidChild.GetComponent<Enemy>().ChangePhase(Enemy.AIPhase.InBattle1, 1);
+            //kidsHouse[i] = null;
         }
-        //foreach (GameObject kid in kidsHouse)
+  //foreach (GameObject kid in kidsHouse)
         //{
         //    GameObject kidChild = kid.transform.GetChild(0).gameObject;
         //    kids.Add(kidChild);

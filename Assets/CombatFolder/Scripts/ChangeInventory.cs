@@ -154,6 +154,8 @@ public class ChangeInventory : MonoBehaviour
         if (!isChanging)
         {
             choosenSquare.color = Color.white;
+            if (choosenMatIndex < 4)
+                choosenMatIndex = 4;
             choosenSquare.GetComponent<RectTransform>().localPosition = GetPosition(choosenMatIndex - 4);
             choosenCircle.enabled = false;
         }
