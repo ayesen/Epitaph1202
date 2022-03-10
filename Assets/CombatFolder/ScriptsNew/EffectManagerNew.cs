@@ -297,7 +297,7 @@ public class EffectManagerNew : MonoBehaviour
 		ehs.myOwner = target;
 		ehs.myEffect = effect;
 		ehs.myCreatorPos = creatorPos;
-		if (target.GetComponent<EffectHoldersHolderScript>().enabled)
+		if (target != null && target.GetComponent<EffectHoldersHolderScript>().enabled)
 		{
 			target.GetComponent<EffectHoldersHolderScript>().effectHolders.Add(effectHolder);
 		}
