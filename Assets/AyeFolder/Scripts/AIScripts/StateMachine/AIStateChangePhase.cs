@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class AIStateChangePhase : AIStateBase
@@ -21,9 +22,9 @@ public class AIStateChangePhase : AIStateBase
     public override void Update(Enemy myEnemy)
     {
 		changePhaseTimer += Time.fixedDeltaTime;
-		//Debug.Log(changePhaseTimer);
 		if (changePhaseTimer > myEnemy.changePhaseTime)
 		{
+            Debug.Log("is it you");
 			myEnemy.myAC.ChangeState(myEnemy.myAC.idleState);
 		}
 	}
@@ -37,6 +38,7 @@ public class AIStateChangePhase : AIStateBase
             {
                 myEnemy.walkable = false;
                 myEnemy.def = myEnemy.def_weak;
+                
                 myEnemy.Mother.OutKids();
             }
             else if (myEnemy.phase == Enemy.AIPhase.InBattle1)

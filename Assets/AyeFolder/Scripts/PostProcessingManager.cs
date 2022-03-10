@@ -54,6 +54,7 @@ public class PostProcessingManager : MonoBehaviour
     {
         if(Input.GetButtonDown("LB") && coroutinesQueue.Count <= 0) // Move this shit mountain into playerScriptNew
         {
+            print("LB");
             PS_Running = true;
             coroutinesQueue.Enqueue(DistorsionFilter());
         }

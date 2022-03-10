@@ -35,7 +35,6 @@ public class Kids : MonoBehaviour
         target = GameObject.Find("Player");
         if (this.transform.parent == null && !isActivated)
         {
-            print("got no papa");
             timer += Time.deltaTime;
             if (timer >= 2f)
             {
