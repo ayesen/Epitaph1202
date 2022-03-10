@@ -496,6 +496,7 @@ public class PlayerScriptNew : MonoBehaviour
 						}
 						anim.Play("testWindup"); // player anticipation clip and call effect manager's casting event in clip
 						// anim.CrossFade("testWindup", 0.1f);
+						
 						selectedMats.Clear();
 					}
 					else
