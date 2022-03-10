@@ -110,6 +110,10 @@ public class SpellScript : MonoBehaviour
 					dummyEffectForBreak.doThis = EffectStructNew.Effect.ampDummy;
 					EffectManagerNew.me.SpawnEffectHolders(hit.gameObject, dummyEffectForDmg, gameObject.transform.position);
 					EffectManagerNew.me.SpawnEffectHolders(hit.gameObject, dummyEffectForBreak, gameObject.transform.position);
+					if (TutorialManagerScript.me.tut_state != 0 && TutorialManagerScript.me.tut_state != 4)
+					{
+						TutorialManagerScript.me.PassCombination(mats);
+					}
 				}
 				// vfx
 				if (fragments != null)
