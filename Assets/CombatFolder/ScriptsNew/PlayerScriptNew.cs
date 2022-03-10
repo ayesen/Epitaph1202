@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -253,7 +253,7 @@ public class PlayerScriptNew : MonoBehaviour
 				atkButtonPressed = false;
 			}
 
-			if (walking)
+			if (walking && !anim.GetCurrentAnimatorStateInfo(0).IsName("readingText"))
 			{
 				// walking diagonally
 				if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
@@ -431,25 +431,32 @@ public class PlayerScriptNew : MonoBehaviour
 
 			// look at mouse pos(not changing y-axis)
 			//! if this doesn't work properly, check game objects' layers, and make sure the mouse manager ignores the proper layers
-			if (Input.GetMouseButton(1) || Input.GetAxis("LT") > 0)
+			if (!anim.GetCurrentAnimatorStateInfo(0).IsName(("readingText")))
 			{
-				var target = new Vector3(enemy.transform.position.x, transform.position.y, enemy.transform.position.z);
-				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target - transform.position), rot_spd * Time.deltaTime);
+				if (Input.GetMouseButton(1) || Input.GetAxis("LT") > 0)
+				{
+					var target = new Vector3(enemy.transform.position.x, transform.position.y, enemy.transform.position.z);
+					transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target - transform.position), rot_spd * Time.deltaTime);
+				}
+				else if (Mathf.Abs(Input.GetAxis("RightJoystickHorizontal")) >= joystickSensitivity ||
+				         Mathf.Abs(Input.GetAxis("RightJoystickVertical")) >= joystickSensitivity ||
+				         Mathf.Sqrt(Mathf.Pow(Input.GetAxis("RightJoystickHorizontal"), 2) + Mathf.Pow(Input.GetAxis("RightJoystickHorizontal"), 2)) >= joystickSensitivity &&
+				         Input.GetAxis("LT") == 0)
+				{
+					var target = new Vector3(Input.GetAxis("RightJoystickHorizontal"), 0, Input.GetAxis("RightJoystickVertical") * -1);
+					transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target), rot_spd * Time.deltaTime);
+				}
 			}
-			else if (Mathf.Abs(Input.GetAxis("RightJoystickHorizontal")) >= joystickSensitivity ||
-				Mathf.Abs(Input.GetAxis("RightJoystickVertical")) >= joystickSensitivity ||
-				Mathf.Sqrt(Mathf.Pow(Input.GetAxis("RightJoystickHorizontal"), 2) + Mathf.Pow(Input.GetAxis("RightJoystickHorizontal"), 2)) >= joystickSensitivity &&
-				Input.GetAxis("LT") == 0)
-			{
-				var target = new Vector3(Input.GetAxis("RightJoystickHorizontal"), 0, Input.GetAxis("RightJoystickVertical") * -1);
-				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target), rot_spd * Time.deltaTime);
-			}
+			
+			/* //mouse rotation
 			else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("readingText"))
 			{
 				var target = new Vector3(MouseManager.me.mousePos.x, transform.position.y, MouseManager.me.mousePos.z);
 				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target - transform.position), rot_spd * Time.deltaTime);
 			}
+			*/
             #endregion
+            
 			// check for attack button press
 			if (selectedMats.Count > 0 &&  // check if player has mat activated
 				(anim.GetCurrentAnimatorStateInfo(0).IsName("testIdle") || // if player in idle state

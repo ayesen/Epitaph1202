@@ -297,7 +297,10 @@ public class EffectManagerNew : MonoBehaviour
 		ehs.myOwner = target;
 		ehs.myEffect = effect;
 		ehs.myCreatorPos = creatorPos;
-		target.GetComponent<EffectHoldersHolderScript>().effectHolders.Add(effectHolder);
+		if (target.GetComponent<EffectHoldersHolderScript>().enabled)
+		{
+			target.GetComponent<EffectHoldersHolderScript>().effectHolders.Add(effectHolder);
+		}
 	}
 	#region spawn spell functions
 	private void SpawnSpell(int spawnAmount, int hitAmount)

@@ -39,7 +39,7 @@ public class EffectStorage : MonoBehaviour
 		float finalDmg = Mathf.Clamp((ehs.myEffect.atk - es.def) * ehs.myEffect.amp, 0, float.MaxValue); // dmg = (atk - def) * amp
 		//print(ehs.myEffect.atk);
 		es.LoseHealth((int)finalDmg);
-		print("dealt " + (int)finalDmg + " damage");
+		//print("dealt " + (int)finalDmg + " damage");
 		if (FloatTextManager.Me.damageText && (int)finalDmg != 0)//float damage text
 			FloatTextManager.Me.SpawnFloatText(enemy, ""+ (int)finalDmg, FloatTextManager.TypeOfText.Damage);
 		// poise dmg
@@ -58,16 +58,34 @@ public class EffectStorage : MonoBehaviour
 				es.EnterHittedState(1);
 			}
 		}
-		print("dealt " + finalPD + " poise damage");
+		//print("dealt " + finalPD + " poise damage");
 		if (FloatTextManager.Me.poiseDamageText && (int)finalPD != 0)//float poise damage
 			FloatTextManager.Me.SpawnFloatText(enemy, "" + (int)finalPD, FloatTextManager.TypeOfText.poiseDamage);
 	}
 	public void HurtEnemyBasedOnDis(EffectHolderScript ehs, GameObject enemy, float dis)
 	{
-		float finalDmg = (ehs.myEffect.atk - enemy.GetComponent<Enemy>().def) * ehs.myEffect.amp;
-		float dmgToDeal = 1f / dis * finalDmg;
-		enemy.GetComponent<Enemy>().LoseHealth((int)dmgToDeal);
-		enemy.GetComponent<CombatInfoScript>().infoToDisplay.Add("dealt " + (int)dmgToDeal + " dmg");
+		Enemy es = enemy.GetComponent<Enemy>();
+		// hp dmg
+		float finalDmg = Mathf.Clamp((ehs.myEffect.atk - es.def) * ehs.myEffect.amp, 0, float.MaxValue); // dmg = (atk - def) * amp
+		float dmgToDeal = 1f / dis * finalDmg; //
+		es.LoseHealth((int)dmgToDeal);
+		// poise dmg
+		float finalPD = ehs.myEffect.atk / es.edr;
+		//print("edr: "+es.edr);
+		es.downPoise -= finalPD;
+		es.stunPoise -= finalPD;
+		if (es.downPoise <= 0) // check downed
+		{
+			es.EnterDownedState();
+			es.downPoise = es.downPoise_max;
+		}
+		else if (es.stunPoise <= 0) // check stunned
+		{
+			if (es.myAC.currentState != es.myAC.downedState)
+			{
+				es.EnterHittedState(1);
+			}
+		}
 	}
 	public void DotEnemy(EffectHolderScript ehs, GameObject enemy)
 	{

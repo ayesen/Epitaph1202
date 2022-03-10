@@ -56,7 +56,7 @@ public class DialogueScript : MonoBehaviour
 		{
 			if (!autoTrigger) // highlight item, show text after pressing E
 			{
-				mr.material = highLightMat;
+				//mr.material = highLightMat;
 				if ((Input.GetKeyUp(KeyCode.E) || Input.GetAxis("HorizontalArrow") > 0) &&
 				    (player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("testIdle") ||
 				     player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("testWalk") ||
@@ -77,7 +77,10 @@ public class DialogueScript : MonoBehaviour
 							interactable.SetActive(true);
 						}
 
-						LogManager.LOGManager.CoverSetActive(logX, logY);
+						if (LogManager.LOGManager != null)
+						{
+							LogManager.LOGManager.CoverSetActive(logX, logY);
+						}
 					}
 				}
 			}
@@ -92,7 +95,10 @@ public class DialogueScript : MonoBehaviour
 						interactable.SetActive(true);
 					}
 
-					LogManager.LOGManager.CoverSetActive(logX, logY);
+					if (LogManager.LOGManager != null)
+					{
+						LogManager.LOGManager.CoverSetActive(logX, logY);
+					}
 				}
 			}
 		}
@@ -100,7 +106,7 @@ public class DialogueScript : MonoBehaviour
 		{
 			if (mr != null)
 			{
-				mr.material = defaultMat;
+				//mr.material = defaultMat;
 			}
 		}
 	}
@@ -125,7 +131,7 @@ public class DialogueScript : MonoBehaviour
 		}
 
 		LogManager.LOGManager.CoverSetActive(logX, logY);
-		Destroy(this.gameObject);
+		//Destroy(this.gameObject);
 	}
 }
 

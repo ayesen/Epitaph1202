@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 874f62f90c205d1449d95914a7b6ec17, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 3f8bdaedb6a331442af3cdaf0da1eb3b, type: 2}
 --- !u!1001 &714716
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -206,14 +206,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &2471063
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1485,14 +1493,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &38872305
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1956,14 +1972,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 1
-  whenMasterRoom: 0
-  whenBalcony: 0
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!1 &69058821
 GameObject:
   m_ObjectHideFlags: 0
@@ -2292,14 +2316,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &80317090
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2561,14 +2593,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &91873509
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2605,14 +2645,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &94313364
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2649,14 +2697,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &96450727
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3502,14 +3558,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &134718973
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3685,14 +3749,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &150361807
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4361,14 +4433,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &193530123
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4825,14 +4905,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 1
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 0
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!1 &238433783
 GameObject:
   m_ObjectHideFlags: 0
@@ -5123,14 +5211,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &245556324
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5526,14 +5622,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &268118973
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5570,14 +5674,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &273511913
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6607,14 +6719,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &305204849
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6675,14 +6795,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &316307522
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6915,14 +7043,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 1
-  whenBalcony: 0
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!1 &341838819
 GameObject:
   m_ObjectHideFlags: 0
@@ -7214,6 +7350,74 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af278184522e1e54d84251dbe6d79573, type: 3}
+--- !u!1 &348827241
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 348827242}
+  - component: {fileID: 348827243}
+  m_Layer: 0
+  m_Name: tut_dialogue_dmg
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &348827242
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348827241}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1780019995}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &348827243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348827241}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14bae7ca671459e44b9c1942d6842334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerRange: 1000
+  autoTrigger: 1
+  autoAdvance: 1
+  areaTrigger: 0
+  displayDelayed: 0
+  texts:
+  - description_cht: "\u50B7\u5BB3"
+    description_eng: dmg
+    clip: {fileID: 0}
+    time: 1
+    options: []
+    logX: 0
+    logY: 0
+    rollBack: 0
+    rollBack_index: 0
+  image: {fileID: 0}
+  highLightMat: {fileID: 0}
+  restrictMovement: 0
+  oneTimeDialogue: 1
+  isSwitch: 0
+  interactiveSwitch: []
+  logX: 0
+  logY: 0
+  actor: {fileID: 0}
+  funcToCall: 
 --- !u!1 &349138322
 GameObject:
   m_ObjectHideFlags: 0
@@ -7515,14 +7719,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 1
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 0
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!1 &355797832 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: af278184522e1e54d84251dbe6d79573, type: 3}
@@ -7545,14 +7757,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &355797835
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7869,14 +8089,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &389780391
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8035,14 +8263,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &400295061
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9592,14 +9828,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &461276802
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -10329,14 +10573,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &503342281
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -10528,14 +10780,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 1
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 0
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!1 &525798634
 GameObject:
   m_ObjectHideFlags: 0
@@ -11658,6 +11918,74 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &568201938
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 568201939}
+  - component: {fileID: 568201940}
+  m_Layer: 0
+  m_Name: tut_dialogue_cd
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &568201939
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568201938}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1780019995}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &568201940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568201938}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14bae7ca671459e44b9c1942d6842334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerRange: 1000
+  autoTrigger: 1
+  autoAdvance: 1
+  areaTrigger: 0
+  displayDelayed: 0
+  texts:
+  - description_cht: "\u56DE\u5FA9CD"
+    description_eng: cd recovery
+    clip: {fileID: 0}
+    time: 1
+    options: []
+    logX: 0
+    logY: 0
+    rollBack: 0
+    rollBack_index: 0
+  image: {fileID: 0}
+  highLightMat: {fileID: 0}
+  restrictMovement: 0
+  oneTimeDialogue: 1
+  isSwitch: 0
+  interactiveSwitch: []
+  logX: 0
+  logY: 0
+  actor: {fileID: 0}
+  funcToCall: 
 --- !u!1001 &568830946
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11810,14 +12138,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &585031437
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13121,14 +13457,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &657719471
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13615,14 +13959,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &687602690
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13729,6 +14081,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5651163128185089624, guid: 193ba1a383c7e5f44bcb8be856766edb, type: 3}
+      propertyPath: isCheatOn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5651163128185089624, guid: 193ba1a383c7e5f44bcb8be856766edb, type: 3}
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 0}
@@ -13736,6 +14092,10 @@ PrefabInstance:
       propertyPath: enemyScript
       value: 
       objectReference: {fileID: 1455679844}
+    - target: {fileID: 5651163128185089624, guid: 193ba1a383c7e5f44bcb8be856766edb, type: 3}
+      propertyPath: canSafehouse
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6290434996199622126, guid: 193ba1a383c7e5f44bcb8be856766edb, type: 3}
       propertyPath: m_Name
       value: Canvas-Safehouse
@@ -14372,6 +14732,8 @@ MonoBehaviour:
     options: []
     logX: 0
     logY: 0
+    rollBack: 0
+    rollBack_index: 0
   image: {fileID: 0}
   highLightMat: {fileID: 0}
   restrictMovement: 1
@@ -15195,14 +15557,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &764628705
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15373,14 +15743,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &768918315
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15522,14 +15900,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 1
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 0
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!1 &781490410 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 702329ba245b9b64a9b5cfed2981b67e, type: 3}
@@ -15600,14 +15986,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &783489609
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15765,14 +16159,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &814102666
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -16026,14 +16428,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &835279859
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -16094,14 +16504,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &839555549
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -16212,14 +16630,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!1 &843879668
 GameObject:
   m_ObjectHideFlags: 0
@@ -16472,14 +16898,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 1
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 0
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!1 &851449440 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 87131f0531dc15b45b03e1a0d2dcaac0, type: 3}
@@ -16659,14 +17093,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &862497442
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -17605,14 +18047,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &932725776
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -17761,14 +18211,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &942833139
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -17805,14 +18263,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &945364555
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18330,14 +18796,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &974760703
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18488,14 +18962,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &981668733
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18908,14 +19390,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &1022518732
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18952,14 +19442,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &1023194570
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -19044,14 +19542,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &1030185032
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -19321,14 +19827,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &1043196443
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -20693,14 +21207,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &1119873076
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -20737,14 +21259,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &1126731271
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -20781,14 +21311,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &1127058178
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -20890,14 +21428,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &1132404106
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -21471,14 +22017,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 1
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 0
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!212 &1169489434
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -22049,6 +22603,74 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.8370584, y: 2.21, z: 5.1602983}
   m_Center: {x: 1.4889947, y: 0, z: -0.4073014}
+--- !u!1 &1197159504
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1197159506}
+  - component: {fileID: 1197159505}
+  m_Layer: 0
+  m_Name: tut_dialogue_pd
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1197159505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197159504}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14bae7ca671459e44b9c1942d6842334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerRange: 1000
+  autoTrigger: 1
+  autoAdvance: 1
+  areaTrigger: 0
+  displayDelayed: 0
+  texts:
+  - description_cht: "\u524A\u97CC"
+    description_eng: poise dmg
+    clip: {fileID: 0}
+    time: 1
+    options: []
+    logX: 0
+    logY: 0
+    rollBack: 0
+    rollBack_index: 0
+  image: {fileID: 0}
+  highLightMat: {fileID: 0}
+  restrictMovement: 0
+  oneTimeDialogue: 1
+  isSwitch: 0
+  interactiveSwitch: []
+  logX: 0
+  logY: 0
+  actor: {fileID: 0}
+  funcToCall: 
+--- !u!4 &1197159506
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197159504}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1780019995}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1208502501
 GameObject:
   m_ObjectHideFlags: 0
@@ -22173,14 +22795,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &1213173450
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -22882,14 +23512,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &1270425626
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -23020,14 +23658,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &1286134037
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -23064,14 +23710,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &1286186041
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -24214,14 +24868,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &1367642905
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -25387,14 +26049,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &1397759809
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -26021,14 +26691,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &1434733215
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -26065,14 +26743,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &1435950301
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -26195,14 +26881,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &1440612775
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -26313,14 +27007,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 1
-  whenBalcony: 0
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!1 &1443287078
 GameObject:
   m_ObjectHideFlags: 0
@@ -26550,14 +27252,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &1450096464
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -26901,14 +27611,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &1459514248
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -27777,14 +28495,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &1511687869
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -27926,14 +28652,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &1518360393
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -28089,14 +28823,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &1522878534
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -28380,14 +29122,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 0
-  whenDaughtorRoom: 1
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!1 &1559399342
 GameObject:
   m_ObjectHideFlags: 0
@@ -28441,14 +29191,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &1559846119
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -28516,14 +29274,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &1565796570
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -28808,14 +29574,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 0
-  whenDaughtorRoom: 1
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!1 &1582060225 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: af278184522e1e54d84251dbe6d79573, type: 3}
@@ -28838,14 +29612,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &1582060228
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -28882,14 +29664,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &1583781757
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -29098,14 +29888,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 1
-  whenMasterRoom: 0
-  whenBalcony: 0
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!1 &1605806877
 GameObject:
   m_ObjectHideFlags: 0
@@ -29831,14 +30629,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &1679347358
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -30105,14 +30911,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 1
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 0
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!1 &1710598386 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 87131f0531dc15b45b03e1a0d2dcaac0, type: 3}
@@ -30651,14 +31465,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 1
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 0
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!1 &1716874651
 GameObject:
   m_ObjectHideFlags: 0
@@ -31449,14 +32271,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &1744099569
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -32134,14 +32964,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &1779416985
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -32186,7 +33024,11 @@ Transform:
   m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
   m_LocalPosition: {x: 69.24, y: 0, z: 21.34}
   m_LocalScale: {x: 8.32, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1197159506}
+  - {fileID: 568201939}
+  - {fileID: 348827242}
+  - {fileID: 2028736559}
   m_Father: {fileID: 0}
   m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
@@ -32267,6 +33109,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorBear: {fileID: 401130434}
   doorToOpen: {fileID: 659668371}
+  dialg_pd: {fileID: 1197159504}
+  dialg_cd: {fileID: 568201938}
+  dialg_dmg: {fileID: 348827241}
+  dialg_finished: {fileID: 2028736558}
 --- !u!1 &1782282762
 GameObject:
   m_ObjectHideFlags: 0
@@ -32440,14 +33286,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &1795796097
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -32699,14 +33553,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &1816043444
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -33025,14 +33887,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &1844521422
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -34471,14 +35341,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!1 &1904544544
 GameObject:
   m_ObjectHideFlags: 0
@@ -34872,14 +35750,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &1942877110
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -35594,14 +36480,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &1980224905
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -36513,6 +37407,74 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 983fbbd44043de749826e4aefe788655, type: 3}
+--- !u!1 &2028736558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2028736559}
+  - component: {fileID: 2028736560}
+  m_Layer: 0
+  m_Name: tut_dialogue_complete
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2028736559
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028736558}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1780019995}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2028736560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028736558}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14bae7ca671459e44b9c1942d6842334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerRange: 1000
+  autoTrigger: 1
+  autoAdvance: 1
+  areaTrigger: 0
+  displayDelayed: 0
+  texts:
+  - description_cht: "\u606D\u559C"
+    description_eng: congrats
+    clip: {fileID: 0}
+    time: 1
+    options: []
+    logX: 0
+    logY: 0
+    rollBack: 0
+    rollBack_index: 0
+  image: {fileID: 0}
+  highLightMat: {fileID: 0}
+  restrictMovement: 0
+  oneTimeDialogue: 1
+  isSwitch: 0
+  interactiveSwitch: []
+  logX: 0
+  logY: 0
+  actor: {fileID: 0}
+  funcToCall: 
 --- !u!1001 &2029316905
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36596,14 +37558,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &2033975490
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -37292,14 +38262,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 0
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 1
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!64 &2066263127
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -37956,14 +38934,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffba95736300944957a8c468c0f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenSpawnHallway: 0
+  whenEntryWay: 0
   whenLivingRoom: 0
-  whenRestroom: 1
-  whenCorridor: 0
-  whenSmallCorridor: 0
-  whenStorage: 0
-  whenMasterRoom: 0
-  whenBalcony: 0
-  whenDaughtorRoom: 0
+  whenKitchen: 0
+  whenBalcany: 0
+  whenSubLivingRoom: 0
+  whenBathRoom: 0
+  whenBedRoom: 0
+  whemHideout: 0
+  whenStudyRoom: 0
+  whenStudyBalcony: 0
+  whenSubHallway: 0
+  whenSubBedRoom: 0
+  whenSubBathRoom: 0
+  whenCandleRoom: 0
+  whenBossRoom: 0
 --- !u!1 &2111832290 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 702329ba245b9b64a9b5cfed2981b67e, type: 3}

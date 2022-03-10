@@ -130,4 +130,4 @@ MonoBehaviour:
   amount: 0
   attractDis: 10
   killDis: 0.5
-  attractSpd: 4
+  attractSpd: 10

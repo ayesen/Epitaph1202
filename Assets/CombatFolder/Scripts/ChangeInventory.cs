@@ -13,6 +13,8 @@ public class ChangeInventory : MonoBehaviour
     public int choosenMat;
     public TextMeshProUGUI description;
     public bool isChanging;
+    private bool doOnce;
+    private bool switching;
 
     public int X_Start;
     public int Y_Start;
@@ -22,49 +24,83 @@ public class ChangeInventory : MonoBehaviour
 
     void Start()
     {
+        doOnce = switching;
         choosenMatIndex = 4;
         DI = gameObject.GetComponent<DisplayInventory>();
     }
 
     void Update()
     {
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || Input.GetAxis("HorizontalArrow") > 0)
+        {
+            switching = true;
+        }
+        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || Input.GetAxis("HorizontalArrow") < 0)
+        {
+            switching = true;
+        }
+        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) || Input.GetAxis("VerticalArrow") < 0)
+        {
+            switching = true;
+        }
+        else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetAxis("VerticalArrow") > 0)
+        {
+            switching = true;
+        }
+        else
+        {
+            switching = false;
+        }
         if (SafehouseManager.Me.isSafehouse)
         {
-                    //Move the square, choose inventory
-        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetAxis("HorizontalArrow") > 0)
-        {
-            choosenMatIndex += 1;
-            SoundMan.SoundManager.SafehouseMaterialSelect();
-        }
-        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetAxis("HorizontalArrow") < 0)
-        {
-            choosenMatIndex -= 1;
-            SoundMan.SoundManager.SafehouseMaterialSelect();
-        }
-        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetAxis("VerticalArrow") < 0)
-        {
-            if (!isChanging)
+            //Move the square, choose inventory
+            if (doOnce != switching && switching)
             {
-                if (choosenMatIndex <= DI.Amount_Of_Inventory - 1)
+                doOnce = switching;
+                if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || Input.GetAxis("HorizontalArrow") > 0)
                 {
-                    choosenMatIndex += 4;
+                    choosenMatIndex += 1;
                     SoundMan.SoundManager.SafehouseMaterialSelect();
                 }
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetAxis("VerticalArrow") > 0)
-        {
-            if (!isChanging)
-            {
-                if (choosenMatIndex - 4 >= 4)
+                else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || Input.GetAxis("HorizontalArrow") < 0)
                 {
-                    choosenMatIndex -= 4;
+                    choosenMatIndex -= 1;
                     SoundMan.SoundManager.SafehouseMaterialSelect();
                 }
+                else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) || Input.GetAxis("VerticalArrow") < 0)
+                {
+                    if (!isChanging)
+                    {
+                        if (choosenMatIndex <= DI.Amount_Of_Inventory - 1)
+                        {
+                            choosenMatIndex += 4;
+                            SoundMan.SoundManager.SafehouseMaterialSelect();
+                        }
+                    }
+                }
+                else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetAxis("VerticalArrow") > 0)
+                {
+                    if (!isChanging)
+                    {
+                        if (choosenMatIndex - 4 >= 4)
+                        {
+                            choosenMatIndex -= 4;
+                            SoundMan.SoundManager.SafehouseMaterialSelect();
+                        }
+                    }
+                }
             }
-        }
 
-        if(choosenMatIndex == 3)
+            if (doOnce != switching && !switching)
+            {
+                doOnce = switching;
+            }
+
+
+
+
+
+            if(choosenMatIndex == 3)
             {
                 if (!isChanging)
                     choosenMatIndex = 4;
@@ -75,7 +111,7 @@ public class ChangeInventory : MonoBehaviour
         if (!isChanging)
         {
             //choosen mat
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown("AButton"))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("AButton"))
             {
                 choosenMat = choosenMatIndex;
                 choosenMatIndex = 0;
@@ -94,7 +130,7 @@ public class ChangeInventory : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown("AButton"))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("AButton"))
             {
                 ChangeMat(choosenMatIndex, choosenMat);
                 DI.CreateDisplay();
@@ -118,6 +154,8 @@ public class ChangeInventory : MonoBehaviour
         if (!isChanging)
         {
             choosenSquare.color = Color.white;
+            if (choosenMatIndex < 4)
+                choosenMatIndex = 4;
             choosenSquare.GetComponent<RectTransform>().localPosition = GetPosition(choosenMatIndex - 4);
             choosenCircle.enabled = false;
         }

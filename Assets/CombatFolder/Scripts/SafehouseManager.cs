@@ -49,13 +49,12 @@ public class SafehouseManager : MonoBehaviour
     void Update()
     {
         //Test change bool
-        if (Input.GetKeyDown(KeyCode.B) || Input.GetKeyDown("BButton") && isSafehouse)
+        if (Input.GetKeyDown(KeyCode.B) || Input.GetButtonDown("BButton"))
         {
-            isSafehouse = false;
-        }
-        else if (Input.GetKeyDown(KeyCode.B) && !isSafehouse && isCheatOn)
-        {
-            isSafehouse = true;
+            if(isSafehouse)
+                isSafehouse = false;
+            else if(!isSafehouse && isCheatOn)
+                isSafehouse = true;
         }
         //when fading, but try to change state
         if(isSafehouse != checkBoolChange && isFading)
@@ -77,9 +76,9 @@ public class SafehouseManager : MonoBehaviour
             //Debug.Log("Safehouse");
             ResetMatAmount();
             AmbienceManager.ambienceManager.SafeHouseAmbiencePlay();//enter safehouse sound
-            if(enemyScript != null)
-                enemyScript.ResetEnemy(); // [Safehouse update]need some more detail
-            PostProcessingManager.Me.StopAllCoroutines();
+            //if(enemyScript != null)
+                //enemyScript.ResetEnemy(); // [Safehouse update]need some more detail
+            //PostProcessingManager.Me.StopAllCoroutines();
             PostProcessingManager.Me.StartCoroutine(PostProcessingManager.Me.ResetFilter());
             StartCoroutine(FadeCanvas(cg, 1f, fadeTime));
             checkBoolChange = isSafehouse;
@@ -89,7 +88,7 @@ public class SafehouseManager : MonoBehaviour
             AmbienceManager.ambienceManager.HallwayAmbiencePlay();//off safehouse
             PlayerScriptNew.me.walking = true;
             StartCoroutine(FadeCanvas(cg, 0f, fadeTime));
-            RespawnPlayer(spawnPoint); // [Safehouse update]need a location
+            //RespawnPlayer(spawnPoint); // [Safehouse update]need a location
             //WallHider.me.roomPlayerIsIn = WallHider.Room.corridor; // currently commented by HG
             PlayerScriptNew.me.selectedMats.Clear();
             checkBoolChange = isSafehouse;

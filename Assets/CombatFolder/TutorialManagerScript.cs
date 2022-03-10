@@ -19,7 +19,13 @@ public class TutorialManagerScript : MonoBehaviour
 	public AIStateBase tutBear_currentState;
 
 	// open door
-	public DoorScript doorToOpen;
+	public List<DoorScript> doorToOpen;
+
+	// dialogues
+	public GameObject dialg_pd;
+	public GameObject dialg_cd;
+	public GameObject dialg_dmg;
+	public GameObject dialg_finished;
 
 	private void Awake()
 	{
@@ -31,15 +37,17 @@ public class TutorialManagerScript : MonoBehaviour
 		// 激活小熊，削韧教学
 		if (other.gameObject.CompareTag("Player") && tut_state == 0)
 		{
+			// set state
 			tut_state = state_poise;
-			tutorBear.GetComponent<SmallBear>().enabled = true;
-			tutorBear.GetComponent<AIController>().enabled = true;
+			// enable small bear
+			// tutorBear.GetComponent<SmallBear>().enabled = true;
+			// tutorBear.GetComponent<AIController>().enabled = true;
+			dialg_pd.GetComponent<DialogueScript>().enabled = true; // enable dialogue script, show dialogue
 		}
 	}
 
 	private void Update()
 	{
-		print(tut_state);
 		TutStateMachine();
 		if (tut_state != 0 && tut_state != state_finished) 
 		{
@@ -57,32 +65,40 @@ public class TutorialManagerScript : MonoBehaviour
 
 	private void TutStateMachine()
 	{
-		if (tutBear_currentState != tutorBear.GetComponent<AIController>().walkingState &&
-			tut_state == 0 &&
-			tutorBear.GetComponent<SmallBear>().enabled)
-		{
-			tut_state = state_poise;
-		}
-		else if (tutBear_currentState == tutorBear.GetComponent<AIController>().downedState &&
+		if (tutBear_currentState == tutorBear.GetComponent<AIController>().downedState &&
 			tut_state == state_poise)
 		{
 			tut_state = state_cd;
+			dialg_cd.GetComponent<DialogueScript>().enabled = true;
 		}
 		else if (tutBear_currentState == tutorBear.GetComponent<AIController>().downedState &&
 			tut_state == state_cd &&
 			PlayerScriptNew.me.matSlots[1].GetComponent<MatScriptNew>().amount == 5)
 		{
 			tut_state = state_dmg;
+			dialg_dmg.GetComponent<DialogueScript>().enabled = true;
 		}
 		else if (tut_state == state_dmg &&
 			tutorBear.GetComponent<SmallBear>().health <= 0)
 		{
-			print("tut finished");
+			dialg_finished.GetComponent<DialogueScript>().enabled = true;
 			tut_state = state_finished;
-			if (doorToOpen != null)
+
+			if (doorToOpen.Count > 0)
 			{
-				doorToOpen.OpenFront();
+				foreach (var door in doorToOpen)
+				{
+					door.ControllDoor();
+				}
 			}
 		}
+	}
+
+	private void ActivateBear()
+	{
+		// enable small bear
+		tutorBear.GetComponent<SmallBear>().enabled = true;
+		tutorBear.GetComponent<AIController>().enabled = true;
+		tutorBear.GetComponent<EffectHoldersHolderScript>().enabled = true;
 	}
 }
