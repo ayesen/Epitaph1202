@@ -40,8 +40,8 @@ public class TutorialManagerScript : MonoBehaviour
 			// set state
 			tut_state = state_poise;
 			// enable small bear
-			tutorBear.GetComponent<SmallBear>().enabled = true;
-			tutorBear.GetComponent<AIController>().enabled = true;
+			// tutorBear.GetComponent<SmallBear>().enabled = true;
+			// tutorBear.GetComponent<AIController>().enabled = true;
 			dialg_pd.GetComponent<DialogueScript>().enabled = true; // enable dialogue script, show dialogue
 		}
 	}
@@ -92,5 +92,13 @@ public class TutorialManagerScript : MonoBehaviour
 				}
 			}
 		}
+	}
+
+	private void ActivateBear()
+	{
+		// enable small bear
+		tutorBear.GetComponent<SmallBear>().enabled = true;
+		tutorBear.GetComponent<AIController>().enabled = true;
+		tutorBear.GetComponent<EffectHoldersHolderScript>().enabled = true;
 	}
 }

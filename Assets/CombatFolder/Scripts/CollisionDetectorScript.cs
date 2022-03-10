@@ -19,7 +19,6 @@ public class CollisionDetectorScript : MonoBehaviour
 	{
 		if (!CompareTag("PlayerSpawnedBear"))
 		{
-			print(other.gameObject.name);
 			InflictEffects(other.gameObject);
 		}
 	}

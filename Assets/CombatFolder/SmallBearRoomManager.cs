@@ -13,6 +13,7 @@ public class SmallBearRoomManager : MonoBehaviour
 		{
 			bear.GetComponent<AIController>().enabled = true;
 			bear.GetComponent<SmallBear>().enabled = true;
+			bear.GetComponent<EffectHoldersHolderScript>().enabled = true;
 		}
 	}
 
@@ -23,7 +24,7 @@ public class SmallBearRoomManager : MonoBehaviour
 		{
 			foreach (var bear in bears_iCtrl)
 			{
-				if (bear.GetComponent<SmallBear>().health > 0)
+				if (bear.GetComponent<SmallBear>()!=null && bear.GetComponent<SmallBear>().health > 0)
 				{
 					clear = false;
 				}

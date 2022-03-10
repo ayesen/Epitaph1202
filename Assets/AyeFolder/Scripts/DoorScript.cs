@@ -41,18 +41,23 @@ public class DoorScript : MonoBehaviour
         {
             case doorAnim.openFront:
                 stateName = "DoorFrontOpen";
+                isOpen = true;
                 break;
             case doorAnim.openBack:
                 stateName = "DoorBackOpen";
+                isOpen = true;
                 break;
             case doorAnim.closeFront:
                 stateName = "DoorFrontClose";
+                isOpen = false;
                 break;
             case doorAnim.closeBack:
                 stateName = "DoorBackClose";
+                isOpen = false;
                 break;
             default:
                 stateName = "DoorFrontOpen";
+                isOpen = true;
                 break;
         }
         DoorAnimator.Play(stateName);

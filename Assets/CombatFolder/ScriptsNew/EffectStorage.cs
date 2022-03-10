@@ -39,7 +39,7 @@ public class EffectStorage : MonoBehaviour
 		float finalDmg = Mathf.Clamp((ehs.myEffect.atk - es.def) * ehs.myEffect.amp, 0, float.MaxValue); // dmg = (atk - def) * amp
 		//print(ehs.myEffect.atk);
 		es.LoseHealth((int)finalDmg);
-		print("dealt " + (int)finalDmg + " damage");
+		//print("dealt " + (int)finalDmg + " damage");
 		if (FloatTextManager.Me.damageText && (int)finalDmg != 0)//float damage text
 			FloatTextManager.Me.SpawnFloatText(enemy, ""+ (int)finalDmg, FloatTextManager.TypeOfText.Damage);
 		// poise dmg
@@ -58,7 +58,7 @@ public class EffectStorage : MonoBehaviour
 				es.EnterHittedState(1);
 			}
 		}
-		print("dealt " + finalPD + " poise damage");
+		//print("dealt " + finalPD + " poise damage");
 		if (FloatTextManager.Me.poiseDamageText && (int)finalPD != 0)//float poise damage
 			FloatTextManager.Me.SpawnFloatText(enemy, "" + (int)finalPD, FloatTextManager.TypeOfText.poiseDamage);
 	}
