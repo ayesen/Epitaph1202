@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SoundMan : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class SoundMan : MonoBehaviour
     public int maxAudioSouces;
     private AudioSource[] sources;
     public AudioSource sourcePrefab;
+    public AudioMixer mianAudioMixer;
     [Header("SFX")]
     public AudioClip[] manWalkClips;
     public AudioClip[] bearWalkClips;
@@ -52,6 +54,7 @@ public class SoundMan : MonoBehaviour
     public void BattlePhaseOneVO()
     {
         AudioSource source = GetSource();
+        
         int clipNum = GetClipIndex(battleVOPhaseOne.Length, lastBPOne);
         lastBPOne = clipNum;
         source.clip = battleVOPhaseOne[clipNum];
