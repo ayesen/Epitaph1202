@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0, g: 0, b: 0, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 4cb78673c380e464cbd4f2038fe19516, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: e139395ec5509264e98220fea31803fc, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: e4d624fb571ee9844a399a6b1f62e133, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -2836,8 +2836,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 139662501}
   m_LocalRotation: {x: -0, y: 0.38268343, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: 63.639614, y: 0, z: 35.355347}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 61.89, y: 0, z: 31.9}
+  m_LocalScale: {x: 0.78, y: 1, z: 0.51}
   m_Children:
   - {fileID: 2042622476}
   - {fileID: 781704856}
@@ -10330,7 +10330,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &715442042
 Light:
   m_ObjectHideFlags: 0
@@ -15051,12 +15051,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e3ce70d257e34e44f8cfe78f5575bec7, type: 3}
   - {fileID: 8300000, guid: b2a7be5bbe07d224b9a7d392398adeb9, type: 3}
   - {fileID: 8300000, guid: 09872eb8ba9fb4f9392fdcb06311d2f6, type: 3}
-  hallwayTrigger: {fileID: 1973014959}
-  roomTriggerOne: {fileID: 1364850211}
-  balconyTriggerOne: {fileID: 1167610725}
-  roomTriggerTwo: {fileID: 1413455185}
-  balconyTriggerTwo: {fileID: 679086286}
-  roomTriggerThree: {fileID: 1192809601}
 --- !u!1 &1085998181 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 702329ba245b9b64a9b5cfed2981b67e, type: 3}
@@ -22266,60 +22260,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c7a28cbf9a185446a5b67a13ee24a06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  back: 276
-  next: 275
-  call: 9
-  pageBase: {fileID: 790369968}
-  coverPrefab: {fileID: 44947864939590406, guid: 3bf246c943e114156881c096ff956822, type: 3}
-  Page1: {fileID: 117171869}
-  Page2: {fileID: 1812365694}
-  Page3: {fileID: 2050984239}
-  Page4: {fileID: 1471171905}
-  Page5: {fileID: 1031893406}
-  PageBase:
-  - {fileID: 21300000, guid: 25f2204d5a08ea148b1fe07b6c5f1b74, type: 3}
-  - {fileID: 21300000, guid: 2d5e9f1dd2602ec44964239fef56941e, type: 3}
-  - {fileID: 21300000, guid: 4e1530beb7ef9944e9d18fdca602ff7b, type: 3}
-  - {fileID: 21300000, guid: 86537bfa4e02c4044a43afd5025e3ca8, type: 3}
-  - {fileID: 21300000, guid: 9126ccd676572954c94782e7e3407f89, type: 3}
-  P1Cover:
-  - {fileID: 21300000, guid: 575635cb898dd488c904d94c35634169, type: 3}
-  - {fileID: 21300000, guid: e86383e3eeabd43c69af718a0fd2a6a8, type: 3}
-  - {fileID: 21300000, guid: cd312e13c5f4140f6bcbff34fd873dd2, type: 3}
-  - {fileID: 21300000, guid: 764c37a2df4784178b4511bb104066cc, type: 3}
-  - {fileID: 21300000, guid: 43223da39d40548649fe2382ad9e6ed2, type: 3}
-  P2Cover:
-  - {fileID: 21300000, guid: 2f3fc7507c80b4c9c8f6323edddeb870, type: 3}
-  - {fileID: 21300000, guid: 6f0b72101fcd3431495129805a485a09, type: 3}
-  - {fileID: 21300000, guid: d4b1e513febe247b7b9be3c47b30bc0c, type: 3}
-  - {fileID: 21300000, guid: c2f24084226614fb7a05c79bed90968d, type: 3}
-  P3Cover:
-  - {fileID: 21300000, guid: 0d8bd1e97bab44ecba043bbaaeb1df94, type: 3}
-  - {fileID: 21300000, guid: bdec0c188d9104927be67beb8e7c0160, type: 3}
-  - {fileID: 21300000, guid: 4f5085e17d615411899670b66db1a38b, type: 3}
-  - {fileID: 21300000, guid: 217ca3bae37784ff1833cd3856fd650e, type: 3}
-  - {fileID: 21300000, guid: f2dcd89a56b154093a535b2aa15e5332, type: 3}
-  - {fileID: 21300000, guid: 809059abd11d648f896b977195c22bb3, type: 3}
-  P4Cover:
-  - {fileID: 21300000, guid: 86fc0ffe3baed40ad8692f0be07bdb8c, type: 3}
-  - {fileID: 21300000, guid: 07ae85bf5b8c84338a66e9f7e9a428b0, type: 3}
-  - {fileID: 21300000, guid: 98a37bcda9e1f4c8cac7b40b47793934, type: 3}
-  - {fileID: 21300000, guid: 84bae2c14de2d4a2e80a4e9ac325ab0c, type: 3}
-  - {fileID: 21300000, guid: ececf7ab0bdb44033ba524740491e5bb, type: 3}
-  - {fileID: 21300000, guid: a1bc6a66122ec452f999f6c6177fa4e6, type: 3}
-  P5Cover:
-  - {fileID: 21300000, guid: 2b316cfc8f8854182adf9e92d9f7f8c1, type: 3}
-  - {fileID: 21300000, guid: 19379717437bc4d73b5e0d7971437f05, type: 3}
-  - {fileID: 21300000, guid: 2da82a222a33f42e2b767dca0107d65c, type: 3}
-  - {fileID: 21300000, guid: 9a633f599e5d04126be9215dacd35307, type: 3}
-  - {fileID: 21300000, guid: e3a38f3affc2447a49c8b1afb2fc8a7a, type: 3}
-  - {fileID: 21300000, guid: d286122dd02ca404b8b816261e128926, type: 3}
-  duration: 0.2
-  P1CoverInstance: []
-  P2CoverInstance: []
-  P3CoverInstance: []
-  P4CoverInstance: []
-  P5CoverInstance: []
 --- !u!1 &1588970744
 GameObject:
   m_ObjectHideFlags: 0
@@ -22830,7 +22770,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxAudioSouces: 50
   sourcePrefab: {fileID: 6500670877884442635, guid: 7aab4b4054ab5794391ccb73c06d2279, type: 3}
-  mianAudioMixer: {fileID: 0}
+  mainAudioMixer: {fileID: 0}
   manWalkClips:
   - {fileID: 8300000, guid: b6a17781fa8394039984f4af3fef5cb7, type: 3}
   - {fileID: 8300000, guid: 1b6f8b0ae0f3e4dada76d0c69a18c9a1, type: 3}
@@ -24933,7 +24873,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1778642192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28503,6 +28443,7 @@ MonoBehaviour:
   bathroomBlood: {fileID: 8300000, guid: 7f6a2e340268649d3a3dc48a219a3ecf, type: 3}
   yangTaiPuzzle: {fileID: 8300000, guid: a0467fb8562e2442589a55162b614d14, type: 3}
   theme: {fileID: 8300000, guid: 277d634c3cd420f48a3ec94373b7ee97, type: 3}
+  safeHouse: {fileID: 0}
 --- !u!1 &2010090622
 GameObject:
   m_ObjectHideFlags: 0
@@ -29399,7 +29340,7 @@ Camera:
   far clip plane: 1000
   field of view: 50
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.91
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -29423,7 +29364,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2065436171}
   m_LocalRotation: {x: 0.19509031, y: 0, z: 0, w: 0.98078537}
-  m_LocalPosition: {x: 66, y: 8.5, z: 16}
+  m_LocalPosition: {x: 66, y: 5.35, z: 16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

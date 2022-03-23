@@ -31,7 +31,7 @@ public class CamScript : MonoBehaviour
   //          Mathf.Clamp(cameraPosition.z, Mathf.Max(transform.position.x + livingRoom.z_accordingToX_min, livingRoom.zMin), Mathf.Min(transform.position.x + livingRoom.z_accordingToX_max, livingRoom.zMax)));
   //      }
 
-		//transform.position = Vector3.Lerp(transform.position, cameraPosition, smoothness * Time.deltaTime);
+		transform.position = Vector3.Lerp(transform.position, cameraPosition, smoothness * Time.deltaTime);
 
         // look at
         if (enemy != null)
