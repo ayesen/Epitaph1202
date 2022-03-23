@@ -12,6 +12,7 @@ public class BGMMan : MonoBehaviour
     public AudioClip bathroomBlood;
     public AudioClip yangTaiPuzzle;
     public AudioClip theme;
+    public AudioClip safeHouse;
 
     private void Awake()
     {
@@ -25,6 +26,7 @@ public class BGMMan : MonoBehaviour
     private void Start()
     {
         BGMAudioSource = GetComponent<AudioSource>();
+        SoundMan.SoundManager.FindBGMGroup(BGMAudioSource);
     }
 
     public void DaughterRoomMusic()
@@ -58,8 +60,26 @@ public class BGMMan : MonoBehaviour
         BGMAudioSource.clip = theme;
         BGMAudioSource.Play();
     }
+
+    public void EnterSafeHoueBaguaMusic()
+    {
+        SoundMan.SoundManager.ChangeToSafeHouseSnapshot();
+        BGMAudioSource.Stop();
+        BGMAudioSource.loop = true;
+        BGMAudioSource.clip = safeHouse;
+        BGMAudioSource.Play();
+    }
+
+    public void EndSafeHoueBaguaMusic()
+    {
+        SoundMan.SoundManager.ChangeToSafeHouseSnapshot();
+        BGMAudioSource.Stop();
+        BGMAudioSource.loop = false;
+    }
+
     public void StartBattleMusic()
     {
+        SoundMan.SoundManager.ChangeToCombatSnapshot();
         BGMAudioSource.Stop();
         BGMAudioSource.loop = true;
         BGMAudioSource.clip = battleMusic;
@@ -68,6 +88,7 @@ public class BGMMan : MonoBehaviour
 
     public void EndBattleMusic()
     {
+        SoundMan.SoundManager.ChangeToNormalSnapshot();
         BGMAudioSource.Stop();
         BGMAudioSource.loop = false;
 
