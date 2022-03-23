@@ -24,12 +24,13 @@ public class CamScript : MonoBehaviour
     {
         cameraPosition = targetObject.position + initialOffset;
         // when in living room
-        if (inLivingRoom)
-		{
-            cameraPosition = new Vector3(Mathf.Clamp(cameraPosition.x, livingRoom.xMin, livingRoom.xMax),
-            cameraPosition.y,
-            Mathf.Clamp(cameraPosition.z, Mathf.Max(transform.position.x + livingRoom.z_accordingToX_min, livingRoom.zMin), Mathf.Min(transform.position.x + livingRoom.z_accordingToX_max, livingRoom.zMax)));
-        }
+  //      if (inLivingRoom)
+		//{
+  //          cameraPosition = new Vector3(Mathf.Clamp(cameraPosition.x, livingRoom.xMin, livingRoom.xMax),
+  //          cameraPosition.y,
+  //          Mathf.Clamp(cameraPosition.z, Mathf.Max(transform.position.x + livingRoom.z_accordingToX_min, livingRoom.zMin), Mathf.Min(transform.position.x + livingRoom.z_accordingToX_max, livingRoom.zMax)));
+  //      }
+
 		transform.position = Vector3.Lerp(transform.position, cameraPosition, smoothness * Time.deltaTime);
 
         // look at

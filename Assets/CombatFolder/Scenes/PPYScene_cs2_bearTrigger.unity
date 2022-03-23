@@ -2085,6 +2085,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DoorAnimator: {fileID: 72065106}
   isOpen: 0
+  animState: 0
 --- !u!1001 &75066569
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13417,6 +13418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DoorAnimator: {fileID: 659668370}
   isOpen: 0
+  animState: 0
 --- !u!1 &662607586
 GameObject:
   m_ObjectHideFlags: 0
@@ -14638,7 +14640,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &715442042
 Light:
   m_ObjectHideFlags: 0
@@ -20472,12 +20474,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e3ce70d257e34e44f8cfe78f5575bec7, type: 3}
   - {fileID: 8300000, guid: b2a7be5bbe07d224b9a7d392398adeb9, type: 3}
   - {fileID: 8300000, guid: 09872eb8ba9fb4f9392fdcb06311d2f6, type: 3}
-  hallwayTrigger: {fileID: 1973014959}
-  roomTriggerOne: {fileID: 1364850211}
-  balconyTriggerOne: {fileID: 1167610725}
-  roomTriggerTwo: {fileID: 1413455185}
-  balconyTriggerTwo: {fileID: 679086286}
-  roomTriggerThree: {fileID: 1192809601}
 --- !u!1 &1080841498
 GameObject:
   m_ObjectHideFlags: 0
@@ -27201,6 +27197,7 @@ MonoBehaviour:
   - {fileID: 1164498144}
   - {fileID: 754831136}
   - {fileID: 1103165787}
+  kids_House: []
   kids: []
 --- !u!54 &1455679841
 Rigidbody:
@@ -30237,6 +30234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxAudioSouces: 50
   sourcePrefab: {fileID: 6500670877884442635, guid: 7aab4b4054ab5794391ccb73c06d2279, type: 3}
+  mainAudioMixer: {fileID: 0}
   manWalkClips:
   - {fileID: 8300000, guid: b6a17781fa8394039984f4af3fef5cb7, type: 3}
   - {fileID: 8300000, guid: 1b6f8b0ae0f3e4dada76d0c69a18c9a1, type: 3}
@@ -36848,6 +36846,7 @@ MonoBehaviour:
   bathroomBlood: {fileID: 8300000, guid: 7f6a2e340268649d3a3dc48a219a3ecf, type: 3}
   yangTaiPuzzle: {fileID: 8300000, guid: a0467fb8562e2442589a55162b614d14, type: 3}
   theme: {fileID: 8300000, guid: 277d634c3cd420f48a3ec94373b7ee97, type: 3}
+  safeHouse: {fileID: 0}
 --- !u!1 &2001452819 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 87131f0531dc15b45b03e1a0d2dcaac0, type: 3}
@@ -37928,13 +37927,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2065436171}
-  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 66, y: 8.5, z: 16}
+  m_LocalRotation: {x: 0.19509031, y: 0, z: 0, w: 0.98078537}
+  m_LocalPosition: {x: 66, y: 6, z: 13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 22.5, y: 0, z: 0}
 --- !u!114 &2065436175
 MonoBehaviour:
   m_ObjectHideFlags: 0

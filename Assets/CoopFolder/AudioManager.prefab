@@ -51,12 +51,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e3ce70d257e34e44f8cfe78f5575bec7, type: 3}
   - {fileID: 8300000, guid: b2a7be5bbe07d224b9a7d392398adeb9, type: 3}
   - {fileID: 8300000, guid: 09872eb8ba9fb4f9392fdcb06311d2f6, type: 3}
-  hallwayTrigger: {fileID: 0}
-  roomTriggerOne: {fileID: 0}
-  balconyTriggerOne: {fileID: 0}
-  roomTriggerTwo: {fileID: 0}
-  balconyTriggerTwo: {fileID: 0}
-  roomTriggerThree: {fileID: 0}
 --- !u!82 &8547083582435111316
 AudioSource:
   m_ObjectHideFlags: 0
@@ -232,7 +226,7 @@ MonoBehaviour:
   bathroomBlood: {fileID: 8300000, guid: 7f6a2e340268649d3a3dc48a219a3ecf, type: 3}
   yangTaiPuzzle: {fileID: 8300000, guid: a0467fb8562e2442589a55162b614d14, type: 3}
   theme: {fileID: 8300000, guid: 277d634c3cd420f48a3ec94373b7ee97, type: 3}
-  safeHouse: {fileID: 0}
+  safeHouse: {fileID: 8300000, guid: 09872eb8ba9fb4f9392fdcb06311d2f6, type: 3}
 --- !u!82 &8547083582690931762
 AudioSource:
   m_ObjectHideFlags: 0
