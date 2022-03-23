@@ -13,12 +13,6 @@ public class AmbienceManager : MonoBehaviour
     
     public AudioClip[] ambienceClips; //0 is hall way, 1 is living room
 
-    public BoxCollider hallwayTrigger;
-    public BoxCollider roomTriggerOne;
-    public BoxCollider balconyTriggerOne;
-    public BoxCollider roomTriggerTwo;
-    public BoxCollider balconyTriggerTwo;
-    public BoxCollider roomTriggerThree;
 
     private void Awake()
     {
@@ -33,6 +27,7 @@ public class AmbienceManager : MonoBehaviour
     private void Start()
     {
         ambienceSource = GetComponent<AudioSource>();
+        SoundMan.SoundManager.FindAmbienceGroup(ambienceSource);
         player = GameObject.FindGameObjectWithTag("RealPlayer");
 
     }
@@ -40,31 +35,33 @@ public class AmbienceManager : MonoBehaviour
     void Update()
     {
         transform.position = player.transform.position; //ambience play at the player
-    }
-
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other == hallwayTrigger)
-        {
-            HallwayAmbiencePlay();
-        }
-
-        if (other == roomTriggerOne || other == roomTriggerTwo || other == roomTriggerThree)
-        {
-            RoomAmbiencePlay();
-        }
-
-        if(other == balconyTriggerOne || other == balconyTriggerTwo)
-        {
-            BalconyAmbiencePlay();
-        }
 
     }
+
+    //public void OnTriggerEnter(Collider other)
+    //{
+    //    if (other == hallwayTrigger)
+    //    {
+    //        HallwayAmbiencePlay();
+    //    }
+
+    //    if (other == roomTriggerOne || other == roomTriggerTwo || other == roomTriggerThree)
+    //    {
+    //        RoomAmbiencePlay();
+    //    }
+
+    //    //if(other == balconyTriggerOne || other == balconyTriggerTwo)
+    //    //{
+    //    //    BalconyAmbiencePlay();
+    //    //}
+
+    //}
 
     public void HallwayAmbiencePlay()
     {
         if (ambienceSource.clip != ambienceClips[0])
         {
+            SoundMan.SoundManager.ChangeToNormalSnapshot();
             ambienceSource.clip = ambienceClips[0];
             ambienceSource.volume = 0.1f;
             ambienceSource.Play();
@@ -74,6 +71,7 @@ public class AmbienceManager : MonoBehaviour
     {
         if (ambienceSource.clip != ambienceClips[1])
         {
+            SoundMan.SoundManager.ChangeToNormalSnapshot();
             ambienceSource.clip = ambienceClips[1];
             ambienceSource.volume = 0.5f;
             ambienceSource.Play();
@@ -84,17 +82,19 @@ public class AmbienceManager : MonoBehaviour
     {
         if (ambienceSource.clip != ambienceClips[2])
         {
+            SoundMan.SoundManager.ChangeToNormalSnapshot();
             ambienceSource.clip = ambienceClips[2];
             ambienceSource.volume = 1f;
             ambienceSource.Play();
         }
     }
 
-    public void SafeHouseAmbiencePlay()
-    {
-        BGMMan.bGMManger.BGMAudioSource.Stop();
-        ambienceSource.clip = ambienceClips[3];
-        ambienceSource.volume = 1f;
-        ambienceSource.Play();
-    }
+    //public void SafeHouseAmbiencePlay()
+    //{
+    //    BGMMan.bGMManger.BGMAudioSource.Stop();
+    //    SoundMan.SoundManager.ChangeToSafeHouseSnapshot();
+    //    ambienceSource.clip = ambienceClips[3];
+    //    ambienceSource.volume = 1f;
+    //    ambienceSource.Play();
+    //}
 }
