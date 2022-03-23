@@ -30847,6 +30847,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8547083582981390767, guid: 1b6d4f4d7b4b24e50be9c8ea9b6ddbe8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b6d4f4d7b4b24e50be9c8ea9b6ddbe8, type: 3}
 --- !u!1 &738301074
@@ -64940,60 +64944,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c7a28cbf9a185446a5b67a13ee24a06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  back: 276
-  next: 275
-  call: 9
-  pageBase: {fileID: 790369968}
-  coverPrefab: {fileID: 44947864939590406, guid: 3bf246c943e114156881c096ff956822, type: 3}
-  Page1: {fileID: 117171869}
-  Page2: {fileID: 1812365694}
-  Page3: {fileID: 2050984239}
-  Page4: {fileID: 1471171905}
-  Page5: {fileID: 1031893406}
-  PageBase:
-  - {fileID: 21300000, guid: 25f2204d5a08ea148b1fe07b6c5f1b74, type: 3}
-  - {fileID: 21300000, guid: 2d5e9f1dd2602ec44964239fef56941e, type: 3}
-  - {fileID: 21300000, guid: 4e1530beb7ef9944e9d18fdca602ff7b, type: 3}
-  - {fileID: 21300000, guid: 86537bfa4e02c4044a43afd5025e3ca8, type: 3}
-  - {fileID: 21300000, guid: 9126ccd676572954c94782e7e3407f89, type: 3}
-  P1Cover:
-  - {fileID: 21300000, guid: 575635cb898dd488c904d94c35634169, type: 3}
-  - {fileID: 21300000, guid: e86383e3eeabd43c69af718a0fd2a6a8, type: 3}
-  - {fileID: 21300000, guid: cd312e13c5f4140f6bcbff34fd873dd2, type: 3}
-  - {fileID: 21300000, guid: 764c37a2df4784178b4511bb104066cc, type: 3}
-  - {fileID: 21300000, guid: 43223da39d40548649fe2382ad9e6ed2, type: 3}
-  P2Cover:
-  - {fileID: 21300000, guid: 2f3fc7507c80b4c9c8f6323edddeb870, type: 3}
-  - {fileID: 21300000, guid: 6f0b72101fcd3431495129805a485a09, type: 3}
-  - {fileID: 21300000, guid: d4b1e513febe247b7b9be3c47b30bc0c, type: 3}
-  - {fileID: 21300000, guid: c2f24084226614fb7a05c79bed90968d, type: 3}
-  P3Cover:
-  - {fileID: 21300000, guid: 0d8bd1e97bab44ecba043bbaaeb1df94, type: 3}
-  - {fileID: 21300000, guid: bdec0c188d9104927be67beb8e7c0160, type: 3}
-  - {fileID: 21300000, guid: 4f5085e17d615411899670b66db1a38b, type: 3}
-  - {fileID: 21300000, guid: 217ca3bae37784ff1833cd3856fd650e, type: 3}
-  - {fileID: 21300000, guid: f2dcd89a56b154093a535b2aa15e5332, type: 3}
-  - {fileID: 21300000, guid: 809059abd11d648f896b977195c22bb3, type: 3}
-  P4Cover:
-  - {fileID: 21300000, guid: 86fc0ffe3baed40ad8692f0be07bdb8c, type: 3}
-  - {fileID: 21300000, guid: 07ae85bf5b8c84338a66e9f7e9a428b0, type: 3}
-  - {fileID: 21300000, guid: 98a37bcda9e1f4c8cac7b40b47793934, type: 3}
-  - {fileID: 21300000, guid: 84bae2c14de2d4a2e80a4e9ac325ab0c, type: 3}
-  - {fileID: 21300000, guid: ececf7ab0bdb44033ba524740491e5bb, type: 3}
-  - {fileID: 21300000, guid: a1bc6a66122ec452f999f6c6177fa4e6, type: 3}
-  P5Cover:
-  - {fileID: 21300000, guid: 2b316cfc8f8854182adf9e92d9f7f8c1, type: 3}
-  - {fileID: 21300000, guid: 19379717437bc4d73b5e0d7971437f05, type: 3}
-  - {fileID: 21300000, guid: 2da82a222a33f42e2b767dca0107d65c, type: 3}
-  - {fileID: 21300000, guid: 9a633f599e5d04126be9215dacd35307, type: 3}
-  - {fileID: 21300000, guid: e3a38f3affc2447a49c8b1afb2fc8a7a, type: 3}
-  - {fileID: 21300000, guid: d286122dd02ca404b8b816261e128926, type: 3}
-  duration: 0.2
-  P1CoverInstance: []
-  P2CoverInstance: []
-  P3CoverInstance: []
-  P4CoverInstance: []
-  P5CoverInstance: []
 --- !u!1 &1587806110
 GameObject:
   m_ObjectHideFlags: 0

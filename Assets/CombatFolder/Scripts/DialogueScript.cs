@@ -77,10 +77,10 @@ public class DialogueScript : MonoBehaviour
 							interactable.SetActive(true);
 						}
 
-						if (LogManager.LOGManager != null)
-						{
-							LogManager.LOGManager.CoverSetActive(logX, logY);
-						}
+						//if (LogManager.LOGManager != null)
+						//{
+						//	LogManager.LOGManager.CoverSetActive(logX, logY);
+						//}
 					}
 				}
 			}
@@ -95,10 +95,10 @@ public class DialogueScript : MonoBehaviour
 						interactable.SetActive(true);
 					}
 
-					if (LogManager.LOGManager != null)
-					{
-						LogManager.LOGManager.CoverSetActive(logX, logY);
-					}
+					//if (LogManager.LOGManager != null)
+					//{
+					//	LogManager.LOGManager.CoverSetActive(logX, logY);
+					//}
 				}
 			}
 		}
@@ -130,7 +130,7 @@ public class DialogueScript : MonoBehaviour
 			interactable.SetActive(true);
 		}
 
-		LogManager.LOGManager.CoverSetActive(logX, logY);
+		//LogManager.LOGManager.CoverSetActive(logX, logY);
 		//Destroy(this.gameObject);
 	}
 }
