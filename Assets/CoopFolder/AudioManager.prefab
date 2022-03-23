@@ -1,225 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8547083581765775679
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8547083581765775678}
-  - component: {fileID: 8547083581765775677}
-  m_Layer: 0
-  m_Name: BalconyTriggerTwo
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8547083581765775678
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8547083581765775679}
-  m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 75.2, y: 0.92, z: 53.55}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 8547083582981390765}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
---- !u!65 &8547083581765775677
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8547083581765775679}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.1709895, y: 2.21, z: 5.1602983}
-  m_Center: {x: 1.6559697, y: 0, z: -0.40730214}
---- !u!1 &8547083582105806012
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8547083582105805987}
-  - component: {fileID: 8547083582105805986}
-  m_Layer: 0
-  m_Name: RoomTriggerTwo
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8547083582105805987
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8547083582105806012}
-  m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 66.08, y: 1.13, z: 55.52}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 8547083582981390765}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
---- !u!65 &8547083582105805986
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8547083582105806012}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10.200309, y: 2.21, z: 1.75}
-  m_Center: {x: -2.3586905, y: 0, z: 0.00000018370508}
---- !u!1 &8547083582183247826
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8547083582183247825}
-  - component: {fileID: 8547083582183247824}
-  m_Layer: 0
-  m_Name: RoomTriggerOne
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8547083582183247825
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8547083582183247826}
-  m_LocalRotation: {x: -0, y: -0.38268343, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: 66.99, y: 1.144, z: 27.59}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 8547083582981390765}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: -45, z: 0}
---- !u!65 &8547083582183247824
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8547083582183247826}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.89, y: 2.21, z: 1.75}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &8547083582380354192
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8547083582380354199}
-  - component: {fileID: 8547083582380354198}
-  m_Layer: 0
-  m_Name: BalconyTriggerOne
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8547083582380354199
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8547083582380354192}
-  m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 68.77, y: 1.13, z: 56.79}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 8547083582981390765}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
---- !u!65 &8547083582380354198
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8547083582380354192}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10.200309, y: 2.21, z: 1.75}
-  m_Center: {x: -2.3586905, y: 0, z: 0.00000018370508}
---- !u!1 &8547083582422265228
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8547083582422265203}
-  - component: {fileID: 8547083582422265202}
-  m_Layer: 0
-  m_Name: RoomTriggerThree
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8547083582422265203
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8547083582422265228}
-  m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 77.42, y: 0.92, z: 51.59}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 8547083582981390765}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
---- !u!65 &8547083582422265202
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8547083582422265228}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.8370584, y: 2.21, z: 5.1602983}
-  m_Center: {x: 1.4889947, y: 0, z: -0.4073014}
 --- !u!1 &8547083582435111312
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,12 +51,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e3ce70d257e34e44f8cfe78f5575bec7, type: 3}
   - {fileID: 8300000, guid: b2a7be5bbe07d224b9a7d392398adeb9, type: 3}
   - {fileID: 8300000, guid: 09872eb8ba9fb4f9392fdcb06311d2f6, type: 3}
-  hallwayTrigger: {fileID: 8547083582648821852}
-  roomTriggerOne: {fileID: 8547083582183247824}
-  balconyTriggerOne: {fileID: 8547083582380354198}
-  roomTriggerTwo: {fileID: 8547083582105805986}
-  balconyTriggerTwo: {fileID: 8547083581765775677}
-  roomTriggerThree: {fileID: 8547083582422265202}
 --- !u!82 &8547083582435111316
 AudioSource:
   m_ObjectHideFlags: 0
@@ -402,50 +176,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!1 &8547083582648821854
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8547083582648821853}
-  - component: {fileID: 8547083582648821852}
-  m_Layer: 0
-  m_Name: HallwayTrigger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8547083582648821853
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8547083582648821854}
-  m_LocalRotation: {x: -0, y: -0.38268343, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: 69.13, y: 1.144, z: 25.59}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 8547083582981390765}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: -45, z: 0}
---- !u!65 &8547083582648821852
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8547083582648821854}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.89, y: 2.21, z: 1.75}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8547083582690931788
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,6 +226,7 @@ MonoBehaviour:
   bathroomBlood: {fileID: 8300000, guid: 7f6a2e340268649d3a3dc48a219a3ecf, type: 3}
   yangTaiPuzzle: {fileID: 8300000, guid: a0467fb8562e2442589a55162b614d14, type: 3}
   theme: {fileID: 8300000, guid: 277d634c3cd420f48a3ec94373b7ee97, type: 3}
+  safeHouse: {fileID: 8300000, guid: 09872eb8ba9fb4f9392fdcb06311d2f6, type: 3}
 --- !u!82 &8547083582690931762
 AudioSource:
   m_ObjectHideFlags: 0
@@ -622,12 +353,6 @@ Transform:
   m_Children:
   - {fileID: 8547083582690931763}
   - {fileID: 8547083582435111319}
-  - {fileID: 8547083582648821853}
-  - {fileID: 8547083582183247825}
-  - {fileID: 8547083582380354199}
-  - {fileID: 8547083582105805987}
-  - {fileID: 8547083581765775678}
-  - {fileID: 8547083582422265203}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -645,7 +370,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxAudioSouces: 50
   sourcePrefab: {fileID: 6500670877884442635, guid: 7aab4b4054ab5794391ccb73c06d2279, type: 3}
-  mianAudioMixer: {fileID: 24100000, guid: a3ad3a61a370044af92c7b69f17a4f18, type: 2}
+  mainAudioMixer: {fileID: 24100000, guid: a3ad3a61a370044af92c7b69f17a4f18, type: 2}
   manWalkClips:
   - {fileID: 8300000, guid: b6a17781fa8394039984f4af3fef5cb7, type: 3}
   - {fileID: 8300000, guid: 1b6f8b0ae0f3e4dada76d0c69a18c9a1, type: 3}
