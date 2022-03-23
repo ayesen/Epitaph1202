@@ -76,9 +76,9 @@ public class SafehouseManager : MonoBehaviour
             //Debug.Log("Safehouse");
             ResetMatAmount();
             AmbienceManager.ambienceManager.SafeHouseAmbiencePlay();//enter safehouse sound
-            if(enemyScript != null)
-                enemyScript.ResetEnemy(); // [Safehouse update]need some more detail
-            PostProcessingManager.Me.StopAllCoroutines();
+            //if(enemyScript != null)
+                //enemyScript.ResetEnemy(); // [Safehouse update]need some more detail
+            //PostProcessingManager.Me.StopAllCoroutines();
             PostProcessingManager.Me.StartCoroutine(PostProcessingManager.Me.ResetFilter());
             StartCoroutine(FadeCanvas(cg, 1f, fadeTime));
             checkBoolChange = isSafehouse;

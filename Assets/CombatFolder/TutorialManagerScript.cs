@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Resources;
 using UnityEngine;
 
 public class TutorialManagerScript : MonoBehaviour
@@ -9,7 +10,7 @@ public class TutorialManagerScript : MonoBehaviour
     public GameObject tutorBear;
 
 	// state machine
-    private int tut_state = 0;
+    public int tut_state = 0;
     private int state_poise = 1;
     private int state_cd = 2;
     private int state_dmg = 3;
@@ -19,13 +20,19 @@ public class TutorialManagerScript : MonoBehaviour
 	public AIStateBase tutBear_currentState;
 
 	// open door
-	public DoorScript doorToOpen;
+	public List<DoorScript> doorToOpen;
 
 	// dialogues
 	public GameObject dialg_pd;
 	public GameObject dialg_cd;
 	public GameObject dialg_dmg;
 	public GameObject dialg_finished;
+	
+	// mats check
+	public List<GameObject> combination;
+	public GameObject match;
+	public GameObject nail;
+	public GameObject cotton;
 
 	private void Awake()
 	{
@@ -40,15 +47,14 @@ public class TutorialManagerScript : MonoBehaviour
 			// set state
 			tut_state = state_poise;
 			// enable small bear
-			tutorBear.GetComponent<SmallBear>().enabled = true;
-			tutorBear.GetComponent<AIController>().enabled = true;
+			// tutorBear.GetComponent<SmallBear>().enabled = true;
+			// tutorBear.GetComponent<AIController>().enabled = true;
 			dialg_pd.GetComponent<DialogueScript>().enabled = true; // enable dialogue script, show dialogue
 		}
 	}
 
 	private void Update()
 	{
-		print(tut_state);
 		TutStateMachine();
 		if (tut_state != 0 && tut_state != state_finished) 
 		{
@@ -66,7 +72,8 @@ public class TutorialManagerScript : MonoBehaviour
 
 	private void TutStateMachine()
 	{
-		if (tutBear_currentState == tutorBear.GetComponent<AIController>().downedState &&
+		if (combination.Contains(nail) &&
+		    combination.Contains(cotton) &&
 			tut_state == state_poise)
 		{
 			tut_state = state_cd;
@@ -74,7 +81,8 @@ public class TutorialManagerScript : MonoBehaviour
 		}
 		else if (tutBear_currentState == tutorBear.GetComponent<AIController>().downedState &&
 			tut_state == state_cd &&
-			PlayerScriptNew.me.matSlots[1].GetComponent<MatScriptNew>().amount == 5)
+			combination.Contains(match) &&
+			combination.Contains(cotton))
 		{
 			tut_state = state_dmg;
 			dialg_dmg.GetComponent<DialogueScript>().enabled = true;
@@ -84,10 +92,29 @@ public class TutorialManagerScript : MonoBehaviour
 		{
 			dialg_finished.GetComponent<DialogueScript>().enabled = true;
 			tut_state = state_finished;
-			if (doorToOpen != null)
+
+			if (doorToOpen.Count > 0)
 			{
-				doorToOpen.OpenFront();
+				foreach (var door in doorToOpen)
+				{
+					door.ControllDoor();
+				}
 			}
 		}
+
+		
+	}
+
+	private void ActivateBear()
+	{
+		// enable small bear
+		tutorBear.GetComponent<SmallBear>().enabled = true;
+		tutorBear.GetComponent<AIController>().enabled = true;
+		tutorBear.GetComponent<EffectHoldersHolderScript>().enabled = true;
+	}
+	
+	public void PassCombination(List<GameObject> comb)
+	{
+		combination = comb;
 	}
 }

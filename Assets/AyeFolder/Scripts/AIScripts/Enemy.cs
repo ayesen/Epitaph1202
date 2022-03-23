@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+//using AmplifyShaderEditor;
 using UnityEngine;
 using UnityEngine.AI;
 using TMPro;
@@ -23,7 +24,7 @@ public class Enemy : MonoBehaviour
     public int postAtkSpd;
     public int changePhaseTime;
     public int healthLimit;
-    public int changeLimit = 2;
+    public int changeLimit;
     public float hittedTime;
     public float knockbackAmount;
     public float dot_interval;
@@ -109,6 +110,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        changeLimit = Mathf.Clamp(changeLimit, 0, int.MaxValue);
         //HittedStatesIndication();
         AIDead();
         PhaseSetting();
@@ -215,7 +217,7 @@ public class Enemy : MonoBehaviour
                 EnemyDialogueManagerScript.me.SpawnDialogueTrigger(0);
             }*/
             myAC.ChangeState(myAC.dieState);
-            EnemyCanvas.SetActive(false);
+            //EnemyCanvas.SetActive(false);
             //FadeInManager.Me.StartCoroutine(UIManager.Me.FadeCanvas(FadeInManager.Me.GetComponent<CanvasGroup>(), 1, 3));
             //StartCoroutine(EndGame(3));
             if (MusicIsStopped == false)
@@ -242,7 +244,7 @@ public class Enemy : MonoBehaviour
         maxShield = 30;
         shield = maxShield;
         //maxShield = 200;
-        changeLimit = 2;
+        changeLimit = 3;
         //Mother.BackKids();
         var item = GameObject.Find("GirlJournal");
         if (item != null)

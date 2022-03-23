@@ -36,15 +36,15 @@ public class ObjectDestructionScript : MonoBehaviour
 		{
 			if (collision.gameObject.GetComponent<SpellScript>() != null && collision.gameObject.GetComponent<SpellScript>().mats.Contains(react_mat))
 			{
+				Vector3 dir = transform.position - collision.transform.position;
+				rb.AddForce(dir.normalized * flyAmount, ForceMode.Impulse);
+				StartCoroutine(StartSink());
 				GameObject impact_sphere = Instantiate(impact_prefab);
-				impact_sphere.transform.position = transform.position;
+				impact_sphere.transform.position = collision.transform.position;
 				foreach (var mat in collision.gameObject.GetComponent<SpellScript>().mats)
 				{
 					impact_sphere.GetComponent<ImpactBallScript>().mats.Add(mat);
 				}
-				Vector3 dir = transform.position - collision.transform.position;
-				rb.AddForce(dir.normalized * flyAmount, ForceMode.Impulse);
-				StartCoroutine(StartSink());
 			}
 			else if (collision.gameObject.GetComponent<ImpactBallScript>() != null && collision.gameObject.GetComponent<ImpactBallScript>().mats.Contains(react_mat))
 			{
@@ -74,8 +74,8 @@ public class ObjectDestructionScript : MonoBehaviour
 
 	private void Sinking()
 	{
-		float y;
-		y = transform.position.y - sinkSpd * Time.deltaTime;
+		float y = transform.position.y - sinkSpd * Time.deltaTime;
+		print(gameObject.name);
 		transform.position = new Vector3(transform.position.x, y, transform.position.z);
 		
 		// count down self destruction

@@ -61,6 +61,10 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 	{
 		dT = ds;
 		dialogueToShow = ds.texts;
+		// foreach (var text in ds.texts)
+		// {
+		// 	dialogueToShow.Add(text);
+		// }
 		restrictMovement = ds.restrictMovement;
 		autoAdvance = ds.autoAdvance;
 		burnAfterReading = ds.oneTimeDialogue;
@@ -73,7 +77,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 		objectDes_ui_eng.text = dialogueToShow[index].description_eng;
 		if (restrictMovement) // if this dialogue prohibit player from moving when reading
 		{
-			PlayerScript.me.GetComponentInChildren<Animator>().Play("readingText");
+			PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("readingText");
 		}
 		StartCoroutine(SetTextShowingToTrue());
 		
@@ -157,6 +161,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 						}
 						if (burnAfterReading)
 						{
+							print("auto: called destruction");
 							Destroy(dT.gameObject);
 						}
 					}
@@ -212,6 +217,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 						}
 						if (burnAfterReading)
 						{
+							print("called destruction");
 							Destroy(dT.gameObject);
 						}
 					}
@@ -274,6 +280,8 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 							aS.clip = dialogueToShow[index].clip;
 							aS.Play();
 						}
+
+						optionIndex = 0;
 					}
 					else if (Input.GetAxis("VerticalArrow") == 0)
                     {

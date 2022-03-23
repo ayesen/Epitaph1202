@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 874f62f90c205d1449d95914a7b6ec17, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 5d8e9be3429ba1845941913137033c12, type: 2}
 --- !u!1001 &714716
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29779,13 +29779,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerRange: 5
-  autoTrigger: 0
-  autoAdvance: 0
+  autoTrigger: 1
+  autoAdvance: 1
   areaTrigger: 0
   displayDelayed: 0
   texts:
-  - description_cht: "\u5C0F\u718A"
-    description_eng: bear
+  - description_cht: 
+    description_eng: 
     clip: {fileID: 0}
     time: 0
     options: []
