@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class CandlePuzzleManager : MonoBehaviour
 {
+	[Header("Candle Manager")]
 	public List<GameObject> candles; // put in order
 	public List<GameObject> lightedCandles; // candles that the player lighted
+	private bool matched = false;
 
+	[Header("Method Caller")]
 	public string methodToCall;
 	public GameObject methodsOwner;
 
-	private bool matched = false;
+	[Header("Door Opener")]
+	public List<DoorScript> doors_iCtrl;
 
 	private void Start()
 	{
@@ -22,7 +26,28 @@ public class CandlePuzzleManager : MonoBehaviour
 		if (DoListsMatch(candles, lightedCandles) && !matched)
 		{
 			print("matched");
+			CallFunction();
 			matched = true;
+			if (doors_iCtrl.Count > 0)
+			{
+				foreach (var door in doors_iCtrl)
+				{
+					if (!door.isOpen)
+					{
+						print("fuck my life");
+						door.ControllDoor();
+					}
+				}
+			}
+			lightedCandles.Clear();
+		}
+		else if (lightedCandles.Count == candles.Count)
+		{
+			foreach (var candle in lightedCandles)
+			{
+				candle.GetComponent<CandleScript>().HideStuffs(candle.GetComponent<CandleScript>().objects_toShow); // hide flames
+			}
+			lightedCandles.Clear();
 		}
 	}
 

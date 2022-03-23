@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+//using AmplifyShaderEditor;
 using UnityEngine;
 using UnityEngine.AI;
 using TMPro;
@@ -23,7 +24,7 @@ public class Enemy : MonoBehaviour
     public int postAtkSpd;
     public int changePhaseTime;
     public int healthLimit;
-    public int changeLimit = 2;
+    public int changeLimit;
     public float hittedTime;
     public float knockbackAmount;
     public float dot_interval;
@@ -39,7 +40,6 @@ public class Enemy : MonoBehaviour
     public float edr; // endurance: 0 ~ 1
     public float edr_atk;
     public float edr_normal;
-    public float stun_threshold; // when the poise dmg is greater than stun threshold, enemy's animation will be interrupted
     public float down_time; // how long the enemy stay downed when downed
     public float downPoise;
     public float downPoise_max;
@@ -110,6 +110,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        changeLimit = Mathf.Clamp(changeLimit, 0, int.MaxValue);
         //HittedStatesIndication();
         AIDead();
         PhaseSetting();
@@ -216,7 +217,7 @@ public class Enemy : MonoBehaviour
                 EnemyDialogueManagerScript.me.SpawnDialogueTrigger(0);
             }*/
             myAC.ChangeState(myAC.dieState);
-            EnemyCanvas.SetActive(false);
+            //EnemyCanvas.SetActive(false);
             //FadeInManager.Me.StartCoroutine(UIManager.Me.FadeCanvas(FadeInManager.Me.GetComponent<CanvasGroup>(), 1, 3));
             //StartCoroutine(EndGame(3));
             if (MusicIsStopped == false)
@@ -243,7 +244,7 @@ public class Enemy : MonoBehaviour
         maxShield = 30;
         shield = maxShield;
         //maxShield = 200;
-        changeLimit = 2;
+        changeLimit = 3;
         //Mother.BackKids();
         var item = GameObject.Find("GirlJournal");
         if (item != null)
@@ -257,7 +258,8 @@ public class Enemy : MonoBehaviour
         }
         else
             isPhaseTwo = true;
-        ChangePhase(AIPhase.NotInBattle, 1);
+        //ChangePhase(AIPhase.NotInBattle, 1); // [Safehouse update] currently commented by Takaya
+        gameObject.SetActive(false);
         myAC.ChangeState(myAC.idleState);
         this.transform.position = ResetPos;
         //breakMeter_ui.enabled = false;
@@ -446,7 +448,8 @@ public class Enemy : MonoBehaviour
         breakMeter_ui.enabled = true;
         //hittedStates.enabled = true;
         myTrigger.myMR.enabled = true;
-        ChangePhase(AIPhase.InBattle1, 1);
+        //ChangePhase(AIPhase.InBattle1, 1); // [Safehouse update] currently commented by Takaya
+        gameObject.SetActive(true);
         SafehouseManager.Me.canSafehouse = true;
         BGMMan.bGMManger.StartBattleMusic();
         var item = GameObject.Find("GirlJournal");

@@ -13,8 +13,8 @@ public class MatInventoryManager : MonoBehaviour
 
     void Start()
     {
-        playerInventory = PlayerScript.me.tempInventory;
-        ChangeMatIcon();
+        //playerInventory = PlayerScript.me.tempInventory;
+        //ChangeMatIcon();
     }
 
     void Update()

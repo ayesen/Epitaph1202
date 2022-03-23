@@ -61,6 +61,10 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 	{
 		dT = ds;
 		dialogueToShow = ds.texts;
+		// foreach (var text in ds.texts)
+		// {
+		// 	dialogueToShow.Add(text);
+		// }
 		restrictMovement = ds.restrictMovement;
 		autoAdvance = ds.autoAdvance;
 		burnAfterReading = ds.oneTimeDialogue;
@@ -73,13 +77,14 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 		objectDes_ui_eng.text = dialogueToShow[index].description_eng;
 		if (restrictMovement) // if this dialogue prohibit player from moving when reading
 		{
-			PlayerScript.me.GetComponentInChildren<Animator>().Play("readingText");
+			PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("readingText");
 		}
 		StartCoroutine(SetTextShowingToTrue());
 		
 		// show options
 		if (dialogueToShow[index].options.Count > 0) // if there are options for this line
 		{
+			print("show options");
 			ShowOptions();
 		}
 
@@ -119,7 +124,10 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 					imageBG.SetActive(false);
 					blurMask.SetActive(false);
 					imageDisplayer.SetActive(false);
-					LogManager.LOGManager.CoverSetActive(dialogueToShow[index].logX, dialogueToShow[index].logY);
+					if (LogManager.LOGManager != null)
+					{
+						LogManager.LOGManager.CoverSetActive(dialogueToShow[index].logX, dialogueToShow[index].logY);
+					}
 					if (index < dialogueToShow.Count - 1)
 					{
 						index++;
@@ -153,6 +161,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 						}
 						if (burnAfterReading)
 						{
+							print("auto: called destruction");
 							Destroy(dT.gameObject);
 						}
 					}
@@ -173,6 +182,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 						objectDes_ui_eng.text = dialogueToShow[index].description_eng;
 						if (dialogueToShow[index].options.Count > 0) // if there are options after this line
 						{
+							print("show option");
 							ShowOptions();
 						}
 						// play audio
@@ -180,6 +190,11 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 						{
 							aS.clip = dialogueToShow[index].clip;
 							aS.Play();
+						}
+						// roll back
+						if (dialogueToShow[index].rollBack)
+						{
+							dialogueToShow.Insert(index + 1, dialogueToShow[dialogueToShow[index].rollBack_index]);
 						}
 					}
 					else // when the dialogue ends
@@ -202,6 +217,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 						}
 						if (burnAfterReading)
 						{
+							print("called destruction");
 							Destroy(dT.gameObject);
 						}
 					}
@@ -245,11 +261,11 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 					{
 						for (int i = dialogueToShow[index].options[optionIndex].dialogues.Count - 1; i >= 0 ; i--)
 						{
-							dialogueToShow.Insert(index+1, dialogueToShow[index].options[optionIndex].dialogues[i]);
+							dialogueToShow.Insert(index + 1, dialogueToShow[index].options[optionIndex].dialogues[i]);
 						}
 						// foreach (var dialogue in dialogueToShow[index].options[optionIndex].dialogues)
 						// {
-						// 	dialogueToShow.Insert(index+1, dialogue);               
+						// 	dialogueToShow.Insert(index+1, dialogue);
 						// }
 						optionSelection.SetActive(false);
 						foreach (var option in options)
@@ -264,6 +280,8 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 							aS.clip = dialogueToShow[index].clip;
 							aS.Play();
 						}
+
+						optionIndex = 0;
 					}
 					else if (Input.GetAxis("VerticalArrow") == 0)
                     {

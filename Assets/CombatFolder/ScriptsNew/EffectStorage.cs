@@ -39,7 +39,8 @@ public class EffectStorage : MonoBehaviour
 		float finalDmg = Mathf.Clamp((ehs.myEffect.atk - es.def) * ehs.myEffect.amp, 0, float.MaxValue); // dmg = (atk - def) * amp
 		//print(ehs.myEffect.atk);
 		es.LoseHealth((int)finalDmg);
-		if (FloatTextManager.Me.damageText && (int)finalDmg != 0)//float damage text
+		//print("dealt " + (int)finalDmg + " damage");
+		if (FloatTextManager.Me.damageText && (int)finalDmg > 0)//float damage text
 			FloatTextManager.Me.SpawnFloatText(enemy, ""+ (int)finalDmg, FloatTextManager.TypeOfText.Damage);
 		// poise dmg
 		float finalPD = ehs.myEffect.atk / es.edr;
@@ -57,19 +58,34 @@ public class EffectStorage : MonoBehaviour
 				es.EnterHittedState(1);
 			}
 		}
-		print("dealt " + finalPD + " poise damage");
-		// break dmg
-		if (ehs.myEffect.doThis == EffectStructNew.Effect.ampDummy)
-		{
-			PlayerScriptNew.me.RecovMatCD((int)ehs.myEffect.amp);
-		}
+		//print("dealt " + finalPD + " poise damage");
+		if (FloatTextManager.Me.poiseDamageText && (int)finalPD > 0)//float poise damage
+			FloatTextManager.Me.SpawnFloatText(enemy, "" + (int)finalPD, FloatTextManager.TypeOfText.poiseDamage);
 	}
 	public void HurtEnemyBasedOnDis(EffectHolderScript ehs, GameObject enemy, float dis)
 	{
-		float finalDmg = (ehs.myEffect.atk - enemy.GetComponent<Enemy>().def) * ehs.myEffect.amp;
-		float dmgToDeal = 1f / dis * finalDmg;
-		enemy.GetComponent<Enemy>().LoseHealth((int)dmgToDeal);
-		enemy.GetComponent<CombatInfoScript>().infoToDisplay.Add("dealt " + (int)dmgToDeal + " dmg");
+		Enemy es = enemy.GetComponent<Enemy>();
+		// hp dmg
+		float finalDmg = Mathf.Clamp((ehs.myEffect.atk - es.def) * ehs.myEffect.amp, 0, float.MaxValue); // dmg = (atk - def) * amp
+		float dmgToDeal = 1f / dis * finalDmg; //
+		es.LoseHealth((int)dmgToDeal);
+		// poise dmg
+		float finalPD = ehs.myEffect.atk / es.edr;
+		//print("edr: "+es.edr);
+		es.downPoise -= finalPD;
+		es.stunPoise -= finalPD;
+		if (es.downPoise <= 0) // check downed
+		{
+			es.EnterDownedState();
+			es.downPoise = es.downPoise_max;
+		}
+		else if (es.stunPoise <= 0) // check stunned
+		{
+			if (es.myAC.currentState != es.myAC.downedState)
+			{
+				es.EnterHittedState(1);
+			}
+		}
 	}
 	public void DotEnemy(EffectHolderScript ehs, GameObject enemy)
 	{
@@ -85,7 +101,7 @@ public class EffectStorage : MonoBehaviour
 			float finalDmg = (ehs.myEffect.atk - enemy.GetComponent<Enemy>().def) * ehs.myEffect.amp;
 			enemy.GetComponent<Enemy>().LoseHealth((int)finalDmg);
 			SpawnParticle(fragments_dot, enemy.transform.position);
-			if (FloatTextManager.Me.damageText && (int)finalDmg != 0)
+			if (FloatTextManager.Me.damageText && (int)finalDmg > 0)
 				FloatTextManager.Me.SpawnFloatText(enemy, "" + (int)finalDmg, FloatTextManager.TypeOfText.Damage);
 			yield return new WaitForSeconds(dot_interval);
 		}
@@ -154,6 +170,8 @@ public class EffectStorage : MonoBehaviour
 		{
 			//print((int)ehs.myEffect.amp);
 			PlayerScriptNew.me.RecovMatCD((int)ehs.myEffect.amp);
+			if (FloatTextManager.Me.CDText && (int)ehs.myEffect.amp > 0)//float CD text
+				FloatTextManager.Me.SpawnFloatText(enemy, "" + (int)ehs.myEffect.amp, FloatTextManager.TypeOfText.CD);
 			Enemy eS = enemy.GetComponent<Enemy>();
 			eS.breakMeter -= (int)ehs.myEffect.amp;
 			if (eS.breakMeter <= 0)
@@ -190,16 +208,19 @@ public class EffectStorage : MonoBehaviour
 		//		ForceMode.Impulse);
 		//}
 		// drop boss mat randomly
-		GameObject bossMatDropped = mainEnemyOfThisLevel.GetComponent<Enemy>().myMats[Random.Range(0, 2)];
-		Vector3 spawnPos_bossMat = new Vector3(enemy.transform.position.x, enemy.transform.position.y + 0.7f, enemy.transform.position.z);
-		GameObject droppedMat_bossMat = Instantiate(droppedMat_prefab, spawnPos_bossMat, Random.rotation);
-		droppedMat_bossMat.GetComponent<DroppedMatScript>().myMat = bossMatDropped;
-		droppedMat_bossMat.GetComponent<DroppedMatScript>().amount = 1;
-		droppedMat_bossMat.GetComponent<Rigidbody>().AddForce(
-			new Vector3(Random.Range(-droppedMat_flyAmount, droppedMat_flyAmount),
-			3, // force upward
-			Random.Range(-droppedMat_flyAmount, droppedMat_flyAmount)),
-			ForceMode.Impulse);
+		if (enemy.GetComponent<SmallBear>() == null)
+		{
+			GameObject bossMatDropped = mainEnemyOfThisLevel.GetComponent<Enemy>().myMats[Random.Range(0, 2)];
+			Vector3 spawnPos_bossMat = new Vector3(enemy.transform.position.x, enemy.transform.position.y + 0.7f, enemy.transform.position.z);
+			GameObject droppedMat_bossMat = Instantiate(droppedMat_prefab, spawnPos_bossMat, Random.rotation);
+			droppedMat_bossMat.GetComponent<DroppedMatScript>().myMat = bossMatDropped;
+			droppedMat_bossMat.GetComponent<DroppedMatScript>().amount = 1;
+			droppedMat_bossMat.GetComponent<Rigidbody>().AddForce(
+				new Vector3(Random.Range(-droppedMat_flyAmount, droppedMat_flyAmount),
+				3, // force upward
+				Random.Range(-droppedMat_flyAmount, droppedMat_flyAmount)),
+				ForceMode.Impulse);
+		}
 	}
 	#endregion
 	#region HEAL AND BUFFS
