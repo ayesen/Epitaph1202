@@ -86,7 +86,7 @@ public class DialogueScript : MonoBehaviour
 			}
 			else // auto show text
 			{
-				if (displayDelayed <= 0f)
+				if (displayDelayed <= 0f && !inspected)
 				{
 					inspected = true;
 					ObjectInspectorManagerScript.me.ShowText(this);
