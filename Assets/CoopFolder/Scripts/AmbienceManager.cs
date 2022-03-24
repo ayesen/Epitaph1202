@@ -62,9 +62,8 @@ public class AmbienceManager : MonoBehaviour
         if (ambienceSource.clip != ambienceClips[0])
         {
             SoundMan.SoundManager.ChangeToNormalSnapshot();
-            ambienceSource.clip = ambienceClips[0];
-            ambienceSource.volume = 0.1f;
-            ambienceSource.Play();
+            StartCoroutine(FadeTrack(ambienceClips[0], 0.1f));
+            
         }
     }
     public void RoomAmbiencePlay()
@@ -72,9 +71,8 @@ public class AmbienceManager : MonoBehaviour
         if (ambienceSource.clip != ambienceClips[1])
         {
             SoundMan.SoundManager.ChangeToNormalSnapshot();
-            ambienceSource.clip = ambienceClips[1];
-            ambienceSource.volume = 0.5f;
-            ambienceSource.Play();
+            StartCoroutine(FadeTrack(ambienceClips[1], 0.5f));
+            
         }
     }
 
@@ -83,9 +81,8 @@ public class AmbienceManager : MonoBehaviour
         if (ambienceSource.clip != ambienceClips[2])
         {
             SoundMan.SoundManager.ChangeToNormalSnapshot();
-            ambienceSource.clip = ambienceClips[2];
-            ambienceSource.volume = 1f;
-            ambienceSource.Play();
+            StartCoroutine(FadeTrack(ambienceClips[2], 1f));
+            
         }
     }
 
@@ -97,4 +94,34 @@ public class AmbienceManager : MonoBehaviour
     //    ambienceSource.volume = 1f;
     //    ambienceSource.Play();
     //}
+
+    private IEnumerator FadeTrack(AudioClip clip, float idealVolume)
+    {
+        float fadeInTime = 0.3f;
+        float fadeInTimeElapsed = 0f;
+        float currentVolume = ambienceSource.volume;
+
+        while (fadeInTimeElapsed < fadeInTime)
+        {
+            ambienceSource.volume = Mathf.Lerp(currentVolume, 0, fadeInTimeElapsed / fadeInTime);
+            fadeInTimeElapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        ambienceSource.Stop();
+        ambienceSource.clip = clip;
+        ambienceSource.Play();
+
+        float fadeOutTime = 0.5f;
+        float fadeOutTimeElapsed = 0f;
+
+        while (fadeOutTimeElapsed < fadeOutTime)
+        {
+            ambienceSource.volume = Mathf.Lerp(0, idealVolume, fadeOutTimeElapsed / fadeOutTime);
+            fadeOutTimeElapsed += Time.deltaTime;
+            yield return null;
+        }
+        
+
+    }
 }
