@@ -49,7 +49,8 @@ public class SafehouseManager : MonoBehaviour
     void Update()
     {
         //Test change bool
-        if (Input.GetKeyDown(KeyCode.B) || Input.GetButtonDown("BButton"))
+        if (Input.GetKeyDown(KeyCode.B) || Input.GetButtonDown("BButton") &&
+            !PlayerScriptNew.me.anim.GetCurrentAnimatorStateInfo(0).IsName("readingText"))
         {
             if(isSafehouse)
                 isSafehouse = false;
