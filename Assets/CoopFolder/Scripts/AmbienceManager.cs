@@ -35,7 +35,6 @@ public class AmbienceManager : MonoBehaviour
     void Update()
     {
         transform.position = player.transform.position; //ambience play at the player
-
     }
 
     //public void OnTriggerEnter(Collider other)

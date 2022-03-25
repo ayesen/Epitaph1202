@@ -58820,6 +58820,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 199564424747727130, guid: 227da076e12dbfa4b990f022b9a9dc8e, type: 3}
   m_PrefabInstance: {fileID: 53153128}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1440344669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440344667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef91e28f91944fe4fabd530be27fb0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bears_canBeLockedOn: []
+  max_lockon_dis: 10
 --- !u!1 &1441326639
 GameObject:
   m_ObjectHideFlags: 0
