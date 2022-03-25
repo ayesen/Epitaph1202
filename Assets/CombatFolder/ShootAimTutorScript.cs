@@ -94,6 +94,8 @@ public class ShootAimTutorScript : MonoBehaviour
 					door.ControllDoor();
 				}
 			}
+			// small bear runs away
+			tutorBear.GetComponent<SmallBear>().GoToLoc();
 		}
 
 
