@@ -82,7 +82,6 @@ public class Enemy : MonoBehaviour
 
     [Header("SCRIPTED EVENTS")]
     public GameObject eventTarget;
-    public float stopDis;
 
     //private
     private int healthRecord;
@@ -123,11 +122,6 @@ public class Enemy : MonoBehaviour
         RegenerateStunPoise();
         Phase2Duration();
         //print("current state: "+myAC.currentState);
-        if (Input.GetKeyDown(KeyCode.G))
-		{
-            GoToLoc();
-		}
-        print(target);
     }
 
     private void ChangeEdrBasedOnStates()
