@@ -31,66 +31,99 @@ public class BGMMan : MonoBehaviour
 
     public void DaughterRoomMusic()
     {
-        BGMAudioSource.Stop();
+        
         BGMAudioSource.loop = false;
-        BGMAudioSource.clip = daughterRoom;
-        BGMAudioSource.Play();
+        StartCoroutine(FadeTrack(daughterRoom));
     }
 
     public void BathRoomBloodMusic()
     {
-        BGMAudioSource.Stop();
+
         BGMAudioSource.loop = false;
-        BGMAudioSource.clip = bathroomBlood;
-        BGMAudioSource.Play();
+        StartCoroutine(FadeTrack(bathroomBlood));
     }
 
     public void YangtaiPuzzleMusic()
     {
-        BGMAudioSource.Stop();
+        
         BGMAudioSource.loop = false;
-        BGMAudioSource.clip = yangTaiPuzzle;
-        BGMAudioSource.Play();
+        StartCoroutine(FadeTrack(yangTaiPuzzle));
     }
 
     public void EndCreditMusic()
     {
-        BGMAudioSource.Stop();
+        
         BGMAudioSource.loop = false;
-        BGMAudioSource.clip = theme;
-        BGMAudioSource.Play();
+        StartCoroutine(FadeTrack(theme));
     }
 
     public void EnterSafeHoueBaguaMusic()
     {
         SoundMan.SoundManager.ChangeToSafeHouseSnapshot();
-        BGMAudioSource.Stop();
+        
         BGMAudioSource.loop = true;
-        BGMAudioSource.clip = safeHouse;
-        BGMAudioSource.Play();
+        StartCoroutine(FadeTrack(safeHouse));
     }
 
     public void EndSafeHoueBaguaMusic()
     {
-        SoundMan.SoundManager.ChangeToSafeHouseSnapshot();
-        BGMAudioSource.Stop();
+        SoundMan.SoundManager.ChangeToNormalSnapshot();
+        
         BGMAudioSource.loop = false;
+        StartCoroutine(FadeTrack(null));
     }
 
     public void StartBattleMusic()
     {
         SoundMan.SoundManager.ChangeToCombatSnapshot();
-        BGMAudioSource.Stop();
+        
         BGMAudioSource.loop = true;
-        BGMAudioSource.clip = battleMusic;
-        BGMAudioSource.Play();
+        StartCoroutine(FadeTrack(battleMusic));
     }
 
     public void EndBattleMusic()
     {
         SoundMan.SoundManager.ChangeToNormalSnapshot();
-        BGMAudioSource.Stop();
+        
         BGMAudioSource.loop = false;
+        StartCoroutine(FadeTrack(null));
+
+    }
+
+    private IEnumerator FadeTrack(AudioClip clip)
+    {
+        if (BGMAudioSource.isPlaying)
+        {
+            float fadeInTime = 0.25f;
+            float fadeInTimeElapsed = 0f;
+            float currentVolume = BGMAudioSource.volume;
+            
+            while (fadeInTimeElapsed < fadeInTime)
+            {
+                BGMAudioSource.volume = Mathf.Lerp(1, 0, fadeInTimeElapsed / fadeInTime);
+                fadeInTimeElapsed += Time.deltaTime;
+                yield return null;
+            }
+            
+            BGMAudioSource.Stop();
+        }
+
+        if (clip != null)
+        {
+            BGMAudioSource.clip = clip;
+            BGMAudioSource.Play();
+            
+            float fadeOutTime = 0.25f;
+            float fadeOutTimeElapsed = 0f;
+            
+            while (fadeOutTimeElapsed < fadeOutTime)
+            {
+                BGMAudioSource.volume = Mathf.Lerp(0, 1, fadeOutTimeElapsed / fadeOutTime);
+                fadeOutTimeElapsed += Time.deltaTime;
+                yield return null;
+            }
+        }
+        
 
     }
 }

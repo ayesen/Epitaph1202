@@ -79,6 +79,10 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 		{
 			PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("readingText");
 		}
+		else if (!restrictMovement)
+        {
+			PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("testIdle");
+		}
 		StartCoroutine(SetTextShowingToTrue());
 		
 		// show options

@@ -11,10 +11,12 @@ public class TutorialManagerScript : MonoBehaviour
 
 	// state machine
     public int tut_state = 0;
-    private int state_poise = 1;
+	public float timer = 10;
+	private int state_poise = 1;
     private int state_cd = 2;
     private int state_dmg = 3;
 	private int state_finished = 4;
+	private float timer_default = 10;
 
 	// tutor bear monitor
 	public AIStateBase tutBear_currentState;
@@ -24,8 +26,11 @@ public class TutorialManagerScript : MonoBehaviour
 
 	// dialogues
 	public GameObject dialg_pd;
+	public GameObject dialg_pdRD;
 	public GameObject dialg_cd;
+	public GameObject dialg_cdRD;
 	public GameObject dialg_dmg;
+	public GameObject dialg_dmgRD;
 	public GameObject dialg_finished;
 	
 	// mats check
@@ -34,9 +39,12 @@ public class TutorialManagerScript : MonoBehaviour
 	public GameObject nail;
 	public GameObject cotton;
 
+	private Coroutine cur_coroutine;
+
 	private void Awake()
 	{
 		me = this;
+		timer_default = timer;
 	}
 
 	private void OnTriggerEnter(Collider other)
@@ -50,6 +58,8 @@ public class TutorialManagerScript : MonoBehaviour
 			// tutorBear.GetComponent<SmallBear>().enabled = true;
 			// tutorBear.GetComponent<AIController>().enabled = true;
 			dialg_pd.GetComponent<DialogueScript>().enabled = true; // enable dialogue script, show dialogue
+			if (cur_coroutine == null)
+				cur_coroutine = StartCoroutine(RepeatDialogue());
 		}
 	}
 
@@ -76,6 +86,7 @@ public class TutorialManagerScript : MonoBehaviour
 		    combination.Contains(cotton) &&
 			tut_state == state_poise)
 		{
+			timer = timer_default;
 			tut_state = state_cd;
 			dialg_cd.GetComponent<DialogueScript>().enabled = true;
 		}
@@ -84,12 +95,14 @@ public class TutorialManagerScript : MonoBehaviour
 			combination.Contains(match) &&
 			combination.Contains(cotton))
 		{
+			timer = timer_default;
 			tut_state = state_dmg;
 			dialg_dmg.GetComponent<DialogueScript>().enabled = true;
 		}
 		else if (tut_state == state_dmg &&
 			tutorBear.GetComponent<SmallBear>().health <= 0)
 		{
+			StopAllCoroutines();
 			dialg_finished.GetComponent<DialogueScript>().enabled = true;
 			tut_state = state_finished;
 
@@ -103,6 +116,34 @@ public class TutorialManagerScript : MonoBehaviour
 		}
 
 		
+	}
+	
+	private IEnumerator RepeatDialogue()
+	{
+		while (true)
+		{
+			yield return null;
+			timer -= Time.deltaTime;
+			if (timer <= 0)
+			{
+				if (tut_state == 1)
+				{
+					GameObject RPDialg = Instantiate(dialg_pdRD, transform);
+					RPDialg.GetComponent<DialogueScript>().enabled = true;
+				}
+				else if (tut_state == 2)
+				{
+					GameObject RPDialg = Instantiate(dialg_cdRD, transform);
+					RPDialg.GetComponent<DialogueScript>().enabled = true;
+				}
+				else if (tut_state == 3)
+				{
+					GameObject RPDialg = Instantiate(dialg_dmgRD, transform);
+					RPDialg.GetComponent<DialogueScript>().enabled = true;
+				}
+				timer = timer_default;
+			}
+		}
 	}
 
 	private void ActivateBear()

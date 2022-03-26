@@ -113,7 +113,8 @@ public class PlayerScriptNew : MonoBehaviour
 			if (!anim.GetCurrentAnimatorStateInfo(0).IsName("testWindup") &&
 				!anim.GetCurrentAnimatorStateInfo(0).IsName("testATK") &&
                 !anim.GetCurrentAnimatorStateInfo(0).IsName("testBackswing") &&
-				!anim.GetCurrentAnimatorStateInfo(0).IsName("readingText"))
+				!anim.GetCurrentAnimatorStateInfo(0).IsName("readingText") &&
+				!SafehouseManager.Me.isSafehouse)
             {
 				if (Input.GetKeyUp(KeyCode.Alpha1) || Input.GetButtonUp("XButton") && matSlots[0] != null)
 				{

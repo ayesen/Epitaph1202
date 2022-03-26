@@ -20,11 +20,11 @@ public class EnemyDialogueManagerScript : MonoBehaviour
 
 	public void SpawnDialogueTrigger(int index)
 	{
-		if (enemy.GetComponent<Enemy>().dialogueTrigger == null)
-		{
-			GameObject newDialogueTrigger = Instantiate(dialogueTriggers[index], enemy.transform);
-			newDialogueTrigger.transform.position = enemy.transform.position;
-			enemy.GetComponent<Enemy>().dialogueTrigger = newDialogueTrigger;
-		}
+		//if (enemy.GetComponent<Enemy>().dialogueTrigger == null)
+		//{
+		//	GameObject newDialogueTrigger = Instantiate(dialogueTriggers[index], enemy.transform);
+		//	newDialogueTrigger.transform.position = enemy.transform.position;
+		//	enemy.GetComponent<Enemy>().dialogueTrigger = newDialogueTrigger;
+		//}
 	}
 }
