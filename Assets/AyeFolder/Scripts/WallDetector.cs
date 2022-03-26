@@ -10,5 +10,18 @@ public class WallDetector : MonoBehaviour
 	{
 		if (other.gameObject.CompareTag("Player"))
 			WallHider.me.roomPlayerIsIn = whichRoomIAm;
-	}
+
+        switch (WallHider.me.roomPlayerIsIn)
+        {
+            case WallHider.Room.spawnHallway:
+                AmbienceManager.ambienceManager.HallwayAmbiencePlay();
+                break;
+            case WallHider.Room.balcany:
+                AmbienceManager.ambienceManager.BalconyAmbiencePlay();
+                break;
+            default:
+                AmbienceManager.ambienceManager.RoomAmbiencePlay();
+                break;
+        }
+    }
 }
