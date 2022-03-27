@@ -108,63 +108,56 @@ public class ChangeInventory : MonoBehaviour
                     choosenMatIndex = 2;
             }
 
-        if (!isChanging)
-        {
-            //choosen mat
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("AButton"))
+            if (!isChanging)
             {
-                choosenMat = choosenMatIndex;
-                choosenMatIndex = 0;
-                isChanging = true;
-                SoundMan.SoundManager.SafehouseMaterialSelect();
+                //Limit range
+                if (choosenMatIndex - 4 > DI.Amount_Of_Inventory - 1)
+                {
+                    choosenMatIndex = DI.Amount_Of_Inventory + 3;
+                }
+                //choosen mat
+                if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("AButton"))
+                {
+                    choosenMat = choosenMatIndex;
+                    choosenMatIndex = 0;
+                    print(choosenMatIndex);
+                    isChanging = true;
+                    SoundMan.SoundManager.SafehouseMaterialSelect();
+                }
             }
-            //Limit range
-            if (choosenMatIndex - 4 > DI.Amount_Of_Inventory - 1)
+            else
             {
-                choosenMatIndex = DI.Amount_Of_Inventory + 3;
-            }
-            else if (choosenMatIndex < 4)
-            {
-                choosenMatIndex = 4;
-            }
-        }
-        else
-        {
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("AButton"))
-            {
-                ChangeMat(choosenMatIndex, choosenMat);
-                DI.CreateDisplay();
-                UIManager.Me.UI_ChangeIcon();
-                isChanging = false;
-                choosenMatIndex = 4;
-                SoundMan.SoundManager.SafehouseMaterialSwap();
+                if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("AButton"))
+                {
+                    ChangeMat(choosenMatIndex, choosenMat);
+                    DI.CreateDisplay();
+                    UIManager.Me.UI_ChangeIcon();
+                    isChanging = false;
+                    choosenMatIndex = 4;
+                    SoundMan.SoundManager.SafehouseMaterialSwap();
+                }
+
+                if(choosenMatIndex < 0)
+                {
+                    choosenMatIndex = 0;
+                }
             }
 
-            if(choosenMatIndex < 0)
+            //Draw the square
+            if (!isChanging)
             {
-                choosenMatIndex = 0;
+                choosenSquare.color = Color.white;
+                if (choosenMatIndex < 4)
+                    choosenMatIndex = 4;
+                choosenSquare.GetComponent<RectTransform>().localPosition = GetPosition(choosenMatIndex - 4);
+                choosenCircle.enabled = false;
             }
-            else if(choosenMatIndex > 2)
+            else
             {
-                choosenMatIndex = 2;
+                choosenSquare.color = new Color32(227, 103, 31, 255);
+                choosenCircle.enabled = true;
+                choosenCircle.GetComponent<RectTransform>().localPosition = DisplayInventory.Me.GetPosition(choosenMatIndex - 4) + Vector3.up * -213f + Vector3.right * 50f;
             }
-        }
-
-        //Draw the square
-        if (!isChanging)
-        {
-            choosenSquare.color = Color.white;
-            if (choosenMatIndex < 4)
-                choosenMatIndex = 4;
-            choosenSquare.GetComponent<RectTransform>().localPosition = GetPosition(choosenMatIndex - 4);
-            choosenCircle.enabled = false;
-        }
-        else
-        {
-            choosenSquare.color = new Color32(227, 103, 31, 255);
-            choosenCircle.enabled = true;
-            choosenCircle.GetComponent<RectTransform>().localPosition = DisplayInventory.Me.GetPosition(choosenMatIndex - 4) + Vector3.up * 190f + Vector3.right * 50;
-        }
             //Show description
             if (PlayerScriptNew.me.matSlots[choosenMatIndex] != null)
                 description.text = PlayerScriptNew.me.matSlots[choosenMatIndex].GetComponent<MatScriptNew>().Description;
@@ -183,6 +176,7 @@ public class ChangeInventory : MonoBehaviour
             Debug.Log("choosenMat null");
             PlayerScriptNew.me.matSlots.RemoveAt(targetMat);
         }
+        PlayerScriptNew.me.MatSlotUpdate();
     }
     public Vector3 GetPosition(int i)
     {
