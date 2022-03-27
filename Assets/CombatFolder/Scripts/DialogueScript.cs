@@ -131,7 +131,6 @@ public class DialogueScript : MonoBehaviour
 		}
 
 		//LogManager.LOGManager.CoverSetActive(logX, logY);
-		//Destroy(this.gameObject);
 	}
 }
 
