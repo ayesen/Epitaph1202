@@ -75,16 +75,17 @@ public class ShootAimTutorScript : MonoBehaviour
 
 	private void TutStateMachine()
 	{
-		if (Input.GetButtonUp("XButton") || Input.GetKeyUp(KeyCode.Alpha1) &&
+		if ((Input.GetButtonUp("XButton") || Input.GetKeyUp(KeyCode.Alpha1)) &&
 			tut_state == state_select)
 		{
 			timer = timer_default;
 			tut_state = state_aim;
 			dialg_aim.GetComponent<DialogueScript>().enabled = true;
 		}
-		else if (Input.GetAxis("LT") > 0 || Input.GetKeyDown(KeyCode.Mouse1) &&
+		else if ((Input.GetAxis("LT") > 0 || Input.GetKeyDown(KeyCode.Mouse1)) &&
 			tut_state == state_aim)
 		{
+			print("aim to finished");
 			StopAllCoroutines();
 			dialg_finished.GetComponent<DialogueScript>().enabled = true;
 			tut_state = state_finished;

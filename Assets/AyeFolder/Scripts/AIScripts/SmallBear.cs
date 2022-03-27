@@ -15,7 +15,6 @@ public class SmallBear : Enemy
         health = maxHealth;
         ghostRider = GetComponent<UnityEngine.AI.NavMeshAgent>();
         phase = Enemy.AIPhase.InBattle1;
-        print(eventTarget);
     }
     void Start()
     {
