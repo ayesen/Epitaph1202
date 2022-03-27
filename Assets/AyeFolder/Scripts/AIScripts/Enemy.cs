@@ -81,14 +81,12 @@ public class Enemy : MonoBehaviour
     public List<GameObject> myMats;
 
     [Header("SCRIPTED EVENTS")]
-    public Transform eventTarget;
-    public float stopDis;
-    public GameObject dialogueTrigger;
+    public GameObject eventTarget;
 
     //private
     private int healthRecord;
     private int shieldRecord;
-    private bool MusicIsStopped = false;
+    //private bool MusicIsStopped = false;
 
     [Header("PHASE 2 TIMER")]
     public float duration_phase2;
@@ -123,10 +121,6 @@ public class Enemy : MonoBehaviour
         ChangeEdrBasedOnStates();
         RegenerateStunPoise();
         Phase2Duration();
-        if (edr == 0)
-		{
-            //Time.timeScale = 0;
-		}
         //print("current state: "+myAC.currentState);
     }
 
@@ -220,11 +214,14 @@ public class Enemy : MonoBehaviour
             //EnemyCanvas.SetActive(false);
             //FadeInManager.Me.StartCoroutine(UIManager.Me.FadeCanvas(FadeInManager.Me.GetComponent<CanvasGroup>(), 1, 3));
             //StartCoroutine(EndGame(3));
-            if (MusicIsStopped == false)
-            {
-                BGMMan.bGMManger.EndBattleMusic();
-                MusicIsStopped = true;
-            }
+            //if (MusicIsStopped == false)
+            //{
+            //    BGMMan.bGMManger.EndBattleMusic();
+            //    MusicIsStopped = true;
+            //}
+
+            BGMMan.bGMManger.EndTeddyBattleMusic();
+
             return true;
         }
         else
@@ -437,28 +434,6 @@ public class Enemy : MonoBehaviour
         phase = AIPhase.InBattle1;
     }
 
-    public void GotoLoc()
-    {
-        // go to specific location and stand still for dialogue
-        EnemyCanvas.SetActive(true);
-        BearMesh.SetActive(true);
-        this.GetComponent<CapsuleCollider>().enabled = true;
-        this.GetComponent<NavMeshAgent>().enabled = true;
-        //EnemyCanvas.SetActive(true);
-        breakMeter_ui.enabled = true;
-        //hittedStates.enabled = true;
-        myTrigger.myMR.enabled = true;
-        //ChangePhase(AIPhase.InBattle1, 1); // [Safehouse update] currently commented by Takaya
-        gameObject.SetActive(true);
-        SafehouseManager.Me.canSafehouse = true;
-        BGMMan.bGMManger.StartBattleMusic();
-        var item = GameObject.Find("GirlJournal");
-        if (item == null)
-        {
-            isPhaseTwo = true;
-        }
-    }
-
     private void BreakMeter_recovery()
     {
         if (breakMeter < breakMeterMax)
@@ -543,5 +518,10 @@ public class Enemy : MonoBehaviour
                 timer_phase2 -= Time.deltaTime;
             }
         }
+	}
+
+    public void GoToLoc()
+	{
+        target = eventTarget;
 	}
 }
