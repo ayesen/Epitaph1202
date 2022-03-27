@@ -51,7 +51,7 @@ public class SoundMan : MonoBehaviour
         }
     }
 
-    public void BattlePhaseOneVO()
+    public void BattlePhaseOneVO() //not in use right now
     {
         AudioSource source = GetSource();
 
@@ -65,7 +65,7 @@ public class SoundMan : MonoBehaviour
         source.Play();
     }
 
-    public void BattlePhaseTwoVO()
+    public void BattlePhaseTwoVO() //also not in use
     {
         AudioSource source = GetSource();
 
