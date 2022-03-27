@@ -362,7 +362,6 @@ MonoBehaviour:
   edr: 0
   edr_atk: 0
   edr_normal: 0
-  stun_threshold: 0
   down_time: 0
   downPoise: 0
   downPoise_max: 0
@@ -390,8 +389,6 @@ MonoBehaviour:
   breakMeter_ui: {fileID: 0}
   myMats: []
   eventTarget: {fileID: 0}
-  stopDis: 0
-  dialogueTrigger: {fileID: 0}
   duration_phase2: 0
 --- !u!114 &6992877877134007319
 MonoBehaviour:
@@ -406,6 +403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myEnemy: {fileID: 3136817324366852236}
+  tutBear: 0
 --- !u!114 &5338299881972810667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,7 +424,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1087830168452021571}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f59b1363a088f3543b84a85c1100f1bf, type: 3}
   m_Name: 

@@ -2889,6 +2889,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1303691120}
     - target: {fileID: 5603555314290144243, guid: 227da076e12dbfa4b990f022b9a9dc8e, type: 3}
+      propertyPath: matSlots.Array.data[3]
+      value: 
+      objectReference: {fileID: 1092794031}
+    - target: {fileID: 5603555314290144243, guid: 227da076e12dbfa4b990f022b9a9dc8e, type: 3}
       propertyPath: matSlots.Array.data[4]
       value: 
       objectReference: {fileID: 639882311}
