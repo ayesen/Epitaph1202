@@ -70,6 +70,7 @@ public class BGMMan : MonoBehaviour
     {
         if(!(BGMAudioSource.isPlaying && (BGMAudioSource.clip == tinyBattleMusic)))
         {
+            SoundMan.SoundManager.ChangeToCombatSnapshot();
             BGMAudioSource.loop = true;
             StartCoroutine(FadeTrack(tinyBattleMusic));
         }
