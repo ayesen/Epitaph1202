@@ -116,14 +116,14 @@ MonoBehaviour:
     doThis: 1
     toWhom: 1
     forHowMuch: 0
-    atk: 1
+    atk: 2
     amp: 5
     myModifiers: []
     forHowLong: 0
   dummyEffectForDmg:
     when: 0
     iS: 0
-    doThis: 1
+    doThis: 2
     toWhom: 1
     forHowMuch: 0
     atk: 0
