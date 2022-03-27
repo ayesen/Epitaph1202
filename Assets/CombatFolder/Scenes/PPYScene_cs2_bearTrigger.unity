@@ -545,7 +545,6 @@ MonoBehaviour:
   myMats: []
   eventTarget: {fileID: 0}
   stopDis: 0
-  dialogueTrigger: {fileID: 0}
   duration_phase2: 0
 --- !u!114 &15641241
 MonoBehaviour:
@@ -931,7 +930,6 @@ MonoBehaviour:
   myMats: []
   eventTarget: {fileID: 0}
   stopDis: 0
-  dialogueTrigger: {fileID: 0}
   duration_phase2: 0
 --- !u!114 &17142805
 MonoBehaviour:
@@ -3331,7 +3329,6 @@ MonoBehaviour:
   myMats: []
   eventTarget: {fileID: 0}
   stopDis: 0
-  dialogueTrigger: {fileID: 0}
   duration_phase2: 0
 --- !u!114 &130506149
 MonoBehaviour:
@@ -6147,7 +6144,6 @@ MonoBehaviour:
   myMats: []
   eventTarget: {fileID: 0}
   stopDis: 0
-  dialogueTrigger: {fileID: 0}
   duration_phase2: 0
 --- !u!114 &289837598
 MonoBehaviour:
@@ -8340,7 +8336,7 @@ GameObject:
   - component: {fileID: 401130437}
   - component: {fileID: 401130436}
   m_Layer: 6
-  m_Name: TutorBear
+  m_Name: SmallBear
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8366,7 +8362,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 401130434}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d8384a8056bdeb4e93d9c72e19287db, type: 3}
   m_Name: 
@@ -8380,7 +8376,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 401130434}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79fabfd9a3aa8c345a768b6bb8c003e0, type: 3}
   m_Name: 
@@ -8439,9 +8435,8 @@ MonoBehaviour:
   recovery_spd: 0
   breakMeter_ui: {fileID: 0}
   myMats: []
-  eventTarget: {fileID: 0}
+  eventTarget: {fileID: 1120678525}
   stopDis: 0
-  dialogueTrigger: {fileID: 0}
   duration_phase2: 0
 --- !u!114 &401130439
 MonoBehaviour:
@@ -8450,7 +8445,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 401130434}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 220b4ef096a2506468ba33a056d026a1, type: 3}
   m_Name: 
@@ -8673,7 +8668,7 @@ Transform:
   - {fileID: 881188625}
   - {fileID: 705042171}
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &402697343
 PrefabInstance:
@@ -9290,7 +9285,6 @@ MonoBehaviour:
   myMats: []
   eventTarget: {fileID: 0}
   stopDis: 0
-  dialogueTrigger: {fileID: 0}
   duration_phase2: 0
 --- !u!114 &434270340
 MonoBehaviour:
@@ -10939,7 +10933,6 @@ MonoBehaviour:
   myMats: []
   eventTarget: {fileID: 0}
   stopDis: 0
-  dialogueTrigger: {fileID: 0}
   duration_phase2: 0
 --- !u!114 &529925737
 MonoBehaviour:
@@ -11861,7 +11854,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 31
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &568830946
 PrefabInstance:
@@ -13181,7 +13174,7 @@ Transform:
   - {fileID: 642366800}
   - {fileID: 659668369}
   m_Father: {fileID: 0}
-  m_RootOrder: 32
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
 --- !u!1001 &653881759
 PrefabInstance:
@@ -16143,7 +16136,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 33
+  m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &827185301 stripped
 GameObject:
@@ -21156,6 +21149,36 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7629811779324647873, guid: af278184522e1e54d84251dbe6d79573, type: 3}
+--- !u!1 &1120678525
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1120678526}
+  m_Layer: 6
+  m_Name: EventLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1120678526
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120678525}
+  m_LocalRotation: {x: -0, y: 0.92387956, z: -0, w: 0.38268343}
+  m_LocalPosition: {x: 65.05382, y: 2, z: 31.11269}
+  m_LocalScale: {x: 1.1165978, y: 1.116597, z: 1.1165978}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 30
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1126731268 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: af278184522e1e54d84251dbe6d79573, type: 3}
@@ -24949,7 +24972,6 @@ MonoBehaviour:
   myMats: []
   eventTarget: {fileID: 0}
   stopDis: 0
-  dialogueTrigger: {fileID: 0}
   duration_phase2: 0
 --- !u!114 &1369079327
 MonoBehaviour:
@@ -27164,7 +27186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1455679838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27338,7 +27360,6 @@ MonoBehaviour:
   - {fileID: 1032884326}
   eventTarget: {fileID: 0}
   stopDis: 2.2
-  dialogueTrigger: {fileID: 0}
   duration_phase2: 10
 --- !u!114 &1455679845
 MonoBehaviour:
@@ -29879,7 +29900,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 34
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1605806877
 GameObject:
@@ -31137,7 +31158,6 @@ MonoBehaviour:
   myMats: []
   eventTarget: {fileID: 0}
   stopDis: 0
-  dialogueTrigger: {fileID: 0}
   duration_phase2: 0
 --- !u!114 &1713988158
 MonoBehaviour:
@@ -31657,7 +31677,6 @@ MonoBehaviour:
   myMats: []
   eventTarget: {fileID: 0}
   stopDis: 0
-  dialogueTrigger: {fileID: 0}
   duration_phase2: 0
 --- !u!114 &1725539218
 MonoBehaviour:
