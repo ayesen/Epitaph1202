@@ -46,6 +46,8 @@ public class ShootAimTutorScript : MonoBehaviour
 		// 激活小熊，瞄准教学
 		if (other.gameObject.CompareTag("Player") && tut_state == 0)
 		{
+			// cancel select
+			PlayerScriptNew.me.selectedMats.Clear();
 			// set state
 			tut_state = state_select;
 			// enable small bear
@@ -71,7 +73,7 @@ public class ShootAimTutorScript : MonoBehaviour
 
 	private void TutStateMachine()
 	{
-		if (Input.GetButtonUp("XButton") || Input.GetKeyUp(KeyCode.Alpha1) && !PlayerScriptNew.me.selectedMats.Contains(match) &&
+		if (Input.GetButtonUp("XButton") || Input.GetKeyUp(KeyCode.Alpha1) &&
 			tut_state == state_select)
 		{
 			timer = timer_default;
@@ -94,9 +96,13 @@ public class ShootAimTutorScript : MonoBehaviour
 					door.ControllDoor();
 				}
 			}
+			// small bear runs away
+			ActivateBear();
+			tutorBear.GetComponent<SmallBear>().GoToLoc();
+			tutorBear.GetComponent<SmallBear>().moveSpeed = 8;
+			LockOnManager.me.bears_canBeLockedOn.Remove(tutorBear);
+			Destroy(tutorBear, 2f);
 		}
-
-
 	}
 
 	private IEnumerator RepeatDialogue()
