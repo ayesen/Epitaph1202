@@ -116,7 +116,7 @@ MonoBehaviour:
     doThis: 1
     toWhom: 1
     forHowMuch: 0
-    atk: 2
+    atk: 1
     amp: 5
     myModifiers: []
     forHowLong: 0
