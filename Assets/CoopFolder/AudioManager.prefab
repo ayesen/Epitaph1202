@@ -222,9 +222,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BGMAudioSource: {fileID: 0}
   battleMusic: {fileID: 8300000, guid: 7c8b4466c9bdd4173b710ac3d01b07a1, type: 3}
-  daughterRoom: {fileID: 8300000, guid: 637ed25e6c43642f1b35b37c12817c73, type: 3}
-  bathroomBlood: {fileID: 8300000, guid: 7f6a2e340268649d3a3dc48a219a3ecf, type: 3}
-  yangTaiPuzzle: {fileID: 8300000, guid: a0467fb8562e2442589a55162b614d14, type: 3}
+  lordGuan: {fileID: 8300000, guid: 637ed25e6c43642f1b35b37c12817c73, type: 3}
+  firstTinyTeddy: {fileID: 8300000, guid: 7f6a2e340268649d3a3dc48a219a3ecf, type: 3}
+  tinyBattleMusic: {fileID: 8300000, guid: a0467fb8562e2442589a55162b614d14, type: 3}
   theme: {fileID: 8300000, guid: 277d634c3cd420f48a3ec94373b7ee97, type: 3}
   safeHouse: {fileID: 8300000, guid: 09872eb8ba9fb4f9392fdcb06311d2f6, type: 3}
 --- !u!82 &8547083582690931762

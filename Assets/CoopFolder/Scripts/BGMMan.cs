@@ -8,9 +8,9 @@ public class BGMMan : MonoBehaviour
     public AudioSource BGMAudioSource;
 
     public AudioClip battleMusic;
-    public AudioClip daughterRoom;
-    public AudioClip bathroomBlood;
-    public AudioClip yangTaiPuzzle;
+    public AudioClip lordGuan;
+    public AudioClip firstTinyTeddy;
+    public AudioClip tinyBattleMusic;
     public AudioClip theme;
     public AudioClip safeHouse;
 
@@ -29,25 +29,18 @@ public class BGMMan : MonoBehaviour
         SoundMan.SoundManager.FindBGMGroup(BGMAudioSource);
     }
 
-    public void DaughterRoomMusic()
+    public void SecondGuangongMusic()
     {
         
         BGMAudioSource.loop = false;
-        StartCoroutine(FadeTrack(daughterRoom));
+        StartCoroutine(FadeTrack(lordGuan));
     }
 
-    public void BathRoomBloodMusic()
+    public void FirstTinyTeddyMusic() //after the first teddy disappeared
     {
 
         BGMAudioSource.loop = false;
-        StartCoroutine(FadeTrack(bathroomBlood));
-    }
-
-    public void YangtaiPuzzleMusic()
-    {
-        
-        BGMAudioSource.loop = false;
-        StartCoroutine(FadeTrack(yangTaiPuzzle));
+        StartCoroutine(FadeTrack(firstTinyTeddy));
     }
 
     public void EndCreditMusic()
@@ -73,7 +66,22 @@ public class BGMMan : MonoBehaviour
         StartCoroutine(FadeTrack(null));
     }
 
-    public void StartBattleMusic()
+    public void StartTinyTeddyCombatMusic()
+    {
+
+        BGMAudioSource.loop = true;
+        StartCoroutine(FadeTrack(tinyBattleMusic));
+    }
+
+    public void EndTinyTeddyMusic()
+    {
+        SoundMan.SoundManager.ChangeToNormalSnapshot();
+
+        BGMAudioSource.loop = false;
+        StartCoroutine(FadeTrack(null));
+    }
+
+    public void StartTeddyBattleMusic()
     {
         SoundMan.SoundManager.ChangeToCombatSnapshot();
         
@@ -81,7 +89,7 @@ public class BGMMan : MonoBehaviour
         StartCoroutine(FadeTrack(battleMusic));
     }
 
-    public void EndBattleMusic()
+    public void EndTeddyBattleMusic()
     {
         SoundMan.SoundManager.ChangeToNormalSnapshot();
         
