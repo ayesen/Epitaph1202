@@ -114,7 +114,8 @@ public class PlayerScriptNew : MonoBehaviour
 				!anim.GetCurrentAnimatorStateInfo(0).IsName("testATK") &&
                 !anim.GetCurrentAnimatorStateInfo(0).IsName("testBackswing") &&
 				!anim.GetCurrentAnimatorStateInfo(0).IsName("readingText") &&
-				!SafehouseManager.Me.isSafehouse)
+				!SafehouseManager.Me.isSafehouse &&
+				!SafehouseManager.Me.isFading)
             {
 				if (Input.GetKeyUp(KeyCode.Alpha1) || Input.GetButtonUp("XButton") && matSlots[0] != null)
 				{
@@ -588,4 +589,24 @@ public class PlayerScriptNew : MonoBehaviour
 			}
 		}
 	}
+
+	public void MatSlotUpdate()
+    {
+		if(matSlots.Count > 5)
+        {
+			for(int i = 4; i < matSlots.Count; i++)
+            {
+				if (matSlots[i] == null)
+					matSlots.RemoveAt(i);
+            }
+        }
+		if(matSlots.Count < 5)
+        {
+			int time = 5 - matSlots.Count;
+			for(int i = 0; i < time; i++)
+            {
+				matSlots.Add(null);
+            }
+        }
+    }
 }

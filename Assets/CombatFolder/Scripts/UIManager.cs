@@ -167,45 +167,61 @@ public class UIManager : MonoBehaviour
         {
             if(PlayerScriptNew.me.matSlots[0].GetComponent<MatScriptNew>().amount > 0)
                 leftSlot.color = selectedColor;
-            else
-                leftSlot.color = outOfStock;
         }
         else
         {
             leftSlot.color = Color.white;
+
+            if (PlayerScriptNew.me.matSlots[0] != null)
+            {
+                if (PlayerScriptNew.me.matSlots[0].GetComponent<MatScriptNew>().amount <= 0)
+                    leftSlot.color = outOfStock;
+            }
         }
         if (PlayerScriptNew.me.selectedMats.Contains(PlayerScriptNew.me.matSlots[1]))
         {
             if (PlayerScriptNew.me.matSlots[1].GetComponent<MatScriptNew>().amount > 0)
                 upSlot.color = selectedColor;
-            else
-                upSlot.color = outOfStock;
         }
         else
         {
             upSlot.color = Color.white;
+
+            if (PlayerScriptNew.me.matSlots[1] != null)
+            {
+                if (PlayerScriptNew.me.matSlots[1].GetComponent<MatScriptNew>().amount <= 0)
+                    upSlot.color = outOfStock;
+            }
         }
         if (PlayerScriptNew.me.selectedMats.Contains(PlayerScriptNew.me.matSlots[2]))
         {
             if (PlayerScriptNew.me.matSlots[2].GetComponent<MatScriptNew>().amount > 0)
                 rightSlot.color = selectedColor;
-            else
-                rightSlot.color = outOfStock;
         }
         else
         {
             rightSlot.color = Color.white;
+
+            if (PlayerScriptNew.me.matSlots[2] != null)
+            {
+                if (PlayerScriptNew.me.matSlots[2].GetComponent<MatScriptNew>().amount <= 0)
+                    rightSlot.color = outOfStock;
+            }
         }
         if (PlayerScriptNew.me.selectedMats.Contains(PlayerScriptNew.me.matSlots[3]))
         {
             if (PlayerScriptNew.me.matSlots[3].GetComponent<MatScriptNew>().amount > 0)
                 downSlot.color = selectedColor;
-            else
-                downSlot.color = outOfStock;
         }
         else
         {
             downSlot.color = Color.white;
+
+            if (PlayerScriptNew.me.matSlots[3] != null)
+            {
+                if (PlayerScriptNew.me.matSlots[3].GetComponent<MatScriptNew>().amount <= 0)
+                    downSlot.color = outOfStock;
+            }
         }
     }
 
