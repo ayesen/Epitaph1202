@@ -77,16 +77,16 @@ public class DialogueScript : MonoBehaviour
 							interactable.SetActive(true);
 						}
 
-						if (LogManager.LOGManager != null)
-						{
-							LogManager.LOGManager.CoverSetActive(logX, logY);
-						}
+						//if (LogManager.LOGManager != null)
+						//{
+						//	LogManager.LOGManager.CoverSetActive(logX, logY);
+						//}
 					}
 				}
 			}
 			else // auto show text
 			{
-				if (displayDelayed <= 0f)
+				if (displayDelayed <= 0f && !inspected)
 				{
 					inspected = true;
 					ObjectInspectorManagerScript.me.ShowText(this);
@@ -95,10 +95,10 @@ public class DialogueScript : MonoBehaviour
 						interactable.SetActive(true);
 					}
 
-					if (LogManager.LOGManager != null)
-					{
-						LogManager.LOGManager.CoverSetActive(logX, logY);
-					}
+					//if (LogManager.LOGManager != null)
+					//{
+					//	LogManager.LOGManager.CoverSetActive(logX, logY);
+					//}
 				}
 			}
 		}
@@ -130,8 +130,7 @@ public class DialogueScript : MonoBehaviour
 			interactable.SetActive(true);
 		}
 
-		LogManager.LOGManager.CoverSetActive(logX, logY);
-		//Destroy(this.gameObject);
+		//LogManager.LOGManager.CoverSetActive(logX, logY);
 	}
 }
 

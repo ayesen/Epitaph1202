@@ -49,7 +49,8 @@ public class SafehouseManager : MonoBehaviour
     void Update()
     {
         //Test change bool
-        if (Input.GetKeyDown(KeyCode.B) || Input.GetButtonDown("BButton"))
+        if (Input.GetKeyDown(KeyCode.B) || Input.GetButtonDown("BButton") &&
+            !PlayerScriptNew.me.anim.GetCurrentAnimatorStateInfo(0).IsName("readingText"))
         {
             if(isSafehouse)
                 isSafehouse = false;
@@ -75,7 +76,8 @@ public class SafehouseManager : MonoBehaviour
         {
             //Debug.Log("Safehouse");
             ResetMatAmount();
-            AmbienceManager.ambienceManager.SafeHouseAmbiencePlay();//enter safehouse sound
+            //AmbienceManager.ambienceManager.SafeHouseAmbiencePlay();
+            BGMMan.bGMManger.EnterSafeHoueBaguaMusic();//enter safehouse sound
             //if(enemyScript != null)
                 //enemyScript.ResetEnemy(); // [Safehouse update]need some more detail
             //PostProcessingManager.Me.StopAllCoroutines();
@@ -85,7 +87,8 @@ public class SafehouseManager : MonoBehaviour
         }
         else if(isSafehouse != checkBoolChange && !isSafehouse)
         {
-            AmbienceManager.ambienceManager.HallwayAmbiencePlay();//off safehouse
+            //AmbienceManager.ambienceManager.HallwayAmbiencePlay();
+            BGMMan.bGMManger.EndSafeHoueBaguaMusic();//off safehouse
             PlayerScriptNew.me.walking = true;
             StartCoroutine(FadeCanvas(cg, 0f, fadeTime));
             //RespawnPlayer(spawnPoint); // [Safehouse update]need a location

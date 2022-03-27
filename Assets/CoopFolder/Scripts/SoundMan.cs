@@ -9,7 +9,7 @@ public class SoundMan : MonoBehaviour
     public int maxAudioSouces;
     private AudioSource[] sources;
     public AudioSource sourcePrefab;
-    public AudioMixer mianAudioMixer;
+    public AudioMixer mainAudioMixer;
     [Header("SFX")]
     public AudioClip[] manWalkClips;
     public AudioClip[] bearWalkClips;
@@ -51,10 +51,12 @@ public class SoundMan : MonoBehaviour
         }
     }
 
-    public void BattlePhaseOneVO()
+    public void BattlePhaseOneVO() //not in use right now
     {
         AudioSource source = GetSource();
-        
+
+        FindVOGroup(source);
+
         int clipNum = GetClipIndex(battleVOPhaseOne.Length, lastBPOne);
         lastBPOne = clipNum;
         source.clip = battleVOPhaseOne[clipNum];
@@ -63,9 +65,12 @@ public class SoundMan : MonoBehaviour
         source.Play();
     }
 
-    public void BattlePhaseTwoVO()
+    public void BattlePhaseTwoVO() //also not in use
     {
         AudioSource source = GetSource();
+
+        FindVOGroup(source);
+
         int clipNum = GetClipIndex(battleVOPhaseTwo.Length, lastBPTwo);
         lastBPTwo = clipNum;
         source.clip = battleVOPhaseTwo[clipNum];
@@ -75,6 +80,7 @@ public class SoundMan : MonoBehaviour
     public void WallBreaks()
     {
         AudioSource source = GetSource();
+        FindSFXGroup(source);
         source.clip = wallBreak;
         source.Play();
     }
@@ -82,6 +88,7 @@ public class SoundMan : MonoBehaviour
     public void BearRoar()
     {
         AudioSource source = GetSource();
+        FindSFXGroup(source);
         source.clip = bearRoar;
         source.Play();
     }
@@ -89,6 +96,7 @@ public class SoundMan : MonoBehaviour
     public void SafehouseMaterialSelect()
     {
         AudioSource source = GetSource();
+        FindSFXGroup(source);
         source.clip = safehouseMaterialSelect;
         source.Play();
     }
@@ -96,12 +104,14 @@ public class SoundMan : MonoBehaviour
     public void SafehouseMaterialSwap()
     {
         AudioSource source = GetSource();
+        FindSFXGroup(source);
         source.clip = safehouseMaterialSwap;
         source.Play();
     }
     public void PlayerCast()
     {
         AudioSource source = GetSource();
+        FindSFXGroup(source);
         source.clip = playerCast;
         source.Play();
     }
@@ -109,34 +119,36 @@ public class SoundMan : MonoBehaviour
     public void PlayerHitten()
     {
         AudioSource source = GetSource();
+        FindSFXGroup(source);
         source.clip = playerHitten;
         source.Play();
     }
 
-    public void LogClose()
-    {
-        AudioSource source = GetSource();
-        source.clip = logClose;
-        source.Play();
-    }
+    //public void LogClose()
+    //{
+    //    AudioSource source = GetSource();
+    //    source.clip = logClose;
+    //    source.Play();
+    //}
 
-    public void LogOpen()
-    {
-        AudioSource source = GetSource();
-        source.clip = logOpen;
-        source.Play();
-    }
+    //public void LogOpen()
+    //{
+    //    AudioSource source = GetSource();
+    //    source.clip = logOpen;
+    //    source.Play();
+    //}
 
-    public void LogChangePage()
-    {
-        AudioSource source = GetSource();
-        source.clip = logChangePage;
-        source.Play();
-    }
+    //public void LogChangePage()
+    //{
+    //    AudioSource source = GetSource();
+    //    source.clip = logChangePage;
+    //    source.Play();
+    //}
 
     public void ItemInspection()
     {
         AudioSource source = GetSource();
+        FindSFXGroup(source);
         source.clip = inspection;
         source.Play();
     }
@@ -144,6 +156,7 @@ public class SoundMan : MonoBehaviour
     public void DroppingBall()
     {
         AudioSource source = GetSource();
+        FindSFXGroup(source);
         source.clip = droppingBall;
         source.Play();
     }
@@ -151,6 +164,7 @@ public class SoundMan : MonoBehaviour
     public void EnemyHitten()
     {
         AudioSource source = GetSource();
+        FindSFXGroup(source);
         source.clip = enemyHitten;
         source.Play();
     }
@@ -158,6 +172,7 @@ public class SoundMan : MonoBehaviour
     public void CastFlying()
     {
         AudioSource source = GetSource();
+        FindSFXGroup(source);
         source.clip = castFlying;
         source.Play();
     }
@@ -165,6 +180,7 @@ public class SoundMan : MonoBehaviour
     public void MaterialSelect()
     {
         AudioSource source = GetSource();
+        FindSFXGroup(source);
         source.clip = materialSelect;
         source.Play();
     }
@@ -172,6 +188,7 @@ public class SoundMan : MonoBehaviour
     public void ManWalk()
     {
         AudioSource source = GetSource();
+        FindWalkingGroup(source);
         int clipNum = GetClipIndex(manWalkClips.Length, lastManWalk);
         lastManWalk = clipNum;
         source.clip = manWalkClips[clipNum];
@@ -182,11 +199,57 @@ public class SoundMan : MonoBehaviour
     public void BearWalk()
     {
         AudioSource source = GetSource();
+        FindEnemyWalkingGroup(source);
         int clipNum = GetClipIndex(bearWalkClips.Length, lastBearWalk);
         lastBearWalk = clipNum;
         source.clip = bearWalkClips[clipNum];
         //source.transform.position = pos;
         source.Play();
+    }
+
+    public void ChangeToNormalSnapshot()
+    {
+        mainAudioMixer.FindSnapshot("InGame_Normal_Snapshot").TransitionTo(0.5f);
+    }
+
+    public void ChangeToCombatSnapshot()
+    {
+        mainAudioMixer.FindSnapshot("InGame_Combat_Snapshot").TransitionTo(0.5f);
+    }
+
+    public void ChangeToSafeHouseSnapshot()
+    {
+        mainAudioMixer.FindSnapshot("SafeHouse_Snapshot").TransitionTo(0.5f);
+    }
+
+    public void FindSFXGroup(AudioSource aS)
+    {
+        aS.outputAudioMixerGroup = mainAudioMixer.FindMatchingGroups("SFX")[0];
+    }
+
+    public void FindEnemyWalkingGroup(AudioSource aS)
+    {
+        aS.outputAudioMixerGroup = mainAudioMixer.FindMatchingGroups("SFX/EnemyWalking")[0];
+    }
+
+    public void FindWalkingGroup(AudioSource aS)
+    {
+        aS.outputAudioMixerGroup = mainAudioMixer.FindMatchingGroups("SFX/Walking")[0];
+    }
+
+    public void FindBGMGroup(AudioSource aS)
+    {
+        aS.outputAudioMixerGroup = mainAudioMixer.FindMatchingGroups("BGM")[0];
+    }
+
+    public void FindAmbienceGroup(AudioSource aS)
+    {
+        aS.outputAudioMixerGroup = mainAudioMixer.FindMatchingGroups("Ambience")[0];
+    }
+
+    public void FindVOGroup(AudioSource aS)
+    {
+        aS.outputAudioMixerGroup = mainAudioMixer.FindMatchingGroups("VO")[0];
     }
 
     int GetClipIndex(int clipNum, int lastPlayed)
@@ -203,7 +266,6 @@ public class SoundMan : MonoBehaviour
         {
             if (!sources[i].isPlaying)
                 return sources[i];
-
         }
 
         return sources[0];
