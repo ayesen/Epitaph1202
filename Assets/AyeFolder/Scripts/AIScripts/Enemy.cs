@@ -86,7 +86,7 @@ public class Enemy : MonoBehaviour
     //private
     private int healthRecord;
     private int shieldRecord;
-    private bool MusicIsStopped = false;
+    //private bool MusicIsStopped = false;
 
     [Header("PHASE 2 TIMER")]
     public float duration_phase2;
@@ -214,11 +214,14 @@ public class Enemy : MonoBehaviour
             //EnemyCanvas.SetActive(false);
             //FadeInManager.Me.StartCoroutine(UIManager.Me.FadeCanvas(FadeInManager.Me.GetComponent<CanvasGroup>(), 1, 3));
             //StartCoroutine(EndGame(3));
-            if (MusicIsStopped == false)
-            {
-                BGMMan.bGMManger.EndBattleMusic();
-                MusicIsStopped = true;
-            }
+            //if (MusicIsStopped == false)
+            //{
+            //    BGMMan.bGMManger.EndBattleMusic();
+            //    MusicIsStopped = true;
+            //}
+
+            BGMMan.bGMManger.EndTeddyBattleMusic();
+
             return true;
         }
         else
