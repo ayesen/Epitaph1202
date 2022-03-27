@@ -66,13 +66,10 @@ public class DisplayInventory : MonoBehaviour
         {
             if (PlayerScriptNew.me.matSlots[i] != null)
             {
-                if (PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().amount > 0)
-                {
-                    Image obj = Instantiate(imagePrefab, Vector3.zero, Quaternion.identity, transform);
-                    obj.sprite = PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().matIcon;
-                    obj.GetComponent<RectTransform>().localPosition = GetPosition((i - 4));
-                    obj.GetComponent<RectTransform>().sizeDelta = new Vector2(200, 200);
-                }
+                Image obj = Instantiate(imagePrefab, Vector3.zero, Quaternion.identity, transform);
+                obj.sprite = PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().matIcon;
+                obj.GetComponent<RectTransform>().localPosition = GetPosition((i - 4));
+                obj.GetComponent<RectTransform>().sizeDelta = new Vector2(200, 200);
             }
         }
 
@@ -80,14 +77,11 @@ public class DisplayInventory : MonoBehaviour
         {
             if(PlayerScriptNew.me.matSlots[i] != null)
             {
-                if (PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().amount > 0)
-                {
-                    Image obj = Instantiate(imagePrefab, Vector3.zero, Quaternion.identity, transform);
-                    obj.sprite = PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().matIcon;
-                    obj.GetComponent<RectTransform>().localPosition = GetPosition((i - 4));
-                    Amount_Of_Inventory += 1;
-                }
+                Image obj = Instantiate(imagePrefab, Vector3.zero, Quaternion.identity, transform);
+                obj.sprite = PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().matIcon;
+                obj.GetComponent<RectTransform>().localPosition = GetPosition((i - 4));
             }
+            Amount_Of_Inventory += 1;
         }
     }
 
