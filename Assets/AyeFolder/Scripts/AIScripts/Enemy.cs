@@ -219,6 +219,9 @@ public class Enemy : MonoBehaviour
             //    BGMMan.bGMManger.EndBattleMusic();
             //    MusicIsStopped = true;
             //}
+
+            BGMMan.bGMManger.EndTeddyBattleMusic();
+
             return true;
         }
         else

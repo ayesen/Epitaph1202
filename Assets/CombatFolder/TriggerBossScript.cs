@@ -11,6 +11,7 @@ public class TriggerBossScript : MonoBehaviour
     {
         if (other.CompareTag(("Player")))
         {
+            BGMMan.bGMManger.StartTeddyBattleMusic();
             boss.phase = Enemy.AIPhase.InBattle1;
             Destroy(gameObject);
         }

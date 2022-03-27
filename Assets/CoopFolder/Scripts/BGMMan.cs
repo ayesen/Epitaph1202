@@ -68,9 +68,12 @@ public class BGMMan : MonoBehaviour
 
     public void StartTinyTeddyCombatMusic()
     {
+        if(!(BGMAudioSource.isPlaying && (BGMAudioSource.clip == tinyBattleMusic)))
+        {
+            BGMAudioSource.loop = true;
+            StartCoroutine(FadeTrack(tinyBattleMusic));
+        }
 
-        BGMAudioSource.loop = true;
-        StartCoroutine(FadeTrack(tinyBattleMusic));
     }
 
     public void EndTinyTeddyMusic()
@@ -83,6 +86,9 @@ public class BGMMan : MonoBehaviour
 
     public void StartTeddyBattleMusic()
     {
+        if(!(BGMAudioSource.isPlaying && (BGMAudioSource.clip == battleMusic)))
+
+
         SoundMan.SoundManager.ChangeToCombatSnapshot();
         
         BGMAudioSource.loop = true;
