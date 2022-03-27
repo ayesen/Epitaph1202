@@ -88,7 +88,6 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 		// show options
 		if (dialogueToShow[index].options.Count > 0) // if there are options for this line
 		{
-			print("show options");
 			ShowOptions();
 		}
 
@@ -186,7 +185,6 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 						objectDes_ui_eng.text = dialogueToShow[index].description_eng;
 						if (dialogueToShow[index].options.Count > 0) // if there are options after this line
 						{
-							print("show option");
 							ShowOptions();
 						}
 						// play audio

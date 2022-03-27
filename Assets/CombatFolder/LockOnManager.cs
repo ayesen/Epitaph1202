@@ -23,28 +23,38 @@ public class LockOnManager : MonoBehaviour
 	private void Update()
 	{
 		// get bears that are activated
-		foreach (var bear in bears)
+		foreach (var bear in bears.ToList())
 		{
-			if (bear.GetComponent<SmallBear>())
+			if (bear != null)
 			{
-				if (bear.GetComponent<AIController>().enabled && !bears_canBeLockedOn.Contains(bear))
+				if (bear.GetComponent<SmallBear>())
 				{
-					bears_canBeLockedOn.Add(bear);
+					if (bear.GetComponent<AIController>().enabled && !bears_canBeLockedOn.Contains(bear))
+					{
+						bears_canBeLockedOn.Add(bear);
+					}
+				}
+				else
+				{
+					if (bear.GetComponent<Enemy>() != null && !bear.GetComponent<Enemy>().phase.Equals(Enemy.AIPhase.NotInBattle))
+					{
+						if (!bears_canBeLockedOn.Contains(bear))
+						{
+							bears_canBeLockedOn.Add(bear);
+						}
+					}
 				}
 			}
 			else
 			{
-				if (!bear.GetComponent<Enemy>().phase.Equals(Enemy.AIPhase.NotInBattle) && !bears_canBeLockedOn.Contains(bear))
-				{
-					bears_canBeLockedOn.Add(bear);
-				}
+				bears.Remove(bear);
 			}
 		}
 
 		// remove bears outside of boundary
 		foreach (var bear in bears_canBeLockedOn.ToList())
 		{
-			if (Vector3.Distance(transform.position, bear.transform.position) > max_lockon_dis)
+			if (bear!=null && Vector3.Distance(transform.position, bear.transform.position) > max_lockon_dis)
 			{
 				bears_canBeLockedOn.Remove(bear);
 			}
