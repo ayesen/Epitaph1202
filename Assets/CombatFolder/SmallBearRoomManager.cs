@@ -9,6 +9,7 @@ public class SmallBearRoomManager : MonoBehaviour
 
     public void BearStart()
 	{
+		BGMMan.bGMManger.StartTinyTeddyCombatMusic();
 		foreach (var bear in bears_iCtrl)
 		{
 			bear.GetComponent<AIController>().enabled = true;
@@ -31,6 +32,7 @@ public class SmallBearRoomManager : MonoBehaviour
 			}
 			if (clear)
 			{
+				BGMMan.bGMManger.EndTinyTeddyMusic();
 				if (doors_iCtrl.Count > 0)
 				{
 					foreach (var door in doors_iCtrl)
