@@ -15,6 +15,5 @@ public class TriggerBossScript : MonoBehaviour
             boss.phase = Enemy.AIPhase.InBattle1;
             Destroy(gameObject);
         }
-        
     }
 }
