@@ -588,4 +588,24 @@ public class PlayerScriptNew : MonoBehaviour
 			}
 		}
 	}
+
+	public void MatSlotUpdate()
+    {
+		if(matSlots.Count > 5)
+        {
+			for(int i = 4; i < matSlots.Count; i++)
+            {
+				if (matSlots[i] == null)
+					matSlots.RemoveAt(i);
+            }
+        }
+		if(matSlots.Count < 5)
+        {
+			int time = 5 - matSlots.Count;
+			for(int i = 0; i < time; i++)
+            {
+				matSlots.Add(null);
+            }
+        }
+    }
 }

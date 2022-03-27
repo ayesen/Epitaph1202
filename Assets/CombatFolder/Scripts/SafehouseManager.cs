@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SafehouseManager : MonoBehaviour
 {
-    private float timer;
     public bool canSafehouse;
     public bool isSafehouse;
     public bool isCheatOn;
@@ -50,7 +49,8 @@ public class SafehouseManager : MonoBehaviour
     {
         //Test change bool
         if (Input.GetKeyDown(KeyCode.B) || Input.GetButtonDown("BButton") &&
-            !PlayerScriptNew.me.anim.GetCurrentAnimatorStateInfo(0).IsName("readingText"))
+            !PlayerScriptNew.me.anim.GetCurrentAnimatorStateInfo(0).IsName("readingText") &&
+            !isFading)
         {
             if(isSafehouse)
                 isSafehouse = false;
@@ -61,15 +61,6 @@ public class SafehouseManager : MonoBehaviour
         if(isSafehouse != checkBoolChange && isFading)
         {
             isSafehouse = checkBoolChange;
-        }
-        //check if fading or not
-        if(timer >= fadeTime)
-        {
-            isFading = false;
-        }
-        else
-        {
-            timer += Time.deltaTime;
         }
         //when bool is changed, do once
         if(isSafehouse != checkBoolChange && isSafehouse)   
@@ -131,7 +122,6 @@ public class SafehouseManager : MonoBehaviour
 
     IEnumerator FadeCanvas(CanvasGroup cg, float endValue, float duration)
     {
-        timer = 0;
         isFading = true;
         float elapsedTime = 0;
         float startValue = cg.alpha;
@@ -141,5 +131,6 @@ public class SafehouseManager : MonoBehaviour
             cg.alpha = Mathf.Lerp(startValue, endValue, elapsedTime / duration);
             yield return null;
         }
+        isFading = false;
     }
 }

@@ -46,6 +46,8 @@ public class ShootAimTutorScript : MonoBehaviour
 		// 激活小熊，瞄准教学
 		if (other.gameObject.CompareTag("Player") && tut_state == 0)
 		{
+			// face bear
+			StartCoroutine(FaceBear());
 			// cancel select
 			PlayerScriptNew.me.selectedMats.Clear();
 			// set state
@@ -105,7 +107,20 @@ public class ShootAimTutorScript : MonoBehaviour
 		}
 	}
 
-	private IEnumerator RepeatDialogue()
+	private IEnumerator FaceBear()
+    {
+		float rotateSpeed = 0;
+		while(rotateSpeed <= 1)
+        {
+			Vector3 direction = tutorBear.transform.position - PlayerScriptNew.me.transform.position;
+			Quaternion toRotation = Quaternion.LookRotation(direction);
+			PlayerScriptNew.me.transform.rotation = Quaternion.Lerp(PlayerScriptNew.me.transform.rotation, toRotation, rotateSpeed);
+			rotateSpeed += 0.3f * Time.deltaTime;
+			yield return new WaitForSeconds(0.005f * Time.deltaTime);
+		}
+	}
+
+    private IEnumerator RepeatDialogue()
 	{
 		while (true) 
 		{

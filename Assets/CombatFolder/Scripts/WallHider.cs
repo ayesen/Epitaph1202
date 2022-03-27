@@ -58,10 +58,15 @@ public class WallHider : MonoBehaviour
 			case Room.spawnHallway:
 				foreach (var wall in _walls)
 				{
+					if (wall.GetComponent<ShowScript>()==null)
+					{
+						print(wall.name);
+					}
 					if (wall != null)
                     {
-						if (wall.GetComponent<ShowScript>().whenSpawnHallway)
+	                    if (wall.GetComponent<ShowScript>().whenSpawnHallway)
 						{
+							
 							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
 							//wall.GetComponent<Renderer>().material.color.a = 0.5f;
 						}
@@ -158,6 +163,10 @@ public class WallHider : MonoBehaviour
 			case Room.livingRoom:
 				foreach (var wall in _walls)
 				{
+					if (wall.GetComponent<ShowScript>()==null)
+					{
+						print(wall.name);
+					}
 					if (wall != null)
                     {
 						if (wall.GetComponent<ShowScript>().whenLivingRoom)
