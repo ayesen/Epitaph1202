@@ -611,7 +611,7 @@ GameObject:
   - component: {fileID: 1933825164}
   - component: {fileID: 1933825165}
   m_Layer: 8
-  m_Name: GameObject
+  m_Name: directional sign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -996,7 +996,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &199564423692395276
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1360,7 +1360,7 @@ MonoBehaviour:
   mat3: {fileID: 0}
   mat4: {fileID: 0}
   walking: 0
-  joystickSensitivity: 0.5
+  joystickSensitivity: 1
 --- !u!114 &114750589119298922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1391,10 +1391,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 199564424747727129}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 541426b3b460bb14590b4a8906dafa1c, type: 3}
+  m_Script: {fileID: 11500000, guid: ef91e28f91944fe4fabd530be27fb0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectHolders: []
+  bears_canBeLockedOn: []
+  max_lockon_dis: 10
 --- !u!1 &3109627730938442457
 GameObject:
   m_ObjectHideFlags: 0
@@ -1902,7 +1903,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2156532497255595417, guid: 1033caef31484d34f9c755850c12368c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2156532497255595422, guid: 1033caef31484d34f9c755850c12368c, type: 3}
       propertyPath: m_RootOrder

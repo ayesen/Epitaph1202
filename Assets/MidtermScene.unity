@@ -707,7 +707,6 @@ MonoBehaviour:
   breakMeter_ui: {fileID: 0}
   myMats: []
   eventTarget: {fileID: 0}
-  stopDis: 0
   duration_phase2: 0
 --- !u!114 &15641241
 MonoBehaviour:
@@ -1110,7 +1109,6 @@ MonoBehaviour:
   breakMeter_ui: {fileID: 0}
   myMats: []
   eventTarget: {fileID: 0}
-  stopDis: 0
   duration_phase2: 0
 --- !u!114 &17139350
 MonoBehaviour:
@@ -1479,7 +1477,6 @@ MonoBehaviour:
   breakMeter_ui: {fileID: 0}
   myMats: []
   eventTarget: {fileID: 0}
-  stopDis: 0
   duration_phase2: 0
 --- !u!114 &17142805
 MonoBehaviour:
@@ -2888,25 +2885,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1661496954}
     - target: {fileID: 5603555314290144243, guid: 227da076e12dbfa4b990f022b9a9dc8e, type: 3}
-      propertyPath: joystickSensitivity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5603555314290144243, guid: 227da076e12dbfa4b990f022b9a9dc8e, type: 3}
       propertyPath: matSlots.Array.data[0]
       value: 
       objectReference: {fileID: 1303691120}
-    - target: {fileID: 5603555314290144243, guid: 227da076e12dbfa4b990f022b9a9dc8e, type: 3}
-      propertyPath: matSlots.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5603555314290144243, guid: 227da076e12dbfa4b990f022b9a9dc8e, type: 3}
-      propertyPath: matSlots.Array.data[2]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5603555314290144243, guid: 227da076e12dbfa4b990f022b9a9dc8e, type: 3}
-      propertyPath: matSlots.Array.data[3]
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 5603555314290144243, guid: 227da076e12dbfa4b990f022b9a9dc8e, type: 3}
       propertyPath: matSlots.Array.data[4]
       value: 
@@ -3029,7 +3010,7 @@ Transform:
   - {fileID: 376521448}
   - {fileID: 1545187608}
   m_Father: {fileID: 1609547543}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &59024418
 GameObject:
@@ -5608,7 +5589,6 @@ MonoBehaviour:
   breakMeter_ui: {fileID: 0}
   myMats: []
   eventTarget: {fileID: 0}
-  stopDis: 0
   duration_phase2: 0
 --- !u!114 &130506149
 MonoBehaviour:
@@ -7204,7 +7184,6 @@ MonoBehaviour:
   breakMeter_ui: {fileID: 0}
   myMats: []
   eventTarget: {fileID: 0}
-  stopDis: 0
   duration_phase2: 0
 --- !u!114 &167952709
 MonoBehaviour:
@@ -8132,7 +8111,6 @@ MonoBehaviour:
   breakMeter_ui: {fileID: 0}
   myMats: []
   eventTarget: {fileID: 0}
-  stopDis: 0
   duration_phase2: 0
 --- !u!114 &182820218
 MonoBehaviour:
@@ -11589,7 +11567,7 @@ MonoBehaviour:
   image: {fileID: 0}
   highLightMat: {fileID: 0}
   restrictMovement: 1
-  oneTimeDialogue: 1
+  oneTimeDialogue: 0
   isSwitch: 1
   interactiveSwitch:
   - {fileID: 1666532076}
@@ -12435,7 +12413,6 @@ MonoBehaviour:
   breakMeter_ui: {fileID: 0}
   myMats: []
   eventTarget: {fileID: 0}
-  stopDis: 0
   duration_phase2: 0
 --- !u!114 &289837598
 MonoBehaviour:
@@ -13016,7 +12993,6 @@ MonoBehaviour:
   breakMeter_ui: {fileID: 0}
   myMats: []
   eventTarget: {fileID: 0}
-  stopDis: 0
   duration_phase2: 0
 --- !u!114 &299306123
 MonoBehaviour:
@@ -13779,7 +13755,7 @@ Transform:
   - {fileID: 957071590}
   - {fileID: 1293312703}
   m_Father: {fileID: 1609547543}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &307126087 stripped
 GameObject:
@@ -14703,7 +14679,6 @@ MonoBehaviour:
   breakMeter_ui: {fileID: 0}
   myMats: []
   eventTarget: {fileID: 0}
-  stopDis: 0
   duration_phase2: 0
 --- !u!114 &322487077
 MonoBehaviour:
@@ -17155,7 +17130,6 @@ MonoBehaviour:
   breakMeter_ui: {fileID: 0}
   myMats: []
   eventTarget: {fileID: 0}
-  stopDis: 0
   duration_phase2: 0
 --- !u!114 &362801270
 MonoBehaviour:
@@ -18036,7 +18010,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 386440660}
   m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 6.4400024, y: 0.004000187, z: 5.2809906}
+  m_LocalPosition: {x: 11.09, y: 0, z: 0.89}
   m_LocalScale: {x: 1, y: 2.3799999, z: 1}
   m_Children:
   - {fileID: 1681462891}
@@ -19833,7 +19807,6 @@ MonoBehaviour:
   breakMeter_ui: {fileID: 0}
   myMats: []
   eventTarget: {fileID: 0}
-  stopDis: 0
   duration_phase2: 0
 --- !u!114 &434270340
 MonoBehaviour:
@@ -22130,7 +22103,6 @@ MonoBehaviour:
   breakMeter_ui: {fileID: 0}
   myMats: []
   eventTarget: {fileID: 0}
-  stopDis: 0
   duration_phase2: 0
 --- !u!114 &476405187
 MonoBehaviour:
@@ -23393,7 +23365,6 @@ MonoBehaviour:
   breakMeter_ui: {fileID: 0}
   myMats: []
   eventTarget: {fileID: 0}
-  stopDis: 0
   duration_phase2: 0
 --- !u!114 &513936973
 MonoBehaviour:
@@ -24640,7 +24611,6 @@ MonoBehaviour:
   breakMeter_ui: {fileID: 0}
   myMats: []
   eventTarget: {fileID: 0}
-  stopDis: 0
   duration_phase2: 0
 --- !u!114 &529925737
 MonoBehaviour:
@@ -30294,7 +30264,6 @@ MonoBehaviour:
   breakMeter_ui: {fileID: 0}
   myMats: []
   eventTarget: {fileID: 0}
-  stopDis: 0
   duration_phase2: 0
 --- !u!114 &690566307
 MonoBehaviour:
@@ -30688,7 +30657,7 @@ Transform:
   m_LocalScale: {x: 0.22371362, y: 0.3278796, z: 0.22371365}
   m_Children: []
   m_Father: {fileID: 1067651678}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &699576124
 MonoBehaviour:
@@ -33830,7 +33799,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 798915938}
   m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 8.73, y: 0, z: 3.0410004}
+  m_LocalPosition: {x: 6.49, y: -0, z: 5.18}
   m_LocalScale: {x: 1, y: 2.3799999, z: 1}
   m_Children:
   - {fileID: 1376976136}
@@ -34454,7 +34423,6 @@ MonoBehaviour:
   - {fileID: 1092794031}
   - {fileID: 1032884326}
   eventTarget: {fileID: 0}
-  stopDis: 2.2
   duration_phase2: 10
 --- !u!114 &803298877
 MonoBehaviour:
@@ -35354,7 +35322,6 @@ MonoBehaviour:
   breakMeter_ui: {fileID: 0}
   myMats: []
   eventTarget: {fileID: 0}
-  stopDis: 0
   duration_phase2: 0
 --- !u!114 &823069200
 MonoBehaviour:
@@ -36300,7 +36267,7 @@ Transform:
   m_LocalScale: {x: 0.22371362, y: 0.3278796, z: 0.22371365}
   m_Children: []
   m_Father: {fileID: 1067651678}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &843486392
 MonoBehaviour:
@@ -38137,7 +38104,7 @@ Transform:
   m_LocalScale: {x: 0.22371362, y: 0.3278796, z: 0.22371365}
   m_Children: []
   m_Father: {fileID: 1067651678}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &896697069
 MonoBehaviour:
@@ -39319,7 +39286,6 @@ MonoBehaviour:
   breakMeter_ui: {fileID: 0}
   myMats: []
   eventTarget: {fileID: 0}
-  stopDis: 0
   duration_phase2: 0
 --- !u!114 &940962348
 MonoBehaviour:
@@ -41339,7 +41305,7 @@ Transform:
   m_LocalScale: {x: 0.22371362, y: 0.3278796, z: 0.22371365}
   m_Children: []
   m_Father: {fileID: 1067651678}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &978564005
 MonoBehaviour:
@@ -44733,7 +44699,6 @@ Transform:
   m_LocalScale: {x: 7.68, y: 3.0499, z: 1.26}
   m_Children:
   - {fileID: 1310551960}
-  - {fileID: 1912801581}
   - {fileID: 843486391}
   - {fileID: 1094489826}
   - {fileID: 978564004}
@@ -45858,7 +45823,7 @@ Transform:
   m_LocalScale: {x: 0.22371362, y: 0.3278796, z: 0.22371365}
   m_Children: []
   m_Father: {fileID: 1067651678}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1094489827
 MonoBehaviour:
@@ -47546,7 +47511,6 @@ MonoBehaviour:
   breakMeter_ui: {fileID: 0}
   myMats: []
   eventTarget: {fileID: 0}
-  stopDis: 0
   duration_phase2: 0
 --- !u!114 &1138762883
 MonoBehaviour:
@@ -49623,7 +49587,6 @@ MonoBehaviour:
   breakMeter_ui: {fileID: 0}
   myMats: []
   eventTarget: {fileID: 0}
-  stopDis: 0
   duration_phase2: 0
 --- !u!114 &1183091669
 MonoBehaviour:
@@ -51173,7 +51136,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1222616460}
   m_LocalRotation: {x: 0.000000029802319, y: 0.7071068, z: 0.000000029802319, w: 0.7071068}
-  m_LocalPosition: {x: 7.44, y: -1.3540001, z: 0.3}
+  m_LocalPosition: {x: 5.1999984, y: -1.3540001, z: 2.4389923}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1897679365}
@@ -55490,7 +55453,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1310551959}
   m_LocalRotation: {x: -0, y: -0.07445901, z: -0, w: 0.9972241}
-  m_LocalPosition: {x: -2.8262293, y: -0.13443075, z: -8.204727}
+  m_LocalPosition: {x: -3.61, y: -0.13443075, z: -8.92}
   m_LocalScale: {x: 0.14812095, y: 0.3661094, z: 0.79666805}
   m_Children: []
   m_Father: {fileID: 1067651678}
@@ -58095,7 +58058,6 @@ MonoBehaviour:
   breakMeter_ui: {fileID: 0}
   myMats: []
   eventTarget: {fileID: 0}
-  stopDis: 0
   duration_phase2: 0
 --- !u!114 &1369079327
 MonoBehaviour:
@@ -64204,7 +64166,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1511079128}
   m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 11.02, y: 0, z: 0.8}
+  m_LocalPosition: {x: 8.7, y: -0, z: 2.94}
   m_LocalScale: {x: 1, y: 2.3799999, z: 1}
   m_Children:
   - {fileID: 834538203}
@@ -65690,7 +65652,6 @@ MonoBehaviour:
   breakMeter_ui: {fileID: 0}
   myMats: []
   eventTarget: {fileID: 0}
-  stopDis: 0
   duration_phase2: 0
 --- !u!114 &1545007389
 MonoBehaviour:
@@ -68554,6 +68515,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1912801581}
   - {fileID: 304477058}
   - {fileID: 58220411}
   m_Father: {fileID: 645290298}
@@ -72717,7 +72679,6 @@ MonoBehaviour:
   breakMeter_ui: {fileID: 0}
   myMats: []
   eventTarget: {fileID: 0}
-  stopDis: 0
   duration_phase2: 0
 --- !u!114 &1713988158
 MonoBehaviour:
@@ -73556,7 +73517,6 @@ MonoBehaviour:
   breakMeter_ui: {fileID: 0}
   myMats: []
   eventTarget: {fileID: 0}
-  stopDis: 0
   duration_phase2: 0
 --- !u!114 &1725539218
 MonoBehaviour:
@@ -75505,7 +75465,6 @@ MonoBehaviour:
   breakMeter_ui: {fileID: 0}
   myMats: []
   eventTarget: {fileID: 0}
-  stopDis: 0
   duration_phase2: 0
 --- !u!114 &1784839393
 MonoBehaviour:
@@ -77071,7 +77030,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1818152741}
   m_LocalRotation: {x: 0.000000029802319, y: 0.7071068, z: 0.000000029802319, w: 0.7071068}
-  m_LocalPosition: {x: 5.15, y: -1.35, z: 2.54}
+  m_LocalPosition: {x: 9.799997, y: -1.3540002, z: -1.8509912}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1288733449}
@@ -81545,14 +81504,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1912801580}
-  m_LocalRotation: {x: -0, y: -0.07445902, z: -0, w: 0.99722415}
-  m_LocalPosition: {x: -0.45126295, y: -0.13443075, z: -4.351234}
-  m_LocalScale: {x: 0.14812097, y: 0.3661094, z: 0.7966681}
+  m_LocalRotation: {x: -0, y: 0.31282994, z: -0, w: 0.94980913}
+  m_LocalPosition: {x: -8.087372, y: 5.2, z: 191.65387}
+  m_LocalScale: {x: 1.1165974, y: 1.116597, z: 1.1165974}
   m_Children:
   - {fileID: 2078166171}
   - {fileID: 1277750718}
-  m_Father: {fileID: 1067651678}
-  m_RootOrder: 1
+  m_Father: {fileID: 1609547543}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -98.54, z: 0}
 --- !u!114 &1912801582
 MonoBehaviour:
@@ -81662,7 +81621,6 @@ MonoBehaviour:
   breakMeter_ui: {fileID: 0}
   myMats: []
   eventTarget: {fileID: 1310551959}
-  stopDis: 0
   duration_phase2: 0
 --- !u!114 &1912801586
 MonoBehaviour:
@@ -81804,8 +81762,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Speed: 50
+  m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -82357,7 +82315,6 @@ MonoBehaviour:
   breakMeter_ui: {fileID: 0}
   myMats: []
   eventTarget: {fileID: 0}
-  stopDis: 0
   duration_phase2: 0
 --- !u!114 &1928983009
 MonoBehaviour:
@@ -87425,7 +87382,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2050732272}
   m_LocalRotation: {x: 0.000000029802319, y: 0.7071068, z: 0.000000029802319, w: 0.7071068}
-  m_LocalPosition: {x: 9.73, y: -1.3540001, z: -1.9409943}
+  m_LocalPosition: {x: 7.41, y: -1.3540001, z: 0.19900513}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 808175240}
