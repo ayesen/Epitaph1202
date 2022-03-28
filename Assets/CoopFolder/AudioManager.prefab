@@ -222,10 +222,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BGMAudioSource: {fileID: 0}
   battleMusic: {fileID: 8300000, guid: 7c8b4466c9bdd4173b710ac3d01b07a1, type: 3}
-  lordGuan: {fileID: 8300000, guid: 637ed25e6c43642f1b35b37c12817c73, type: 3}
-  firstTinyTeddy: {fileID: 8300000, guid: 7f6a2e340268649d3a3dc48a219a3ecf, type: 3}
-  tinyBattleMusic: {fileID: 8300000, guid: a0467fb8562e2442589a55162b614d14, type: 3}
-  theme: {fileID: 8300000, guid: 277d634c3cd420f48a3ec94373b7ee97, type: 3}
+  lordGuan: {fileID: 8300000, guid: 0e202531efa7b4082ad0e07a0616fc02, type: 3}
+  firstTinyTeddy: {fileID: 8300000, guid: 22f2538b5b68f46318f15c6c04a95464, type: 3}
+  tinyBattleMusic: {fileID: 8300000, guid: 26b4a2f12912946b087ca1caca66b2c1, type: 3}
+  theme: {fileID: 8300000, guid: c90c94bee4d8d4d70930295cf0334a15, type: 3}
   safeHouse: {fileID: 8300000, guid: 09872eb8ba9fb4f9392fdcb06311d2f6, type: 3}
 --- !u!82 &8547083582690931762
 AudioSource:
@@ -378,9 +378,19 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a7d053254eb1e4552869d6e98aa55d1a, type: 3}
   - {fileID: 8300000, guid: 03acf2cf4522c45f38a6e240e44d1bba, type: 3}
   bearWalkClips:
-  - {fileID: 8300000, guid: 1fd860096f4a44449a16b2c87bc1ee7d, type: 3}
-  - {fileID: 8300000, guid: bb5f4be216c144402a8161b6f8497331, type: 3}
-  - {fileID: 8300000, guid: 4292c2d115ae44401976c87be49e19d0, type: 3}
+  - {fileID: 8300000, guid: 35b3d63f9ae1f45a996a1315c0d264da, type: 3}
+  - {fileID: 8300000, guid: 351887ed130f94704bd70fafde82b7e6, type: 3}
+  - {fileID: 8300000, guid: dd042dbad9e664b6b99e6b3d22609d4b, type: 3}
+  - {fileID: 8300000, guid: 6d572f39286b541e3975d3fd7167c9af, type: 3}
+  smallBearWalkClips:
+  - {fileID: 8300000, guid: 1fdba1ac7294e4db79632de64c32ed7a, type: 3}
+  - {fileID: 8300000, guid: fdfe56a6593bd47bfb9717e5f0776cfc, type: 3}
+  - {fileID: 8300000, guid: 255173cc06ae94e0ea4090f737fd46c8, type: 3}
+  - {fileID: 8300000, guid: c43f30cb9f9814924a416afe63eedda5, type: 3}
+  playerHittenClips:
+  - {fileID: 8300000, guid: 4afbaae76205d4884bdd92749142cebe, type: 3}
+  - {fileID: 8300000, guid: b5265e7d525a34920919da7d9eff020a, type: 3}
+  - {fileID: 8300000, guid: 0edc64e291aa24b728b8d3aa62e5de3c, type: 3}
   castFlying: {fileID: 8300000, guid: ed87793238b894e35b239c3b912efd2b, type: 3}
   materialSelect: {fileID: 8300000, guid: 8f16c2cba22994e9788c40a8efb5f061, type: 3}
   enemyHitten: {fileID: 8300000, guid: f0dd811892f3d4fb3bc7d733766c49e2, type: 3}
@@ -389,12 +399,12 @@ MonoBehaviour:
   logChangePage: {fileID: 8300000, guid: dd3c6aa3d036844b48ef5d0b8026edc1, type: 3}
   logClose: {fileID: 8300000, guid: 42e160854882d4954b73088793a39eb2, type: 3}
   logOpen: {fileID: 8300000, guid: a4736c2f195e848b1bac6e42c44afb79, type: 3}
-  playerCast: {fileID: 8300000, guid: 2545d94befd204e3c991d7f5ca2eaec7, type: 3}
-  playerHitten: {fileID: 8300000, guid: a2e14ba5349344b5e872e1ac6de2b3b6, type: 3}
+  playerCast: {fileID: 8300000, guid: dde6890ae8d8442fd995858e997427ea, type: 3}
   safehouseMaterialSelect: {fileID: 8300000, guid: c757de223d82543e78fdab4054b2ec6e, type: 3}
   safehouseMaterialSwap: {fileID: 8300000, guid: 9172e9761d239490e8f6492e35cb8547, type: 3}
   bearRoar: {fileID: 8300000, guid: 32749f913d3960849adc0685d1cf4a11, type: 3}
   wallBreak: {fileID: 8300000, guid: e8a40e33c026a4c1fad0d332ad1854bc, type: 3}
+  jumpScare: {fileID: 8300000, guid: 620314988308d4299bd59bc850146f15, type: 3}
   battleVOPhaseOne:
   - {fileID: 8300000, guid: 366be40fb05a00c41a0462d710b14f69, type: 3}
   - {fileID: 8300000, guid: da97baea31d95a444a529a5fcf102ca1, type: 3}

@@ -56,7 +56,8 @@ public class ShootAimTutorScript : MonoBehaviour
 			// tutorBear.GetComponent<SmallBear>().enabled = true;
 			// tutorBear.GetComponent<AIController>().enabled = true;
 			dialg_select.GetComponent<DialogueScript>().enabled = true; // enable dialogue script, show dialogue
-			if(cur_coroutine == null)
+			BGMMan.bGMManger.FirstTinyTeddyMusic();
+			if (cur_coroutine == null)
 				cur_coroutine =  StartCoroutine(RepeatDialogue());
 		}
 	}
@@ -102,6 +103,8 @@ public class ShootAimTutorScript : MonoBehaviour
 			// small bear runs away
 			ActivateBear();
 			tutorBear.GetComponent<SmallBear>().GoToLoc();
+			
+			SoundMan.SoundManager.JumpScare();
 			tutorBear.GetComponent<SmallBear>().moveSpeed = 8;
 			LockOnManager.me.bears_canBeLockedOn.Remove(tutorBear);
 			Destroy(tutorBear, 2f);

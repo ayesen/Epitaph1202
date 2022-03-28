@@ -13,6 +13,8 @@ public class SoundMan : MonoBehaviour
     [Header("SFX")]
     public AudioClip[] manWalkClips;
     public AudioClip[] bearWalkClips;
+    public AudioClip[] smallBearWalkClips;
+    public AudioClip[] playerHittenClips;
     public AudioClip castFlying;
     public AudioClip materialSelect;
     public AudioClip enemyHitten;
@@ -22,16 +24,19 @@ public class SoundMan : MonoBehaviour
     public AudioClip logClose;
     public AudioClip logOpen;
     public AudioClip playerCast;
-    public AudioClip playerHitten;
+    //public AudioClip playerHitten;
     public AudioClip safehouseMaterialSelect;
     public AudioClip safehouseMaterialSwap;
     public AudioClip bearRoar;
     public AudioClip wallBreak;
+    public AudioClip jumpScare;
     [Header("BattleVO")]
     public AudioClip[] battleVOPhaseOne;
     public AudioClip[] battleVOPhaseTwo;
     int lastManWalk;
     int lastBearWalk;
+    int lastSmallBearWalk;
+    int lastPlayerHitten;
     int lastBPOne;
     int lastBPTwo;
 
@@ -77,7 +82,7 @@ public class SoundMan : MonoBehaviour
         //source.transform.position = pos;
         source.Play();
     }
-    public void WallBreaks()
+    public void WallBreaks()  //maybe need to add something to prevent it over playing
     {
         AudioSource source = GetSource();
         FindSFXGroup(source);
@@ -120,7 +125,10 @@ public class SoundMan : MonoBehaviour
     {
         AudioSource source = GetSource();
         FindSFXGroup(source);
-        source.clip = playerHitten;
+        int clipNum = GetClipIndex(playerHittenClips.Length, lastPlayerHitten);
+        lastPlayerHitten = clipNum;
+        source.clip = playerHittenClips[clipNum];
+        //source.transform.position = pos;
         source.Play();
     }
 
@@ -185,6 +193,14 @@ public class SoundMan : MonoBehaviour
         source.Play();
     }
 
+    public void JumpScare()
+    {
+        AudioSource source = GetSource();
+        FindSFXGroup(source);
+        source.clip = jumpScare;
+        source.Play();
+    }
+
     public void ManWalk()
     {
         AudioSource source = GetSource();
@@ -207,6 +223,17 @@ public class SoundMan : MonoBehaviour
         source.Play();
     }
 
+    public void SmallBearWalk()
+    {
+        AudioSource source = GetSource();
+        FindEnemyWalkingGroup(source);
+        int clipNum = GetClipIndex(smallBearWalkClips.Length, lastSmallBearWalk);
+        lastSmallBearWalk = clipNum;
+        source.clip = smallBearWalkClips[clipNum];
+        //source.transform.position = pos;
+        source.Play();
+    }
+    
     public void ChangeToNormalSnapshot()
     {
         mainAudioMixer.FindSnapshot("InGame_Normal_Snapshot").TransitionTo(0.5f);
