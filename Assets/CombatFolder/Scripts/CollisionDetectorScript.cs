@@ -68,10 +68,6 @@ public class CollisionDetectorScript : MonoBehaviour
 					}
 				}	
 			}
-			else
-			{
-				print(target.gameObject.name + ": " + target.gameObject.tag);
-			}
 		}
 	}
 }

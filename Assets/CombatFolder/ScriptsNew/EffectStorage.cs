@@ -67,7 +67,10 @@ public class EffectStorage : MonoBehaviour
 		Enemy es = enemy.GetComponent<Enemy>();
 		// hp dmg
 		float finalDmg = Mathf.Clamp((ehs.myEffect.atk - es.def) * ehs.myEffect.amp, 0, float.MaxValue); // dmg = (atk - def) * amp
-		float dmgToDeal = 1f / dis * finalDmg; //
+		print("dis: "+dis);
+		print("dmg: " + finalDmg);
+		float dmgToDeal = 1f / dis * finalDmg; // 1/distance * final damage
+		print("final dmg: " + dmgToDeal);
 		es.LoseHealth((int)dmgToDeal);
 		// poise dmg
 		float finalPD = ehs.myEffect.atk / es.edr;

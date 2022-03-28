@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class SafehouseManager : MonoBehaviour
 {
-    private float timer;
     public bool canSafehouse;
     public bool isSafehouse;
     public bool isCheatOn;
+    public bool cannotExit;
     public float hideTime;
     public float fadeTime;
     private CanvasGroup cg;
-    private bool isFading;
+    public bool isFading;
     private bool checkBoolChange;
 
     public Enemy enemyScript;
+
+    public ChangeInventory CI;
 
     public Transform spawnPoint;
 
@@ -42,6 +44,7 @@ public class SafehouseManager : MonoBehaviour
     {
         checkBoolChange = isSafehouse;
         cg = GetComponent<CanvasGroup>();
+        CI = GetComponentInChildren<ChangeInventory>();
         enemyScript = GameObject.Find("Bear").GetComponent<Enemy>();
         canSafehouse = false;
     }
@@ -50,10 +53,14 @@ public class SafehouseManager : MonoBehaviour
     {
         //Test change bool
         if (Input.GetKeyDown(KeyCode.B) || Input.GetButtonDown("BButton") &&
-            !PlayerScriptNew.me.anim.GetCurrentAnimatorStateInfo(0).IsName("readingText"))
+            !PlayerScriptNew.me.anim.GetCurrentAnimatorStateInfo(0).IsName("readingText") &&
+            !isFading)
         {
-            if(isSafehouse)
+            if (isSafehouse && !cannotExit)
+            {
                 isSafehouse = false;
+                CI.choosenMatIndex = 0;
+            }
             else if(!isSafehouse && isCheatOn)
                 isSafehouse = true;
         }
@@ -61,15 +68,6 @@ public class SafehouseManager : MonoBehaviour
         if(isSafehouse != checkBoolChange && isFading)
         {
             isSafehouse = checkBoolChange;
-        }
-        //check if fading or not
-        if(timer >= fadeTime)
-        {
-            isFading = false;
-        }
-        else
-        {
-            timer += Time.deltaTime;
         }
         //when bool is changed, do once
         if(isSafehouse != checkBoolChange && isSafehouse)   
@@ -131,7 +129,6 @@ public class SafehouseManager : MonoBehaviour
 
     IEnumerator FadeCanvas(CanvasGroup cg, float endValue, float duration)
     {
-        timer = 0;
         isFading = true;
         float elapsedTime = 0;
         float startValue = cg.alpha;
@@ -141,5 +138,6 @@ public class SafehouseManager : MonoBehaviour
             cg.alpha = Mathf.Lerp(startValue, endValue, elapsedTime / duration);
             yield return null;
         }
+        isFading = false;
     }
 }
