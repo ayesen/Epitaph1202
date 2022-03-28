@@ -35,6 +35,13 @@ public class PlayerScriptNew : MonoBehaviour
 	private bool righting;
 	[Header("Joystick Controll")]
 	public float joystickSensitivity;//0~1
+	[Header("VFX")]
+	public Transform hand;
+	public GameObject selectVFX_blue;
+	public GameObject selectLight_blue;
+	public GameObject selectVFX_red;
+	public GameObject selectVFX_yellow;
+	public GameObject selectVFX_green;
 
 	// backswing cancel
 	private GameObject lastMat;
@@ -130,6 +137,7 @@ public class PlayerScriptNew : MonoBehaviour
 						{
 							selectedMats.Add(matSlots[0]);
 							// vfx
+							PlaySelectVFX(matSlots[0]);
 							anim.SetTrigger("selected");
 						}
 					}
@@ -147,6 +155,8 @@ public class PlayerScriptNew : MonoBehaviour
 						if (matSlots[1].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
 						{
 							selectedMats.Add(matSlots[1]);
+							// vfx
+							PlaySelectVFX(matSlots[1]);
 							anim.SetTrigger("selected");
 						}
 					}
@@ -164,6 +174,8 @@ public class PlayerScriptNew : MonoBehaviour
 						if (matSlots[2].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
 						{
 							anim.SetTrigger("selected");
+							// vfx
+							PlaySelectVFX(matSlots[2]);
 							selectedMats.Add(matSlots[2]);
 						}
 					}
@@ -180,6 +192,9 @@ public class PlayerScriptNew : MonoBehaviour
 					{
 						if (matSlots[3].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
 						{
+							anim.SetTrigger("selected");
+							// vfx
+							PlaySelectVFX(matSlots[3]);
 							selectedMats.Add(matSlots[3]);
 						}
 					}
@@ -612,4 +627,25 @@ public class PlayerScriptNew : MonoBehaviour
             }
         }
     }
+
+	private void PlaySelectVFX(GameObject mat)
+	{
+		switch (mat.GetComponent<MatScriptNew>().myType)
+		{
+			case MatScriptNew.MatType.amp:
+				GameObject vfx = Instantiate(selectVFX_blue);
+				GameObject light = Instantiate(selectLight_blue);
+				vfx.transform.position = hand.position;
+				light.transform.position = hand.position;
+				break;
+			case MatScriptNew.MatType.atk:
+				GameObject vfx_atk = Instantiate(selectVFX_yellow);
+				//GameObject light_atk = Instantiate(selectLight_blue);
+				vfx_atk.transform.position = hand.position;
+				//light_atk.transform.position = hand.position;
+				break;
+			case MatScriptNew.MatType.functional:
+				break;
+		}
+	}
 }
