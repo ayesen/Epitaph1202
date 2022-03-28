@@ -129,6 +129,7 @@ public class PlayerScriptNew : MonoBehaviour
 						if (matSlots[0].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
 						{
 							selectedMats.Add(matSlots[0]);
+							// vfx
 							anim.SetTrigger("selected");
 						}
 					}
@@ -442,6 +443,7 @@ public class PlayerScriptNew : MonoBehaviour
 			#endregion
 
 			// check for attack button press
+			#region attack
 			if (selectedMats.Count > 0 &&  // check if player has mat activated
 				(anim.GetCurrentAnimatorStateInfo(0).IsName("testIdle") || // if player in idle state
 				walking ||
@@ -502,8 +504,9 @@ public class PlayerScriptNew : MonoBehaviour
 					//print(walking);
 				}
 			}
+			#endregion
 		}
-    }
+	}
 	public void RecovMatCD(int breakAmp)
     {
 		for (int i = 0; i < 3; i++)

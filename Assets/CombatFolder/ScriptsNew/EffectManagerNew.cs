@@ -207,6 +207,7 @@ public class EffectManagerNew : MonoBehaviour
 					// for each holder, check its effect
 					if (ehs.myEffect.doThis == EffectStructNew.Effect.hurt)
 					{
+						
 						EffectStorage.me.HurtEnemy(ehs, enemy);
 						ehs.destroy = true;
 					}

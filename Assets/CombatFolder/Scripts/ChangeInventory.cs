@@ -132,6 +132,7 @@ public class ChangeInventory : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("AButton"))
                 {
+                    SafehouseManager.Me.cannotExit = false;
                     ChangeMat(choosenMatIndex, choosenMat);
                     DI.CreateDisplay();
                     UIManager.Me.UI_ChangeIcon();
