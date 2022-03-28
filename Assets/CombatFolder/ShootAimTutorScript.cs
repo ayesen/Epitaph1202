@@ -85,7 +85,7 @@ public class ShootAimTutorScript : MonoBehaviour
 		else if ((Input.GetAxis("LT") > 0 || Input.GetKeyDown(KeyCode.Mouse1)) &&
 			tut_state == state_aim)
 		{
-			print("aim to finished");
+			timer = timer_default;
 			StopAllCoroutines();
 			dialg_finished.GetComponent<DialogueScript>().enabled = true;
 			tut_state = state_finished;
