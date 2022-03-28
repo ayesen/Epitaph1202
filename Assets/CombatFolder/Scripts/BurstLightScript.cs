@@ -19,5 +19,9 @@ public class BurstLightScript : MonoBehaviour
 		{
 			_light.intensity -= dimSpd * Time.deltaTime;
 		}
+		else
+		{
+			Destroy(gameObject);
+		}
 	}
 }
