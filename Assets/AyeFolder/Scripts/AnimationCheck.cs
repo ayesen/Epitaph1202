@@ -19,4 +19,9 @@ public class AnimationCheck : MonoBehaviour
     {
         SoundMan.SoundManager.BearWalk();
     }
+
+    public void SmallBearWalkSound()
+    {
+        SoundMan.SoundManager.SmallBearWalk();
+    }
 }
