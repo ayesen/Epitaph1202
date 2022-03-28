@@ -17,7 +17,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 	private bool textShowing = false;
 	public GameObject canvasUI;
 	public GameObject canvasDialogue;
-	private int index = 0;
+	public int index = 0;
 	public List<DialogueStruct> dialogueToShow;
 	private bool restrictMovement; // does this dialogue make player stand still and do nothing?
 	private bool burnAfterReading; // is this a one time only
@@ -59,6 +59,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 
 	public void ShowText(DialogueScript ds)
 	{
+		index = 0;
 		dT = ds;
 		dialogueToShow = ds.texts;
 		// foreach (var text in ds.texts)

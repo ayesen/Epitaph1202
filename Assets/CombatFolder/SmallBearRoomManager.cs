@@ -6,8 +6,9 @@ public class SmallBearRoomManager : MonoBehaviour
 {
     public List<GameObject> bears_iCtrl;
 	public List<DoorScript> doors_iCtrl;
-
-    public void BearStart()
+	bool cleared = false;
+	
+	public void BearStart()
 	{
 		BGMMan.bGMManger.StartTinyTeddyCombatMusic();
 		foreach (var bear in bears_iCtrl)
@@ -25,13 +26,14 @@ public class SmallBearRoomManager : MonoBehaviour
 		{
 			foreach (var bear in bears_iCtrl)
 			{
-				if (bear.GetComponent<SmallBear>()!=null && bear.GetComponent<SmallBear>().health > 0)
+				if (bear.GetComponent<SmallBear>() != null && bear.GetComponent<SmallBear>().health > 0)
 				{
 					clear = false;
 				}
 			}
-			if (clear)
+			if (clear && !cleared)
 			{
+				cleared = true;
 				BGMMan.bGMManger.EndTinyTeddyMusic();
 				if (doors_iCtrl.Count > 0)
 				{
