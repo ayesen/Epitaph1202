@@ -9,7 +9,9 @@ public class BGMMan : MonoBehaviour
 
     public AudioClip battleMusic;
     public AudioClip lordGuan;
+    bool lordGuanPlayed;
     public AudioClip firstTinyTeddy;
+    bool firstTinyTeddyPlayed;
     public AudioClip tinyBattleMusic;
     public AudioClip theme;
     public AudioClip safeHouse;
@@ -31,16 +33,25 @@ public class BGMMan : MonoBehaviour
 
     public void SecondGuangongMusic()
     {
-        
-        BGMAudioSource.loop = false;
-        StartCoroutine(FadeTrack(lordGuan));
+        if (!lordGuanPlayed)
+        {
+            lordGuanPlayed = true;
+            BGMAudioSource.loop = false;
+            StartCoroutine(FadeTrack(lordGuan));
+        }
+
     }
 
     public void FirstTinyTeddyMusic() //after the first teddy disappeared
     {
+        if (!firstTinyTeddyPlayed)
+        {
+            firstTinyTeddyPlayed = true;
+            BGMAudioSource.loop = false;
+            StartCoroutine(FadeTrack(firstTinyTeddy));
+        }
 
-        BGMAudioSource.loop = false;
-        StartCoroutine(FadeTrack(firstTinyTeddy));
+
     }
 
     public void EndCreditMusic()
