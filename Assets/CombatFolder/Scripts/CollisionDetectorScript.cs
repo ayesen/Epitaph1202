@@ -64,7 +64,7 @@ public class CollisionDetectorScript : MonoBehaviour
 				{
 					if (effect.toWhom == EffectStructNew.Target.player)
 					{
-						EffectManagerNew.me.SpawnEffectHolders(PlayerScript.me.gameObject, effect, gameObject.transform.position);
+						EffectManagerNew.me.SpawnEffectHolders(PlayerScriptNew.me.gameObject, effect, gameObject.transform.position);
 					}
 				}	
 			}
