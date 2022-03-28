@@ -24,6 +24,8 @@ public class DialogueScript : MonoBehaviour
 	public GameObject[] interactiveSwitch;
 	public int logX;
 	public int logY;
+	public string musicFunction;
+	GameObject bgmManager;
 
 
 
@@ -47,6 +49,7 @@ public class DialogueScript : MonoBehaviour
 				line.time = line.clip.length;
 			}
 		}
+		bgmManager = GameObject.Find("BGM");
 	}
 
 	private void Update()
@@ -58,15 +61,22 @@ public class DialogueScript : MonoBehaviour
 			{
 				//mr.material = highLightMat;
 				if ((Input.GetKeyUp(KeyCode.E) || Input.GetAxis("HorizontalArrow") > 0) &&
-				    (player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("testIdle") ||
-				     player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("testWalk") ||
-				     player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0)
-					     .IsName("Player_Walking_Right") ||
-				     player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0)
-					     .IsName("Player_Walking_Left") ||
-				     player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0)
-					     .IsName("Player_Walking_Backwards")))
+					(player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("testIdle") ||
+					 player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("testWalk") ||
+					 player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0)
+						 .IsName("Player_Walking_Right") ||
+					 player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0)
+						 .IsName("Player_Walking_Left") ||
+					 player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0)
+						 .IsName("Player_Walking_Backwards")))
 				{
+					 if (!musicFunction.Equals(""))
+                    {
+						bgmManager.SendMessage(musicFunction);
+						
+						
+                    }
+					
 					if (displayDelayed <= 0f)
 					{
 						SoundMan.SoundManager.ItemInspection();
