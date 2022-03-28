@@ -2083,6 +2083,7 @@ GameObject:
   - component: {fileID: 8580710902417682830}
   - component: {fileID: 2446830975491025908}
   - component: {fileID: 8115053764724096479}
+  - component: {fileID: 2952247129837535902}
   m_Layer: 0
   m_Name: SmallBear_Mesh
   m_TagString: Untagged
@@ -2142,6 +2143,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &2952247129837535902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8961916654067723060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac2ef55b30bcaa944a90fc271f4de494, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toPre: 0
 --- !u!1 &9085085706716633438
 GameObject:
   m_ObjectHideFlags: 0
