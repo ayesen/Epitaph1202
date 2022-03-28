@@ -5,6 +5,12 @@ using UnityEngine.UI;
 
 public class MatScriptNew : MonoBehaviour
 {
+	public enum MatType
+	{
+		amp,
+		atk,
+		functional
+	};
 	public int amount;
 	public int CD;
 	private int CD_max;
@@ -14,6 +20,9 @@ public class MatScriptNew : MonoBehaviour
 	public float lifespan;
 	public Sprite matIcon;
 	public string Description;
+
+	// type
+	public MatType myType;
 
 	private void Start()
 	{
