@@ -16,17 +16,12 @@ public class SmallBear : Enemy
         ghostRider = GetComponent<UnityEngine.AI.NavMeshAgent>();
         phase = Enemy.AIPhase.InBattle1;
     }
-    void Start()
-    {
-        
-    }
-
 
     void Update()
     {
         SmallBearDie();
         //Debug.Log(phase);
-        //Debug.Log(myAC.currentState);
+        //Debug.Log("current state: "+myAC.currentState);
         if (knockedBack)
         {
             ReactivateNavMesh();

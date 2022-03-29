@@ -69,6 +69,7 @@ public class Enemy : MonoBehaviour
     public bool knockedBack;
     public AIStateBase interruptedState;
     public GameObject EnemyCanvas;
+    public Material flashWhite;
 
     [Header("Supply")]
     public bool breakable;
