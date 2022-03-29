@@ -123,15 +123,24 @@ public class SpellScript : MonoBehaviour
 				// vfx
 				if (fragments != null)
 				{
-					ParticleSystem f = Instantiate(fragments);
-					f.transform.position = hitPos;
+					//ParticleSystem f = Instantiate(fragments);
+					//f.transform.position = hitPos;
+				}
+				foreach (var mat in mats)
+				{
+					if (mat.GetComponent<MatScriptNew>().myVFX != null)
+					{
+						GameObject ps = Instantiate(mat.GetComponent<MatScriptNew>().myVFX);
+						ps.transform.position = hitPos;
+						ps.transform.rotation = transform.rotation;
+					}
 				}
 			}
 			if (burst != null) // if hit, spawn burst vfx
 			{
 				// vfx
-				ParticleSystem b = Instantiate(burst);
-				b.transform.position = hitPos;
+				//ParticleSystem b = Instantiate(burst);
+				//b.transform.position = hitPos;
 			}
 			amount--;
 			yield return new WaitForSeconds(hit_interval);
