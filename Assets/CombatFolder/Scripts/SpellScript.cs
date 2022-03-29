@@ -17,6 +17,10 @@ public class SpellScript : MonoBehaviour
 	public EffectStructNew dummyEffectForBreak;
 	[Header("LASTWORD EVENT")]
 	public GameObject collisionPrefab;
+	[Header("VFX")]
+	public GameObject red_light;
+	public GameObject yellow_light;
+	public GameObject blue_light;
 
 	private void Start()
 	{
@@ -30,6 +34,7 @@ public class SpellScript : MonoBehaviour
 		}
 		lifespan = life;
 		deathTimer = lifespan;
+		DecideLightColor();
 	}
 
 	private void Update()
@@ -149,5 +154,37 @@ public class SpellScript : MonoBehaviour
 			}
 		}
 		Destroy(gameObject);
+	}
+
+	private void DecideLightColor()
+	{
+		bool amp = false;
+		bool atk = false;
+
+		foreach (var mat in mats)
+		{
+			switch (mat.GetComponent<MatScriptNew>().myType)
+			{
+				case MatScriptNew.MatType.amp:
+					amp = true;
+					break;
+				case MatScriptNew.MatType.atk:
+					atk = true;
+					break;
+			}
+		}
+		
+		if (amp && atk)
+		{
+			red_light.SetActive(true);
+		}
+		else if (amp)
+		{
+			blue_light.SetActive(true);
+		}
+		else if (atk)
+		{
+			yellow_light.SetActive(true);
+		}
 	}
 }

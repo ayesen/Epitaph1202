@@ -37,11 +37,12 @@ public class PlayerScriptNew : MonoBehaviour
 	public float joystickSensitivity;//0~1
 	[Header("VFX")]
 	public Transform hand;
-	public GameObject selectVFX_blue;
+	public GameObject selectVFX_blue; // blue for amp
 	public GameObject selectLight_blue;
-	public GameObject selectVFX_red;
-	public GameObject selectVFX_yellow;
-	public GameObject selectVFX_green;
+	public GameObject selectVFX_white; // white for functional
+	public GameObject selectLight_white;
+	public GameObject selectVFX_yellow; // yellow for atk
+	public GameObject selectLight_yellow;
 
 	// backswing cancel
 	private GameObject lastMat;
@@ -634,18 +635,22 @@ public class PlayerScriptNew : MonoBehaviour
 		switch (mat.GetComponent<MatScriptNew>().myType)
 		{
 			case MatScriptNew.MatType.amp:
-				GameObject vfx = Instantiate(selectVFX_blue);
-				GameObject light = Instantiate(selectLight_blue);
-				vfx.transform.position = hand.position;
-				light.transform.position = hand.position;
+				GameObject vfx_amp = Instantiate(selectVFX_blue);
+				GameObject light_amp = Instantiate(selectLight_blue);
+				vfx_amp.transform.position = hand.position;
+				light_amp.transform.position = hand.position;
 				break;
 			case MatScriptNew.MatType.atk:
 				GameObject vfx_atk = Instantiate(selectVFX_yellow);
-				//GameObject light_atk = Instantiate(selectLight_blue);
+				GameObject light_atk = Instantiate(selectLight_yellow);
 				vfx_atk.transform.position = hand.position;
-				//light_atk.transform.position = hand.position;
+				light_atk.transform.position = hand.position;
 				break;
 			case MatScriptNew.MatType.functional:
+				GameObject vfx_func = Instantiate(selectVFX_white);
+				GameObject light_func = Instantiate(selectLight_white);
+				vfx_func.transform.position = hand.position;
+				light_func.transform.position = hand.position;
 				break;
 		}
 	}
