@@ -79,6 +79,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 		if (restrictMovement) // if this dialogue prohibit player from moving when reading
 		{
 			PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("readingText");
+			PlayerScriptNew.me.ResetWalkingBools();
 		}
 		else if (!restrictMovement)
         {
@@ -108,6 +109,12 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 		{
 			aS.clip = dialogueToShow[index].clip;
 			aS.Play();
+		}
+
+		// call function
+		if (dialogueToShow[index].actor_oneLine != null)
+		{
+			dialogueToShow[index].actor_oneLine.SendMessage(dialogueToShow[index].funcToCall_oneLine);
 		}
 	}
 
@@ -143,6 +150,11 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 						{
 							aS.clip = dialogueToShow[index].clip;
 							aS.Play();
+						}
+						// call function
+						if (dialogueToShow[index].actor_oneLine != null)
+						{
+							dialogueToShow[index].actor_oneLine.SendMessage(dialogueToShow[index].funcToCall_oneLine);
 						}
 					}
 					else // when the dialogue ends
@@ -199,6 +211,11 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 						{
 							dialogueToShow.Insert(index + 1, dialogueToShow[dialogueToShow[index].rollBack_index]);
 						}
+						// call function
+						if (dialogueToShow[index].actor_oneLine != null)
+						{
+							dialogueToShow[index].actor_oneLine.SendMessage(dialogueToShow[index].funcToCall_oneLine);
+						}
 					}
 					else // when the dialogue ends
 					{
@@ -220,7 +237,6 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 						}
 						if (burnAfterReading)
 						{
-							print("called destruction");
 							Destroy(dT.gameObject);
 						}
 					}

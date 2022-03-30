@@ -7,16 +7,13 @@ public class AIStateHitted : AIStateBase
 {
     public float hitTimer;
     private float timer_flashWhite;
-    private Material ogMat;
     //public float myEnemyVelocity;
     public override void StartState(Enemy myEnemy)
     {
-        ogMat = myEnemy.GetComponentInChildren<SkinnedMeshRenderer>().material;
         timer_flashWhite = .2f;
         FlashWhite(myEnemy);
         myEnemy.ghostRider.enabled = false;
         myEnemy.AIAnimator.Play("Hitted", 0, 0);
-        FlashWhite(myEnemy);
     }
 
     public override void Update(Enemy myEnemy)
@@ -37,13 +34,14 @@ public class AIStateHitted : AIStateBase
         }
         else
         {
-            myEnemy.GetComponentInChildren<SkinnedMeshRenderer>().material = ogMat;
+            myEnemy.GetComponentInChildren<SkinnedMeshRenderer>().material = myEnemy.ogMat;
         }
     }
 
     public override void LeaveState(Enemy myEnemy)
     {
         myEnemy.ghostRider.enabled = true;
+        myEnemy.GetComponentInChildren<SkinnedMeshRenderer>().material = myEnemy.ogMat;
     }
 
     private void FlashWhite(Enemy myEnemy)

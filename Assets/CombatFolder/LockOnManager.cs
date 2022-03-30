@@ -27,16 +27,20 @@ public class LockOnManager : MonoBehaviour
 		{
 			if (bear != null)
 			{
-				if (bear.GetComponent<SmallBear>())
+				if (bear.GetComponent<SmallBear>()) // small bear
 				{
-					if (bear.GetComponent<AIController>().enabled && !bears_canBeLockedOn.Contains(bear))
+					if (bear.GetComponent<AIController>().enabled && 
+						!bears_canBeLockedOn.Contains(bear) &&
+						bear.GetComponent<SmallBear>().health > 0)
 					{
 						bears_canBeLockedOn.Add(bear);
 					}
 				}
-				else
+				else // big bear
 				{
-					if (bear.GetComponent<Enemy>() != null && !bear.GetComponent<Enemy>().phase.Equals(Enemy.AIPhase.NotInBattle))
+					if (bear.GetComponent<Enemy>() != null && 
+						!bear.GetComponent<Enemy>().phase.Equals(Enemy.AIPhase.NotInBattle) &&
+						bear.GetComponent<Enemy>().health > 0)
 					{
 						if (!bears_canBeLockedOn.Contains(bear))
 						{

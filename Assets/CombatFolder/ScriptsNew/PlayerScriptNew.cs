@@ -339,7 +339,7 @@ public class PlayerScriptNew : MonoBehaviour
 
 				if (walkingDir.magnitude > 0)
 				{
-					if (Vector3.Angle(walkingDir, transform.forward) < 45)
+					if (Vector3.Angle(walkingDir, transform.forward) < 45) // play walk straight
 					{
 						//anim.Play("testWalk");
 						if (!forwarding)
@@ -352,7 +352,7 @@ public class PlayerScriptNew : MonoBehaviour
 							righting = false;
 						}
 					}
-					else if (Vector3.Angle(walkingDir, transform.forward) > 135)
+					else if (Vector3.Angle(walkingDir, transform.forward) > 135) // play walk back
 					{
 						if (!backwarding)
 						{
@@ -367,10 +367,11 @@ public class PlayerScriptNew : MonoBehaviour
 					else if (Vector3.Angle(walkingDir, transform.forward) > 45 && Vector3.Angle(walkingDir, transform.forward) < 135)
 					{
 						Vector3 cross = Vector3.Cross(transform.forward, walkingDir);
-						if(cross.y > 0)
+						if (cross.y > 0)
                         {
-							if (!righting)
+							if (!righting) // play walk right
 							{
+								print("not righting check passed");
 								//anim.CrossFade("Player_Walking_Right", .3f);
 								anim.Play("Player_Walking_Right");
 								forwarding = false;
@@ -381,7 +382,7 @@ public class PlayerScriptNew : MonoBehaviour
 						}
 						else if(cross.y < 0)
                         {
-							if (!lefting)
+							if (!lefting) // play walk left
 							{
 								//anim.CrossFade("Player_Walking_Left", .3f);
 								anim.Play("Player_Walking_Left");
@@ -391,39 +392,11 @@ public class PlayerScriptNew : MonoBehaviour
 								righting = false;
 							}
 						}
-						/*
-						if (transform.forward.z < 0 || transform.forward.x < 0)
-						{
-							if (walkingDir.x > 0 || walkingDir.z < 0)
-							{
-								//anim.Play("Player_Walking_Left");
-								if (!lefting)
-								{
-									anim.CrossFade("Player_Walking_Left", .3f);
-									forwarding = false;
-									backwarding = false;
-									lefting = true;
-									righting = false;
-								}
-							}
-							else if (walkingDir.x < 0 || walkingDir.z > 0)
-							{
-								if (!righting)
-								{
-									anim.CrossFade("Player_Walking_Right", .3f);
-									forwarding = false;
-									backwarding = false;
-									lefting = false;
-									righting = true;
-								}
-							}
-						}
-						*/
 						else if (transform.forward.z > 0 || transform.forward.x > 0)
 						{
 							if (walkingDir.x > 0 || walkingDir.z < 0)
 							{
-								if (!righting)
+								if (!righting)// play walk right
 								{
 									anim.CrossFade("Player_Walking_Right", .3f);
 									forwarding = false;
@@ -434,7 +407,7 @@ public class PlayerScriptNew : MonoBehaviour
 							}
 							else if (walkingDir.x < 0 || walkingDir.z > 0)
 							{
-								if (!lefting)
+								if (!lefting) // play walk left
 								{
 									anim.CrossFade("Player_Walking_Left", .3f);
 									forwarding = false;
@@ -539,7 +512,6 @@ public class PlayerScriptNew : MonoBehaviour
 			}
 		}
 	}
-
 	public void LoseHealth_player(int amt)
 	{
 		hp -= amt;
@@ -566,13 +538,11 @@ public class PlayerScriptNew : MonoBehaviour
 			checkBoolChange = dead;
 		}
 	}
-
 	IEnumerator WaitSecondsAndDie(float deathTime)
 	{
 		yield return new WaitForSecondsRealtime(deathTime);
 		PostProcessingManager.Me.StartCoroutine(PostProcessingManager.Me.DeadFilter());
 	}
-
 	private void Aim_and_LockOn()
 	{
 		// lock on
@@ -581,9 +551,7 @@ public class PlayerScriptNew : MonoBehaviour
 			if ((Input.GetMouseButton(1) || Input.GetAxis("LT") > 0) && LockOnManager.me.bears_canBeLockedOn.Count > 0)
 			{
 				var target = new Vector3(LockOnManager.me.bears_canBeLockedOn[0].transform.position.x, transform.position.y, LockOnManager.me.bears_canBeLockedOn[0].transform.position.z);
-				print("currently locked onto: " + LockOnManager.me.bears_canBeLockedOn[0].name);
-				
-				
+				//print("currently locked onto: " + LockOnManager.me.bears_canBeLockedOn[0].name);
 				// change target
 				if (Input.GetAxis("RightJoystickHorizontal") >= joystickSensitivity)
 				{
@@ -609,7 +577,6 @@ public class PlayerScriptNew : MonoBehaviour
 			}
 		}
 	}
-
 	public void MatSlotUpdate()
     {
 		if(matSlots.Count > 5)
@@ -629,7 +596,6 @@ public class PlayerScriptNew : MonoBehaviour
             }
         }
     }
-
 	private void PlaySelectVFX(GameObject mat)
 	{
 		switch (mat.GetComponent<MatScriptNew>().myType)
@@ -653,5 +619,12 @@ public class PlayerScriptNew : MonoBehaviour
 				light_func.transform.position = hand.position;
 				break;
 		}
+	}
+	public void ResetWalkingBools()
+	{
+		forwarding = false;
+		backwarding = false;
+		lefting = false;
+		righting = false;
 	}
 }

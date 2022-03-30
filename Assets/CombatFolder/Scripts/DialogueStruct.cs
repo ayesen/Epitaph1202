@@ -15,6 +15,11 @@ public class DialogueStruct
     public int logX;
     public int logY;
 
+    // for roll back
     public bool rollBack;
     public int rollBack_index;
+
+    // for calling a function
+    public GameObject actor_oneLine;
+    public string funcToCall_oneLine;
 }

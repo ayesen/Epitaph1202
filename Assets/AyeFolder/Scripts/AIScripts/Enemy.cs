@@ -47,6 +47,7 @@ public class Enemy : MonoBehaviour
     public float stunPoise_max;
     private float spRegenTimer;
     public float spRegenTime;
+    public Material ogMat;
 
     [Header("NAV MESH")]
     public NavMeshAgent ghostRider;
@@ -105,6 +106,7 @@ public class Enemy : MonoBehaviour
         Mother = GetComponent<MotherController>();
         downPoise_max = downPoise;
         stunPoise_max = stunPoise;
+        ogMat = GetComponentInChildren<SkinnedMeshRenderer>().material;
     }
 
     private void Update()
