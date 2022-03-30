@@ -55,6 +55,7 @@ public class EffectStorage : MonoBehaviour
 		{
 			if (es.myAC.currentState != es.myAC.downedState)
 			{
+				print("enter hitted state");
 				es.EnterHittedState(1);
 			}
 		}

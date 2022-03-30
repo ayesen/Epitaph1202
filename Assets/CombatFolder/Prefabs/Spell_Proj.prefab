@@ -345,6 +345,8 @@ MonoBehaviour:
   red_light: {fileID: 2030787767878294085}
   yellow_light: {fileID: 4367611320737799449}
   blue_light: {fileID: 608867449374168396}
+  timeScale_target: 0.03
+  slowDown_time: 0.1
 --- !u!1 &4367611320737799449
 GameObject:
   m_ObjectHideFlags: 0
