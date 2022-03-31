@@ -30,6 +30,9 @@ public class SoundMan : MonoBehaviour
     public AudioClip bearRoar;
     public AudioClip wallBreak;
     public AudioClip jumpScare;
+    public AudioClip cannotAccess;
+    public AudioClip doorOpen;
+    public AudioClip doorLocked;
     [Header("BattleVO")]
     public AudioClip[] battleVOPhaseOne;
     public AudioClip[] battleVOPhaseTwo;
@@ -82,6 +85,31 @@ public class SoundMan : MonoBehaviour
         //source.transform.position = pos;
         source.Play();
     }
+
+    public void CannotAccess()
+    {
+        AudioSource source = GetSource();
+        FindSFXGroup(source);
+        source.clip = cannotAccess;
+        source.Play();
+    }
+
+    public void DoorOpen()
+    {
+        AudioSource source = GetSource();
+        FindSFXGroup(source);
+        source.clip = doorOpen;
+        source.Play();
+    }
+
+    public void DoorLocked()
+    {
+        AudioSource source = GetSource();
+        FindSFXGroup(source);
+        source.clip = doorLocked;
+        source.Play();
+    }
+
     public void WallBreaks()  //maybe need to add something to prevent it over playing
     {
         AudioSource source = GetSource();
