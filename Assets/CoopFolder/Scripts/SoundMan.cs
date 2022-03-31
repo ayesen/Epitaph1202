@@ -59,33 +59,18 @@ public class SoundMan : MonoBehaviour
         }
     }
 
-    public void BattlePhaseOneVO() //not in use right now
+    public void AudioPauseOrUnpause()
     {
-        AudioSource source = GetSource();
-
-        FindVOGroup(source);
-
-        int clipNum = GetClipIndex(battleVOPhaseOne.Length, lastBPOne);
-        lastBPOne = clipNum;
-        source.clip = battleVOPhaseOne[clipNum];
-        //source.transform.position = pos;
-        source.volume = 1;
-        source.Play();
+        AudioListener.pause = !AudioListener.pause;
     }
 
-    public void BattlePhaseTwoVO() //also not in use
+    public void PlayerLowHealthFilter(float playerHealth) //player health should percentage from 0-1
     {
-        AudioSource source = GetSource();
-
-        FindVOGroup(source);
-
-        int clipNum = GetClipIndex(battleVOPhaseTwo.Length, lastBPTwo);
-        lastBPTwo = clipNum;
-        source.clip = battleVOPhaseTwo[clipNum];
-        //source.transform.position = pos;
-        source.Play();
+        float cutOffHz = 200.0f;
+        mainAudioMixer.SetFloat("lowPass", cutOffHz);
     }
 
+    /*The SFX Funcions*/
     public void CannotAccess()
     {
         AudioSource source = GetSource();
@@ -126,9 +111,10 @@ public class SoundMan : MonoBehaviour
         source.Play();
     }
 
-    public void SafehouseMaterialSelect()
+    public void SafehouseMaterialSelect() // this couold also be used as the UI selection sound, such as in pause menu and start menu.
     {
         AudioSource source = GetSource();
+        source.ignoreListenerPause = true;
         FindSFXGroup(source);
         source.clip = safehouseMaterialSelect;
         source.Play();
@@ -261,7 +247,9 @@ public class SoundMan : MonoBehaviour
         //source.transform.position = pos;
         source.Play();
     }
-    
+
+
+    /*Audio Mixer Snapshots management functions*/
     public void ChangeToNormalSnapshot()
     {
         mainAudioMixer.FindSnapshot("InGame_Normal_Snapshot").TransitionTo(0.5f);
@@ -307,6 +295,8 @@ public class SoundMan : MonoBehaviour
         aS.outputAudioMixerGroup = mainAudioMixer.FindMatchingGroups("VO")[0];
     }
 
+
+    /*Initialization functions*/
     int GetClipIndex(int clipNum, int lastPlayed)
     {
         int num = Random.Range(0, clipNum);
@@ -324,6 +314,34 @@ public class SoundMan : MonoBehaviour
         }
 
         return sources[0];
+    }
+
+    /* not in use functions*/
+    public void BattlePhaseOneVO() //not in use right now
+    {
+        AudioSource source = GetSource();
+
+        FindVOGroup(source);
+
+        int clipNum = GetClipIndex(battleVOPhaseOne.Length, lastBPOne);
+        lastBPOne = clipNum;
+        source.clip = battleVOPhaseOne[clipNum];
+        //source.transform.position = pos;
+        source.volume = 1;
+        source.Play();
+    }
+
+    public void BattlePhaseTwoVO() //also not in use
+    {
+        AudioSource source = GetSource();
+
+        FindVOGroup(source);
+
+        int clipNum = GetClipIndex(battleVOPhaseTwo.Length, lastBPTwo);
+        lastBPTwo = clipNum;
+        source.clip = battleVOPhaseTwo[clipNum];
+        //source.transform.position = pos;
+        source.Play();
     }
 
 
