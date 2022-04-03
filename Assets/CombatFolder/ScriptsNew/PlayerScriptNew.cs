@@ -516,6 +516,10 @@ public class PlayerScriptNew : MonoBehaviour
 	{
 		hp -= amt;
 		SoundMan.SoundManager.PlayerHitten();
+		if (hp < 25)
+		{
+			PostProcessingManager.Me.ChangeFilter();
+		}
 	}
 	public void Death()
 	{
