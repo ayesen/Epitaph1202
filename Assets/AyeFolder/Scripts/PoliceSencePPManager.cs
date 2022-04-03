@@ -11,6 +11,7 @@ public class PoliceSencePPManager : MonoBehaviour
     PaniniProjection FishEye;
     DepthOfField DOF;
     LensDistortion LD;
+    Vignette Vig;
     public GameObject DirectionalLight;
     public GameObject LightEnemy;
 
@@ -21,7 +22,7 @@ public class PoliceSencePPManager : MonoBehaviour
         PolicePpVolume.profile.TryGet<LensDistortion>(out LD);
         PolicePpVolume.profile.TryGet<DepthOfField>(out DOF);
         PolicePpVolume.profile.TryGet<PaniniProjection>(out FishEye);
-
+        PolicePpVolume.profile.TryGet<Vignette>(out Vig);
     }
     
     public IEnumerator ResetPanini()
@@ -31,12 +32,14 @@ public class PoliceSencePPManager : MonoBehaviour
 
             float time = 0;
             float originalDist = FishEye.distance.value;
+            float originalVigInt = Vig.intensity.value;
 
             while (FishEye.distance.value != 0)
             {
                 Debug.Log("resetP");
                 time += Time.deltaTime*2;
                 FishEye.distance.value = Mathf.Lerp(originalDist, 0, time);
+                Vig.intensity.value = Mathf.Lerp(originalVigInt, 0, time);
                 yield return null;
             }
         }
@@ -44,6 +47,7 @@ public class PoliceSencePPManager : MonoBehaviour
         DirectionalLight.SetActive(false);
         LightEnemy.SetActive(false);
         FishEye.distance.value = 0.7f;
+        Vig.intensity.value = 0.5f;
 
     }
 
