@@ -17,6 +17,15 @@ public class SpellScript : MonoBehaviour
 	public EffectStructNew dummyEffectForBreak;
 	[Header("LASTWORD EVENT")]
 	public GameObject collisionPrefab;
+	[Header("VFX")]
+	// lights
+	public GameObject red_light;
+	public GameObject yellow_light;
+	public GameObject blue_light;
+	// ∂Ÿ÷°
+	public float timeScale_target;
+	public float slowDown_time;
+	private float slowDown_timer;
 
 	private void Start()
 	{
@@ -30,6 +39,7 @@ public class SpellScript : MonoBehaviour
 		}
 		lifespan = life;
 		deathTimer = lifespan;
+		DecideLightColor();
 	}
 
 	private void Update()
@@ -58,7 +68,7 @@ public class SpellScript : MonoBehaviour
 			StartCoroutine(Detection(hit_amount, collision, collision.GetContact(0).point));
 			GetComponent<BoxCollider>().enabled = false;
 			GetComponent<MeshRenderer>().enabled = false;
-			DestroyEvent();
+			
 		}
 	}
 
@@ -118,19 +128,30 @@ public class SpellScript : MonoBehaviour
 				// vfx
 				if (fragments != null)
 				{
-					ParticleSystem f = Instantiate(fragments);
-					f.transform.position = hitPos;
+					//ParticleSystem f = Instantiate(fragments);
+					//f.transform.position = hitPos;
 				}
+				foreach (var mat in mats)
+				{
+					if (mat.GetComponent<MatScriptNew>().myVFX != null)
+					{
+						GameObject ps = Instantiate(mat.GetComponent<MatScriptNew>().myVFX);
+						ps.transform.position = hitPos;
+						ps.transform.rotation = transform.rotation;
+					}
+				}
+				SlowDownTime(hitPos);
 			}
 			if (burst != null) // if hit, spawn burst vfx
 			{
 				// vfx
-				ParticleSystem b = Instantiate(burst);
-				b.transform.position = hitPos;
+				//ParticleSystem b = Instantiate(burst);
+				//b.transform.position = hitPos;
 			}
 			amount--;
 			yield return new WaitForSeconds(hit_interval);
 		}
+		DestroyEvent();
 	}
 
 	private void DestroyEvent()
@@ -149,5 +170,59 @@ public class SpellScript : MonoBehaviour
 			}
 		}
 		Destroy(gameObject);
+	}
+
+	private void DecideLightColor()
+	{
+		bool amp = false;
+		bool atk = false;
+
+		foreach (var mat in mats)
+		{
+			switch (mat.GetComponent<MatScriptNew>().myType)
+			{
+				case MatScriptNew.MatType.amp:
+					amp = true;
+					break;
+				case MatScriptNew.MatType.atk:
+					atk = true;
+					break;
+			}
+		}
+		
+		if (amp && atk)
+		{
+			red_light.SetActive(true);
+		}
+		else if (amp)
+		{
+			blue_light.SetActive(true);
+		}
+		else if (atk)
+		{
+			yellow_light.SetActive(true);
+		}
+	}
+
+	private void SlowDownTime(Vector3 hitPos)
+	{
+		Time.timeScale = timeScale_target;
+
+		StartCoroutine(BackToNormalTime(hitPos));
+	}
+
+	IEnumerator BackToNormalTime(Vector3 hitPos)
+	{
+		yield return new WaitForSecondsRealtime(slowDown_time);
+		Time.timeScale = 1;
+		//foreach (var mat in mats)
+		//{
+		//	if (mat.GetComponent<MatScriptNew>().myVFX != null)
+		//	{
+		//		GameObject ps = Instantiate(mat.GetComponent<MatScriptNew>().myVFX);
+		//		ps.transform.position = hitPos;
+		//		ps.transform.rotation = transform.rotation;
+		//	}
+		//}
 	}
 }

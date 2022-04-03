@@ -15,18 +15,14 @@ public class SmallBear : Enemy
         health = maxHealth;
         ghostRider = GetComponent<UnityEngine.AI.NavMeshAgent>();
         phase = Enemy.AIPhase.InBattle1;
+        ogMat = GetComponentInChildren<SkinnedMeshRenderer>().material;
     }
-    void Start()
-    {
-        
-    }
-
 
     void Update()
     {
         SmallBearDie();
         //Debug.Log(phase);
-        //Debug.Log(myAC.currentState);
+        //Debug.Log("current state: "+myAC.currentState);
         if (knockedBack)
         {
             ReactivateNavMesh();

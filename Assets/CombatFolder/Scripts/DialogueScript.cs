@@ -27,9 +27,8 @@ public class DialogueScript : MonoBehaviour
 	public string musicFunction;
 	GameObject bgmManager;
 
-
-
-	[Header("Custimizable End Action")] public GameObject actor;
+	[Header("Custimizable End Action")]
+	public GameObject actor;
 	public string funcToCall;
 
 	private void Start()

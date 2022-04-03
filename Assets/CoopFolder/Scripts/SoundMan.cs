@@ -30,6 +30,9 @@ public class SoundMan : MonoBehaviour
     public AudioClip bearRoar;
     public AudioClip wallBreak;
     public AudioClip jumpScare;
+    public AudioClip cannotAccess;
+    public AudioClip doorOpen;
+    public AudioClip doorLocked;
     [Header("BattleVO")]
     public AudioClip[] battleVOPhaseOne;
     public AudioClip[] battleVOPhaseTwo;
@@ -56,32 +59,42 @@ public class SoundMan : MonoBehaviour
         }
     }
 
-    public void BattlePhaseOneVO() //not in use right now
+    public void AudioPauseOrUnpause()
+    {
+        AudioListener.pause = !AudioListener.pause;
+    }
+
+    public void PlayerLowHealthFilter(float playerHealth) //player health should percentage from 0-1
+    {
+        float cutOffHz = 200.0f;
+        mainAudioMixer.SetFloat("lowPass", cutOffHz);
+    }
+
+    /*The SFX Funcions*/
+    public void CannotAccess()
     {
         AudioSource source = GetSource();
-
-        FindVOGroup(source);
-
-        int clipNum = GetClipIndex(battleVOPhaseOne.Length, lastBPOne);
-        lastBPOne = clipNum;
-        source.clip = battleVOPhaseOne[clipNum];
-        //source.transform.position = pos;
-        source.volume = 1;
+        FindSFXGroup(source);
+        source.clip = cannotAccess;
         source.Play();
     }
 
-    public void BattlePhaseTwoVO() //also not in use
+    public void DoorOpen()
     {
         AudioSource source = GetSource();
-
-        FindVOGroup(source);
-
-        int clipNum = GetClipIndex(battleVOPhaseTwo.Length, lastBPTwo);
-        lastBPTwo = clipNum;
-        source.clip = battleVOPhaseTwo[clipNum];
-        //source.transform.position = pos;
+        FindSFXGroup(source);
+        source.clip = doorOpen;
         source.Play();
     }
+
+    public void DoorLocked()
+    {
+        AudioSource source = GetSource();
+        FindSFXGroup(source);
+        source.clip = doorLocked;
+        source.Play();
+    }
+
     public void WallBreaks()  //maybe need to add something to prevent it over playing
     {
         AudioSource source = GetSource();
@@ -98,9 +111,10 @@ public class SoundMan : MonoBehaviour
         source.Play();
     }
 
-    public void SafehouseMaterialSelect()
+    public void SafehouseMaterialSelect() // this couold also be used as the UI selection sound, such as in pause menu and start menu.
     {
         AudioSource source = GetSource();
+        source.ignoreListenerPause = true;
         FindSFXGroup(source);
         source.clip = safehouseMaterialSelect;
         source.Play();
@@ -233,7 +247,9 @@ public class SoundMan : MonoBehaviour
         //source.transform.position = pos;
         source.Play();
     }
-    
+
+
+    /*Audio Mixer Snapshots management functions*/
     public void ChangeToNormalSnapshot()
     {
         mainAudioMixer.FindSnapshot("InGame_Normal_Snapshot").TransitionTo(0.5f);
@@ -279,6 +295,8 @@ public class SoundMan : MonoBehaviour
         aS.outputAudioMixerGroup = mainAudioMixer.FindMatchingGroups("VO")[0];
     }
 
+
+    /*Initialization functions*/
     int GetClipIndex(int clipNum, int lastPlayed)
     {
         int num = Random.Range(0, clipNum);
@@ -296,6 +314,34 @@ public class SoundMan : MonoBehaviour
         }
 
         return sources[0];
+    }
+
+    /* not in use functions*/
+    public void BattlePhaseOneVO() //not in use right now
+    {
+        AudioSource source = GetSource();
+
+        FindVOGroup(source);
+
+        int clipNum = GetClipIndex(battleVOPhaseOne.Length, lastBPOne);
+        lastBPOne = clipNum;
+        source.clip = battleVOPhaseOne[clipNum];
+        //source.transform.position = pos;
+        source.volume = 1;
+        source.Play();
+    }
+
+    public void BattlePhaseTwoVO() //also not in use
+    {
+        AudioSource source = GetSource();
+
+        FindVOGroup(source);
+
+        int clipNum = GetClipIndex(battleVOPhaseTwo.Length, lastBPTwo);
+        lastBPTwo = clipNum;
+        source.clip = battleVOPhaseTwo[clipNum];
+        //source.transform.position = pos;
+        source.Play();
     }
 
 
