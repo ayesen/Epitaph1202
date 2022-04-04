@@ -9,7 +9,8 @@ public class MatScriptNew : MonoBehaviour
 	{
 		amp,
 		atk,
-		functional
+		functional,
+		boss
 	};
 	public int amount;
 	public int CD;
