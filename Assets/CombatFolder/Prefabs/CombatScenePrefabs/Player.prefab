@@ -1394,9 +1394,12 @@ MonoBehaviour:
   hand: {fileID: 820820053}
   selectVFX_blue: {fileID: 1964257469241127086, guid: 7ff7a9f0656604145880ca253b012f32, type: 3}
   selectLight_blue: {fileID: 4992997799922066900, guid: c2d5ce1ddbe065f429fe705406575b46, type: 3}
-  selectVFX_red: {fileID: 2832233513170964777, guid: 732262809422c2a44804dfd0da2a8fa4, type: 3}
+  selectVFX_white: {fileID: 1479859999460054724, guid: d032d28663cba6d4c97491456b20cacc, type: 3}
+  selectLight_white: {fileID: 6362872840254690505, guid: 3609db571e54ad348a4d2506a7c39f29, type: 3}
   selectVFX_yellow: {fileID: 3851232936306809905, guid: 2e125f1e24c94304f9bb96f76be889a9, type: 3}
-  selectVFX_green: {fileID: 0}
+  selectLight_yellow: {fileID: 3146623846033650166, guid: f8f172a8926888842b7b001b5333bf78, type: 3}
+  selectVFX_purple: {fileID: 3851232936306809905, guid: 92742cfc68b54a84aa9717b09f22dec2, type: 3}
+  selectLight_purple: {fileID: 3146623846033650166, guid: 67a38883fb29cc84587bafce4e77d049, type: 3}
 --- !u!114 &114750589119298922
 MonoBehaviour:
   m_ObjectHideFlags: 0

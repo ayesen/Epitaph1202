@@ -116,6 +116,13 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 		{
 			dialogueToShow[index].actor_oneLine.SendMessage(dialogueToShow[index].funcToCall_oneLine);
 		}
+
+		// look at item being inspected
+		if (ds.itemToLookAt != null)
+		{
+			//PlayerScriptNew.me.LookTowardsItem(ds.itemToLookAt);
+			StartCoroutine(PlayerScriptNew.me.LookTowardsItem(ds.itemToLookAt));
+		}
 	}
 
 	private void Update()
@@ -181,6 +188,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 							Destroy(dT.gameObject);
 						}
 					}
+					StopAllCoroutines();
 				}
 			}
 			else // if the dialogue requires player to press a button to proceed
@@ -239,6 +247,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 						{
 							Destroy(dT.gameObject);
 						}
+						StopAllCoroutines();
 					}
 				}
 				if (optionsDisplaying) // let player choose
