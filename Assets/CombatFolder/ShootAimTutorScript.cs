@@ -56,7 +56,8 @@ public class ShootAimTutorScript : MonoBehaviour
 			// tutorBear.GetComponent<SmallBear>().enabled = true;
 			// tutorBear.GetComponent<AIController>().enabled = true;
 			dialg_select.GetComponent<DialogueScript>().enabled = true; // enable dialogue script, show dialogue
-			if(cur_coroutine == null)
+			BGMMan.bGMManger.FirstTinyTeddyMusic();
+			if (cur_coroutine == null)
 				cur_coroutine =  StartCoroutine(RepeatDialogue());
 		}
 	}
@@ -75,16 +76,17 @@ public class ShootAimTutorScript : MonoBehaviour
 
 	private void TutStateMachine()
 	{
-		if (Input.GetButtonUp("XButton") || Input.GetKeyUp(KeyCode.Alpha1) &&
+		if ((Input.GetButtonUp("XButton") || Input.GetKeyUp(KeyCode.Alpha1)) &&
 			tut_state == state_select)
 		{
 			timer = timer_default;
 			tut_state = state_aim;
 			dialg_aim.GetComponent<DialogueScript>().enabled = true;
 		}
-		else if (Input.GetAxis("LT") > 0 || Input.GetKeyDown(KeyCode.Mouse1) &&
+		else if ((Input.GetAxis("LT") > 0 || Input.GetKeyDown(KeyCode.Mouse1)) &&
 			tut_state == state_aim)
 		{
+			timer = timer_default;
 			StopAllCoroutines();
 			dialg_finished.GetComponent<DialogueScript>().enabled = true;
 			tut_state = state_finished;
@@ -101,6 +103,8 @@ public class ShootAimTutorScript : MonoBehaviour
 			// small bear runs away
 			ActivateBear();
 			tutorBear.GetComponent<SmallBear>().GoToLoc();
+			
+			SoundMan.SoundManager.JumpScare();
 			tutorBear.GetComponent<SmallBear>().moveSpeed = 8;
 			LockOnManager.me.bears_canBeLockedOn.Remove(tutorBear);
 			Destroy(tutorBear, 2f);

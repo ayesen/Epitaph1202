@@ -5,6 +5,13 @@ using UnityEngine.UI;
 
 public class MatScriptNew : MonoBehaviour
 {
+	public enum MatType
+	{
+		amp,
+		atk,
+		functional,
+		boss
+	};
 	public int amount;
 	public int CD;
 	private int CD_max;
@@ -14,6 +21,11 @@ public class MatScriptNew : MonoBehaviour
 	public float lifespan;
 	public Sprite matIcon;
 	public string Description;
+	[Header("Hit VFX")]
+	public GameObject myVFX;
+
+	// type
+	public MatType myType;
 
 	private void Start()
 	{

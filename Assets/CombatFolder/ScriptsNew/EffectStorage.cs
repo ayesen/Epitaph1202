@@ -21,6 +21,8 @@ public class EffectStorage : MonoBehaviour
 	public ParticleSystem heal;
 	public ParticleSystem fragments_dot;
 	public GameObject PlayerSoundWaveVFX;
+	public GameObject cd_vfx;
+	public GameObject bossMatDrop_vfx;
 	private float time = 0;
 
 	private void Awake()
@@ -55,6 +57,7 @@ public class EffectStorage : MonoBehaviour
 		{
 			if (es.myAC.currentState != es.myAC.downedState)
 			{
+				print("enter hitted state");
 				es.EnterHittedState(1);
 			}
 		}
@@ -67,7 +70,10 @@ public class EffectStorage : MonoBehaviour
 		Enemy es = enemy.GetComponent<Enemy>();
 		// hp dmg
 		float finalDmg = Mathf.Clamp((ehs.myEffect.atk - es.def) * ehs.myEffect.amp, 0, float.MaxValue); // dmg = (atk - def) * amp
-		float dmgToDeal = 1f / dis * finalDmg; //
+		print("dis: "+dis);
+		print("dmg: " + finalDmg);
+		float dmgToDeal = 1f / dis * finalDmg; // 1/distance * final damage
+		print("final dmg: " + dmgToDeal);
 		es.LoseHealth((int)dmgToDeal);
 		// poise dmg
 		float finalPD = ehs.myEffect.atk / es.edr;
@@ -174,6 +180,20 @@ public class EffectStorage : MonoBehaviour
 				FloatTextManager.Me.SpawnFloatText(enemy, "" + (int)ehs.myEffect.amp, FloatTextManager.TypeOfText.CD);
 			Enemy eS = enemy.GetComponent<Enemy>();
 			eS.breakMeter -= (int)ehs.myEffect.amp;
+			// cd vfx
+			if (cd_vfx != null)
+			{
+				GameObject _cdVFX = Instantiate(cd_vfx);
+				_cdVFX.transform.position = enemy.transform.position;
+				if (_cdVFX.GetComponent<ParticleAttractor>())
+				{
+					_cdVFX.GetComponent<ParticleAttractor>().particleAmount = (int)ehs.myEffect.amp;
+				}
+			}
+			else
+			{
+				Debug.LogError("Assign CD VFX!");
+			}
 			if (eS.breakMeter <= 0)
 			{
 				eS.breakMeter = eS.breakMeterMax;
@@ -215,6 +235,16 @@ public class EffectStorage : MonoBehaviour
 			GameObject droppedMat_bossMat = Instantiate(droppedMat_prefab, spawnPos_bossMat, Random.rotation);
 			droppedMat_bossMat.GetComponent<DroppedMatScript>().myMat = bossMatDropped;
 			droppedMat_bossMat.GetComponent<DroppedMatScript>().amount = 1;
+			if (bossMatDrop_vfx != null)
+			{
+				GameObject _bossMatVFX = Instantiate(bossMatDrop_vfx);
+				_bossMatVFX.transform.position = enemy.transform.position;
+				if (bossMatDrop_vfx.GetComponent<ParticleAttractor>())
+				{
+					bossMatDrop_vfx.GetComponent<ParticleAttractor>().particleAmount = 1;
+				}
+			}
+			
 			droppedMat_bossMat.GetComponent<Rigidbody>().AddForce(
 				new Vector3(Random.Range(-droppedMat_flyAmount, droppedMat_flyAmount),
 				3, // force upward

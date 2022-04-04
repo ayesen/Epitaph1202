@@ -7,13 +7,16 @@ public class SafehouseManager : MonoBehaviour
     public bool canSafehouse;
     public bool isSafehouse;
     public bool isCheatOn;
+    public bool cannotExit;
     public float hideTime;
     public float fadeTime;
     private CanvasGroup cg;
-    private bool isFading;
+    public bool isFading;
     private bool checkBoolChange;
 
     public Enemy enemyScript;
+
+    public ChangeInventory CI;
 
     public Transform spawnPoint;
 
@@ -41,6 +44,7 @@ public class SafehouseManager : MonoBehaviour
     {
         checkBoolChange = isSafehouse;
         cg = GetComponent<CanvasGroup>();
+        CI = GetComponentInChildren<ChangeInventory>();
         enemyScript = GameObject.Find("Bear").GetComponent<Enemy>();
         canSafehouse = false;
     }
@@ -52,8 +56,11 @@ public class SafehouseManager : MonoBehaviour
             !PlayerScriptNew.me.anim.GetCurrentAnimatorStateInfo(0).IsName("readingText") &&
             !isFading)
         {
-            if(isSafehouse)
+            if (isSafehouse && !cannotExit)
+            {
                 isSafehouse = false;
+                CI.choosenMatIndex = 0;
+            }
             else if(!isSafehouse && isCheatOn)
                 isSafehouse = true;
         }

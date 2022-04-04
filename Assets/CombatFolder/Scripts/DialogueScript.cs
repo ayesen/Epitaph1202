@@ -18,16 +18,18 @@ public class DialogueScript : MonoBehaviour
 	public Material highLightMat;
 	public bool restrictMovement; // does the player is prohibited from doing anything when reading
 	public bool oneTimeDialogue; //! can this dialogue be triggered only once, dialogues with options should set this to true!
-	private bool inspected;
+	public bool inspected;
 	private MeshRenderer mr;
 	public bool isSwitch;
 	public GameObject[] interactiveSwitch;
 	public int logX;
 	public int logY;
+	public string musicFunction;
+	GameObject bgmManager;
+	public GameObject itemToLookAt; // for look at things automatically after triggering dialogue
 
-
-
-	[Header("Custimizable End Action")] public GameObject actor;
+	[Header("Custimizable End Action")]
+	public GameObject actor;
 	public string funcToCall;
 
 	private void Start()
@@ -47,67 +49,76 @@ public class DialogueScript : MonoBehaviour
 				line.time = line.clip.length;
 			}
 		}
+		bgmManager = GameObject.Find("BGM");
 	}
 
 	private void Update()
 	{
-		if (player != null && Vector3.Distance(player.transform.position, transform.position) < triggerRange &&
-		    (!inspected || !oneTimeDialogue))
+		if (!inspected)
 		{
-			if (!autoTrigger) // highlight item, show text after pressing E
-			{
-				//mr.material = highLightMat;
-				if ((Input.GetKeyUp(KeyCode.E) || Input.GetAxis("HorizontalArrow") > 0) &&
-				    (player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("testIdle") ||
-				     player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("testWalk") ||
-				     player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0)
-					     .IsName("Player_Walking_Right") ||
-				     player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0)
-					     .IsName("Player_Walking_Left") ||
-				     player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0)
-					     .IsName("Player_Walking_Backwards")))
-				{
-					if (displayDelayed <= 0f)
-					{
-						SoundMan.SoundManager.ItemInspection();
-						inspected = true;
-						ObjectInspectorManagerScript.me.ShowText(this);
-						foreach (GameObject interactable in interactiveSwitch)
-						{
-							interactable.SetActive(true);
-						}
-
-						//if (LogManager.LOGManager != null)
-						//{
-						//	LogManager.LOGManager.CoverSetActive(logX, logY);
-						//}
-					}
-				}
-			}
-			else // auto show text
-			{
-				if (displayDelayed <= 0f && !inspected)
-				{
-					inspected = true;
-					ObjectInspectorManagerScript.me.ShowText(this);
-					foreach (GameObject interactable in interactiveSwitch)
-					{
-						interactable.SetActive(true);
-					}
-
-					//if (LogManager.LOGManager != null)
-					//{
-					//	LogManager.LOGManager.CoverSetActive(logX, logY);
-					//}
-				}
-			}
-		}
-		else
-		{
-			if (mr != null)
-			{
-				//mr.material = defaultMat;
-			}
+			if (player != null && Vector3.Distance(player.transform.position, transform.position) < triggerRange &&
+            		    (!inspected || !oneTimeDialogue))
+            		{
+            			if (!autoTrigger) // highlight item, show text after pressing E
+            			{
+            				//mr.material = highLightMat;
+            				if ((Input.GetKeyUp(KeyCode.E) || Input.GetAxis("HorizontalArrow") > 0) &&
+            					(player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("testIdle") ||
+            					 player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("testWalk") ||
+            					 player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0)
+            						 .IsName("Player_Walking_Right") ||
+            					 player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0)
+            						 .IsName("Player_Walking_Left") ||
+            					 player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0)
+            						 .IsName("Player_Walking_Backwards")))
+            				{
+            					 if (!musicFunction.Equals(""))
+                                {
+            						bgmManager.SendMessage(musicFunction);
+                                }
+            					
+            					if (displayDelayed <= 0f)
+            					{
+            						SoundMan.SoundManager.ItemInspection();
+            						inspected = true;
+            						ObjectInspectorManagerScript.me.ShowText(this);
+            						foreach (GameObject interactable in interactiveSwitch)
+            						{
+            							interactable.SetActive(true);
+            						}
+            
+            						//if (LogManager.LOGManager != null)
+            						//{
+            						//	LogManager.LOGManager.CoverSetActive(logX, logY);
+            						//}
+            					}
+            				}
+            			}
+            			else // auto show text
+            			{
+            				if (displayDelayed <= 0f && !inspected)
+            				{
+            					inspected = true;
+            					ObjectInspectorManagerScript.me.ShowText(this);
+            					foreach (GameObject interactable in interactiveSwitch)
+            					{
+            						interactable.SetActive(true);
+            					}
+            
+            					//if (LogManager.LOGManager != null)
+            					//{
+            					//	LogManager.LOGManager.CoverSetActive(logX, logY);
+            					//}
+            				}
+            			}
+            		}
+            		else
+            		{
+            			if (mr != null)
+            			{
+            				//mr.material = defaultMat;
+            			}
+            		}
 		}
 	}
 

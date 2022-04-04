@@ -35,6 +35,16 @@ public class PlayerScriptNew : MonoBehaviour
 	private bool righting;
 	[Header("Joystick Controll")]
 	public float joystickSensitivity;//0~1
+	[Header("VFX")]
+	public Transform hand;
+	public GameObject selectVFX_blue; // blue for amp
+	public GameObject selectLight_blue;
+	public GameObject selectVFX_white; // white for functional
+	public GameObject selectLight_white;
+	public GameObject selectVFX_yellow; // yellow for atk
+	public GameObject selectLight_yellow;
+	public GameObject selectVFX_purple; // purple for boss
+	public GameObject selectLight_purple;
 
 	// backswing cancel
 	private GameObject lastMat;
@@ -114,7 +124,8 @@ public class PlayerScriptNew : MonoBehaviour
 				!anim.GetCurrentAnimatorStateInfo(0).IsName("testATK") &&
                 !anim.GetCurrentAnimatorStateInfo(0).IsName("testBackswing") &&
 				!anim.GetCurrentAnimatorStateInfo(0).IsName("readingText") &&
-				!SafehouseManager.Me.isSafehouse)
+				!SafehouseManager.Me.isSafehouse &&
+				!SafehouseManager.Me.isFading)
             {
 				if (Input.GetKeyUp(KeyCode.Alpha1) || Input.GetButtonUp("XButton") && matSlots[0] != null)
 				{
@@ -128,6 +139,8 @@ public class PlayerScriptNew : MonoBehaviour
 						if (matSlots[0].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
 						{
 							selectedMats.Add(matSlots[0]);
+							// vfx
+							PlaySelectVFX(matSlots[0]);
 							anim.SetTrigger("selected");
 						}
 					}
@@ -145,6 +158,8 @@ public class PlayerScriptNew : MonoBehaviour
 						if (matSlots[1].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
 						{
 							selectedMats.Add(matSlots[1]);
+							// vfx
+							PlaySelectVFX(matSlots[1]);
 							anim.SetTrigger("selected");
 						}
 					}
@@ -162,6 +177,8 @@ public class PlayerScriptNew : MonoBehaviour
 						if (matSlots[2].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
 						{
 							anim.SetTrigger("selected");
+							// vfx
+							PlaySelectVFX(matSlots[2]);
 							selectedMats.Add(matSlots[2]);
 						}
 					}
@@ -178,6 +195,9 @@ public class PlayerScriptNew : MonoBehaviour
 					{
 						if (matSlots[3].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
 						{
+							anim.SetTrigger("selected");
+							// vfx
+							PlaySelectVFX(matSlots[3]);
 							selectedMats.Add(matSlots[3]);
 						}
 					}
@@ -320,7 +340,7 @@ public class PlayerScriptNew : MonoBehaviour
 
 				if (walkingDir.magnitude > 0)
 				{
-					if (Vector3.Angle(walkingDir, transform.forward) < 45)
+					if (Vector3.Angle(walkingDir, transform.forward) < 45) // play walk straight
 					{
 						//anim.Play("testWalk");
 						if (!forwarding)
@@ -333,7 +353,7 @@ public class PlayerScriptNew : MonoBehaviour
 							righting = false;
 						}
 					}
-					else if (Vector3.Angle(walkingDir, transform.forward) > 135)
+					else if (Vector3.Angle(walkingDir, transform.forward) > 135) // play walk back
 					{
 						if (!backwarding)
 						{
@@ -348,9 +368,9 @@ public class PlayerScriptNew : MonoBehaviour
 					else if (Vector3.Angle(walkingDir, transform.forward) > 45 && Vector3.Angle(walkingDir, transform.forward) < 135)
 					{
 						Vector3 cross = Vector3.Cross(transform.forward, walkingDir);
-						if(cross.y > 0)
+						if (cross.y > 0)
                         {
-							if (!righting)
+							if (!righting) // play walk right
 							{
 								//anim.CrossFade("Player_Walking_Right", .3f);
 								anim.Play("Player_Walking_Right");
@@ -362,7 +382,7 @@ public class PlayerScriptNew : MonoBehaviour
 						}
 						else if(cross.y < 0)
                         {
-							if (!lefting)
+							if (!lefting) // play walk left
 							{
 								//anim.CrossFade("Player_Walking_Left", .3f);
 								anim.Play("Player_Walking_Left");
@@ -372,39 +392,11 @@ public class PlayerScriptNew : MonoBehaviour
 								righting = false;
 							}
 						}
-						/*
-						if (transform.forward.z < 0 || transform.forward.x < 0)
-						{
-							if (walkingDir.x > 0 || walkingDir.z < 0)
-							{
-								//anim.Play("Player_Walking_Left");
-								if (!lefting)
-								{
-									anim.CrossFade("Player_Walking_Left", .3f);
-									forwarding = false;
-									backwarding = false;
-									lefting = true;
-									righting = false;
-								}
-							}
-							else if (walkingDir.x < 0 || walkingDir.z > 0)
-							{
-								if (!righting)
-								{
-									anim.CrossFade("Player_Walking_Right", .3f);
-									forwarding = false;
-									backwarding = false;
-									lefting = false;
-									righting = true;
-								}
-							}
-						}
-						*/
 						else if (transform.forward.z > 0 || transform.forward.x > 0)
 						{
 							if (walkingDir.x > 0 || walkingDir.z < 0)
 							{
-								if (!righting)
+								if (!righting)// play walk right
 								{
 									anim.CrossFade("Player_Walking_Right", .3f);
 									forwarding = false;
@@ -415,7 +407,7 @@ public class PlayerScriptNew : MonoBehaviour
 							}
 							else if (walkingDir.x < 0 || walkingDir.z > 0)
 							{
-								if (!lefting)
+								if (!lefting) // play walk left
 								{
 									anim.CrossFade("Player_Walking_Left", .3f);
 									forwarding = false;
@@ -441,6 +433,7 @@ public class PlayerScriptNew : MonoBehaviour
 			#endregion
 
 			// check for attack button press
+			#region attack
 			if (selectedMats.Count > 0 &&  // check if player has mat activated
 				(anim.GetCurrentAnimatorStateInfo(0).IsName("testIdle") || // if player in idle state
 				walking ||
@@ -501,8 +494,9 @@ public class PlayerScriptNew : MonoBehaviour
 					//print(walking);
 				}
 			}
+			#endregion
 		}
-    }
+	}
 	public void RecovMatCD(int breakAmp)
     {
 		for (int i = 0; i < 3; i++)
@@ -518,11 +512,14 @@ public class PlayerScriptNew : MonoBehaviour
 			}
 		}
 	}
-
 	public void LoseHealth_player(int amt)
 	{
 		hp -= amt;
 		SoundMan.SoundManager.PlayerHitten();
+		if (hp < 25)
+		{
+			PostProcessingManager.Me.ChangeFilter();
+		}
 	}
 	public void Death()
 	{
@@ -545,24 +542,21 @@ public class PlayerScriptNew : MonoBehaviour
 			checkBoolChange = dead;
 		}
 	}
-
 	IEnumerator WaitSecondsAndDie(float deathTime)
 	{
 		yield return new WaitForSecondsRealtime(deathTime);
 		PostProcessingManager.Me.StartCoroutine(PostProcessingManager.Me.DeadFilter());
 	}
-
 	private void Aim_and_LockOn()
 	{
 		// lock on
 		if (!anim.GetCurrentAnimatorStateInfo(0).IsName(("readingText")))
 		{
+			// lock on
 			if ((Input.GetMouseButton(1) || Input.GetAxis("LT") > 0) && LockOnManager.me.bears_canBeLockedOn.Count > 0)
 			{
 				var target = new Vector3(LockOnManager.me.bears_canBeLockedOn[0].transform.position.x, transform.position.y, LockOnManager.me.bears_canBeLockedOn[0].transform.position.z);
-				print("currently locked onto: " + LockOnManager.me.bears_canBeLockedOn[0].name);
-				
-				
+				//print("currently locked onto: " + LockOnManager.me.bears_canBeLockedOn[0].name);
 				// change target
 				if (Input.GetAxis("RightJoystickHorizontal") >= joystickSensitivity)
 				{
@@ -588,7 +582,16 @@ public class PlayerScriptNew : MonoBehaviour
 			}
 		}
 	}
-
+	public IEnumerator LookTowardsItem(GameObject item)
+	{
+		var target = new Vector3(item.transform.position.x, transform.position.y, item.transform.position.z);
+		while (true)
+		{
+			print(target);
+			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target - transform.position), rot_spd * Time.deltaTime);
+			yield return null;
+		}
+	}
 	public void MatSlotUpdate()
     {
 		if(matSlots.Count > 5)
@@ -608,4 +611,41 @@ public class PlayerScriptNew : MonoBehaviour
             }
         }
     }
+	private void PlaySelectVFX(GameObject mat)
+	{
+		switch (mat.GetComponent<MatScriptNew>().myType)
+		{
+			case MatScriptNew.MatType.amp:
+				GameObject vfx_amp = Instantiate(selectVFX_blue);
+				GameObject light_amp = Instantiate(selectLight_blue);
+				vfx_amp.transform.position = hand.position;
+				light_amp.transform.position = hand.position;
+				break;
+			case MatScriptNew.MatType.atk:
+				GameObject vfx_atk = Instantiate(selectVFX_yellow);
+				GameObject light_atk = Instantiate(selectLight_yellow);
+				vfx_atk.transform.position = hand.position;
+				light_atk.transform.position = hand.position;
+				break;
+			case MatScriptNew.MatType.functional:
+				GameObject vfx_func = Instantiate(selectVFX_white);
+				GameObject light_func = Instantiate(selectLight_white);
+				vfx_func.transform.position = hand.position;
+				light_func.transform.position = hand.position;
+				break;
+			case MatScriptNew.MatType.boss:
+				GameObject vfx_boss = Instantiate(selectVFX_purple);
+				GameObject light_boss = Instantiate(selectLight_purple);
+				vfx_boss.transform.position = hand.position;
+				light_boss.transform.position = hand.position;
+				break;
+		}
+	}
+	public void ResetWalkingBools()
+	{
+		forwarding = false;
+		backwarding = false;
+		lefting = false;
+		righting = false;
+	}
 }

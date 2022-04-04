@@ -47,6 +47,7 @@ public class Enemy : MonoBehaviour
     public float stunPoise_max;
     private float spRegenTimer;
     public float spRegenTime;
+    public Material ogMat;
 
     [Header("NAV MESH")]
     public NavMeshAgent ghostRider;
@@ -69,6 +70,7 @@ public class Enemy : MonoBehaviour
     public bool knockedBack;
     public AIStateBase interruptedState;
     public GameObject EnemyCanvas;
+    public Material flashWhite;
 
     [Header("Supply")]
     public bool breakable;
@@ -104,6 +106,7 @@ public class Enemy : MonoBehaviour
         Mother = GetComponent<MotherController>();
         downPoise_max = downPoise;
         stunPoise_max = stunPoise;
+        ogMat = GetComponentInChildren<SkinnedMeshRenderer>().material;
     }
 
     private void Update()
@@ -204,7 +207,7 @@ public class Enemy : MonoBehaviour
     public bool AIDead()
     {
        
-        if (health <= 0)
+        if (health <= 0 && myAC.currentState != myAC.dieState)
         {
             /*if (gameObject == EnemyDialogueManagerScript.me.enemy)
             {
