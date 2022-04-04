@@ -66,6 +66,9 @@ public class PostProcessingManager : MonoBehaviour
 
         if (coroutinesQueue.Count > 0)
             isQueuing = true;
+
+
+
     }
 
     public void Reset()

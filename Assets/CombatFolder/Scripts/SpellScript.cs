@@ -17,6 +17,15 @@ public class SpellScript : MonoBehaviour
 	public EffectStructNew dummyEffectForBreak;
 	[Header("LASTWORD EVENT")]
 	public GameObject collisionPrefab;
+	[Header("VFX")]
+	// lights
+	public GameObject red_light;
+	public GameObject yellow_light;
+	public GameObject blue_light;
+	// ∂Ÿ÷°
+	public float timeScale_target;
+	public float slowDown_time;
+	private float slowDown_timer;
 
 	private void Start()
 	{
@@ -30,6 +39,7 @@ public class SpellScript : MonoBehaviour
 		}
 		lifespan = life;
 		deathTimer = lifespan;
+		DecideLightColor();
 	}
 
 	private void Update()
@@ -58,7 +68,7 @@ public class SpellScript : MonoBehaviour
 			StartCoroutine(Detection(hit_amount, collision, collision.GetContact(0).point));
 			GetComponent<BoxCollider>().enabled = false;
 			GetComponent<MeshRenderer>().enabled = false;
-			DestroyEvent();
+			
 		}
 	}
 
@@ -67,8 +77,14 @@ public class SpellScript : MonoBehaviour
 		int amount = hitAmount;
 		while (amount > 0)
 		{
-			if (hit.gameObject.CompareTag("Enemy")) // if hit enemy, inflict effects on enemy and spawn fragments vfx
+			if (hit.gameObject.CompareTag("Enemy") && // if its an enemy
+				((hit.gameObject.GetComponent<Enemy>() && 
+				hit.gameObject.GetComponent<Enemy>().phase != Enemy.AIPhase.NotInBattle &&
+				hit.gameObject.GetComponent<SmallBear>() == null) || // if its big bear, check for enemy script and phase
+				(hit.gameObject.GetComponent<SmallBear>() &&
+				hit.gameObject.GetComponent<AIController>().enabled))) // if its small bear, check for small bear
 			{
+				// inflict effects on enemy and spawn fragments vfx
 				ConditionStruct cs = new ConditionStruct
 				{
 					condition = EffectStructNew.Condition.collision_enemy,
@@ -116,21 +132,21 @@ public class SpellScript : MonoBehaviour
 					}
 				}
 				// vfx
-				if (fragments != null)
+				foreach (var mat in mats)
 				{
-					ParticleSystem f = Instantiate(fragments);
-					f.transform.position = hitPos;
+					if (mat.GetComponent<MatScriptNew>().myVFX != null)
+					{
+						GameObject ps = Instantiate(mat.GetComponent<MatScriptNew>().myVFX);
+						ps.transform.position = hitPos;
+						ps.transform.rotation = transform.rotation;
+					}
 				}
-			}
-			if (burst != null) // if hit, spawn burst vfx
-			{
-				// vfx
-				ParticleSystem b = Instantiate(burst);
-				b.transform.position = hitPos;
+				SlowDownTime(hitPos);
 			}
 			amount--;
 			yield return new WaitForSeconds(hit_interval);
 		}
+		DestroyEvent();
 	}
 
 	private void DestroyEvent()
@@ -149,5 +165,50 @@ public class SpellScript : MonoBehaviour
 			}
 		}
 		Destroy(gameObject);
+	}
+
+	private void DecideLightColor()
+	{
+		bool amp = false;
+		bool atk = false;
+
+		foreach (var mat in mats)
+		{
+			switch (mat.GetComponent<MatScriptNew>().myType)
+			{
+				case MatScriptNew.MatType.amp:
+					amp = true;
+					break;
+				case MatScriptNew.MatType.atk:
+					atk = true;
+					break;
+			}
+		}
+		
+		if (amp && atk)
+		{
+			red_light.SetActive(true);
+		}
+		else if (amp)
+		{
+			blue_light.SetActive(true);
+		}
+		else if (atk)
+		{
+			yellow_light.SetActive(true);
+		}
+	}
+
+	private void SlowDownTime(Vector3 hitPos)
+	{
+		Time.timeScale = timeScale_target;
+
+		StartCoroutine(BackToNormalTime());
+	}
+
+	IEnumerator BackToNormalTime()
+	{
+		yield return new WaitForSecondsRealtime(slowDown_time);
+		Time.timeScale = 1;
 	}
 }

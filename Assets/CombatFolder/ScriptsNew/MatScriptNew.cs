@@ -9,7 +9,8 @@ public class MatScriptNew : MonoBehaviour
 	{
 		amp,
 		atk,
-		functional
+		functional,
+		boss
 	};
 	public int amount;
 	public int CD;
@@ -20,6 +21,8 @@ public class MatScriptNew : MonoBehaviour
 	public float lifespan;
 	public Sprite matIcon;
 	public string Description;
+	[Header("Hit VFX")]
+	public GameObject myVFX;
 
 	// type
 	public MatType myType;

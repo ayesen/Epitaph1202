@@ -26,10 +26,10 @@ public class DialogueScript : MonoBehaviour
 	public int logY;
 	public string musicFunction;
 	GameObject bgmManager;
+	public GameObject itemToLookAt; // for look at things automatically after triggering dialogue
 
-
-
-	[Header("Custimizable End Action")] public GameObject actor;
+	[Header("Custimizable End Action")]
+	public GameObject actor;
 	public string funcToCall;
 
 	private void Start()
@@ -73,8 +73,6 @@ public class DialogueScript : MonoBehaviour
 					 if (!musicFunction.Equals(""))
                     {
 						bgmManager.SendMessage(musicFunction);
-						
-						
                     }
 					
 					if (displayDelayed <= 0f)
