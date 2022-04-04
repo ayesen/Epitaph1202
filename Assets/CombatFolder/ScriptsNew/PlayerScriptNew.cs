@@ -43,6 +43,8 @@ public class PlayerScriptNew : MonoBehaviour
 	public GameObject selectLight_white;
 	public GameObject selectVFX_yellow; // yellow for atk
 	public GameObject selectLight_yellow;
+	public GameObject selectVFX_purple; // purple for boss
+	public GameObject selectLight_purple;
 
 	// backswing cancel
 	private GameObject lastMat;
@@ -371,7 +373,6 @@ public class PlayerScriptNew : MonoBehaviour
                         {
 							if (!righting) // play walk right
 							{
-								print("not righting check passed");
 								//anim.CrossFade("Player_Walking_Right", .3f);
 								anim.Play("Player_Walking_Right");
 								forwarding = false;
@@ -552,6 +553,7 @@ public class PlayerScriptNew : MonoBehaviour
 		// lock on
 		if (!anim.GetCurrentAnimatorStateInfo(0).IsName(("readingText")))
 		{
+			// lock on
 			if ((Input.GetMouseButton(1) || Input.GetAxis("LT") > 0) && LockOnManager.me.bears_canBeLockedOn.Count > 0)
 			{
 				var target = new Vector3(LockOnManager.me.bears_canBeLockedOn[0].transform.position.x, transform.position.y, LockOnManager.me.bears_canBeLockedOn[0].transform.position.z);
@@ -579,6 +581,16 @@ public class PlayerScriptNew : MonoBehaviour
 				var target = new Vector3(Input.GetAxis("RightJoystickHorizontal"), 0, Input.GetAxis("RightJoystickVertical") * -1);
 				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target), rot_spd * Time.deltaTime);
 			}
+		}
+	}
+	public IEnumerator LookTowardsItem(GameObject item)
+	{
+		var target = new Vector3(item.transform.position.x, transform.position.y, item.transform.position.z);
+		while (true)
+		{
+			print(target);
+			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target - transform.position), rot_spd * Time.deltaTime);
+			yield return null;
 		}
 	}
 	public void MatSlotUpdate()
@@ -621,6 +633,12 @@ public class PlayerScriptNew : MonoBehaviour
 				GameObject light_func = Instantiate(selectLight_white);
 				vfx_func.transform.position = hand.position;
 				light_func.transform.position = hand.position;
+				break;
+			case MatScriptNew.MatType.boss:
+				GameObject vfx_boss = Instantiate(selectVFX_purple);
+				GameObject light_boss = Instantiate(selectLight_purple);
+				vfx_boss.transform.position = hand.position;
+				light_boss.transform.position = hand.position;
 				break;
 		}
 	}
