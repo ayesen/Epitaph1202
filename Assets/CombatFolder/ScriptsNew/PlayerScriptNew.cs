@@ -12,6 +12,7 @@ public class PlayerScriptNew : MonoBehaviour
 	public float spd;
 	public float rot_spd;
 	private GameObject enemy;
+	private int maxHP;
 	[HideInInspector]
     public Animator anim;
     public GameObject playerModel;
@@ -56,6 +57,7 @@ public class PlayerScriptNew : MonoBehaviour
 	{
 		me = this;
 		walkingDir = new Vector3();
+		maxHP = hp;
 	}
 
 	private void Start()
@@ -68,6 +70,12 @@ public class PlayerScriptNew : MonoBehaviour
 
 	private void Update()
 	{
+
+		if (Input.GetKeyDown(KeyCode.M))
+        {
+			LoseHealth_player(1000);
+
+		}
         if (Input.GetKeyDown(KeyCode.K) && SafehouseManager.Me.isCheatOn)
         {
 			hp = 0;
@@ -517,12 +525,17 @@ public class PlayerScriptNew : MonoBehaviour
 	{
 		hp -= amt;
 		SoundMan.SoundManager.PlayerHitten();
-		if (hp < 25)
+		if(hp >= 0)
 		{
-			PostProcessingManager.Me.ChangeFilter();
+			PostProcessingManager.Me.GradualDeath(maxHP, hp);
 		}
-	}
-	public void Death()
+
+            /*if (hp < 25)
+            {
+                PostProcessingManager.Me.ChangeFilter();
+            }*/
+        }
+        public void Death()
 	{
 		if (hp <= 0)
 		{
