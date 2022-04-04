@@ -59,7 +59,7 @@ public class SoundMan : MonoBehaviour
         }
     }
 
-    public void AudioPauseOrUnpause()
+    public void AudioPauseOrUnpause() //this is for the menu
     {
         AudioListener.pause = !AudioListener.pause;
     }
