@@ -207,7 +207,7 @@ public class Enemy : MonoBehaviour
     public bool AIDead()
     {
        
-        if (health <= 0)
+        if (health <= 0 && myAC.currentState != myAC.dieState)
         {
             /*if (gameObject == EnemyDialogueManagerScript.me.enemy)
             {
