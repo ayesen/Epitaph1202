@@ -64,10 +64,12 @@ public class SoundMan : MonoBehaviour
         AudioListener.pause = !AudioListener.pause;
     }
 
-    public void PlayerLowHealthFilter(float playerHealth) //player health should percentage from 0-1
+    public void PlayerLowHealthFilter(float playerHealth) //player health should percentage from 0-1, call this function when player was hitten
     {
-        float cutOffHz = 200.0f;
-        mainAudioMixer.SetFloat("lowPass", cutOffHz);
+        float maxCutOffHertz = 5000; 
+        float minCutOffHz = 200;
+        float currentCutOffHertz = minCutOffHz + playerHealth * (maxCutOffHertz - minCutOffHz);
+        mainAudioMixer.SetFloat("lowPass", currentCutOffHertz);
     }
 
     /*The SFX Funcions*/
