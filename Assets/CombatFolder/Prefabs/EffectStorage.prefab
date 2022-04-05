@@ -49,8 +49,10 @@ MonoBehaviour:
   bossMats: []
   droppableMat: []
   droppedMat_prefab: {fileID: 5635884315906684866, guid: fc9be29fc93d59547ad8089055d586a0, type: 3}
-  AOECollisionPrefab: {fileID: 0}
-  smallBearPrefab: {fileID: 0}
-  heal: {fileID: 0}
+  AOECollisionPrefab: {fileID: 3171771419032561606, guid: 8464666b7d5edac438f7e31026d878ac, type: 3}
+  smallBearPrefab: {fileID: 1087830168452021571, guid: af38073ddf595db4eb4ebaa95fdb4191, type: 3}
+  heal: {fileID: 579869034448707358, guid: 54b45777013bac2438b29a93bd6b6d88, type: 3}
   fragments_dot: {fileID: 5638349666497607249, guid: 7c7aeb57a56c88f48b92e3ec1b732a53, type: 3}
-  SoundWaveVFX: {fileID: 0}
+  PlayerSoundWaveVFX: {fileID: 0}
+  cd_vfx: {fileID: 5000545692410705320, guid: a0ebe6cc1f6aad740844c4e08c30668d, type: 3}
+  bossMatDrop_vfx: {fileID: 5000545692410705320, guid: 8d545558bfd56c94a9a34d94a9727813, type: 3}

@@ -369,6 +369,7 @@ MonoBehaviour:
   stunPoise: 0
   stunPoise_max: 0
   spRegenTime: 0
+  ogMat: {fileID: 0}
   ghostRider: {fileID: 0}
   target: {fileID: 0}
   AIAnimator: {fileID: 6335713045733403081}
@@ -382,6 +383,7 @@ MonoBehaviour:
   hittedStates: {fileID: 0}
   knockedBack: 0
   EnemyCanvas: {fileID: 0}
+  flashWhite: {fileID: 0}
   breakable: 0
   breakMeter: 0
   breakMeterMax: 0
@@ -451,7 +453,7 @@ MonoBehaviour:
     doThis: 1
     toWhom: 1
     forHowMuch: 0
-    atk: 5
+    atk: 3
     amp: 2
     myModifiers: []
     forHowLong: 0

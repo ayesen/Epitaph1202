@@ -13,8 +13,8 @@ public class ShootAimTutorScript : MonoBehaviour
 	private int state_aim = 2;
 	private int state_shoot = 3;
 	private int state_finished = 4;
-	private float timer = 10;
-	private float timer_default = 10;
+	public float timer;
+	private float timer_default;
 
 	// tutor bear monitor
 	public AIStateBase tutBear_currentState;
@@ -37,11 +37,15 @@ public class ShootAimTutorScript : MonoBehaviour
 	// mats check
 	//public List<GameObject> combination;
 	public GameObject match;
-	//public GameObject nail;
-	//public GameObject cotton;
+    //public GameObject nail;
+    //public GameObject cotton;
 
+    private void Awake()
+    {
+		timer_default = timer;
+    }
 
-	private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
 	{
 		// 激活小熊，瞄准教学
 		if (other.gameObject.CompareTag("Player") && tut_state == 0)
@@ -117,6 +121,7 @@ public class ShootAimTutorScript : MonoBehaviour
 		while(rotateSpeed <= 1)
         {
 			Vector3 direction = tutorBear.transform.position - PlayerScriptNew.me.transform.position;
+			direction = new Vector3(direction.x, 0, direction.y);
 			Quaternion toRotation = Quaternion.LookRotation(direction);
 			PlayerScriptNew.me.transform.rotation = Quaternion.Lerp(PlayerScriptNew.me.transform.rotation, toRotation, rotateSpeed);
 			rotateSpeed += 0.3f * Time.deltaTime;

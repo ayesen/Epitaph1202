@@ -52,13 +52,12 @@ public class PostProcessingManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetButtonDown("LB") && coroutinesQueue.Count <= 0) // Move this shit mountain into playerScriptNew
+        if((Input.GetButtonDown("L3") || Input.GetKeyDown(KeyCode.P)) && coroutinesQueue.Count <= 0) // Move this shit mountain into playerScriptNew
         {
-            print("LB");
             PS_Running = true;
             coroutinesQueue.Enqueue(DistorsionFilter());
         }
-        if(Input.GetButtonUp("LB") && PS_Running)
+        if((Input.GetButtonUp("L3") || Input.GetKeyUp(KeyCode.P)) && PS_Running)
         {
             coroutinesQueue.Enqueue(ResetPolice());
             PS_Running = false;
@@ -132,6 +131,19 @@ public class PostProcessingManager : MonoBehaviour
 
 
     }
+
+    public void GradualDeath(int maxHp, int currentHp)
+    {
+        float minValue = 0;
+        float maxValue = 0.8f;
+
+        float deathValue = 1 - 1.8f * Mathf.Sqrt((float)currentHp/maxHp);
+        CA.saturation.value = Mathf.Clamp(deathValue * 100, minValue, maxValue*100);
+        Vig.intensity.value = Mathf.Clamp(deathValue/2.2f, minValue, maxValue);
+        ChrAb.intensity.value = Mathf.Clamp(deathValue, minValue, maxValue);
+        Debug.Log(deathValue);
+    }
+
     public IEnumerator DeadFilter()
     {
         float time = 0;

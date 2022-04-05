@@ -30,10 +30,12 @@ public class LockOnManager : MonoBehaviour
 				if (bear.GetComponent<SmallBear>()) // small bear
 				{
 					if (bear.GetComponent<AIController>().enabled && 
-						!bears_canBeLockedOn.Contains(bear) &&
 						bear.GetComponent<SmallBear>().health > 0)
 					{
-						bears_canBeLockedOn.Add(bear);
+						if (!bears_canBeLockedOn.Contains(bear))
+						{
+							bears_canBeLockedOn.Add(bear);
+						}
 					}
 				}
 				else // big bear
@@ -55,10 +57,12 @@ public class LockOnManager : MonoBehaviour
 			}
 		}
 
-		// remove bears outside of boundary
+		// remove bears outside of boundary and bears that are dead
 		foreach (var bear in bears_canBeLockedOn.ToList())
 		{
-			if (bear!=null && Vector3.Distance(transform.position, bear.transform.position) > max_lockon_dis)
+			if (bear != null && 
+				(Vector3.Distance(transform.position, bear.transform.position) > max_lockon_dis ||
+				bear.GetComponent<Enemy>().health <= 0))
 			{
 				bears_canBeLockedOn.Remove(bear);
 			}

@@ -107,6 +107,7 @@ public class Enemy : MonoBehaviour
         downPoise_max = downPoise;
         stunPoise_max = stunPoise;
         ogMat = GetComponentInChildren<SkinnedMeshRenderer>().material;
+        breakMeterMax = breakMeter;
     }
 
     private void Update()
@@ -207,7 +208,7 @@ public class Enemy : MonoBehaviour
     public bool AIDead()
     {
        
-        if (health <= 0)
+        if (health <= 0 && myAC.currentState != myAC.dieState)
         {
             /*if (gameObject == EnemyDialogueManagerScript.me.enemy)
             {
