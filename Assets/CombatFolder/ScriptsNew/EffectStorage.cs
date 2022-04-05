@@ -244,7 +244,7 @@ public class EffectStorage : MonoBehaviour
 					bossMatDrop_vfx.GetComponent<ParticleAttractor>().particleAmount = 1;
 				}
 			}
-			
+
 			droppedMat_bossMat.GetComponent<Rigidbody>().AddForce(
 				new Vector3(Random.Range(-droppedMat_flyAmount, droppedMat_flyAmount),
 				3, // force upward
