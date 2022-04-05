@@ -195,7 +195,6 @@ public class PlayerScriptNew : MonoBehaviour
 				if (Input.GetKeyUp(KeyCode.Alpha4) || Input.GetButtonUp("AButton") && matSlots[3] != null)
 				{
 					SoundMan.SoundManager.MaterialSelect();
-					print("boss mat");
 					if (selectedMats.Contains(matSlots[3]))
 					{
 						selectedMats.Remove(matSlots[3]);

@@ -31,7 +31,7 @@ public class SmallBear : Enemy
 
     public bool SmallBearDie()
     {
-        if (health <= 0)
+        if (health <= 0 && myAC.currentState != myAC.dieState)
         {
             myAC.ChangeState(myAC.dieState);
 
