@@ -107,6 +107,7 @@ public class Enemy : MonoBehaviour
         downPoise_max = downPoise;
         stunPoise_max = stunPoise;
         ogMat = GetComponentInChildren<SkinnedMeshRenderer>().material;
+        breakMeterMax = breakMeter;
     }
 
     private void Update()
