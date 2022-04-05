@@ -52,13 +52,12 @@ public class PostProcessingManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetButtonDown("LB") && coroutinesQueue.Count <= 0) // Move this shit mountain into playerScriptNew
+        if((Input.GetButtonDown("L3") || Input.GetKeyDown(KeyCode.P)) && coroutinesQueue.Count <= 0) // Move this shit mountain into playerScriptNew
         {
-            print("LB");
             PS_Running = true;
             coroutinesQueue.Enqueue(DistorsionFilter());
         }
-        if(Input.GetButtonUp("LB") && PS_Running)
+        if((Input.GetButtonUp("L3") || Input.GetKeyUp(KeyCode.P)) && PS_Running)
         {
             coroutinesQueue.Enqueue(ResetPolice());
             PS_Running = false;
