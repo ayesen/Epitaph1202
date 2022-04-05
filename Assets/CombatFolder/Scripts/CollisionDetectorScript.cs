@@ -17,7 +17,12 @@ public class CollisionDetectorScript : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (!CompareTag("PlayerSpawnedBear"))
+		if (!CompareTag("PlayerSpawnedBear") &&
+			((other.gameObject.GetComponent<Enemy>() &&
+				other.gameObject.GetComponent<Enemy>().phase != Enemy.AIPhase.NotInBattle &&
+				other.gameObject.GetComponent<SmallBear>() == null) || // if its big bear, check for enemy script and phase
+				(other.gameObject.GetComponent<SmallBear>() &&
+				other.gameObject.GetComponent<AIController>().enabled))) // if its small bear, check for small bear)
 		{
 			InflictEffects(other.gameObject);
 		}
