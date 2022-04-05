@@ -33,6 +33,7 @@ public class SoundMan : MonoBehaviour
     public AudioClip cannotAccess;
     public AudioClip doorOpen;
     public AudioClip doorLocked;
+    public AudioClip knifeDropped;
     [Header("BattleVO")]
     public AudioClip[] battleVOPhaseOne;
     public AudioClip[] battleVOPhaseTwo;
@@ -78,6 +79,14 @@ public class SoundMan : MonoBehaviour
         AudioSource source = GetSource();
         FindSFXGroup(source);
         source.clip = cannotAccess;
+        source.Play();
+    }
+
+    public void KnifeDropped() //knife dropped event
+    {
+        AudioSource source = GetSource();
+        FindSFXGroup(source);
+        source.clip = knifeDropped;
         source.Play();
     }
 
