@@ -7,6 +7,7 @@ public class BossRoomEndGameScript : MonoBehaviour
 {
     private Enemy boss;
     public GameObject dialogueTrigger;
+    public List<GameObject> smallBears;
 
     private void Start()
     {
@@ -20,6 +21,13 @@ public class BossRoomEndGameScript : MonoBehaviour
     {
         if (boss.health <= 0 && dialogueTrigger != null)
         {
+			foreach (var bear in smallBears)
+			{
+                if (bear.GetComponent<SmallBear>())
+				{
+                    bear.GetComponent<SmallBear>().health = 0;
+				}
+			}
             dialogueTrigger.SetActive(true);
         }
     }

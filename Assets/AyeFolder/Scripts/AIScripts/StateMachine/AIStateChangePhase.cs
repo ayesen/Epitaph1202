@@ -24,7 +24,6 @@ public class AIStateChangePhase : AIStateBase
 		changePhaseTimer += Time.fixedDeltaTime;
 		if (changePhaseTimer > myEnemy.changePhaseTime)
 		{
-            Debug.Log("is it you");
 			myEnemy.myAC.ChangeState(myEnemy.myAC.idleState);
 		}
 	}
