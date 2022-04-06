@@ -67,8 +67,8 @@ public class SoundMan : MonoBehaviour
 
     public void PlayerLowHealthFilter(float playerHealth) //player health should percentage from 0-1, call this function when player was hitten
     {
-        float maxCutOffHertz = 5000; 
-        float minCutOffHz = 200;
+        float maxCutOffHertz = 2200; 
+        float minCutOffHz = 1500;
         float currentCutOffHertz = minCutOffHz + playerHealth * (maxCutOffHertz - minCutOffHz);
         mainAudioMixer.SetFloat("lowPass", currentCutOffHertz);
     }
