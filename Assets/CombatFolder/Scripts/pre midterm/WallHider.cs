@@ -59,7 +59,6 @@ public class WallHider : MonoBehaviour
 						}
 						else
 						{
-							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
 							HideWall(wall);
 						}
 					}
@@ -842,6 +841,7 @@ public class WallHider : MonoBehaviour
 
 	private void ShowWall(GameObject wall)
 	{
+		wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
 		if (wall.transform.childCount > 0)
 		{
 			wall.transform.GetChild(0).GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
