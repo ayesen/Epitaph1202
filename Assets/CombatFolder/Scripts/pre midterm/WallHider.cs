@@ -10,6 +10,12 @@ public class WallHider : MonoBehaviour
 	private List<GameObject> _walls;
 	private List<GameObject> _lights;
 	private List<GameObject> _floor;
+
+	public float doorOffset_x;
+	public float doorOffset_z;
+
+	public float windowOffset_x;
+
 	public enum Room
 	{
 		spawnHallway,
@@ -844,6 +850,25 @@ public class WallHider : MonoBehaviour
 		wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
 		if (wall.transform.childCount > 0)
 		{
+			Transform childTransform = wall.transform.GetChild(0).transform;
+			if (wall.layer == 12) // wall
+			{
+				childTransform.localScale = new Vector3(childTransform.localScale.x, childTransform.localScale.y, 1f);
+			}
+			else if (wall.layer == 20) // door
+			{
+				childTransform.localScale = new Vector3(childTransform.localScale.x, childTransform.localScale.y, 2f);
+				childTransform.localPosition = new Vector3(doorOffset_x, childTransform.localPosition.y, doorOffset_z);
+			}
+			else if (wall.layer == 19) // window
+			{
+				childTransform.localScale = new Vector3(childTransform.localScale.x, childTransform.localScale.y, 2f);
+				childTransform.localPosition = new Vector3(windowOffset_x, childTransform.localPosition.y, childTransform.localPosition.z);
+			}
+			else
+			{
+				print(wall.layer.ToString());
+			}
 			wall.transform.GetChild(0).GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
 		}
 	}
