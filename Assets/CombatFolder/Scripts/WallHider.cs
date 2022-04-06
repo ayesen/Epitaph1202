@@ -58,7 +58,7 @@ public class WallHider : MonoBehaviour
 			case Room.spawnHallway:
 				foreach (var wall in _walls)
 				{
-					if (wall.GetComponent<ShowScript>() == null)
+					if (wall == null)
 					{
 						print(wall.name);
 					}
