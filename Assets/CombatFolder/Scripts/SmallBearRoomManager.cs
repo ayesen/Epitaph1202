@@ -10,6 +10,7 @@ public class SmallBearRoomManager : MonoBehaviour
 	
 	public void BearStart()
 	{
+		print("bear start");
 		BGMMan.bGMManger.StartTinyTeddyCombatMusic();
 		foreach (var bear in bears_iCtrl)
 		{
