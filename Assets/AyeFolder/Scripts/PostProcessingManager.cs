@@ -131,6 +131,19 @@ public class PostProcessingManager : MonoBehaviour
 
 
     }
+
+    public void GradualDeath(int maxHp, int currentHp)
+    {
+        float minValue = 0;
+        float maxValue = 0.8f;
+
+        float deathValue = 1 - 1.8f * Mathf.Sqrt((float)currentHp/maxHp);
+        CA.saturation.value = Mathf.Clamp(deathValue * 100, minValue, maxValue*100);
+        Vig.intensity.value = Mathf.Clamp(deathValue/2.2f, minValue, maxValue);
+        ChrAb.intensity.value = Mathf.Clamp(deathValue, minValue, maxValue);
+        Debug.Log(deathValue);
+    }
+
     public IEnumerator DeadFilter()
     {
         float time = 0;
