@@ -123,7 +123,6 @@ public class ChangeInventory : MonoBehaviour
                     SafehouseManager.Me.cannotExit = true;
                     choosenMat = choosenMatIndex;
                     choosenMatIndex = 0;
-                    print(choosenMatIndex);
                     isChanging = true;
                     SoundMan.SoundManager.SafehouseMaterialSelect();
                 }
