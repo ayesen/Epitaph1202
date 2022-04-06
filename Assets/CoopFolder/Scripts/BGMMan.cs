@@ -81,7 +81,7 @@ public class BGMMan : MonoBehaviour
     {
         if(BGMAudioSource.clip != tinyBattleMusic)
         {
-            print("Start Tiny Combat Music");
+            //print("Start Tiny Combat Music");
             SoundMan.SoundManager.ChangeToCombatSnapshot();
             BGMAudioSource.loop = true;
             StartCoroutine(FadeTrack(tinyBattleMusic));
@@ -99,13 +99,16 @@ public class BGMMan : MonoBehaviour
 
     public void StartTeddyBattleMusic()
     {
-        if(!(BGMAudioSource.isPlaying && (BGMAudioSource.clip == battleMusic)))
+        if (BGMAudioSource.clip != battleMusic)
+        {
+            SoundMan.SoundManager.ChangeToCombatSnapshot();
+                    
+            BGMAudioSource.loop = true;
+            StartCoroutine(FadeTrack(battleMusic));
+        }
 
 
-        SoundMan.SoundManager.ChangeToCombatSnapshot();
-        
-        BGMAudioSource.loop = true;
-        StartCoroutine(FadeTrack(battleMusic));
+
     }
 
     public void EndTeddyBattleMusic()
