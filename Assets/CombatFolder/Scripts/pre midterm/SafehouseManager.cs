@@ -132,6 +132,8 @@ public class SafehouseManager : MonoBehaviour
         isFading = true;
         float elapsedTime = 0;
         float startValue = cg.alpha;
+        if(endValue >= 1)
+            CI.choosenMatIndex = 4;
         while (elapsedTime < duration)
         {
             elapsedTime += Time.deltaTime;
