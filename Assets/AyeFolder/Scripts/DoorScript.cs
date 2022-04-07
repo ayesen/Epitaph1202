@@ -42,10 +42,14 @@ public class DoorScript : MonoBehaviour
             case doorAnim.openFront:
                 stateName = "DoorFrontOpen";
                 isOpen = true;
+                Destroy(gameObject.GetComponent<DialogueScript>());
+                SoundMan.SoundManager.DoorOpen();
                 break;
             case doorAnim.openBack:
                 stateName = "DoorBackOpen";
                 isOpen = true;
+                Destroy(gameObject.GetComponent<DialogueScript>());
+                SoundMan.SoundManager.DoorOpen();
                 break;
             case doorAnim.closeFront:
                 stateName = "DoorFrontClose";
@@ -58,6 +62,8 @@ public class DoorScript : MonoBehaviour
             default:
                 stateName = "DoorFrontOpen";
                 isOpen = true;
+                Destroy(gameObject.GetComponent<DialogueScript>());
+                SoundMan.SoundManager.DoorOpen();
                 break;
         }
         DoorAnimator.Play(stateName);
