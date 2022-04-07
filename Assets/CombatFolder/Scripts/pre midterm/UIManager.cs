@@ -36,6 +36,12 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI slot1_CD;
     public TextMeshProUGUI slot2_CD;
 
+    [Header("UI_Choosen")]
+    public GameObject choLeft;
+    public GameObject choUp;
+    public GameObject choRight;
+    public GameObject choDown;
+
     private bool isHided;
     private CanvasGroup cg;
 
@@ -62,6 +68,10 @@ public class UIManager : MonoBehaviour
     {
         cg = GetComponent<CanvasGroup>();
         UI_ChangeIcon();
+        choLeft.SetActive(false);
+        choUp.SetActive(false);
+        choRight.SetActive(false);
+        choDown.SetActive(false);
     }
 
     void Update()
@@ -165,63 +175,39 @@ public class UIManager : MonoBehaviour
     {
         if (PlayerScriptNew.me.selectedMats.Contains(PlayerScriptNew.me.matSlots[0]))
         {
-            if(PlayerScriptNew.me.matSlots[0].GetComponent<MatScriptNew>().amount > 0)
-                leftSlot.color = selectedColor;
+            choLeft.SetActive(true);
+            choLeft.GetComponent<Image>().color = ColorStorage.me.ChoColor(0);
         }
         else
         {
-            leftSlot.color = Color.white;
-
-            if (PlayerScriptNew.me.matSlots[0] != null)
-            {
-                if (PlayerScriptNew.me.matSlots[0].GetComponent<MatScriptNew>().amount <= 0)
-                    leftSlot.color = outOfStock;
-            }
+            choLeft.SetActive(false);
         }
         if (PlayerScriptNew.me.selectedMats.Contains(PlayerScriptNew.me.matSlots[1]))
         {
-            if (PlayerScriptNew.me.matSlots[1].GetComponent<MatScriptNew>().amount > 0)
-                upSlot.color = selectedColor;
+            choUp.SetActive(true);
+            choUp.GetComponent<Image>().color = ColorStorage.me.ChoColor(1);
         }
         else
         {
-            upSlot.color = Color.white;
-
-            if (PlayerScriptNew.me.matSlots[1] != null)
-            {
-                if (PlayerScriptNew.me.matSlots[1].GetComponent<MatScriptNew>().amount <= 0)
-                    upSlot.color = outOfStock;
-            }
+            choUp.SetActive(false);
         }
         if (PlayerScriptNew.me.selectedMats.Contains(PlayerScriptNew.me.matSlots[2]))
         {
-            if (PlayerScriptNew.me.matSlots[2].GetComponent<MatScriptNew>().amount > 0)
-                rightSlot.color = selectedColor;
+            choRight.SetActive(true);
+            choRight.GetComponent<Image>().color = ColorStorage.me.ChoColor(2);
         }
         else
         {
-            rightSlot.color = Color.white;
-
-            if (PlayerScriptNew.me.matSlots[2] != null)
-            {
-                if (PlayerScriptNew.me.matSlots[2].GetComponent<MatScriptNew>().amount <= 0)
-                    rightSlot.color = outOfStock;
-            }
+            choRight.SetActive(false);
         }
         if (PlayerScriptNew.me.selectedMats.Contains(PlayerScriptNew.me.matSlots[3]))
         {
-            if (PlayerScriptNew.me.matSlots[3].GetComponent<MatScriptNew>().amount > 0)
-                downSlot.color = selectedColor;
+            choDown.SetActive(true);
+            choDown.GetComponent<Image>().color = ColorStorage.me.ChoColor(3);
         }
         else
         {
-            downSlot.color = Color.white;
-
-            if (PlayerScriptNew.me.matSlots[3] != null)
-            {
-                if (PlayerScriptNew.me.matSlots[3].GetComponent<MatScriptNew>().amount <= 0)
-                    downSlot.color = outOfStock;
-            }
+            choDown.SetActive(false);
         }
     }
 
