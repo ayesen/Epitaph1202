@@ -14,7 +14,7 @@ public class MatScriptNew : MonoBehaviour
 	};
 	public int amount;
 	public int CD;
-	private int CD_max;
+	public int CD_max;
 	[HideInInspector]
 	public int amount_max;
 	public List<EffectStructNew> myEffects;
