@@ -25,7 +25,6 @@ public class CandlePuzzleManager : MonoBehaviour
 	{
 		if (DoListsMatch(candles, lightedCandles) && !matched)
 		{
-			print("matched");
 			CallFunction();
 			matched = true;
 			if (doors_iCtrl.Count > 0)
@@ -34,7 +33,6 @@ public class CandlePuzzleManager : MonoBehaviour
 				{
 					if (!door.isOpen)
 					{
-						print("fuck my life");
 						door.ControllDoor();
 					}
 				}
