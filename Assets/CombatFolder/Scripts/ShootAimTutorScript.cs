@@ -11,7 +11,6 @@ public class ShootAimTutorScript : MonoBehaviour
 	public int tut_state = 0;
 	private int state_select = 1;
 	private int state_aim = 2;
-	private int state_shoot = 3;
 	private int state_finished = 4;
 	public float timer;
 	private float timer_default;

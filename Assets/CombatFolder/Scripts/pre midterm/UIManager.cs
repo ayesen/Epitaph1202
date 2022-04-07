@@ -243,6 +243,11 @@ public class UIManager : MonoBehaviour
             slot3_TMP.text = PlayerScriptNew.me.matSlots[3].GetComponent<MatScriptNew>().amount.ToString();
         else
             slot3_TMP.text = "0";
+
+        leftSlot.color = ColorStorage.me.ChoColor(0);
+        upSlot.color = ColorStorage.me.ChoColor(1);
+        rightSlot.color = ColorStorage.me.ChoColor(2);
+        downSlot.color = ColorStorage.me.ChoColor(3);
     }
 
     public IEnumerator FadeCanvas(CanvasGroup cg, float endValue, float duration)
