@@ -69,7 +69,7 @@ public class BGMMan : MonoBehaviour
         StartCoroutine(FadeTrack(safeHouse));
     }
 
-    public void EndSafeHoueBaguaMusic()
+    public void EndSafeHoueBaguaMusic() //use EndMusic() instead of this
     {
         SoundMan.SoundManager.ChangeToNormalSnapshot();
         
@@ -89,7 +89,7 @@ public class BGMMan : MonoBehaviour
 
     }
 
-    public void EndTinyTeddyMusic()
+    public void EndTinyTeddyMusic() //use EndMusic() instead of this
     {
         SoundMan.SoundManager.ChangeToNormalSnapshot();
 
@@ -106,18 +106,23 @@ public class BGMMan : MonoBehaviour
             BGMAudioSource.loop = true;
             StartCoroutine(FadeTrack(battleMusic));
         }
-
-
-
     }
 
-    public void EndTeddyBattleMusic()
+    public void EndTeddyBattleMusic()//use EndMusic() instead of this
     {
         SoundMan.SoundManager.ChangeToNormalSnapshot();
         
         BGMAudioSource.loop = false;
         StartCoroutine(FadeTrack(null));
 
+    }
+
+    public void EndMusic()
+    {
+        SoundMan.SoundManager.ChangeToNormalSnapshot();
+
+        BGMAudioSource.loop = false;
+        StartCoroutine(FadeTrack(null));
     }
 
     private IEnumerator FadeTrack(AudioClip clip)
