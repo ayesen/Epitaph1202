@@ -35,6 +35,15 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI slot0_CD;
     public TextMeshProUGUI slot1_CD;
     public TextMeshProUGUI slot2_CD;
+    public Image slot0_Fill;
+    public Image slot1_Fill;
+    public Image slot2_Fill;
+
+    [Header("UI_Choosen")]
+    public GameObject choLeft;
+    public GameObject choUp;
+    public GameObject choRight;
+    public GameObject choDown;
 
     private bool isHided;
     private CanvasGroup cg;
@@ -62,6 +71,10 @@ public class UIManager : MonoBehaviour
     {
         cg = GetComponent<CanvasGroup>();
         UI_ChangeIcon();
+        choLeft.SetActive(false);
+        choUp.SetActive(false);
+        choRight.SetActive(false);
+        choDown.SetActive(false);
     }
 
     void Update()
@@ -91,25 +104,43 @@ public class UIManager : MonoBehaviour
     {
         for(int i = 0; i < 3; i++)
         {
-            if(PlayerScriptNew.me.matSlots[i] != null
-               && PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().amount < PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().amount_max)
+            if(PlayerScriptNew.me.matSlots[i] != null &&
+               PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().amount < PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().amount_max)
             {
                 if (i == 0)
-                    slot0_CD.text = "" + PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().CD;
+                {
+                    slot0_Fill.color = ColorStorage.me.ChoColor(i);
+                    slot0_Fill.color = new Color(slot0_Fill.color.r, slot0_Fill.color.g, slot0_Fill.color.b, 0.5f);
+                    slot0_Fill.fillAmount = ((float)PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().CD_max -
+                                             (float)PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().CD) /
+                                             (float)PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().CD_max;
+                }
                 else if(i == 1)
-                    slot1_CD.text = "" + PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().CD;
+                {
+                    slot1_Fill.color = ColorStorage.me.ChoColor(i);
+                    slot1_Fill.color = new Color(slot1_Fill.color.r, slot1_Fill.color.g, slot1_Fill.color.b, 0.5f);
+                    slot1_Fill.fillAmount = ((float)PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().CD_max -
+                                             (float)PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().CD) /
+                                             (float)PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().CD_max;
+                }
                 else if(i == 2)
-                    slot2_CD.text = "" + PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().CD;
+                {
+                    slot2_Fill.color = ColorStorage.me.ChoColor(i);
+                    slot2_Fill.color = new Color(slot2_Fill.color.r, slot2_Fill.color.g, slot2_Fill.color.b, 0.5f);
+                    slot2_Fill.fillAmount = ((float)PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().CD_max -
+                                             (float)PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().CD) /
+                                             (float)PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().CD_max;
+                }
             }
             else if(PlayerScriptNew.me.matSlots[i] == null
                     || PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().amount >= PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().amount_max)
             {
-                if(i == 0)
-                    slot0_CD.text = "";
-                else if(i == 1)
-                    slot1_CD.text = "";
-                else if(i == 2)
-                    slot2_CD.text = "";
+                if (i == 0)
+                    slot0_Fill.color = new Color(0, 0, 0, 0);
+                else if (i == 1)
+                    slot1_Fill.color = new Color(0, 0, 0, 0);
+                else if (i == 2)
+                    slot2_Fill.color = new Color(0, 0, 0, 0);
             }
         }
     }
@@ -165,63 +196,39 @@ public class UIManager : MonoBehaviour
     {
         if (PlayerScriptNew.me.selectedMats.Contains(PlayerScriptNew.me.matSlots[0]))
         {
-            if(PlayerScriptNew.me.matSlots[0].GetComponent<MatScriptNew>().amount > 0)
-                leftSlot.color = selectedColor;
+            choLeft.SetActive(true);
+            choLeft.GetComponent<Image>().color = ColorStorage.me.ChoColor(0);
         }
         else
         {
-            leftSlot.color = Color.white;
-
-            if (PlayerScriptNew.me.matSlots[0] != null)
-            {
-                if (PlayerScriptNew.me.matSlots[0].GetComponent<MatScriptNew>().amount <= 0)
-                    leftSlot.color = outOfStock;
-            }
+            choLeft.SetActive(false);
         }
         if (PlayerScriptNew.me.selectedMats.Contains(PlayerScriptNew.me.matSlots[1]))
         {
-            if (PlayerScriptNew.me.matSlots[1].GetComponent<MatScriptNew>().amount > 0)
-                upSlot.color = selectedColor;
+            choUp.SetActive(true);
+            choUp.GetComponent<Image>().color = ColorStorage.me.ChoColor(1);
         }
         else
         {
-            upSlot.color = Color.white;
-
-            if (PlayerScriptNew.me.matSlots[1] != null)
-            {
-                if (PlayerScriptNew.me.matSlots[1].GetComponent<MatScriptNew>().amount <= 0)
-                    upSlot.color = outOfStock;
-            }
+            choUp.SetActive(false);
         }
         if (PlayerScriptNew.me.selectedMats.Contains(PlayerScriptNew.me.matSlots[2]))
         {
-            if (PlayerScriptNew.me.matSlots[2].GetComponent<MatScriptNew>().amount > 0)
-                rightSlot.color = selectedColor;
+            choRight.SetActive(true);
+            choRight.GetComponent<Image>().color = ColorStorage.me.ChoColor(2);
         }
         else
         {
-            rightSlot.color = Color.white;
-
-            if (PlayerScriptNew.me.matSlots[2] != null)
-            {
-                if (PlayerScriptNew.me.matSlots[2].GetComponent<MatScriptNew>().amount <= 0)
-                    rightSlot.color = outOfStock;
-            }
+            choRight.SetActive(false);
         }
         if (PlayerScriptNew.me.selectedMats.Contains(PlayerScriptNew.me.matSlots[3]))
         {
-            if (PlayerScriptNew.me.matSlots[3].GetComponent<MatScriptNew>().amount > 0)
-                downSlot.color = selectedColor;
+            choDown.SetActive(true);
+            choDown.GetComponent<Image>().color = ColorStorage.me.ChoColor(3);
         }
         else
         {
-            downSlot.color = Color.white;
-
-            if (PlayerScriptNew.me.matSlots[3] != null)
-            {
-                if (PlayerScriptNew.me.matSlots[3].GetComponent<MatScriptNew>().amount <= 0)
-                    downSlot.color = outOfStock;
-            }
+            choDown.SetActive(false);
         }
     }
 
@@ -243,6 +250,11 @@ public class UIManager : MonoBehaviour
             slot3_TMP.text = PlayerScriptNew.me.matSlots[3].GetComponent<MatScriptNew>().amount.ToString();
         else
             slot3_TMP.text = "0";
+
+        leftSlot.color = ColorStorage.me.ChoColor(0);
+        upSlot.color = ColorStorage.me.ChoColor(1);
+        rightSlot.color = ColorStorage.me.ChoColor(2);
+        downSlot.color = ColorStorage.me.ChoColor(3);
     }
 
     public IEnumerator FadeCanvas(CanvasGroup cg, float endValue, float duration)

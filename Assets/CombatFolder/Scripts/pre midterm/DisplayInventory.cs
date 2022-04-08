@@ -26,6 +26,11 @@ public class DisplayInventory : MonoBehaviour
 
     private static DisplayInventory me = null;
 
+    public Image slot0;
+    public Image slot1;
+    public Image slot2;
+    public Image slot3;
+
     public static DisplayInventory Me
     {
         get
@@ -50,9 +55,9 @@ public class DisplayInventory : MonoBehaviour
 
     void Update()
     {
-        
+
     }
-    
+
     public void CreateDisplay()
     {
         Amount_Of_Inventory = 0;
@@ -83,6 +88,11 @@ public class DisplayInventory : MonoBehaviour
             }
             Amount_Of_Inventory += 1;
         }
+
+        slot0.color = ColorStorage.me.ChoColor(0);
+        slot1.color = ColorStorage.me.ChoColor(1);
+        slot2.color = ColorStorage.me.ChoColor(2);
+        slot3.color = ColorStorage.me.ChoColor(3);
     }
 
     public Vector3 GetPosition(int i)

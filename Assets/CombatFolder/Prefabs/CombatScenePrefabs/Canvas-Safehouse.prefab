@@ -1349,7 +1349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 0.5529412}
+  m_Color: {r: 0.3137255, g: 0.20392157, b: 0.3764706, a: 0.5529412}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1995,6 +1995,10 @@ MonoBehaviour:
   positionHolder_2: {fileID: 4013773350276402692}
   positionHolder_3: {fileID: 5282336161059296372}
   images: []
+  slot0: {fileID: 2093741020537423047}
+  slot1: {fileID: 6625109719566790251}
+  slot2: {fileID: 2627334559773444274}
+  slot3: {fileID: 813614615693620760}
 --- !u!114 &8959702121870679528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2014,6 +2018,7 @@ MonoBehaviour:
   choosenMat: 0
   description: {fileID: 817239613596766191}
   isChanging: 0
+  squareChoCol: {r: 1, g: 1, b: 0.011764707, a: 1}
   X_Start: 437
   Y_Start: 160
   X_Space_Between_Items: 201

@@ -18,14 +18,17 @@ public class DialogueScript : MonoBehaviour
 	public Material highLightMat;
 	public bool restrictMovement; // does the player is prohibited from doing anything when reading
 	public bool oneTimeDialogue; //! can this dialogue be triggered only once, dialogues with options should set this to true!
-	public bool inspected;
+	public bool canRepeat;//can this dialogue be repeated? controlls bool inspected
+	private bool inspected;
 	private MeshRenderer mr;
 	public bool isSwitch;
 	public GameObject[] interactiveSwitch;
 	public int logX;
 	public int logY;
 	public string musicFunction;
+	public string soundManFunction;
 	GameObject bgmManager;
+	GameObject soundMan;
 	public GameObject itemToLookAt; // for look at things automatically after triggering dialogue
 
 	[Header("Custimizable End Action")]
@@ -50,6 +53,7 @@ public class DialogueScript : MonoBehaviour
 			}
 		}
 		bgmManager = GameObject.Find("BGM");
+		soundMan = GameObject.Find("AudioManager");
 	}
 
 	private void Update()
@@ -80,7 +84,8 @@ public class DialogueScript : MonoBehaviour
             					if (displayDelayed <= 0f)
             					{
             						SoundMan.SoundManager.ItemInspection();
-            						inspected = true;
+									if(!canRepeat)
+            							inspected = true;
             						ObjectInspectorManagerScript.me.ShowText(this);
             						foreach (GameObject interactable in interactiveSwitch)
             						{
@@ -92,13 +97,18 @@ public class DialogueScript : MonoBehaviour
             						//	LogManager.LOGManager.CoverSetActive(logX, logY);
             						//}
             					}
-            				}
+						if (!soundManFunction.Equals(""))
+						{
+							soundMan.SendMessage(soundManFunction);
+						}
+					}
             			}
             			else // auto show text
             			{
             				if (displayDelayed <= 0f && !inspected)
             				{
-            					inspected = true;
+								if(!canRepeat)
+            						inspected = true;
             					ObjectInspectorManagerScript.me.ShowText(this);
             					foreach (GameObject interactable in interactiveSwitch)
             					{
@@ -134,7 +144,8 @@ public class DialogueScript : MonoBehaviour
 	IEnumerator Dialogue()
 	{
 		yield return new WaitForSeconds (displayDelayed);
-		inspected = true;
+		if(!canRepeat)
+			inspected = true;
 		ObjectInspectorManagerScript.me.ShowText(this);
 		foreach (GameObject interactable in interactiveSwitch)
 		{
