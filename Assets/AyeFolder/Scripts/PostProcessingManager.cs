@@ -168,6 +168,7 @@ public class PostProcessingManager : MonoBehaviour
 
         if (CA.colorFilter.value == Color.black)
         {
+            SavePointManager.me.ResetPlayer();
             SafehouseManager.Me.isSafehouse = true;
         }
     }
