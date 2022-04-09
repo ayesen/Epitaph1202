@@ -93,6 +93,12 @@ public class Enemy : MonoBehaviour
     [Header("PHASE 2 TIMER")]
     public float duration_phase2;
     private float timer_phase2;
+
+    // for save point
+    [HideInInspector]
+    public Transform ogTransform;
+    //[HideInInspector]
+    public List<DoorScript> myEntrances;
     
 
     private void Awake()
@@ -108,6 +114,7 @@ public class Enemy : MonoBehaviour
         stunPoise_max = stunPoise;
         ogMat = GetComponentInChildren<SkinnedMeshRenderer>().material;
         breakMeterMax = breakMeter;
+        ogTransform = transform;
     }
 
     private void Update()
