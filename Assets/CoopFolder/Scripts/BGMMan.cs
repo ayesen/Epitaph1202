@@ -69,13 +69,13 @@ public class BGMMan : MonoBehaviour
         StartCoroutine(FadeTrack(safeHouse));
     }
 
-    public void EndSafeHoueBaguaMusic() //use EndMusic() instead of this
-    {
-        SoundMan.SoundManager.ChangeToNormalSnapshot();
+    //public void EndSafeHoueBaguaMusic() //use EndMusic() instead of this
+    //{
+    //    SoundMan.SoundManager.ChangeToNormalSnapshot();
         
-        BGMAudioSource.loop = false;
-        StartCoroutine(FadeTrack(null));
-    }
+    //    BGMAudioSource.loop = false;
+    //    StartCoroutine(FadeTrack(null));
+    //}
 
     public void StartTinyTeddyCombatMusic()
     {
@@ -89,13 +89,13 @@ public class BGMMan : MonoBehaviour
 
     }
 
-    public void EndTinyTeddyMusic() //use EndMusic() instead of this
-    {
-        SoundMan.SoundManager.ChangeToNormalSnapshot();
+    //public void EndTinyTeddyMusic() //use EndMusic() instead of this
+    //{
+    //    SoundMan.SoundManager.ChangeToNormalSnapshot();
 
-        BGMAudioSource.loop = false;
-        StartCoroutine(FadeTrack(null));
-    }
+    //    BGMAudioSource.loop = false;
+    //    StartCoroutine(FadeTrack(null));
+    //}
 
     public void StartTeddyBattleMusic()
     {
@@ -108,14 +108,14 @@ public class BGMMan : MonoBehaviour
         }
     }
 
-    public void EndTeddyBattleMusic()//use EndMusic() instead of this
-    {
-        SoundMan.SoundManager.ChangeToNormalSnapshot();
+    //public void EndTeddyBattleMusic()//use EndMusic() instead of this
+    //{
+    //    SoundMan.SoundManager.ChangeToNormalSnapshot();
         
-        BGMAudioSource.loop = false;
-        StartCoroutine(FadeTrack(null));
+    //    BGMAudioSource.loop = false;
+    //    StartCoroutine(FadeTrack(null));
 
-    }
+    //}
 
     public void EndMusic()
     {

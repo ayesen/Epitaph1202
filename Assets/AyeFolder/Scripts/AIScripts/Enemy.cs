@@ -231,7 +231,7 @@ public class Enemy : MonoBehaviour
             //    MusicIsStopped = true;
             //}
 
-            BGMMan.bGMManger.EndTeddyBattleMusic();
+            BGMMan.bGMManger.EndMusic();
 
             return true;
         }
