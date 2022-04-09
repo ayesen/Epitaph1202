@@ -10,6 +10,12 @@ public class WallHider : MonoBehaviour
 	private List<GameObject> _walls;
 	private List<GameObject> _lights;
 	private List<GameObject> _floor;
+
+	public float doorOffset_x;
+	public float doorOffset_z;
+
+	public float windowOffset_x;
+
 	public enum Room
 	{
 		spawnHallway,
@@ -42,13 +48,6 @@ public class WallHider : MonoBehaviour
 		_walls = GameObject.FindGameObjectsWithTag("Wall").ToList();
 		_lights = GameObject.FindGameObjectsWithTag("Light").ToList();
 		_floor = GameObject.FindGameObjectsWithTag("Floor").ToList();
-		foreach (var wall in _walls)
-		{
-			if (wall.GetComponent<ShowScript>() == null)
-			{
-				print(wall.name);
-			}
-		}
 	}
 
 	private void Update()
@@ -58,21 +57,15 @@ public class WallHider : MonoBehaviour
 			case Room.spawnHallway:
 				foreach (var wall in _walls)
 				{
-					if (wall == null)
-					{
-						print(wall.name);
-					}
 					if (wall != null)
                     {
 	                    if (wall.GetComponent<ShowScript>().whenSpawnHallway)
 						{
-							
-							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
-							//wall.GetComponent<Renderer>().material.color.a = 0.5f;
+							ShowWall(wall);
 						}
 						else
 						{
-							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
+							HideWall(wall);
 						}
 					}
 				}
@@ -117,12 +110,11 @@ public class WallHider : MonoBehaviour
                     {
 						if (wall.GetComponent<ShowScript>() != null && wall.GetComponent<ShowScript>().whenEntryWay)
 						{
-							print(wall.gameObject.name);
-							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+							ShowWall(wall);
 						}
 						else
 						{
-							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
+							HideWall(wall);
 						}
 					}
 				}
@@ -171,11 +163,11 @@ public class WallHider : MonoBehaviour
                     {
 						if (wall.GetComponent<ShowScript>().whenLivingRoom)
 						{
-							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+							ShowWall(wall);
 						}
 						else
 						{
-							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
+							HideWall(wall);
 						}
 					}
 				}
@@ -220,7 +212,7 @@ public class WallHider : MonoBehaviour
                     {
 						if (wall.GetComponent<ShowScript>().whenKitchen)
 						{
-							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+							ShowWall(wall);
 						}
 						else
 						{
@@ -265,13 +257,16 @@ public class WallHider : MonoBehaviour
 			case Room.balcany:
 				foreach (var wall in _walls)
 				{
-					if (wall.GetComponent<ShowScript>().whenBalcany)
+					if (wall != null)
 					{
-						wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
-					}
-					else
-					{
-						wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
+						if (wall.GetComponent<ShowScript>().whenBalcany)
+						{
+							ShowWall(wall);
+						}
+						else
+						{
+							HideWall(wall);
+						}
 					}
 				}
 				foreach (var mask in _masks)
@@ -315,11 +310,11 @@ public class WallHider : MonoBehaviour
                     {
 						if (wall.GetComponent<ShowScript>().whenSubLivingRoom)
 						{
-							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+							ShowWall(wall);
 						}
 						else
 						{
-							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
+							HideWall(wall);
 						}
 					}
 				}
@@ -364,11 +359,11 @@ public class WallHider : MonoBehaviour
                     {
 						if (wall.GetComponent<ShowScript>().whenBathRoom)
 						{
-							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+							ShowWall(wall);
 						}
 						else
 						{
-							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
+							HideWall(wall);
 						}
 					}
 				}
@@ -413,11 +408,11 @@ public class WallHider : MonoBehaviour
                     {
 						if (wall.GetComponent<ShowScript>().whenBedRoom)
 						{
-							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+							ShowWall(wall);
 						}
 						else
 						{
-							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
+							HideWall(wall);
 						}
 					}
 				}
@@ -462,11 +457,11 @@ public class WallHider : MonoBehaviour
 					{
 						if (wall.GetComponent<ShowScript>().whemHideout)
 						{
-							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+							ShowWall(wall);
 						}
 						else
 						{
-							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
+							HideWall(wall);
 						}
 					}
 				}
@@ -511,11 +506,11 @@ public class WallHider : MonoBehaviour
 					{
 						if (wall.GetComponent<ShowScript>().whenStudyRoom)
 						{
-							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+							ShowWall(wall);
 						}
 						else
 						{
-							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
+							HideWall(wall);
 						}
 					}
 				}
@@ -560,11 +555,11 @@ public class WallHider : MonoBehaviour
 					{
 						if (wall.GetComponent<ShowScript>().whenStudyBalcony)
 						{
-							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+							ShowWall(wall);
 						}
 						else
 						{
-							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
+							HideWall(wall);
 						}
 					}
 				}
@@ -609,11 +604,11 @@ public class WallHider : MonoBehaviour
 					{
 						if (wall.GetComponent<ShowScript>().whenSubHallway)
 						{
-							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+							ShowWall(wall);
 						}
 						else
 						{
-							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
+							HideWall(wall);
 						}
 					}
 				}
@@ -658,11 +653,11 @@ public class WallHider : MonoBehaviour
 					{
 						if (wall.GetComponent<ShowScript>().whenSubBedRoom)
 						{
-							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+							ShowWall(wall);
 						}
 						else
 						{
-							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
+							HideWall(wall);
 						}
 					}
 				}
@@ -707,11 +702,11 @@ public class WallHider : MonoBehaviour
 					{
 						if (wall.GetComponent<ShowScript>().whenSubBathRoom)
 						{
-							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+							ShowWall(wall);
 						}
 						else
 						{
-							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
+							HideWall(wall);
 						}
 					}
 				}
@@ -756,11 +751,11 @@ public class WallHider : MonoBehaviour
 					{
 						if (wall.GetComponent<ShowScript>().whenCandleRoom)
 						{
-							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+							ShowWall(wall);
 						}
 						else
 						{
-							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
+							HideWall(wall);
 						}
 					}
 				}
@@ -805,11 +800,11 @@ public class WallHider : MonoBehaviour
 					{
 						if (wall.GetComponent<ShowScript>().whenBossRoom)
 						{
-							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+							ShowWall(wall);
 						}
 						else
 						{
-							wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
+							HideWall(wall);
 						}
 					}
 				}
@@ -847,8 +842,54 @@ public class WallHider : MonoBehaviour
 					}
 				}
 				break;
-				
-				
+		}
+	}
+
+	private void ShowWall(GameObject wall)
+	{
+		wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+		if (wall.transform.childCount > 0)
+		{
+			Transform childTransform = wall.transform.GetChild(0).transform;
+			if (wall.layer == 12) // wall
+			{
+				childTransform.localScale = new Vector3(childTransform.localScale.x, childTransform.localScale.y, 1f);
+			}
+			else if (wall.layer == 20) // door
+			{
+				childTransform.localScale = new Vector3(childTransform.localScale.x, childTransform.localScale.y, 2f);
+				childTransform.localPosition = new Vector3(doorOffset_x, childTransform.localPosition.y, doorOffset_z);
+			}
+			else if (wall.layer == 19) // window
+			{
+				childTransform.localScale = new Vector3(childTransform.localScale.x, childTransform.localScale.y, 2f);
+				childTransform.localPosition = new Vector3(windowOffset_x, childTransform.localPosition.y, childTransform.localPosition.z);
+			}
+			wall.transform.GetChild(0).GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+		}
+	}
+
+	private void HideWall(GameObject wall)
+	{
+		wall.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
+		if (wall.transform.childCount > 0)
+		{
+			Transform childTransform = wall.transform.GetChild(0).transform;
+			wall.transform.GetChild(0).GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
+			if (wall.layer == 12) // wall
+			{
+				childTransform.localScale = new Vector3(childTransform.localScale.x, childTransform.localScale.y, 1f);
+			}
+			else if (wall.layer == 20) // door
+			{
+				childTransform.localScale = new Vector3(childTransform.localScale.x, childTransform.localScale.y, 2f);
+				childTransform.localPosition = new Vector3(doorOffset_x, childTransform.localPosition.y, doorOffset_z);
+			}
+			else if (wall.layer == 19) // window
+			{
+				childTransform.localScale = new Vector3(childTransform.localScale.x, childTransform.localScale.y, 2f);
+				childTransform.localPosition = new Vector3(windowOffset_x, childTransform.localPosition.y, childTransform.localPosition.z);
+			}
 		}
 	}
 }

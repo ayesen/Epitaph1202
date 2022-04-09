@@ -141,7 +141,7 @@ public class PostProcessingManager : MonoBehaviour
         CA.saturation.value = Mathf.Clamp(deathValue * 100, minValue, maxValue*100);
         Vig.intensity.value = Mathf.Clamp(deathValue/2.2f, minValue, maxValue);
         ChrAb.intensity.value = Mathf.Clamp(deathValue, minValue, maxValue);
-        Debug.Log(deathValue);
+        //Debug.Log(deathValue);
     }
 
     public IEnumerator DeadFilter()
@@ -168,6 +168,9 @@ public class PostProcessingManager : MonoBehaviour
 
         if (CA.colorFilter.value == Color.black)
         {
+            // reborn
+            SavePointManager.me.ResetPlayer();
+            SavePointManager.me.ResetBears();
             SafehouseManager.Me.isSafehouse = true;
         }
     }

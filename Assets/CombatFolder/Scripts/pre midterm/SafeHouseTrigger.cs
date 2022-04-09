@@ -6,6 +6,9 @@ public class SafeHouseTrigger : MonoBehaviour
 {
     private bool doOnce;
     private bool isClose;
+
+    public Transform rebornPos;
+
     void Start()
     {
         doOnce = isClose;
@@ -19,6 +22,7 @@ public class SafeHouseTrigger : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E) || Input.GetAxis("HorizontalArrow") > 0 && !SafehouseManager.Me.isSafehouse)
             {
                 SafehouseManager.Me.isSafehouse = true;
+                SavePointManager.me.last_checkPoint = this;
             }
         }
         else
