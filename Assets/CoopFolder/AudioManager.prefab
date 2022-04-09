@@ -406,7 +406,7 @@ MonoBehaviour:
   wallBreak: {fileID: 8300000, guid: e8a40e33c026a4c1fad0d332ad1854bc, type: 3}
   jumpScare: {fileID: 8300000, guid: 620314988308d4299bd59bc850146f15, type: 3}
   cannotAccess: {fileID: 8300000, guid: 6e4954ad1083d4097999ae94c3e52a84, type: 3}
-  doorOpen: {fileID: 8300000, guid: dea631626cbfd42fd8383dd616d5e50f, type: 3}
+  doorOpen: {fileID: 8300000, guid: 31f7de5a7c8f842c0ba3eb09f099eeda, type: 3}
   doorLocked: {fileID: 8300000, guid: 5c1d253f36bbc453daf8871af9774386, type: 3}
   knifeDropped: {fileID: 8300000, guid: 71be3cbb5d0894295b1dd0c7fc14266f, type: 3}
   battleVOPhaseOne:
