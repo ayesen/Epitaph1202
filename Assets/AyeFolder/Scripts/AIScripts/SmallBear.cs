@@ -16,6 +16,7 @@ public class SmallBear : Enemy
         ghostRider = GetComponent<UnityEngine.AI.NavMeshAgent>();
         phase = Enemy.AIPhase.InBattle1;
         ogMat = GetComponentInChildren<SkinnedMeshRenderer>().material;
+        ogTransform = transform;
     }
 
     void Update()

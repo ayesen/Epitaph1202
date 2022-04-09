@@ -13,7 +13,7 @@ public class WallExtender : MonoBehaviour
 			GameObject invisWall = Instantiate(invisWall_prefab, transform);
 			invisWall.transform.position = new Vector3(transform.position.x, 11, transform.position.z);
 			invisWall.transform.rotation = transform.rotation;
-			invisWall.transform.localScale = new Vector3(1, 100, 1);
+			invisWall.transform.localScale = new Vector3(1, 30, 1);
 		}
 	}
 }
