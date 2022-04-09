@@ -11,6 +11,7 @@ public class SavePointManager : MonoBehaviour
 	private List<GameObject> _allBears;
 	private List<GameObject> _activatedBears;
 	public SafeHouseTrigger last_checkPoint;
+	public Transform backUp_checkPoint;
 
 	private void Awake()
 	{
@@ -29,9 +30,18 @@ public class SavePointManager : MonoBehaviour
 	{
 		if (last_checkPoint == null)
 		{
-			Debug.LogError("You haven't got to a check point!");
+			// set player position
+			_player.transform.position = backUp_checkPoint.position;
+			// reset player stats
+			_ps.hp = _ps.maxHP;
+			_ps.anim.Play("testIdle");
+			// reset player mats
+			_ps.matSlots[0].GetComponent<MatScriptNew>().amount = _ps.matSlots[0].GetComponent<MatScriptNew>().amount_max;
+			_ps.matSlots[1].GetComponent<MatScriptNew>().amount = _ps.matSlots[0].GetComponent<MatScriptNew>().amount_max;
+			_ps.matSlots[2].GetComponent<MatScriptNew>().amount = _ps.matSlots[0].GetComponent<MatScriptNew>().amount_max;
+			_ps.matSlots[3] = null;
 		}
-		if (last_checkPoint.rebornPos != null)
+		else if (last_checkPoint.rebornPos != null)
 		{
 			// set player position
 			_player.transform.position = last_checkPoint.rebornPos.position;
@@ -48,6 +58,7 @@ public class SavePointManager : MonoBehaviour
 		{
 			Debug.LogError("Assign reborn position to safe house!");
 		}
+
 	}
 
 	public void ResetBears()
