@@ -188,8 +188,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 						}
 						if (burnAfterReading)
 						{
-							print("auto: called destruction");
-							Destroy(dT.gameObject);
+							dT.gameObject.SetActive(false);
 						}
 					}
 					StopAllCoroutines();
@@ -250,7 +249,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 						}
 						if (burnAfterReading)
 						{
-							Destroy(dT.gameObject);
+							dT.gameObject.SetActive(false);
 						}
 						StopAllCoroutines();
 					}
