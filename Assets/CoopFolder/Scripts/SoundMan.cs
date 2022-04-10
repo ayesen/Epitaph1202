@@ -60,16 +60,16 @@ public class SoundMan : MonoBehaviour
         }
     }
 
-    public void CheckPointRevive(SafeHouseTrigger sT)
+    public void CheckPointRevive()
     {
         BGMMan.bGMManger.EndMusic();
         PlayerLowHealthFilter(PlayerScriptNew.me.hp / PlayerScriptNew.me.maxHP);
 
-        if(sT.gameObject.transform.parent.gameObject.name == "Box3")
+        if(WallHider.me.roomPlayerIsIn == WallHider.Room.balcany)
         {
             AmbienceManager.ambienceManager.BalconyAmbiencePlay();
         }
-        else if (false)//first spawn, and i dont know where, might not need this
+        else if (WallHider.me.roomPlayerIsIn == WallHider.Room.subHallway)//first spawn, and i dont know where, might not need this
         {
             AmbienceManager.ambienceManager.HallwayAmbiencePlay();
         }
