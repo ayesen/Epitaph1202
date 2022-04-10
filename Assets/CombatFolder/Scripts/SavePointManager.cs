@@ -71,7 +71,7 @@ public class SavePointManager : MonoBehaviour
 			bear.GetComponent<AIController>().enabled = false;
 			foreach (var door in bear.GetComponent<Enemy>().myEntrances)
 			{
-				door.CloseFront();
+				door.SwitchDoor();
 				if (door.GetComponent<DialogueScript>() != null)
 				{
 					door.GetComponent<DialogueScript>().enabled = false;
