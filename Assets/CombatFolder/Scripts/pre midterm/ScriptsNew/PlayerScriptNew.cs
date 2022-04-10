@@ -12,7 +12,7 @@ public class PlayerScriptNew : MonoBehaviour
 	public float spd;
 	public float rot_spd;
 	private GameObject enemy;
-	private int maxHP;
+	public int maxHP;
 	[HideInInspector]
     public Animator anim;
     public GameObject playerModel;
@@ -527,6 +527,7 @@ public class PlayerScriptNew : MonoBehaviour
 		if(hp >= 0)
 		{
 			PostProcessingManager.Me.GradualDeath(maxHP, hp);
+			SoundMan.SoundManager.PlayerLowHealthFilter(hp / maxHP); //if player lose health, sound will get blurry
 		}
 
             /*if (hp < 25)
@@ -534,7 +535,7 @@ public class PlayerScriptNew : MonoBehaviour
                 PostProcessingManager.Me.ChangeFilter();
             }*/
         }
-        public void Death()
+    public void Death()
 	{
 		if (hp <= 0)
 		{

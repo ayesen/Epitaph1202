@@ -25,7 +25,6 @@ public class ParticleAttractor : MonoBehaviour
         if (_particleSystem.isPlaying && _attractorTransform != null)
         {
             int length = _particleSystem.GetParticles(_particles);
-            print(length);
             Vector3 attractorPosition = new Vector3(_attractorTransform.position.x, _attractorTransform.position.y + 2, _attractorTransform.position.z);
 
             for (int i = 0; i < length; i++)

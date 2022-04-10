@@ -86,7 +86,7 @@ public class SafehouseManager : MonoBehaviour
         else if(isSafehouse != checkBoolChange && !isSafehouse)
         {
             //AmbienceManager.ambienceManager.HallwayAmbiencePlay();
-            BGMMan.bGMManger.EndSafeHoueBaguaMusic();//off safehouse
+            BGMMan.bGMManger.EndMusic();//off safehouse
             PlayerScriptNew.me.walking = true;
             StartCoroutine(FadeCanvas(cg, 0f, fadeTime));
             //RespawnPlayer(spawnPoint); // [Safehouse update]need a location

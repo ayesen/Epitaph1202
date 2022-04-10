@@ -69,6 +69,7 @@ public class MotherController : MonoBehaviour
             kidChild.transform.parent = null;
             kidChild.GetComponent<Rigidbody>().useGravity = true;
             kidChild.GetComponent<CapsuleCollider>().enabled = true;
+            kidChild.GetComponent<SmallBear>().myEntrances = new List<DoorScript>(GetComponent<Enemy>().myEntrances);
             //kidChild.GetComponent<Enemy>().ChangePhase(Enemy.AIPhase.InBattle1, 1);
             //kidsHouse[i] = null;
         }
