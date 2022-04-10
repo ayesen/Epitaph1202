@@ -60,6 +60,25 @@ public class SoundMan : MonoBehaviour
         }
     }
 
+    public void CheckPointRevive(SafeHouseTrigger sT)
+    {
+        BGMMan.bGMManger.EndMusic();
+        PlayerLowHealthFilter(PlayerScriptNew.me.hp / PlayerScriptNew.me.maxHP);
+
+        if(sT.gameObject.transform.parent.gameObject.name == "Box3")
+        {
+            AmbienceManager.ambienceManager.BalconyAmbiencePlay();
+        }
+        else if (false)//first spawn, and i dont know where, might not need this
+        {
+            AmbienceManager.ambienceManager.HallwayAmbiencePlay();
+        }
+        else
+        {
+            AmbienceManager.ambienceManager.RoomAmbiencePlay();
+        }
+    }
+
     public void AudioPauseOrUnpause() //this is for the menu
     {
         AudioListener.pause = !AudioListener.pause;

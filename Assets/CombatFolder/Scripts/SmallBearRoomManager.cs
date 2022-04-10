@@ -37,7 +37,7 @@ public class SmallBearRoomManager : MonoBehaviour
 			if (clear && !cleared)
 			{
 				cleared = true;
-				BGMMan.bGMManger.EndTinyTeddyMusic();
+				BGMMan.bGMManger.EndMusic();
 				if (doors_iCtrl.Count > 0)
 				{
 					foreach (var door in doors_iCtrl)
