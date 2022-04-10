@@ -17,10 +17,16 @@ public class MenuManager : MonoBehaviour
     private CanvasGroup cg;
 
     public Image mappingHolder;
-
-    public int uiPhase;
-    public GameObject mappingPanel;
-    public GameObject pausePanel;
+    //UI Panel Dragdown
+    public int uiIndex; //which UI panel ur in;
+    public int buttonIndex; //which button player in when in uiIndex = 0;
+    public GameObject mappingPanel; //uiIndex = 1;
+    public GameObject pausePanel; //uiIndex = 0;
+    public GameObject resumeButton; //buttonIndex = 0;
+    public GameObject controlButton; //buttonIndex = 1;
+    public GameObject exitButton; //buttonIndex = 2;
+    public bool inInput; //use for restrict player dpad input, once per only;
+    public bool isReset; // for reseting UI Panel Index;
     private void Awake()
     {
         if (me != null && me != this)
@@ -38,11 +44,13 @@ public class MenuManager : MonoBehaviour
 
     void Update()
     {
-
         if(Input.GetKeyUp(KeyCode.Escape) || Input.GetButtonUp("Menu") && !isFading)
         {
             if (!isMenu)
-                isMenu = true;
+            {
+                isMenu = true; 
+                isReset = true; //UI Index
+            }
             else
                 isMenu = false;
         }
@@ -60,6 +68,55 @@ public class MenuManager : MonoBehaviour
             {
                 StartCoroutine(FadeCanvas(cg, 0f, fadeTime));
             }
+        }
+
+        //从下面这段都是和UI Index有关的，Line73 - 115 not yet working,交给你了！
+        if (isMenu)
+        {
+            //UI Index: Pause Menu == 0, Controller Mapping == 1;
+            //Button Index: Resume Button == 0, Control Button == 1, Exit Button ==2;
+            //bool for detect
+            if (isReset)
+            {
+                uiIndex = 0;
+                buttonIndex = 0;
+                inInput = false;
+                isReset = false;
+            }
+            
+            
+            Debug.Log(Input.GetAxis("VerticalArrow"));
+            Debug.Log("ininput: " + inInput);
+            Debug.Log("Button index:" + buttonIndex);
+            
+            if (Input.GetAxis("VerticalArrow") < 0)
+            {
+                inInput = true;
+            }
+            else if (Input.GetAxis("VerticalArrow") > 0)
+            {
+                inInput = true;
+            }
+            else
+            {
+                inInput = false;
+            }
+            
+            if (buttonIndex != 2 && Input.GetAxis("VerticalArrow") < 0f)
+            {
+                buttonIndex += 1;
+                inInput = false;
+            }
+            if (buttonIndex != 0 && Input.GetAxis("VerticalArrow") > 0f)
+            {
+                buttonIndex -= 1;
+                inInput = false;
+            }
+            
+            
+
+            
+            
         }
     }
 
