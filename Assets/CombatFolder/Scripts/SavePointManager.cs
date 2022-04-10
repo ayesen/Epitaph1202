@@ -40,6 +40,8 @@ public class SavePointManager : MonoBehaviour
 			_ps.matSlots[1].GetComponent<MatScriptNew>().amount = _ps.matSlots[0].GetComponent<MatScriptNew>().amount_max;
 			_ps.matSlots[2].GetComponent<MatScriptNew>().amount = _ps.matSlots[0].GetComponent<MatScriptNew>().amount_max;
 			_ps.matSlots[3] = null;
+			//reset audios
+			SoundMan.SoundManager.CheckPointRevive();
 		}
 		else if (last_checkPoint.rebornPos != null)
 		{
@@ -53,6 +55,8 @@ public class SavePointManager : MonoBehaviour
 			_ps.matSlots[1].GetComponent<MatScriptNew>().amount = _ps.matSlots[0].GetComponent<MatScriptNew>().amount_max;
 			_ps.matSlots[2].GetComponent<MatScriptNew>().amount = _ps.matSlots[0].GetComponent<MatScriptNew>().amount_max;
 			_ps.matSlots[3] = null;
+			//reset audios
+			SoundMan.SoundManager.CheckPointRevive();
 		}
 		else
 		{
@@ -71,7 +75,7 @@ public class SavePointManager : MonoBehaviour
 			bear.GetComponent<AIController>().enabled = false;
 			foreach (var door in bear.GetComponent<Enemy>().myEntrances)
 			{
-				door.CloseFront();
+				door.SwitchDoor();
 				if (door.GetComponent<DialogueScript>() != null)
 				{
 					door.GetComponent<DialogueScript>().enabled = false;
