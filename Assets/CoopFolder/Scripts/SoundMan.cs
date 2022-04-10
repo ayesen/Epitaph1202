@@ -63,7 +63,7 @@ public class SoundMan : MonoBehaviour
     public void CheckPointRevive()
     {
         BGMMan.bGMManger.EndMusic();
-        PlayerLowHealthFilter(PlayerScriptNew.me.hp / PlayerScriptNew.me.maxHP);
+        PlayerLowHealthFilter();
 
         if(WallHider.me.roomPlayerIsIn == WallHider.Room.balcany)
         {
@@ -84,11 +84,13 @@ public class SoundMan : MonoBehaviour
         AudioListener.pause = !AudioListener.pause;
     }
 
-    public void PlayerLowHealthFilter(float playerHealth) //player health should percentage from 0-1, call this function when player was hitten
+    public void PlayerLowHealthFilter() //player health should percentage from 0-1, call this function when player was hitten
     {
-        float maxCutOffHertz = 2200; 
+        float maxCutOffHertz = 22000; 
         float minCutOffHz = 1500;
-        float currentCutOffHertz = minCutOffHz + playerHealth * (maxCutOffHertz - minCutOffHz);
+        float playerHealth = PlayerScriptNew.me.hp;
+        float playerMaxHealth = PlayerScriptNew.me.maxHP;
+        float currentCutOffHertz = minCutOffHz + playerHealth/playerMaxHealth * (maxCutOffHertz - minCutOffHz);
         mainAudioMixer.SetFloat("lowPass", currentCutOffHertz);
     }
 
