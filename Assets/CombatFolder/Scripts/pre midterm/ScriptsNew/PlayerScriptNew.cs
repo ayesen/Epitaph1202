@@ -527,7 +527,7 @@ public class PlayerScriptNew : MonoBehaviour
 		if(hp >= 0)
 		{
 			PostProcessingManager.Me.GradualDeath(maxHP, hp);
-			SoundMan.SoundManager.PlayerLowHealthFilter((float)hp / (float)maxHP); //if player lose health, sound will get blurry
+			SoundMan.SoundManager.PlayerLowHealthFilter(); //if player lose health, sound will get blurry
 		}
 
             /*if (hp < 25)
