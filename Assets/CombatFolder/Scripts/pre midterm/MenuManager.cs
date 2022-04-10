@@ -8,7 +8,7 @@ public class MenuManager : MonoBehaviour
     public static MenuManager me;
     public static bool GameIsPaused = false;
 
-    public bool isMenu;
+    public bool isMenu; //menu going out
     private bool doOnce;
     private bool isFading;
 
@@ -18,6 +18,9 @@ public class MenuManager : MonoBehaviour
 
     public Image mappingHolder;
 
+    public int uiPhase;
+    public GameObject mappingPanel;
+    public GameObject pausePanel;
     private void Awake()
     {
         if (me != null && me != this)
@@ -35,6 +38,7 @@ public class MenuManager : MonoBehaviour
 
     void Update()
     {
+
         if(Input.GetKeyUp(KeyCode.Escape) || Input.GetButtonUp("Menu") && !isFading)
         {
             if (!isMenu)
@@ -81,5 +85,25 @@ public class MenuManager : MonoBehaviour
             GameIsPaused = true;
         }
         isFading = false;
+    }
+    
+    public void pauseGame()
+    {
+        Time.timeScale = 0f;
+    }
+
+    public void showMapping()
+    {
+        pausePanel.SetActive(false);
+        mappingPanel.SetActive(true);
+    }
+    public void resumeGame()
+    {
+        isMenu = false;
+    }
+
+    public void exitGame()
+    {
+        Application.Quit();
     }
 }

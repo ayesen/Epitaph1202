@@ -6,8 +6,10 @@ using TMPro;
 
 public class ChangeInventory : MonoBehaviour
 {
+    [Header("Prefab")]
     public Image choosenSquare;
     public Image choosenCircle;
+    [Header("UI Stuff")]
     public int choosenMatIndex;
     public DisplayInventory DI;
     public int choosenMat;
@@ -15,7 +17,9 @@ public class ChangeInventory : MonoBehaviour
     public bool isChanging;
     private bool doOnce;
     private bool switching;
-
+    [Header("Colors")]
+    public Color squareChoCol;
+    [Header("Positions")]
     public int X_Start;
     public int Y_Start;
     public int X_Space_Between_Items;
@@ -123,7 +127,6 @@ public class ChangeInventory : MonoBehaviour
                     SafehouseManager.Me.cannotExit = true;
                     choosenMat = choosenMatIndex;
                     choosenMatIndex = 0;
-                    print(choosenMatIndex);
                     isChanging = true;
                     SoundMan.SoundManager.SafehouseMaterialSelect();
                 }
@@ -166,9 +169,10 @@ public class ChangeInventory : MonoBehaviour
             }
             else
             {
-                choosenSquare.color = new Color32(227, 103, 31, 255);
+                choosenSquare.color = squareChoCol;
                 choosenCircle.enabled = true;
                 choosenCircle.GetComponent<RectTransform>().localPosition = DisplayInventory.Me.GetPosition(choosenMatIndex - 4) + Vector3.up * -213f + Vector3.right * 50f;
+                choosenCircle.color = ColorStorage.me.ChoColor(choosenMatIndex);
             }
             //Show description
             if (PlayerScriptNew.me.matSlots[choosenMatIndex] != null)

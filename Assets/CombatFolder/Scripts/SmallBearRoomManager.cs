@@ -7,6 +7,7 @@ public class SmallBearRoomManager : MonoBehaviour
     public List<GameObject> bears_iCtrl;
 	public List<DoorScript> doors_iCtrl;
 	bool cleared = false;
+	public List<DoorScript> entrance_doors;
 	
 	public void BearStart()
 	{
@@ -17,6 +18,7 @@ public class SmallBearRoomManager : MonoBehaviour
 			bear.GetComponent<AIController>().enabled = true;
 			bear.GetComponent<SmallBear>().enabled = true;
 			bear.GetComponent<EffectHoldersHolderScript>().enabled = true;
+			bear.GetComponent<Enemy>().myEntrances = new List<DoorScript>(entrance_doors); // copy entrance list so that all bears know which door to close when player dies
 		}
 	}
 
@@ -35,7 +37,7 @@ public class SmallBearRoomManager : MonoBehaviour
 			if (clear && !cleared)
 			{
 				cleared = true;
-				BGMMan.bGMManger.EndTinyTeddyMusic();
+				BGMMan.bGMManger.EndMusic();
 				if (doors_iCtrl.Count > 0)
 				{
 					foreach (var door in doors_iCtrl)
@@ -45,6 +47,5 @@ public class SmallBearRoomManager : MonoBehaviour
 				}
 			}
 		}
-		
 	}
 }

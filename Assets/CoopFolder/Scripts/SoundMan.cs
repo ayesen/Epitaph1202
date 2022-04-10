@@ -33,6 +33,7 @@ public class SoundMan : MonoBehaviour
     public AudioClip cannotAccess;
     public AudioClip doorOpen;
     public AudioClip doorLocked;
+    public AudioClip knifeDropped;
     [Header("BattleVO")]
     public AudioClip[] battleVOPhaseOne;
     public AudioClip[] battleVOPhaseTwo;
@@ -59,6 +60,25 @@ public class SoundMan : MonoBehaviour
         }
     }
 
+    public void CheckPointRevive(SafeHouseTrigger sT)
+    {
+        BGMMan.bGMManger.EndMusic();
+        PlayerLowHealthFilter(PlayerScriptNew.me.hp / PlayerScriptNew.me.maxHP);
+
+        if(sT.gameObject.transform.parent.gameObject.name == "Box3")
+        {
+            AmbienceManager.ambienceManager.BalconyAmbiencePlay();
+        }
+        else if (false)//first spawn, and i dont know where, might not need this
+        {
+            AmbienceManager.ambienceManager.HallwayAmbiencePlay();
+        }
+        else
+        {
+            AmbienceManager.ambienceManager.RoomAmbiencePlay();
+        }
+    }
+
     public void AudioPauseOrUnpause() //this is for the menu
     {
         AudioListener.pause = !AudioListener.pause;
@@ -66,8 +86,8 @@ public class SoundMan : MonoBehaviour
 
     public void PlayerLowHealthFilter(float playerHealth) //player health should percentage from 0-1, call this function when player was hitten
     {
-        float maxCutOffHertz = 5000; 
-        float minCutOffHz = 200;
+        float maxCutOffHertz = 2200; 
+        float minCutOffHz = 1500;
         float currentCutOffHertz = minCutOffHz + playerHealth * (maxCutOffHertz - minCutOffHz);
         mainAudioMixer.SetFloat("lowPass", currentCutOffHertz);
     }
@@ -78,6 +98,14 @@ public class SoundMan : MonoBehaviour
         AudioSource source = GetSource();
         FindSFXGroup(source);
         source.clip = cannotAccess;
+        source.Play();
+    }
+
+    public void KnifeDropped() //knife dropped event
+    {
+        AudioSource source = GetSource();
+        FindSFXGroup(source);
+        source.clip = knifeDropped;
         source.Play();
     }
 

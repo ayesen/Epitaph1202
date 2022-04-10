@@ -8,7 +8,6 @@ public class AIStateDie : AIStateBase
     private float timer_flashWhite;
     public override void StartState(Enemy myEnemy)
     {
-        Debug.Log("start");
         timer_flashWhite = .2f;
         FlashWhite(myEnemy);
         myEnemy.AIAnimator.Play("Die");
