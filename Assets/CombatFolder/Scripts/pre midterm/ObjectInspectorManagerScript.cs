@@ -133,7 +133,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 
 	private void Update()
 	{
-		if (textShowing)
+		if (textShowing && !MenuManager.GameIsPaused)
 		{
 			if (autoAdvance) // if the dialogue is dispalyed automatically
 			{
