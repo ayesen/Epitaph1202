@@ -114,6 +114,7 @@ public class SoundMan : MonoBehaviour
     public void DoorOpen()
     {
         AudioSource source = GetSource();
+        PitchRandomization(source);
         FindSFXGroup(source);
         source.clip = doorOpen;
         source.Play();
@@ -122,6 +123,7 @@ public class SoundMan : MonoBehaviour
     public void DoorLocked()
     {
         AudioSource source = GetSource();
+        PitchRandomization(source);
         FindSFXGroup(source);
         source.clip = doorLocked;
         source.Play();
@@ -130,6 +132,7 @@ public class SoundMan : MonoBehaviour
     public void WallBreaks()  //maybe need to add something to prevent it over playing
     {
         AudioSource source = GetSource();
+        PitchRandomization(source);
         FindSFXGroup(source);
         source.clip = wallBreak;
         source.Play();
@@ -170,6 +173,7 @@ public class SoundMan : MonoBehaviour
     public void PlayerHitten()
     {
         AudioSource source = GetSource();
+        PitchRandomization(source);
         FindSFXGroup(source);
         int clipNum = GetClipIndex(playerHittenClips.Length, lastPlayerHitten);
         lastPlayerHitten = clipNum;
@@ -226,6 +230,7 @@ public class SoundMan : MonoBehaviour
     public void CastFlying()
     {
         AudioSource source = GetSource();
+        PitchRandomization(source);
         FindSFXGroup(source);
         source.clip = castFlying;
         source.Play();
@@ -251,6 +256,7 @@ public class SoundMan : MonoBehaviour
     {
         AudioSource source = GetSource();
         FindWalkingGroup(source);
+        PitchRandomization(source);
         int clipNum = GetClipIndex(manWalkClips.Length, lastManWalk);
         lastManWalk = clipNum;
         source.clip = manWalkClips[clipNum];
