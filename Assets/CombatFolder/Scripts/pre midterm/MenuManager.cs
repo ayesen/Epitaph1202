@@ -157,12 +157,6 @@ public class MenuManager : MonoBehaviour
     IEnumerator FadeCanvas(CanvasGroup cg, float endValue, float duration)
     {
         isFading = true;
-        if (!isMenu)
-        {
-            Time.timeScale = 1f;
-            GameIsPaused = false; 
-            choosenIndex = 0;
-        }
         float elapsedTime = 0;
         float startValue = cg.alpha;
         while (elapsedTime < duration)
@@ -170,6 +164,15 @@ public class MenuManager : MonoBehaviour
             elapsedTime += .1f;
             cg.alpha = Mathf.Lerp(startValue, endValue, elapsedTime / duration);
             yield return null;
+        }
+        if (!isMenu)
+        {
+            panelState = panels.home;
+            Time.timeScale = 1f;
+            GameIsPaused = false;
+            choosenIndex = 0;
+            transform.Find("Home").GetComponent<CanvasGroup>().alpha = 1;
+            mappingHolder.GetComponent<CanvasGroup>().alpha = 0;
         }
         isFading = false;
     }
