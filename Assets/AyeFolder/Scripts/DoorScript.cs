@@ -37,6 +37,7 @@ public class DoorScript : MonoBehaviour
             switch (animState)
             {
                 case DoorScript.doorAnim.openFront:
+                    print("changed anim state");
                     animState = DoorScript.doorAnim.closeFront;
                     break;
                 case DoorScript.doorAnim.openBack:
@@ -133,8 +134,27 @@ public class DoorScript : MonoBehaviour
         isOpen = true;
 		foreach (var bear in bearsBehind)
 		{
-            print(bear.gameObject.name);
             bear.GetComponent<AIController>().enabled = true;
 		}
 	}
+
+    public void CloseDoor()
+	{
+        if (isOpen)
+        {
+            switch (animState)
+            {
+                case DoorScript.doorAnim.openFront:
+                    animState = DoorScript.doorAnim.closeFront;
+                    break;
+                case DoorScript.doorAnim.openBack:
+                    animState = DoorScript.doorAnim.closeBack;
+                    break;
+                default:
+                    animState = DoorScript.doorAnim.closeFront;
+                    break;
+            }
+            ControllDoor();
+        }
+    }
 }
