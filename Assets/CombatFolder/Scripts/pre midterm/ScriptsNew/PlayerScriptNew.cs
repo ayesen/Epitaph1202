@@ -342,10 +342,11 @@ public class PlayerScriptNew : MonoBehaviour
 					lefting = false;
 					righting = false;
 					//anim.CrossFade("testIdle", .3f);
-					anim.Play("testIdle");
+					anim.Play("Idle",1);
 					walking = false;
 				}
 
+				// decide walk animation
 				if (walkingDir.magnitude > 0)
 				{
 					if (Vector3.Angle(walkingDir, transform.forward) < 45) // play walk straight
@@ -354,7 +355,9 @@ public class PlayerScriptNew : MonoBehaviour
 						if (!forwarding)
 						{
 							//anim.CrossFade("testWalk", .3f);
-							anim.Play("testWalk");
+							//anim.Play("testWalk");
+							anim.Play("Walking", 1);
+							anim.Play("Walking", 0);
 							forwarding = true;
 							backwarding = false;
 							lefting = false;
@@ -366,7 +369,8 @@ public class PlayerScriptNew : MonoBehaviour
 						if (!backwarding)
 						{
 							//anim.CrossFade("Player_Walking_Backwards", .3f);
-							anim.Play("Player_Walking_Backwards");
+							anim.Play("BackWalking", 1);
+							anim.Play("BackWalking", 0);
 							forwarding = false;
 							backwarding = true;
 							lefting = false;
@@ -381,7 +385,8 @@ public class PlayerScriptNew : MonoBehaviour
 							if (!righting) // play walk right
 							{
 								//anim.CrossFade("Player_Walking_Right", .3f);
-								anim.Play("Player_Walking_Right");
+								anim.Play("WalkingRight", 1);
+								anim.Play("WalkingRight", 0);
 								forwarding = false;
 								backwarding = false;
 								lefting = false;
@@ -393,7 +398,7 @@ public class PlayerScriptNew : MonoBehaviour
 							if (!lefting) // play walk left
 							{
 								//anim.CrossFade("Player_Walking_Left", .3f);
-								anim.Play("Player_Walking_Left");
+								anim.Play("WalkingLeft", 1);
 								forwarding = false;
 								backwarding = false;
 								lefting = true;
@@ -406,7 +411,9 @@ public class PlayerScriptNew : MonoBehaviour
 							{
 								if (!righting)// play walk right
 								{
-									anim.CrossFade("Player_Walking_Right", .3f);
+									//anim.CrossFade("WalkingRight", .3f);
+									anim.Play("WalkingRight", 1);
+									anim.Play("WalkingRight", 0);
 									forwarding = false;
 									backwarding = false;
 									lefting = false;
@@ -417,7 +424,9 @@ public class PlayerScriptNew : MonoBehaviour
 							{
 								if (!lefting) // play walk left
 								{
-									anim.CrossFade("Player_Walking_Left", .3f);
+									//anim.CrossFade("Player_Walking_Left", .3f);
+									anim.Play("WalkingLeft", 1);
+									anim.Play("WalkingLeft", 0);
 									forwarding = false;
 									backwarding = false;
 									lefting = true;
