@@ -27,6 +27,7 @@ public class AmbienceManager : MonoBehaviour
     private void Start()
     {
         ambienceSource = GetComponent<AudioSource>();
+        ambienceSource.ignoreListenerPause = true;
         SoundMan.SoundManager.FindAmbienceGroup(ambienceSource);
         player = GameObject.FindGameObjectWithTag("RealPlayer");
 
