@@ -74,11 +74,12 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 		doer = ds.actor;
 		funcToCall = ds.funcToCall;
 		canvasUI.SetActive(false);
-		dialogueBG.SetActive(true);
 		objectDes_ui_cht.gameObject.SetActive(true);
 		objectDes_ui_eng.gameObject.SetActive(true);
 		objectDes_ui_cht.text = dialogueToShow[index].description_cht;
 		objectDes_ui_eng.text = dialogueToShow[index].description_eng;
+		if(objectDes_ui_cht.text != "")
+			dialogueBG.SetActive(true);
 		if (restrictMovement) // if this dialogue prohibit player from moving when reading
 		{
 			PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("readingText");

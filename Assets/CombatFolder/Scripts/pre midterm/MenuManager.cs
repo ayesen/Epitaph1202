@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class MenuManager : MonoBehaviour
 {
@@ -10,23 +11,28 @@ public class MenuManager : MonoBehaviour
 
     public bool isMenu; //menu going out
     private bool doOnce;
+    private bool pressedArrow;
+    private bool arrowDoOnce;
     private bool isFading;
 
     public float fadeTime;
 
     private CanvasGroup cg;
 
-    public Image mappingHolder;
-    //UI Panel Dragdown
-    public int uiIndex; //which UI panel ur in;
-    public int buttonIndex; //which button player in when in uiIndex = 0;
-    public GameObject mappingPanel; //uiIndex = 1;
-    public GameObject pausePanel; //uiIndex = 0;
-    public GameObject resumeButton; //buttonIndex = 0;
-    public GameObject controlButton; //buttonIndex = 1;
-    public GameObject exitButton; //buttonIndex = 2;
-    public bool inInput; //use for restrict player dpad input, once per only;
-    public bool isReset; // for reseting UI Panel Index;
+    public GameObject mappingHolder;
+
+    private enum panels
+    {
+        home,
+        settings,
+        ctrlMap
+    }
+    private panels panelState;
+
+    public List<Button> buttonList;
+    public GameObject selectPrefab;
+    private int choosenIndex;
+
     private void Awake()
     {
         if (me != null && me != this)
@@ -40,17 +46,15 @@ public class MenuManager : MonoBehaviour
     {
         doOnce = isMenu;
         cg = GetComponent<CanvasGroup>();
+        panelState = panels.home;
     }
 
     void Update()
     {
-        if(Input.GetKeyUp(KeyCode.Escape) || Input.GetButtonUp("Menu") && !isFading)
+        if((Input.GetKeyUp(KeyCode.Escape) || Input.GetButtonUp("Menu")) && !isFading)
         {
             if (!isMenu)
-            {
                 isMenu = true; 
-                isReset = true; //UI Index
-            }
             else
                 isMenu = false;
         }
@@ -60,64 +64,94 @@ public class MenuManager : MonoBehaviour
             doOnce = isMenu;
             if (isMenu)
             {
-                cg.alpha = 1;
+                StartCoroutine(FadeCanvas(cg, 1f, fadeTime));
                 Time.timeScale = 0f;
                 GameIsPaused = true;
             }
             else
             {
                 StartCoroutine(FadeCanvas(cg, 0f, fadeTime));
+                GameIsPaused = false;
             }
         }
-
-        //从下面这段都是和UI Index有关的，Line73 - 115 not yet working,交给你了！
         if (isMenu)
         {
-            //UI Index: Pause Menu == 0, Controller Mapping == 1;
-            //Button Index: Resume Button == 0, Control Button == 1, Exit Button ==2;
-            //bool for detect
-            if (isReset)
+            if(panelState == panels.home)
             {
-                uiIndex = 0;
-                buttonIndex = 0;
-                inInput = false;
-                isReset = false;
-            }
-            
-            
-            Debug.Log(Input.GetAxis("VerticalArrow"));
-            Debug.Log("ininput: " + inInput);
-            Debug.Log("Button index:" + buttonIndex);
-            
-            if (Input.GetAxis("VerticalArrow") < 0)
-            {
-                inInput = true;
-            }
-            else if (Input.GetAxis("VerticalArrow") > 0)
-            {
-                inInput = true;
-            }
-            else
-            {
-                inInput = false;
-            }
-            
-            if (buttonIndex != 2 && Input.GetAxis("VerticalArrow") < 0f)
-            {
-                buttonIndex += 1;
-                inInput = false;
-            }
-            if (buttonIndex != 0 && Input.GetAxis("VerticalArrow") > 0f)
-            {
-                buttonIndex -= 1;
-                inInput = false;
-            }
-            
-            
+                SelectPrefabUpdate();
+                if (Input.GetAxis("VerticalArrow") != 0)
+                    pressedArrow = true;
+                else
+                {
+                    pressedArrow = false;
+                }
 
-            
-            
+                if (arrowDoOnce != pressedArrow)
+                {
+                    arrowDoOnce = pressedArrow;
+                    if (pressedArrow)
+                    {
+                        if (Input.GetAxis("VerticalArrow") < 0)
+                        {
+                            choosenIndex += 1;
+                        }
+                        else if (Input.GetAxis("VerticalArrow") > 0)
+                        {
+                            choosenIndex -= 1;
+                        }
+                    }
+                }
+                if (Input.GetKeyDown(KeyCode.DownArrow) && !isFading)
+                {
+                    choosenIndex += 1;
+                }
+
+                if (Input.GetKeyDown(KeyCode.UpArrow) && !isFading)
+                {
+                    choosenIndex -= 1;
+                }
+
+                if (choosenIndex < 0)
+                    choosenIndex = 0;
+                else if (choosenIndex > buttonList.Count - 1)
+                    choosenIndex = buttonList.Count - 1;
+                if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("AButton") && !isFading)
+                {
+                    buttonList[choosenIndex].onClick.Invoke();
+                }
+                if (Input.GetButtonDown("BButton") && !isFading)
+                {
+                    isMenu = false;
+                }
+            }
+            else if(panelState == panels.ctrlMap)
+            {
+                if ((Input.GetButtonDown("BButton") || Input.GetKeyDown(KeyCode.B)) && !isFading)
+                {
+                    StartCoroutine(FadeCanvas(mappingHolder.GetComponent<CanvasGroup>(), 0f, fadeTime));
+                    StartCoroutine(FadeCanvas(gameObject.transform.Find("Home").GetComponent<CanvasGroup>(), 1f, fadeTime));
+                    panelState = panels.home;
+                }
+            }
+            else if(panelState == panels.settings)
+            {
+                if ((Input.GetButtonDown("BButton") || Input.GetKeyDown(KeyCode.B)) && !isFading)
+                {
+                    StartCoroutine(FadeCanvas(gameObject.transform.Find("Home").GetComponent<CanvasGroup>(), 1f, fadeTime));
+                    panelState = panels.home;
+                }
+            }
         }
+    }
+
+    private void SelectPrefabUpdate()
+    {
+        RectTransform rt = selectPrefab.GetComponent<RectTransform>();
+        RectTransform buttonRT = buttonList[choosenIndex].GetComponent<RectTransform>();
+        RectTransform textRT = buttonList[choosenIndex].GetComponentsInChildren<RectTransform>()[1];
+        rt.anchoredPosition = new Vector3(rt.anchoredPosition.x, buttonRT.anchoredPosition.y, 0);
+        selectPrefab.transform.Find("SB-L").GetComponent<RectTransform>().anchoredPosition = new Vector3(-textRT.sizeDelta.x / 2, 0, 0);
+        selectPrefab.transform.Find("SB-R").GetComponent<RectTransform>().anchoredPosition = new Vector3(textRT.sizeDelta.x / 2 + 22, 0, 0);
     }
 
     IEnumerator FadeCanvas(CanvasGroup cg, float endValue, float duration)
@@ -126,41 +160,39 @@ public class MenuManager : MonoBehaviour
         if (!isMenu)
         {
             Time.timeScale = 1f;
-            GameIsPaused = false;
+            GameIsPaused = false; 
+            choosenIndex = 0;
         }
         float elapsedTime = 0;
         float startValue = cg.alpha;
         while (elapsedTime < duration)
         {
-            elapsedTime += Time.deltaTime;
+            elapsedTime += .1f;
             cg.alpha = Mathf.Lerp(startValue, endValue, elapsedTime / duration);
             yield return null;
         }
-        if (isMenu)
-        {
-            Time.timeScale = 0f;
-            GameIsPaused = true;
-        }
         isFading = false;
-    }
-    
-    public void pauseGame()
-    {
-        Time.timeScale = 0f;
-    }
-
-    public void showMapping()
-    {
-        pausePanel.SetActive(false);
-        mappingPanel.SetActive(true);
     }
     public void resumeGame()
     {
         isMenu = false;
     }
-
+    
     public void exitGame()
     {
         Application.Quit();
+    }
+
+    public void ShowCtrlMap()
+    {
+        StartCoroutine(FadeCanvas(mappingHolder.GetComponent<CanvasGroup>(), 1f, fadeTime));
+        StartCoroutine(FadeCanvas(gameObject.transform.Find("Home").GetComponent<CanvasGroup>(), 0f, fadeTime));
+        panelState = panels.ctrlMap;
+    }
+
+    public void ShowSetting()
+    {
+        StartCoroutine(FadeCanvas(gameObject.transform.Find("Home").GetComponent<CanvasGroup>(), 0f, fadeTime));
+        panelState = panels.settings;
     }
 }
