@@ -75,7 +75,6 @@ public class PlayerScriptNew : MonoBehaviour
 			if (Input.GetKeyDown(KeyCode.M))
 			{
 				LoseHealth_player(1000);
-
 			}
 			if (Input.GetKeyDown(KeyCode.K) && SafehouseManager.Me.isCheatOn)
 			{
@@ -85,10 +84,6 @@ public class PlayerScriptNew : MonoBehaviour
 			{
 				RecovMatCD(2);
 			}
-			//print("selected Mats count: " + selectedMats.Count);
-			//print("walking: " + walking);
-			//print("current clip: " + anim.GetCurrentAnimatorStateInfo(0).fullPathHash);
-			//print("atkButtonPressed: " + atkButtonPressed);
 			Death();
 			if (!dead && !SafehouseManager.Me.isSafehouse)
 			{
@@ -290,8 +285,8 @@ public class PlayerScriptNew : MonoBehaviour
 					lefting = false;
 					righting = false;
 					//anim.CrossFade("testIdle", .3f);
-					anim.Play("Idle",1);
-					anim.Play("Idle",0);
+					anim.Play("Idle", 1);
+					anim.Play("Idle", 0);
 					walking = false;
 				}
 
@@ -487,84 +482,85 @@ public class PlayerScriptNew : MonoBehaviour
 				*/
 				#endregion
 
-			// check for attack button press
-			#region attack
-			if (selectedMats.Count > 0 &&  // check if player has mat activated
-				(anim.GetCurrentAnimatorStateInfo(0).IsName("Idle") || // if player in idle state
-				walking ||
-				//anim.GetCurrentAnimatorStateInfo(1).IsName("Walking") ||
-				//anim.GetCurrentAnimatorStateInfo(1).IsName("BackWalking") ||
-				//anim.GetCurrentAnimatorStateInfo(1).IsName("WalkingLeft") ||
-				//anim.GetCurrentAnimatorStateInfo(1).IsName("WalkingRight") ||  // if player in walk state
-				anim.GetCurrentAnimatorStateInfo(0).IsName("select"))) // if player in select mat state
-			{
-				if (Input.GetMouseButtonUp(0) || Input.GetAxis("RT") > 0 && !atkButtonPressed) // if left click
+				// check for attack button press
+				#region attack
+				if (selectedMats.Count > 0 &&  // check if player has mat activated
+					(anim.GetCurrentAnimatorStateInfo(0).IsName("Idle") || // if player in idle state
+					walking ||
+					//anim.GetCurrentAnimatorStateInfo(1).IsName("Walking") ||
+					//anim.GetCurrentAnimatorStateInfo(1).IsName("BackWalking") ||
+					//anim.GetCurrentAnimatorStateInfo(1).IsName("WalkingLeft") ||
+					//anim.GetCurrentAnimatorStateInfo(1).IsName("WalkingRight") ||  // if player in walk state
+					anim.GetCurrentAnimatorStateInfo(0).IsName("select"))) // if player in select mat state
 				{
 					if (Input.GetMouseButtonUp(0) || Input.GetAxis("RT") > 0 && !atkButtonPressed) // if left click
 					{
-						atkButtonPressed = true;
-						walking = false;
-						bool goodToGo = true;
-						// check if player has any mat left
-						foreach (var mat in selectedMats)
+						if (Input.GetMouseButtonUp(0) || Input.GetAxis("RT") > 0 && !atkButtonPressed) // if left click
 						{
-							if (mat.GetComponent<MatScriptNew>().amount <= 0)
-							{
-								goodToGo = false;
-							}
-						}
-						if (goodToGo) // there is enough mat
-						{
+							atkButtonPressed = true;
+							walking = false;
+							bool goodToGo = true;
+							// check if player has any mat left
 							foreach (var mat in selectedMats)
 							{
-								mat.GetComponent<MatScriptNew>().amount--;
+								if (mat.GetComponent<MatScriptNew>().amount <= 0)
+								{
+									goodToGo = false;
+								}
 							}
-
-							if (matSlots[3] != null && matSlots[3].GetComponent<MatScriptNew>().amount <= 0)//Detect boss mat and delete if used
+							if (goodToGo) // there is enough mat
 							{
-								if (selectedMats.Contains(matSlots[3]))
-									selectedMats.Remove(matSlots[3]);
-								matSlots[3] = null;
-								UIManager.Me.UI_ChangeIcon();
+								foreach (var mat in selectedMats)
+								{
+									mat.GetComponent<MatScriptNew>().amount--;
+								}
+
+								if (matSlots[3] != null && matSlots[3].GetComponent<MatScriptNew>().amount <= 0)//Detect boss mat and delete if used
+								{
+									if (selectedMats.Contains(matSlots[3]))
+										selectedMats.Remove(matSlots[3]);
+									matSlots[3] = null;
+									UIManager.Me.UI_ChangeIcon();
+								}
+								anim.Play("testWindup"); // player anticipation clip and call effect manager's casting event in clip
+														 // anim.CrossFade("testWindup", 0.1f);
+
+								selectedMats.Clear();
 							}
-							anim.Play("testWindup"); // player anticipation clip and call effect manager's casting event in clip
-													 // anim.CrossFade("testWindup", 0.1f);
+							else
+							{
+								print("YOU DON'T HAVE ENOUGH MATERIALS!!!");
+							}
+							if (anim.GetCurrentAnimatorStateInfo(0).IsName("select"))
+							{
+								print("back swing");
+								anim.Play("testBackswing", 0);
+							}
+							else
+							{
+								print("wind up");
+								anim.Play("testWindup", 0); // player anticipation clip and call effect manager's casting event in clip
+							}
+							// anim.CrossFade("testWindup", 0.1f);
 
 							selectedMats.Clear();
 						}
-						else
-						{
-							print("YOU DON'T HAVE ENOUGH MATERIALS!!!");
-						}
-						if (anim.GetCurrentAnimatorStateInfo(0).IsName("select"))
-						{
-							print("back swing");
-							anim.Play("testBackswing", 0);
-						}
-						else
-						{
-							print("wind up");
-							anim.Play("testWindup", 0); // player anticipation clip and call effect manager's casting event in clip
-						}
-						// anim.CrossFade("testWindup", 0.1f);
-						
-						selectedMats.Clear();
 					}
-				}
-				if (Input.GetMouseButtonUp(0) || Input.GetAxis("RT") > 0)
-				{
-					if (selectedMats.Count > 0 &&  // check if player has mat activated
-					(anim.GetCurrentAnimatorStateInfo(0).IsName("testIdle") || // if player in idle state
-					walking))
+					if (Input.GetMouseButtonUp(0) || Input.GetAxis("RT") > 0)
 					{
+						if (selectedMats.Count > 0 &&  // check if player has mat activated
+						(anim.GetCurrentAnimatorStateInfo(0).IsName("testIdle") || // if player in idle state
+						walking))
+						{
 
-					}
-					else
-					{
-						//print(walking);
+						}
+						else
+						{
+							//print(walking);
+						}
 					}
 				}
-				#endregion
+					#endregion
 			}
 		}
 	}
