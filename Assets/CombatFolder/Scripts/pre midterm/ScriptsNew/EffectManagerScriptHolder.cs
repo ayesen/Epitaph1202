@@ -7,11 +7,13 @@ using TMPro;
 public class EffectManagerScriptHolder : MonoBehaviour
 {
 	private List<GameObject> enemyInfoUI;
+	private Animator anim;
 	// this script is for calling function from effect manager new in animation
 
 	private void Start()
 	{
 		enemyInfoUI = GameObject.FindGameObjectsWithTag("EnemyInfoUI").ToList();
+		anim = GetComponent<Animator>();
 	}
 
 	public void Casting()
@@ -39,4 +41,9 @@ public class EffectManagerScriptHolder : MonoBehaviour
     {
 		SoundMan.SoundManager.ManWalk();
     }
+
+	public void ResetSelected()
+	{
+		anim.ResetTrigger("selected");
+	}
 }

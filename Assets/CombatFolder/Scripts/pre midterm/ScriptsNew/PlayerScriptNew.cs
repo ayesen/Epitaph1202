@@ -70,6 +70,7 @@ public class PlayerScriptNew : MonoBehaviour
 
 	private void Update()
 	{
+		print(anim.GetCurrentAnimatorStateInfo(1).shortNameHash);
 		if (!MenuManager.GameIsPaused)
 		{
 			if (Input.GetKeyDown(KeyCode.M))
@@ -130,7 +131,6 @@ public class PlayerScriptNew : MonoBehaviour
 				#region activate and deactivate mats
 				// activate mats
 				if (!anim.GetCurrentAnimatorStateInfo(1).IsName("testWindup") &&
-					!anim.GetCurrentAnimatorStateInfo(1).IsName("testATK") &&
 					!anim.GetCurrentAnimatorStateInfo(1).IsName("testBackswing") &&
 					!anim.GetCurrentAnimatorStateInfo(1).IsName("readingText") &&
 					!SafehouseManager.Me.isSafehouse &&
@@ -472,10 +472,12 @@ public class PlayerScriptNew : MonoBehaviour
 					//anim.GetCurrentAnimatorStateInfo(1).IsName("BackWalking") ||
 					//anim.GetCurrentAnimatorStateInfo(1).IsName("WalkingLeft") ||
 					//anim.GetCurrentAnimatorStateInfo(1).IsName("WalkingRight") ||  // if player in walk state
-					anim.GetCurrentAnimatorStateInfo(1).IsName("select"))) // if player in select mat state
+					anim.GetCurrentAnimatorStateInfo(1).IsName("select") || // if player in select mat state
+					anim.GetCurrentAnimatorStateInfo(1).IsName("PostWind"))) 
 				{
-					if (Input.GetMouseButtonUp(0) || Input.GetAxis("RT") > 0 && !atkButtonPressed) // if left click
+					if ((Input.GetMouseButtonUp(0) || Input.GetAxis("RT") > 0) && !atkButtonPressed) // if left click
 					{
+						//print(anim.GetCurrentAnimatorStateInfo(1).shortNameHash);
 						atkButtonPressed = true;
 						walking = false;
 						bool goodToGo = true;
@@ -501,7 +503,8 @@ public class PlayerScriptNew : MonoBehaviour
 								matSlots[3] = null;
 								UIManager.Me.UI_ChangeIcon();
 							}
-							if (anim.GetCurrentAnimatorStateInfo(1).IsName("select") || anim.GetCurrentAnimatorStateInfo(1).IsName("PostWind"))
+							if (anim.GetCurrentAnimatorStateInfo(1).IsName("select") || 
+								anim.GetCurrentAnimatorStateInfo(1).IsName("PostWind"))
 							{
 								print("back swing");
 								anim.Play("testBackswing", 1);
