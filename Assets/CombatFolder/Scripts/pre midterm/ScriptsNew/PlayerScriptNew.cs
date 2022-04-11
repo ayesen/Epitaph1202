@@ -478,7 +478,14 @@ public class PlayerScriptNew : MonoBehaviour
 							matSlots[3] = null;
 							UIManager.Me.UI_ChangeIcon();
 						}
-						anim.Play("testWindup"); // player anticipation clip and call effect manager's casting event in clip
+						if (anim.GetCurrentAnimatorStateInfo(0).IsName("selectMat"))
+						{
+							anim.Play("testBackswing");
+						}
+						else
+						{
+							anim.Play("testWindup"); // player anticipation clip and call effect manager's casting event in clip
+						}
 						// anim.CrossFade("testWindup", 0.1f);
 						
 						selectedMats.Clear();
