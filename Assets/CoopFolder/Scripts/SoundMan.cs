@@ -327,6 +327,10 @@ public class SoundMan : MonoBehaviour
         aS.outputAudioMixerGroup = mainAudioMixer.FindMatchingGroups("VO")[0];
     }
 
+    void PitchRandomization(AudioSource aS)
+    {
+        aS.pitch = Random.Range(0.8f, 1.2f);
+    }
 
     /*Initialization functions*/
     int GetClipIndex(int clipNum, int lastPlayed)
