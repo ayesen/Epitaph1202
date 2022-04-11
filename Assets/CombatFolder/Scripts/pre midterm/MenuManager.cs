@@ -68,26 +68,26 @@ public class MenuManager : MonoBehaviour
                 Time.timeScale = 0f;
                 GameIsPaused = true;
                 SoundMan.SoundManager.AudioPauseOrUnpause();
-                AmbienceManager.ambienceManager.gameObject.GetComponent<AudioReverbFilter>().enabled = true;
+                //AmbienceManager.ambienceManager.gameObject.GetComponent<AudioReverbFilter>().enabled = true;
             }
             else
             {
                 StartCoroutine(FadeCanvas(cg, 0f, fadeTime));
                 GameIsPaused = false;
                 SoundMan.SoundManager.AudioPauseOrUnpause();
-                AmbienceManager.ambienceManager.gameObject.GetComponent<AudioReverbFilter>().enabled = false;
+                /*AmbienceManager.ambienceManager.gameObject.GetComponent<AudioReverbFilter>().enabled = false;
                 AmbienceManager.ambienceManager.gameObject.GetComponent<AudioLowPassFilter>().cutoffFrequency = 22000f;
-                AmbienceManager.ambienceManager.gameObject.GetComponent<AudioLowPassFilter>().lowpassResonanceQ = 1f;
+                AmbienceManager.ambienceManager.gameObject.GetComponent<AudioLowPassFilter>().lowpassResonanceQ = 1f;*/
             }
         }
         if (isMenu)
         {
             float timer = 0;
             timer += .1f;
-            AmbienceManager.ambienceManager.gameObject.GetComponent<AudioLowPassFilter>().cutoffFrequency =
+            /*AmbienceManager.ambienceManager.gameObject.GetComponent<AudioLowPassFilter>().cutoffFrequency =
                 Mathf.Lerp(AmbienceManager.ambienceManager.gameObject.GetComponent<AudioLowPassFilter>().cutoffFrequency, 3900f, timer);
             AmbienceManager.ambienceManager.gameObject.GetComponent<AudioLowPassFilter>().lowpassResonanceQ =
-                Mathf.Lerp(AmbienceManager.ambienceManager.gameObject.GetComponent<AudioLowPassFilter>().lowpassResonanceQ, 2.85f, timer);
+                Mathf.Lerp(AmbienceManager.ambienceManager.gameObject.GetComponent<AudioLowPassFilter>().lowpassResonanceQ, 2.85f, timer);*/
 
             if (panelState == panels.home)
             {
