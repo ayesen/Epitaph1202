@@ -342,10 +342,12 @@ public class PlayerScriptNew : MonoBehaviour
 					lefting = false;
 					righting = false;
 					//anim.CrossFade("testIdle", .3f);
-					anim.Play("testIdle");
+					anim.Play("Idle",1);
+					anim.Play("Idle",0);
 					walking = false;
 				}
 
+				// decide walk animation
 				if (walkingDir.magnitude > 0)
 				{
 					if (Vector3.Angle(walkingDir, transform.forward) < 45) // play walk straight
@@ -354,7 +356,10 @@ public class PlayerScriptNew : MonoBehaviour
 						if (!forwarding)
 						{
 							//anim.CrossFade("testWalk", .3f);
-							anim.Play("testWalk");
+							//anim.Play("testWalk");
+							anim.Play("Walking", 1);
+							anim.Play("Idle", 0);
+							//anim.Play("Walking", 0);
 							forwarding = true;
 							backwarding = false;
 							lefting = false;
@@ -366,7 +371,10 @@ public class PlayerScriptNew : MonoBehaviour
 						if (!backwarding)
 						{
 							//anim.CrossFade("Player_Walking_Backwards", .3f);
-							anim.Play("Player_Walking_Backwards");
+							anim.Play("BackWalking", 1);
+							anim.Play("Idle", 0);
+							//anim.Play("Walking", 0);
+							//anim.Play("BackWalking", 0);
 							forwarding = false;
 							backwarding = true;
 							lefting = false;
@@ -381,7 +389,10 @@ public class PlayerScriptNew : MonoBehaviour
 							if (!righting) // play walk right
 							{
 								//anim.CrossFade("Player_Walking_Right", .3f);
-								anim.Play("Player_Walking_Right");
+								anim.Play("WalkingRight", 1);
+								anim.Play("Walking", 0);
+								//anim.Play("Walking", 0);
+								//anim.Play("WalkingRight", 0);
 								forwarding = false;
 								backwarding = false;
 								lefting = false;
@@ -393,7 +404,10 @@ public class PlayerScriptNew : MonoBehaviour
 							if (!lefting) // play walk left
 							{
 								//anim.CrossFade("Player_Walking_Left", .3f);
-								anim.Play("Player_Walking_Left");
+								anim.Play("WalkingLeft", 1);
+								anim.Play("Walking", 0);
+								//anim.Play("Walking", 0);
+								//anim.Play("WalkingLeft", 0);
 								forwarding = false;
 								backwarding = false;
 								lefting = true;
@@ -406,7 +420,11 @@ public class PlayerScriptNew : MonoBehaviour
 							{
 								if (!righting)// play walk right
 								{
-									anim.CrossFade("Player_Walking_Right", .3f);
+									//anim.CrossFade("WalkingRight", .3f);
+									anim.Play("WalkingRight", 1);
+									anim.Play("Walking", 0);
+									//anim.Play("Walking", 0);
+									//anim.Play("WalkingRight", 0);
 									forwarding = false;
 									backwarding = false;
 									lefting = false;
@@ -417,7 +435,11 @@ public class PlayerScriptNew : MonoBehaviour
 							{
 								if (!lefting) // play walk left
 								{
-									anim.CrossFade("Player_Walking_Left", .3f);
+									//anim.CrossFade("Player_Walking_Left", .3f);
+									anim.Play("WalkingLeft", 1);
+									anim.Play("Walking", 0);
+									//anim.Play("Walking", 0);
+									//anim.Play("WalkingLeft", 0);
 									forwarding = false;
 									backwarding = false;
 									lefting = true;
@@ -443,13 +465,13 @@ public class PlayerScriptNew : MonoBehaviour
 			// check for attack button press
 			#region attack
 			if (selectedMats.Count > 0 &&  // check if player has mat activated
-				(anim.GetCurrentAnimatorStateInfo(0).IsName("testIdle") || // if player in idle state
+				(anim.GetCurrentAnimatorStateInfo(0).IsName("Idle") || // if player in idle state
 				walking ||
-				anim.GetCurrentAnimatorStateInfo(0).IsName("testWalk") ||
-				anim.GetCurrentAnimatorStateInfo(0).IsName("Player_Walking_Backwards") ||
-				anim.GetCurrentAnimatorStateInfo(0).IsName("Player_Walking_Left") ||
-				anim.GetCurrentAnimatorStateInfo(0).IsName("Player_Walking_Right") ||  // if player in walk state
-				anim.GetCurrentAnimatorStateInfo(0).IsName("selectMat"))) // if player in select mat state
+				//anim.GetCurrentAnimatorStateInfo(1).IsName("Walking") ||
+				//anim.GetCurrentAnimatorStateInfo(1).IsName("BackWalking") ||
+				//anim.GetCurrentAnimatorStateInfo(1).IsName("WalkingLeft") ||
+				//anim.GetCurrentAnimatorStateInfo(1).IsName("WalkingRight") ||  // if player in walk state
+				anim.GetCurrentAnimatorStateInfo(0).IsName("select"))) // if player in select mat state
 			{
 				if (Input.GetMouseButtonUp(0) || Input.GetAxis("RT") > 0 && !atkButtonPressed) // if left click
 				{
@@ -478,7 +500,16 @@ public class PlayerScriptNew : MonoBehaviour
 							matSlots[3] = null;
 							UIManager.Me.UI_ChangeIcon();
 						}
-						anim.Play("testWindup"); // player anticipation clip and call effect manager's casting event in clip
+						if (anim.GetCurrentAnimatorStateInfo(0).IsName("select"))
+						{
+							print("back swing");
+							anim.Play("testBackswing", 0);
+						}
+						else
+						{
+							print("wind up");
+							anim.Play("testWindup", 0); // player anticipation clip and call effect manager's casting event in clip
+						}
 						// anim.CrossFade("testWindup", 0.1f);
 						
 						selectedMats.Clear();
