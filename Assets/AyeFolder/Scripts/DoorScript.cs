@@ -23,11 +23,49 @@ public class DoorScript : MonoBehaviour
 	{
 		if (open)
 		{
+            isOpen = true;
             OpenFront();
-		}
+        }
 	}
 
 	public doorAnim animState;
+
+    public void SwitchDoor()
+    {
+        if (isOpen)
+        {
+            switch (animState)
+            {
+                case DoorScript.doorAnim.openFront:
+                    print("changed anim state");
+                    animState = DoorScript.doorAnim.closeFront;
+                    break;
+                case DoorScript.doorAnim.openBack:
+                    animState = DoorScript.doorAnim.closeBack;
+                    break;
+                default:
+                    animState = DoorScript.doorAnim.closeFront;
+                    break;
+            }
+            ControllDoor();
+        }
+        else if (!isOpen)
+        {
+            switch (animState)
+            {
+                case DoorScript.doorAnim.closeFront:
+                    animState = DoorScript.doorAnim.openFront;
+                    break;
+                case DoorScript.doorAnim.closeBack:
+                    animState = DoorScript.doorAnim.openBack;
+                    break;
+                default:
+                    animState = DoorScript.doorAnim.openFront;
+                    break;
+            }
+            ControllDoor();
+        }
+    }
 
     public void ControllDoor()
     {
@@ -49,10 +87,12 @@ public class DoorScript : MonoBehaviour
             case doorAnim.closeFront:
                 stateName = "DoorFrontClose";
                 isOpen = false;
+                SoundMan.SoundManager.DoorOpen();
                 break;
             case doorAnim.closeBack:
                 stateName = "DoorBackClose";
                 isOpen = false;
+                SoundMan.SoundManager.DoorOpen();
                 break;
             default:
                 stateName = "DoorFrontOpen";
@@ -64,25 +104,25 @@ public class DoorScript : MonoBehaviour
         DoorAnimator.Play(stateName);
     }
     
-    public void OpenFront()
+    private void OpenFront()
     {
         DoorAnimator.Play("DoorFrontOpen");
         isOpen = true;
     }
 
-    public void CloseFront()
+    private void CloseFront()
     {
         DoorAnimator.Play("DoorFrontClose");
         isOpen = false;
     }
 
-    public void OpenBack()
+    private void OpenBack()
     {
         DoorAnimator.Play("DoorBackOpen");
         isOpen = true;
     }
 
-    public void CloseBack()
+    private void CloseBack()
     {
         DoorAnimator.Play("DoorBackClose");
         isOpen = false;
@@ -94,8 +134,27 @@ public class DoorScript : MonoBehaviour
         isOpen = true;
 		foreach (var bear in bearsBehind)
 		{
-            print(bear.gameObject.name);
             bear.GetComponent<AIController>().enabled = true;
 		}
 	}
+
+    public void CloseDoor()
+	{
+        if (isOpen)
+        {
+            switch (animState)
+            {
+                case DoorScript.doorAnim.openFront:
+                    animState = DoorScript.doorAnim.closeFront;
+                    break;
+                case DoorScript.doorAnim.openBack:
+                    animState = DoorScript.doorAnim.closeBack;
+                    break;
+                default:
+                    animState = DoorScript.doorAnim.closeFront;
+                    break;
+            }
+            ControllDoor();
+        }
+    }
 }

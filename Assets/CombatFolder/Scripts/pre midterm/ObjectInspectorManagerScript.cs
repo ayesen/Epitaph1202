@@ -14,6 +14,8 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 	public GameObject optionPrefab;
 	public GameObject blurMask;
 	public GameObject optionSelection;
+	public GameObject optionBox;
+	public GameObject dialogueBG;
 	private bool textShowing = false;
 	public GameObject canvasUI;
 	public GameObject canvasDialogue;
@@ -72,6 +74,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 		doer = ds.actor;
 		funcToCall = ds.funcToCall;
 		canvasUI.SetActive(false);
+		dialogueBG.SetActive(true);
 		objectDes_ui_cht.gameObject.SetActive(true);
 		objectDes_ui_eng.gameObject.SetActive(true);
 		objectDes_ui_cht.text = dialogueToShow[index].description_cht;
@@ -168,6 +171,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 					{
 						index = 0;
 						canvasUI.SetActive(true);
+						dialogueBG.SetActive(false);
 						objectDes_ui_cht.text = "";
 						objectDes_ui_eng.text = "";
 						textShowing = false;
@@ -184,8 +188,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 						}
 						if (burnAfterReading)
 						{
-							print("auto: called destruction");
-							Destroy(dT.gameObject);
+							dT.gameObject.SetActive(false);
 						}
 					}
 					StopAllCoroutines();
@@ -229,6 +232,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 					{
 						index = 0;
 						canvasUI.SetActive(true);
+						dialogueBG.SetActive(false);
 						objectDes_ui_cht.text = "";
 						objectDes_ui_eng.text = "";
 						textShowing = false;
@@ -245,7 +249,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 						}
 						if (burnAfterReading)
 						{
-							Destroy(dT.gameObject);
+							dT.gameObject.SetActive(false);
 						}
 						StopAllCoroutines();
 					}
@@ -253,8 +257,9 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 				if (optionsDisplaying) // let player choose
 				{
 					optionSelection.SetActive(true);
+					optionBox.SetActive(true);
 					RectTransform rt = optionSelection.GetComponent<RectTransform>();
-					rt.position = new Vector3(options[optionIndex].GetComponent<RectTransform>().position.x, options[optionIndex].GetComponent<RectTransform>().position.y + 50f, rt.position.z);
+					rt.position = new Vector3(rt.position.x, options[optionIndex].GetComponent<RectTransform>().position.y, rt.position.z);
 					if (Input.GetKeyUp(KeyCode.DownArrow) || Input.GetAxis("VerticalArrow") < 0)
 					{
                         if (!axisInUse)
@@ -296,6 +301,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 						// 	dialogueToShow.Insert(index+1, dialogue);
 						// }
 						optionSelection.SetActive(false);
+						optionBox.SetActive(false);
 						foreach (var option in options)
 						{
 							Destroy(option.gameObject);
@@ -332,6 +338,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 		foreach (var option in thisLine.options)
 		{
 			GameObject optn = Instantiate(optionPrefab, canvasDialogue.transform);
+			optn.SetActive(true);
 			//optn.transform.parent = optionSelection.transform;
 			options.Add(optn);
 			optn.GetComponentInChildren<TMP_Text>().text = option.optionContent;
@@ -346,12 +353,12 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 				RectTransform rt = options[i].GetComponent<RectTransform>();
 				if (i < amountOnOneSide) // place these half on top
 				{
-					float targetY = options[i].GetComponent<RectTransform>().position.y + ((amountOnOneSide - i) * optionSpacing - optionSpacing / 2);
-					rt.position = new Vector3(rt.position.x, targetY, rt.position.z);
+					//float targetY = options[i].GetComponent<RectTransform>().position.y + ((amountOnOneSide - i) * optionSpacing - optionSpacing / 2);
+					//rt.position = new Vector3(rt.position.x, targetY, rt.position.z);
 				}
 				else // place these half below
 				{
-					float targetY = options[i].GetComponent<RectTransform>().position.y - ((i + 1 - amountOnOneSide) * optionSpacing - optionSpacing / 2);
+					float targetY = options[i].GetComponent<RectTransform>().position.y - ((i + 1 - amountOnOneSide) * optionSpacing);
 					rt.position = new Vector3(rt.position.x, targetY, rt.position.z);
 				}
 			}
