@@ -19,12 +19,11 @@ public class BossMatManager : MonoBehaviour
     
     public void GainMat()
     {
-        if (PlayerScriptNew.me.matSlots[3] == null)
-        {
-            PlayerScriptNew.me.matSlots[3] = myMat;
-            PlayerScriptNew.me.matSlots[3].GetComponent<MatScriptNew>().amount = 1;
-            UIManager.Me.UI_ChangeIcon();
-            Destroy(gameObject);
-        }
+        
+        PlayerScriptNew.me.matSlots[3] = myMat;
+        PlayerScriptNew.me.matSlots[3].GetComponent<MatScriptNew>().amount = 1;
+        UIManager.Me.UI_ChangeIcon();
+        Destroy(gameObject);
+        
     }
 }
