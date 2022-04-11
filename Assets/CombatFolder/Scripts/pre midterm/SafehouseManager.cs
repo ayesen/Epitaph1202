@@ -121,7 +121,7 @@ public class SafehouseManager : MonoBehaviour
     public void RespawnPlayer(Transform SpawnPoint)
     {
         PlayerScriptNew.me.transform.position = new Vector3(SpawnPoint.position.x, PlayerScript.me.transform.position.y , SpawnPoint.position.z);
-        PlayerScriptNew.me.transform.Find("PlayerModel").localPosition = Vector3.zero;
+        //PlayerScriptNew.me.transform.Find("PlayerModel").localPosition = Vector3.zero;
         PlayerScriptNew.me.hp = 30;
         PlayerScriptNew.me.dead = false;
         PlayerScriptNew.me.gameObject.SetActive(true);
