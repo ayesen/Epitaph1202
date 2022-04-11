@@ -67,14 +67,14 @@ public class DialogueScript : MonoBehaviour
             			{
             				//mr.material = highLightMat;
             				if ((Input.GetKeyUp(KeyCode.E) || Input.GetAxis("HorizontalArrow") > 0) &&
-            					(player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("testIdle") ||
-            					 player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("testWalk") ||
+            					(player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(1).IsName("Idle") ||
+            					 player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Walking") ||
             					 player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0)
-            						 .IsName("Player_Walking_Right") ||
+            						 .IsName("WalkingRight") ||
             					 player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0)
-            						 .IsName("Player_Walking_Left") ||
+            						 .IsName("WalkingLeft") ||
             					 player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0)
-            						 .IsName("Player_Walking_Backwards")) &&
+            						 .IsName("BackWalking")) &&
 									 !MenuManager.GameIsPaused)
             				{
             					 if (!musicFunction.Equals(""))

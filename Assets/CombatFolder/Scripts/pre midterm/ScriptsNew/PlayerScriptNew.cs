@@ -70,11 +70,13 @@ public class PlayerScriptNew : MonoBehaviour
 
 	private void Update()
 	{
-        if (!MenuManager.GameIsPaused)
-        {
+		print(anim.GetCurrentAnimatorStateInfo(1).shortNameHash);
+		if (!MenuManager.GameIsPaused)
+		{
 			if (Input.GetKeyDown(KeyCode.M))
 			{
 				LoseHealth_player(1000);
+
 			}
 			if (Input.GetKeyDown(KeyCode.K) && SafehouseManager.Me.isCheatOn)
 			{
@@ -84,6 +86,10 @@ public class PlayerScriptNew : MonoBehaviour
 			{
 				RecovMatCD(2);
 			}
+			//print("selected Mats count: " + selectedMats.Count);
+			//print("walking: " + walking);
+			//print("current clip: " + anim.GetCurrentAnimatorStateInfo(0).fullPathHash);
+			//print("atkButtonPressed: " + atkButtonPressed);
 			Death();
 			if (!dead && !SafehouseManager.Me.isSafehouse)
 			{
@@ -124,10 +130,9 @@ public class PlayerScriptNew : MonoBehaviour
 				#endregion
 				#region activate and deactivate mats
 				// activate mats
-				if (!anim.GetCurrentAnimatorStateInfo(0).IsName("testWindup") &&
-					!anim.GetCurrentAnimatorStateInfo(0).IsName("testATK") &&
-					!anim.GetCurrentAnimatorStateInfo(0).IsName("testBackswing") &&
-					!anim.GetCurrentAnimatorStateInfo(0).IsName("readingText") &&
+				if (!anim.GetCurrentAnimatorStateInfo(1).IsName("testWindup") &&
+					!anim.GetCurrentAnimatorStateInfo(1).IsName("testBackswing") &&
+					!anim.GetCurrentAnimatorStateInfo(1).IsName("readingText") &&
 					!SafehouseManager.Me.isSafehouse &&
 					!SafehouseManager.Me.isFading)
 				{
@@ -268,62 +273,28 @@ public class PlayerScriptNew : MonoBehaviour
 					Mathf.Abs(Input.GetAxis("LeftJoystickHorizontal")) >= joystickSensitivity ||
 					Mathf.Abs(Input.GetAxis("LeftJoystickVertical")) >= joystickSensitivity ||
 					Mathf.Sqrt(Mathf.Pow(Input.GetAxis("LeftJoystickHorizontal"), 2) + Mathf.Pow(Input.GetAxis("LeftJoystickVertical"), 2)) >= joystickSensitivity) &&
-					!anim.GetCurrentAnimatorStateInfo(0).IsName("testWindup") &&
-					!anim.GetCurrentAnimatorStateInfo(0).IsName("testATK") &&
-					!anim.GetCurrentAnimatorStateInfo(0).IsName("testBackswing") &&
-					!anim.GetCurrentAnimatorStateInfo(0).IsName("readingText"))
+					!anim.GetCurrentAnimatorStateInfo(1).IsName("testWindup") &&
+					!anim.GetCurrentAnimatorStateInfo(1).IsName("testATK") &&
+					!anim.GetCurrentAnimatorStateInfo(1).IsName("testBackswing") &&
+					!anim.GetCurrentAnimatorStateInfo(1).IsName("readingText"))
 				//anim.GetCurrentAnimatorStateInfo(0).IsName("testIdle")) // if in walk state, walk
 				{
 					walking = true;
 					atkButtonPressed = false;
 				}
-				else
-				{
-					walkingDir = new Vector3(0, 0, 0);
-					forwarding = false;
-					backwarding = false;
-					lefting = false;
-					righting = false;
-					//anim.CrossFade("testIdle", .3f);
-					anim.Play("Idle", 1);
-					anim.Play("Idle", 0);
-					walking = false;
-				}
 
-				// decide walk animation
-				if (walkingDir.magnitude > 0)
+				if (walking && !anim.GetCurrentAnimatorStateInfo(1).IsName("readingText"))
 				{
 					// walking diagonally
 					if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
 					{
-						//anim.Play("testWalk");
-						if (!forwarding)
-						{
-							//anim.CrossFade("testWalk", .3f);
-							//anim.Play("testWalk");
-							anim.Play("Walking", 1);
-							anim.Play("Idle", 0);
-							//anim.Play("Walking", 0);
-							forwarding = true;
-							backwarding = false;
-							lefting = false;
-							righting = false;
-						}
+						transform.position = new Vector3(transform.position.x - Mathf.Sqrt(Mathf.Pow(spd, 2) / 2) * Time.deltaTime, transform.position.y, transform.position.z + Mathf.Sqrt(Mathf.Pow(spd, 2) / 2) * Time.deltaTime);
+						walkingDir = new Vector3(-Mathf.Sqrt(Mathf.Pow(spd, 2) / 2), 0, Mathf.Sqrt(Mathf.Pow(spd, 2) / 2));
 					}
 					else if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
 					{
-						if (!backwarding)
-						{
-							//anim.CrossFade("Player_Walking_Backwards", .3f);
-							anim.Play("BackWalking", 1);
-							anim.Play("Idle", 0);
-							//anim.Play("Walking", 0);
-							//anim.Play("BackWalking", 0);
-							forwarding = false;
-							backwarding = true;
-							lefting = false;
-							righting = false;
-						}
+						transform.position = new Vector3(transform.position.x + Mathf.Sqrt(Mathf.Pow(spd, 2) / 2) * Time.deltaTime, transform.position.y, transform.position.z + Mathf.Sqrt(Mathf.Pow(spd, 2) / 2) * Time.deltaTime);
+						walkingDir = new Vector3(Mathf.Sqrt(Mathf.Pow(spd, 2) / 2), 0, Mathf.Sqrt(Mathf.Pow(spd, 2) / 2));
 					}
 					else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A))
 					{
@@ -372,10 +343,12 @@ public class PlayerScriptNew : MonoBehaviour
 						lefting = false;
 						righting = false;
 						//anim.CrossFade("testIdle", .3f);
-						anim.Play("testIdle");
+						anim.Play("Idle", 1);
+						anim.Play("Idle", 0);
 						walking = false;
 					}
 
+					// decide walk animation
 					if (walkingDir.magnitude > 0)
 					{
 						if (Vector3.Angle(walkingDir, transform.forward) < 45) // play walk straight
@@ -383,12 +356,12 @@ public class PlayerScriptNew : MonoBehaviour
 							//anim.Play("testWalk");
 							if (!forwarding)
 							{
-								//anim.CrossFade("Player_Walking_Right", .3f);
-								anim.Play("WalkingRight", 1);
+								//anim.CrossFade("testWalk", .3f);
+								//anim.Play("testWalk");
 								anim.Play("Walking", 0);
+								anim.Play("Idle", 1);
 								//anim.Play("Walking", 0);
-								//anim.Play("WalkingRight", 0);
-								forwarding = false;
+								forwarding = true;
 								backwarding = false;
 								lefting = false;
 								righting = false;
@@ -398,11 +371,11 @@ public class PlayerScriptNew : MonoBehaviour
 						{
 							if (!backwarding)
 							{
-								//anim.CrossFade("Player_Walking_Left", .3f);
-								anim.Play("WalkingLeft", 1);
-								anim.Play("Walking", 0);
+								//anim.CrossFade("Player_Walking_Backwards", .3f);
+								anim.Play("BackWalking", 0);
+								anim.Play("Idle", 1);
 								//anim.Play("Walking", 0);
-								//anim.Play("WalkingLeft", 0);
+								//anim.Play("BackWalking", 0);
 								forwarding = false;
 								backwarding = true;
 								lefting = false;
@@ -416,9 +389,9 @@ public class PlayerScriptNew : MonoBehaviour
 							{
 								if (!righting) // play walk right
 								{
-									//anim.CrossFade("WalkingRight", .3f);
-									anim.Play("WalkingRight", 1);
-									anim.Play("Walking", 0);
+									//anim.CrossFade("Player_Walking_Right", .3f);
+									anim.Play("WalkingRight", 0);
+									anim.Play("Idle", 1);
 									//anim.Play("Walking", 0);
 									//anim.Play("WalkingRight", 0);
 									forwarding = false;
@@ -432,8 +405,8 @@ public class PlayerScriptNew : MonoBehaviour
 								if (!lefting) // play walk left
 								{
 									//anim.CrossFade("Player_Walking_Left", .3f);
-									anim.Play("WalkingLeft", 1);
-									anim.Play("Walking", 0);
+									anim.Play("WalkingLeft", 0);
+									anim.Play("Idle", 1);
 									//anim.Play("Walking", 0);
 									//anim.Play("WalkingLeft", 0);
 									forwarding = false;
@@ -448,7 +421,11 @@ public class PlayerScriptNew : MonoBehaviour
 								{
 									if (!righting)// play walk right
 									{
-										anim.CrossFade("Player_Walking_Right", .3f);
+										//anim.CrossFade("WalkingRight", .3f);
+										anim.Play("WalkingRight", 0);
+										anim.Play("Idle", 1);
+										//anim.Play("Walking", 0);
+										//anim.Play("WalkingRight", 0);
 										forwarding = false;
 										backwarding = false;
 										lefting = false;
@@ -459,7 +436,11 @@ public class PlayerScriptNew : MonoBehaviour
 								{
 									if (!lefting) // play walk left
 									{
-										anim.CrossFade("Player_Walking_Left", .3f);
+										//anim.CrossFade("Player_Walking_Left", .3f);
+										anim.Play("WalkingLeft", 0);
+										anim.Play("Idle", 1);
+										//anim.Play("Walking", 0);
+										//anim.Play("WalkingLeft", 0);
 										forwarding = false;
 										backwarding = false;
 										lefting = true;
@@ -485,84 +466,81 @@ public class PlayerScriptNew : MonoBehaviour
 				// check for attack button press
 				#region attack
 				if (selectedMats.Count > 0 &&  // check if player has mat activated
-					(anim.GetCurrentAnimatorStateInfo(0).IsName("Idle") || // if player in idle state
+					(anim.GetCurrentAnimatorStateInfo(1).IsName("Idle") || // if player in idle state
 					walking ||
 					//anim.GetCurrentAnimatorStateInfo(1).IsName("Walking") ||
 					//anim.GetCurrentAnimatorStateInfo(1).IsName("BackWalking") ||
 					//anim.GetCurrentAnimatorStateInfo(1).IsName("WalkingLeft") ||
 					//anim.GetCurrentAnimatorStateInfo(1).IsName("WalkingRight") ||  // if player in walk state
-					anim.GetCurrentAnimatorStateInfo(0).IsName("select"))) // if player in select mat state
+					anim.GetCurrentAnimatorStateInfo(1).IsName("select") || // if player in select mat state
+					anim.GetCurrentAnimatorStateInfo(1).IsName("PostWind"))) 
 				{
-					if (Input.GetMouseButtonUp(0) || Input.GetAxis("RT") > 0 && !atkButtonPressed) // if left click
+					if ((Input.GetMouseButtonUp(0) || Input.GetAxis("RT") > 0) && !atkButtonPressed) // if left click
 					{
-						if (Input.GetMouseButtonUp(0) || Input.GetAxis("RT") > 0 && !atkButtonPressed) // if left click
+						//print(anim.GetCurrentAnimatorStateInfo(1).shortNameHash);
+						atkButtonPressed = true;
+						walking = false;
+						bool goodToGo = true;
+						// check if player has any mat left
+						foreach (var mat in selectedMats)
 						{
-							atkButtonPressed = true;
-							walking = false;
-							bool goodToGo = true;
-							// check if player has any mat left
+							if (mat.GetComponent<MatScriptNew>().amount <= 0)
+							{
+								goodToGo = false;
+							}
+						}
+						if (goodToGo) // there is enough mat
+						{
 							foreach (var mat in selectedMats)
 							{
-								if (mat.GetComponent<MatScriptNew>().amount <= 0)
-								{
-									goodToGo = false;
-								}
+								mat.GetComponent<MatScriptNew>().amount--;
 							}
-							if (goodToGo) // there is enough mat
-							{
-								foreach (var mat in selectedMats)
-								{
-									mat.GetComponent<MatScriptNew>().amount--;
-								}
 
-								if (matSlots[3] != null && matSlots[3].GetComponent<MatScriptNew>().amount <= 0)//Detect boss mat and delete if used
-								{
-									if (selectedMats.Contains(matSlots[3]))
-										selectedMats.Remove(matSlots[3]);
-									matSlots[3] = null;
-									UIManager.Me.UI_ChangeIcon();
-								}
-								anim.Play("testWindup"); // player anticipation clip and call effect manager's casting event in clip
-														 // anim.CrossFade("testWindup", 0.1f);
-
-								selectedMats.Clear();
-							}
-							else
+							if (matSlots[3] != null && matSlots[3].GetComponent<MatScriptNew>().amount <= 0)//Detect boss mat and delete if used
 							{
-								print("YOU DON'T HAVE ENOUGH MATERIALS!!!");
+								if (selectedMats.Contains(matSlots[3]))
+									selectedMats.Remove(matSlots[3]);
+								matSlots[3] = null;
+								UIManager.Me.UI_ChangeIcon();
 							}
-							if (anim.GetCurrentAnimatorStateInfo(0).IsName("select"))
+							if (anim.GetCurrentAnimatorStateInfo(1).IsName("select") || 
+								anim.GetCurrentAnimatorStateInfo(1).IsName("PostWind"))
 							{
 								print("back swing");
-								anim.Play("testBackswing", 0);
+								anim.Play("testBackswing", 1);
 							}
 							else
 							{
 								print("wind up");
-								anim.Play("testWindup", 0); // player anticipation clip and call effect manager's casting event in clip
+								anim.Play("testWindup", 1); // player anticipation clip and call effect manager's casting event in clip
 							}
 							// anim.CrossFade("testWindup", 0.1f);
 
 							selectedMats.Clear();
 						}
-					}
-					if (Input.GetMouseButtonUp(0) || Input.GetAxis("RT") > 0)
-					{
-						if (selectedMats.Count > 0 &&  // check if player has mat activated
-						(anim.GetCurrentAnimatorStateInfo(0).IsName("testIdle") || // if player in idle state
-						walking))
-						{
-
-						}
 						else
 						{
-							//print(walking);
+							print("YOU DON'T HAVE ENOUGH MATERIALS!!!");
 						}
 					}
 				}
-					#endregion
+				if (Input.GetMouseButtonUp(0) || Input.GetAxis("RT") > 0)
+				{
+					if (selectedMats.Count > 0 &&  // check if player has mat activated
+					(anim.GetCurrentAnimatorStateInfo(1).IsName("testIdle") || // if player in idle state
+					walking))
+					{
+
+					}
+					else
+					{
+						//print(walking);
+					}
+				}
+				#endregion
 			}
 		}
+		
 	}
 	public void RecovMatCD(int breakAmp)
     {
@@ -623,7 +601,7 @@ public class PlayerScriptNew : MonoBehaviour
 	private void Aim_and_LockOn()
 	{
 		// lock on
-		if (!anim.GetCurrentAnimatorStateInfo(0).IsName(("readingText")))
+		if (!anim.GetCurrentAnimatorStateInfo(1).IsName(("readingText")))
 		{
 			// lock on
 			if ((Input.GetMouseButton(1) || Input.GetAxis("LT") > 0) && LockOnManager.me.bears_canBeLockedOn.Count > 0)

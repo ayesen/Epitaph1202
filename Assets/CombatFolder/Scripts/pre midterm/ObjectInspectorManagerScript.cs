@@ -82,12 +82,14 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 			dialogueBG.SetActive(true);
 		if (restrictMovement) // if this dialogue prohibit player from moving when reading
 		{
-			PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("readingText");
+			PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("readingText", 1);
+			PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("Idle", 0);
 			PlayerScriptNew.me.ResetWalkingBools();
 		}
 		else if (!restrictMovement)
         {
-			PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("testIdle");
+			PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("Idle", 1);
+			PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("Idle", 0);
 		}
 		StartCoroutine(SetTextShowingToTrue());
 		
@@ -178,7 +180,8 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 						textShowing = false;
 						if (restrictMovement)
 						{
-							PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("testIdle");
+							PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("Idle", 1);
+							PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("Idle", 0);
 						}
 						imageDisplayer.SetActive(false);
 						imageBG.SetActive(false);
@@ -239,7 +242,8 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 						textShowing = false;
 						if (restrictMovement)
 						{
-							PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("testIdle");
+							PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("Idle", 1);
+							PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("Idle", 0);
 						}
 						imageDisplayer.SetActive(false);
 						imageBG.SetActive(false);
