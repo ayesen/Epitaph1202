@@ -67,16 +67,29 @@ public class MenuManager : MonoBehaviour
                 StartCoroutine(FadeCanvas(cg, 1f, fadeTime));
                 Time.timeScale = 0f;
                 GameIsPaused = true;
+                SoundMan.SoundManager.AudioPauseOrUnpause();
+                AmbienceManager.ambienceManager.gameObject.GetComponent<AudioReverbFilter>().enabled = true;
             }
             else
             {
                 StartCoroutine(FadeCanvas(cg, 0f, fadeTime));
                 GameIsPaused = false;
+                SoundMan.SoundManager.AudioPauseOrUnpause();
+                AmbienceManager.ambienceManager.gameObject.GetComponent<AudioReverbFilter>().enabled = false;
+                AmbienceManager.ambienceManager.gameObject.GetComponent<AudioLowPassFilter>().cutoffFrequency = 22000f;
+                AmbienceManager.ambienceManager.gameObject.GetComponent<AudioLowPassFilter>().lowpassResonanceQ = 1f;
             }
         }
         if (isMenu)
         {
-            if(panelState == panels.home)
+            float timer = 0;
+            timer += .1f;
+            AmbienceManager.ambienceManager.gameObject.GetComponent<AudioLowPassFilter>().cutoffFrequency =
+                Mathf.Lerp(AmbienceManager.ambienceManager.gameObject.GetComponent<AudioLowPassFilter>().cutoffFrequency, 3900f, timer);
+            AmbienceManager.ambienceManager.gameObject.GetComponent<AudioLowPassFilter>().lowpassResonanceQ =
+                Mathf.Lerp(AmbienceManager.ambienceManager.gameObject.GetComponent<AudioLowPassFilter>().lowpassResonanceQ, 2.85f, timer);
+
+            if (panelState == panels.home)
             {
                 SelectPrefabUpdate();
                 if (Input.GetAxis("VerticalArrow") != 0)
@@ -94,21 +107,25 @@ public class MenuManager : MonoBehaviour
                         if (Input.GetAxis("VerticalArrow") < 0)
                         {
                             choosenIndex += 1;
+                            SoundMan.SoundManager.SafehouseMaterialSelect();
                         }
                         else if (Input.GetAxis("VerticalArrow") > 0)
                         {
                             choosenIndex -= 1;
+                            SoundMan.SoundManager.SafehouseMaterialSelect();
                         }
                     }
                 }
                 if (Input.GetKeyDown(KeyCode.DownArrow) && !isFading)
                 {
                     choosenIndex += 1;
+                    SoundMan.SoundManager.SafehouseMaterialSelect();
                 }
 
                 if (Input.GetKeyDown(KeyCode.UpArrow) && !isFading)
                 {
                     choosenIndex -= 1;
+                    SoundMan.SoundManager.SafehouseMaterialSelect();
                 }
 
                 if (choosenIndex < 0)
@@ -118,10 +135,12 @@ public class MenuManager : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("AButton") && !isFading)
                 {
                     buttonList[choosenIndex].onClick.Invoke();
+                    SoundMan.SoundManager.SafehouseMaterialSelect();
                 }
                 if (Input.GetButtonDown("BButton") && !isFading)
                 {
                     isMenu = false;
+                    SoundMan.SoundManager.SafehouseMaterialSelect();
                 }
             }
             else if(panelState == panels.ctrlMap)
@@ -131,6 +150,7 @@ public class MenuManager : MonoBehaviour
                     StartCoroutine(FadeCanvas(mappingHolder.GetComponent<CanvasGroup>(), 0f, fadeTime));
                     StartCoroutine(FadeCanvas(gameObject.transform.Find("Home").GetComponent<CanvasGroup>(), 1f, fadeTime));
                     panelState = panels.home;
+                    SoundMan.SoundManager.SafehouseMaterialSelect();
                 }
             }
             else if(panelState == panels.settings)
@@ -139,6 +159,7 @@ public class MenuManager : MonoBehaviour
                 {
                     StartCoroutine(FadeCanvas(gameObject.transform.Find("Home").GetComponent<CanvasGroup>(), 1f, fadeTime));
                     panelState = panels.home;
+                    SoundMan.SoundManager.SafehouseMaterialSelect();
                 }
             }
         }

@@ -74,7 +74,8 @@ public class DialogueScript : MonoBehaviour
             					 player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0)
             						 .IsName("Player_Walking_Left") ||
             					 player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0)
-            						 .IsName("Player_Walking_Backwards")))
+            						 .IsName("Player_Walking_Backwards")) &&
+									 !MenuManager.GameIsPaused)
             				{
             					 if (!musicFunction.Equals(""))
                                 {

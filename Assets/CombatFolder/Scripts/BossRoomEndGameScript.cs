@@ -8,6 +8,7 @@ public class BossRoomEndGameScript : MonoBehaviour
     private Enemy boss;
     public GameObject dialogueTrigger;
     public List<GameObject> smallBears;
+    private bool endDialogue_called = false;
 
     private void Start()
     {
@@ -28,7 +29,11 @@ public class BossRoomEndGameScript : MonoBehaviour
                     bear.GetComponent<SmallBear>().health = 0;
 				}
 			}
-            dialogueTrigger.SetActive(true);
+            if (!endDialogue_called)
+			{
+                endDialogue_called = true;
+                dialogueTrigger.SetActive(true);
+            }
         }
     }
 }

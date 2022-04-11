@@ -26,22 +26,23 @@ public class AIStateAttacking : AIStateBase
 
     public override void Update(Enemy myEnemy)
     {
-        if (myEnemy.attackable)
+        if (!MenuManager.GameIsPaused)
         {
-            AtkTimer += Time.fixedDeltaTime;//change to after animation is over
-
-
-            if (AtkTimer > myEnemy.atkTime)
+            if (myEnemy.attackable)
             {
-                myEnemy.myAC.ChangeState(myEnemy.myAC.postAttackState);
+                AtkTimer += Time.fixedDeltaTime;//change to after animation is over
+
+
+                if (AtkTimer > myEnemy.atkTime)
+                {
+                    myEnemy.myAC.ChangeState(myEnemy.myAC.postAttackState);
+                }
+            }
+            else if (!myEnemy.attackable)
+            {
+                myEnemy.myAC.ChangeState(myEnemy.myAC.idleState);
             }
         }
-        else if (!myEnemy.attackable)
-        {
-            myEnemy.myAC.ChangeState(myEnemy.myAC.idleState);
-        }
-
-
     }
 
     public override void LeaveState(Enemy myEnemy)
