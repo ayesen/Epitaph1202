@@ -119,20 +119,23 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        changeLimit = Mathf.Clamp(changeLimit, 0, int.MaxValue);
-        //HittedStatesIndication();
-        AIDead();
-        PhaseSetting();
-        BreakMeter_recovery();
-        BreakMeter_show();
-        if (knockedBack)
-		{
-            ReactivateNavMesh();
+        if (!MenuManager.GameIsPaused)
+        {
+            changeLimit = Mathf.Clamp(changeLimit, 0, int.MaxValue);
+            //HittedStatesIndication();
+            AIDead();
+            PhaseSetting();
+            BreakMeter_recovery();
+            BreakMeter_show();
+            if (knockedBack)
+            {
+                ReactivateNavMesh();
+            }
+            ChangeEdrBasedOnStates();
+            RegenerateStunPoise();
+            Phase2Duration();
+            //print("current state: "+myAC.currentState);
         }
-        ChangeEdrBasedOnStates();
-        RegenerateStunPoise();
-        Phase2Duration();
-        //print("current state: "+myAC.currentState);
     }
 
     private void ChangeEdrBasedOnStates()

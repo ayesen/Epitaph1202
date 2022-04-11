@@ -16,7 +16,7 @@ public class SafeHouseTrigger : MonoBehaviour
     
     void Update()
     {
-        if (Vector3.Distance(transform.position, PlayerScriptNew.me.transform.position) < 3)
+        if (Vector3.Distance(transform.position, PlayerScriptNew.me.transform.position) < 3 && !MenuManager.GameIsPaused)
         {
             isClose = true;
             if (Input.GetKeyDown(KeyCode.E) || Input.GetAxis("HorizontalArrow") > 0 && !SafehouseManager.Me.isSafehouse)
