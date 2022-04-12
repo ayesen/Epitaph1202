@@ -86,12 +86,14 @@ public class SoundMan : MonoBehaviour
         if (audioPaused)
         {
             ChangeToMenuSnapshot();
+            AudioListener.pause = !AudioListener.pause;
         }
         else
         {
             ChangeToNormalSnapshot();
+            AudioListener.pause = !AudioListener.pause;
         }
-        //AudioListener.pause = !AudioListener.pause;
+        
     }
 
     public void PlayerLowHealthFilter() //player health should percentage from 0-1, call this function when player was hitten
