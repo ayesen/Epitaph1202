@@ -74,19 +74,22 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 		doer = ds.actor;
 		funcToCall = ds.funcToCall;
 		canvasUI.SetActive(false);
-		dialogueBG.SetActive(true);
 		objectDes_ui_cht.gameObject.SetActive(true);
 		objectDes_ui_eng.gameObject.SetActive(true);
 		objectDes_ui_cht.text = dialogueToShow[index].description_cht;
 		objectDes_ui_eng.text = dialogueToShow[index].description_eng;
+		if(objectDes_ui_cht.text != "")
+			dialogueBG.SetActive(true);
 		if (restrictMovement) // if this dialogue prohibit player from moving when reading
 		{
-			PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("readingText");
+			PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("readingText", 1);
+			PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("Idle", 0);
 			PlayerScriptNew.me.ResetWalkingBools();
 		}
 		else if (!restrictMovement)
         {
-			PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("testIdle");
+			PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("Idle", 1);
+			PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("Idle", 0);
 		}
 		StartCoroutine(SetTextShowingToTrue());
 		
@@ -130,7 +133,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 
 	private void Update()
 	{
-		if (textShowing)
+		if (textShowing && !MenuManager.GameIsPaused)
 		{
 			if (autoAdvance) // if the dialogue is dispalyed automatically
 			{
@@ -177,7 +180,8 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 						textShowing = false;
 						if (restrictMovement)
 						{
-							PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("testIdle");
+							PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("Idle", 1);
+							PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("Idle", 0);
 						}
 						imageDisplayer.SetActive(false);
 						imageBG.SetActive(false);
@@ -238,7 +242,8 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 						textShowing = false;
 						if (restrictMovement)
 						{
-							PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("testIdle");
+							PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("Idle", 1);
+							PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("Idle", 0);
 						}
 						imageDisplayer.SetActive(false);
 						imageBG.SetActive(false);
