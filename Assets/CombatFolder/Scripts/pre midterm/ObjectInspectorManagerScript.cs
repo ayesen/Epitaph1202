@@ -113,6 +113,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 		// play audio
 		if (dialogueToShow[index].clip != null)
 		{
+			aS.Stop();
 			aS.clip = dialogueToShow[index].clip;
 			aS.Play();
 		}
