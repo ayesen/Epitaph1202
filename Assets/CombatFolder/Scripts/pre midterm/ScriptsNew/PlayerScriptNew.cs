@@ -98,7 +98,7 @@ public class PlayerScriptNew : MonoBehaviour
 			Death();
 			if (!dead && !SafehouseManager.Me.isSafehouse)
 			{
-				ShowActivateVFX();
+				//ShowActivateVFX();
 				#region Temp UI
 				//if (selectedMats.Contains(matSlots[0]))
 				//{
