@@ -120,10 +120,15 @@ public class ShootAimTutorScript : MonoBehaviour
 		while(rotateSpeed <= 1)
         {
 			Vector3 direction = tutorBear.transform.position - PlayerScriptNew.me.transform.position;
-			direction = new Vector3(direction.x, 0, direction.y);
+			direction = new Vector3(direction.x, 0, direction.z);
 			Quaternion toRotation = Quaternion.LookRotation(direction);
 			PlayerScriptNew.me.transform.rotation = Quaternion.Lerp(PlayerScriptNew.me.transform.rotation, toRotation, rotateSpeed);
-			rotateSpeed += 0.3f * Time.deltaTime;
+			rotateSpeed += 0.4f * Time.deltaTime;
+			if (rotateSpeed > 1)
+			{
+				rotateSpeed = 1;
+				PlayerScriptNew.me.transform.rotation = Quaternion.Lerp(PlayerScriptNew.me.transform.rotation, toRotation, rotateSpeed);
+			}
 			yield return new WaitForSeconds(0.005f * Time.deltaTime);
 		}
 	}
