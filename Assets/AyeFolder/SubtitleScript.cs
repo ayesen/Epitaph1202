@@ -19,10 +19,12 @@ public class SubtitleScript : MonoBehaviour
     private int Loop = 3;
     private Vector3 OriginalPos;
     public SpriteRenderer BackGround;
+    public CanvasGroup Black;
 
     void Start()
     {
         StartCoroutine(FadeIn(5));
+        StartCoroutine(HideBG(Black, 0f, 12f));
     }
     
     public IEnumerator FadeIn(float time)
@@ -62,7 +64,7 @@ public class SubtitleScript : MonoBehaviour
 
     public IEnumerator FadeOut(float time)
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(5);
         Debug.Log("fadeout");
         float subTimer = 0;
         while (Subtitle.color != Color.clear)
@@ -85,17 +87,28 @@ public class SubtitleScript : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         float Timer = 0;
-        Color originalColor = new Vector4(255, 255, 255, 255);
-        Color fadeColor = new Vector4(255, 255, 255, 0);
         while(BackGround.color != Color.white)
         {
             Timer += 0.01f;
             BackGround.color = Color.Lerp(Color.clear, Color.white, Timer);
             yield return null;
         }
-        StartCoroutine(RolingUp());
+        StartCoroutine(RolingUp(Black, 1f, 20f));
     }
-    public IEnumerator RolingUp()
+
+    public IEnumerator HideBG(CanvasGroup cg, float endValue, float duration)
+    {
+        float elapsedTime = 0;
+        float startValue = cg.alpha;
+        while (elapsedTime < duration)
+        {
+            elapsedTime += .1f;
+            cg.alpha = Mathf.Lerp(startValue, endValue, elapsedTime / duration);
+            yield return null;
+        }
+    }
+
+    public IEnumerator RolingUp(CanvasGroup cg, float endValue, float duration)
     {
         OriginalPos = Credit.rectTransform.anchoredPosition3D;
         float yPos = OriginalPos.y;
@@ -103,6 +116,14 @@ public class SubtitleScript : MonoBehaviour
         {
             yPos += 0.2f;
             Credit.rectTransform.anchoredPosition = new Vector3(OriginalPos.x, yPos, OriginalPos.z);
+            yield return null;
+        }
+        float elapsedTime = 0;
+        float startValue = cg.alpha;
+        while (elapsedTime < duration)
+        {
+            elapsedTime += .1f;
+            cg.alpha = Mathf.Lerp(startValue, endValue, elapsedTime / duration);
             yield return null;
         }
         SceneManager.LoadScene(0);
