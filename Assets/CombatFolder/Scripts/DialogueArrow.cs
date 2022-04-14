@@ -16,6 +16,9 @@ public class DialogueArrow : MonoBehaviour
         rt.localPosition -= Vector3.down * floatSpd * Time.deltaTime;
 
         if (rt.localPosition.y < 80 || rt.localPosition.y > 110)
+        {
+            rt.localPosition = new Vector3(rt.localPosition.x, Mathf.Clamp(rt.localPosition.y, 80, 110), rt.localPosition.z);
             floatSpd *= -1;
+        }
     }
 }
