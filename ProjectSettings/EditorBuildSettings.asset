@@ -5,16 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/FoldTakaya/Scenes/StartScene.unity
     guid: 05a8c07f6e3002843a729018687de103
   - enabled: 0
     path: Assets/TestScene.unity
     guid: 8770c6fddf1f6a34ab65f926d7c9589d
-  - enabled: 0
-    path: Assets/AyeFolder/CreditScene.unity
-    guid: 40272d2870c468142b4b61fc6e7d4354
   - enabled: 1
     path: Assets/MidtermScene.unity
     guid: efdf2eed5ba21c1489846bdca2d1d3d6
+  - enabled: 1
+    path: Assets/AyeFolder/CreditScene.unity
+    guid: 40272d2870c468142b4b61fc6e7d4354
   m_configObjects: {}
