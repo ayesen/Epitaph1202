@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: NailFuzhi
+  m_Name: activated vfx func mat
   m_Shader: {fileID: -6465566751694194690, guid: 9914d80512675ab43898e5529e51fa88, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -33,10 +33,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - DistortionStrength: 1
-    - FireBottomOffset: 1
-    - YStretch: 1
+    - DistortionStrength: 0.97
+    - FireBottomOffset: -0.32
+    - YStretch: 1.77
     m_Colors:
-    - NoiseScale: {r: 1, g: 1, b: 0, a: 0}
-    - _Color: {r: 0.9056604, g: 0.2847914, b: 0.0555358, a: 0}
+    - NoiseScale: {r: 2, g: 2, b: 0, a: 0}
+    - _Color: {r: 0.14150941, g: 0.14150941, b: 0.14150941, a: 1}
   m_BuildTextureStacks: []
