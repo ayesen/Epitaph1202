@@ -278,7 +278,8 @@ public class PlayerScriptNew : MonoBehaviour
 				*/
 				#endregion
 				#region movement
-				if (anim.GetCurrentAnimatorStateInfo(1).IsName("testBackswing")) // stop walking animation when attacking
+				if (anim.GetCurrentAnimatorStateInfo(1).IsName("testBackswing") ||
+					anim.GetCurrentAnimatorStateInfo(1).IsName("readingText")) // stop walking animation when attacking
 				{
 					anim.SetFloat("velocity x", 0);
 					anim.SetFloat("velocity z", 0);
