@@ -106,6 +106,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8535079031911325353}
+  - component: {fileID: 4625907007426711575}
   m_Layer: 8
   m_Name: FireFuzhi
   m_TagString: Untagged
@@ -129,6 +130,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &4625907007426711575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8535079031911325354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c23c8218fed41641868e24e26f7a7a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToFace: {fileID: 0}
 --- !u!1 &8535079033042955549
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,7 +161,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8535079033042955548
 Transform:
   m_ObjectHideFlags: 0
