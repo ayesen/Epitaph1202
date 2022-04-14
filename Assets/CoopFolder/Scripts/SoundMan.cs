@@ -43,6 +43,7 @@ public class SoundMan : MonoBehaviour
     int lastPlayerHitten;
     int lastBPOne;
     int lastBPTwo;
+    bool audioPaused;
 
     private void Awake()
     {
@@ -81,7 +82,18 @@ public class SoundMan : MonoBehaviour
 
     public void AudioPauseOrUnpause() //this is for the menu
     {
-        AudioListener.pause = !AudioListener.pause;
+        audioPaused = !audioPaused;
+        if (audioPaused)
+        {
+            ChangeToMenuSnapshot();
+            AudioListener.pause = !AudioListener.pause;
+        }
+        else
+        {
+            ChangeToNormalSnapshot();
+            AudioListener.pause = !AudioListener.pause;
+        }
+        
     }
 
     public void PlayerLowHealthFilter() //player health should percentage from 0-1, call this function when player was hitten
@@ -301,6 +313,11 @@ public class SoundMan : MonoBehaviour
     public void ChangeToSafeHouseSnapshot()
     {
         mainAudioMixer.FindSnapshot("SafeHouse_Snapshot").TransitionTo(0.5f);
+    }
+
+    public void ChangeToMenuSnapshot()
+    {
+        mainAudioMixer.FindSnapshot("PauseMenu_Snapshot").TransitionTo(0.5f);
     }
 
     public void FindSFXGroup(AudioSource aS)
