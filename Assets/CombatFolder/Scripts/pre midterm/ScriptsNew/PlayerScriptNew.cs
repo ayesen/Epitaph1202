@@ -730,5 +730,12 @@ public class PlayerScriptNew : MonoBehaviour
 			boss_activated_vfx.SetActive(mat.GetComponent<MatScriptNew>().myType == MatScriptNew.MatType.boss);
 			boss_activated_vfx.transform.position = hand.transform.position;
 		}
+		if (selectedMats.Count <= 0)
+		{
+			amp_activated_vfx.SetActive(false);
+			atk_activated_vfx.SetActive(false);
+			func_activated_vfx.SetActive(false);
+			boss_activated_vfx.SetActive(false);
+		}
 	}
 }

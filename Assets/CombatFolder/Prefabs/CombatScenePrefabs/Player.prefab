@@ -1909,6 +1909,10 @@ MonoBehaviour:
   selectLight_yellow: {fileID: 3146623846033650166, guid: f8f172a8926888842b7b001b5333bf78, type: 3}
   selectVFX_purple: {fileID: 3851232936306809905, guid: 92742cfc68b54a84aa9717b09f22dec2, type: 3}
   selectLight_purple: {fileID: 3146623846033650166, guid: 67a38883fb29cc84587bafce4e77d049, type: 3}
+  amp_activated_vfx: {fileID: 0}
+  atk_activated_vfx: {fileID: 0}
+  func_activated_vfx: {fileID: 0}
+  boss_activated_vfx: {fileID: 0}
 --- !u!114 &114750589119298922
 MonoBehaviour:
   m_ObjectHideFlags: 0
