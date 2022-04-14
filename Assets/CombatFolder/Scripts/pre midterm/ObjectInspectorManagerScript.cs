@@ -16,6 +16,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 	public GameObject optionSelection;
 	public GameObject optionBox;
 	public GameObject dialogueBG;
+	public GameObject dialogueArrow;
 	private bool textShowing = false;
 	public GameObject canvasUI;
 	public GameObject canvasDialogue;
@@ -78,13 +79,18 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 		objectDes_ui_eng.gameObject.SetActive(true);
 		objectDes_ui_cht.text = dialogueToShow[index].description_cht;
 		objectDes_ui_eng.text = dialogueToShow[index].description_eng;
-		if(objectDes_ui_cht.text != "")
+		if (objectDes_ui_cht.text != "")
+		{
 			dialogueBG.SetActive(true);
+			if(autoAdvance)
+				dialogueArrow.SetActive(false);
+			else
+				dialogueArrow.SetActive(true);
+			}
 		if (restrictMovement) // if this dialogue prohibit player from moving when reading
 		{
 			PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("readingText", 1);
 			PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("Idle", 0);
-			PlayerScriptNew.me.ResetWalkingBools();
 		}
 		else if (!restrictMovement)
         {
