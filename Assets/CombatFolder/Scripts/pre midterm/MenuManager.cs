@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
@@ -204,7 +205,7 @@ public class MenuManager : MonoBehaviour
     
     public void exitGame()
     {
-        Application.Quit();
+        SceneManager.LoadScene(0);
     }
 
     public void ShowCtrlMap()
