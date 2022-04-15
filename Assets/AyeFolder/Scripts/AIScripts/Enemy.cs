@@ -282,8 +282,11 @@ public class Enemy : MonoBehaviour
     {
         if (target.gameObject.CompareTag("Player"))
         {
-            target.transform.LookAt(dmgDealer.transform.position);
-            target.transform.localEulerAngles = new Vector3(0, target.transform.localEulerAngles.y, 0);
+            if (target.GetComponent<PlayerScriptNew>().hp > 0)
+			{
+                target.transform.LookAt(dmgDealer.transform.position);
+                target.transform.localEulerAngles = new Vector3(0, target.transform.localEulerAngles.y, 0);
+            }
             target.GetComponent<PlayerScriptNew>().LoseHealth_player(dmgAmt);
             //Debug.Log(dmgAmt);
         }

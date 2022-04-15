@@ -98,7 +98,7 @@ public class PlayerScriptNew : MonoBehaviour
 			Death();
 			if (!dead && !SafehouseManager.Me.isSafehouse)
 			{
-				//ShowActivateVFX();
+				ShowActivateVFX();
 				#region Temp UI
 				//if (selectedMats.Contains(matSlots[0]))
 				//{
@@ -610,8 +610,10 @@ public class PlayerScriptNew : MonoBehaviour
 			Rigidbody rb = GetComponent<Rigidbody>();
 			rb.AddForce(-transform.forward * flyAmount_death, ForceMode.Impulse);
 			checkBoolChange = dead;
-			//anim.Play("Death");
-			anim.SetTrigger("died");
+			if (!anim.GetBool("died"))
+			{
+				anim.SetBool("died", true);
+			}
 			StartCoroutine(WaitSecondsAndDie(deathTime));
 		}
 		else if (dead != checkBoolChange && !dead)
