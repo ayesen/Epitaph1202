@@ -27,17 +27,19 @@ public class PlayerScriptNew : MonoBehaviour
 	public TextMeshProUGUI mat2;
 	public TextMeshProUGUI mat3;
 	public TextMeshProUGUI mat4;
-	[Header("Walking Animation")]
+	[Header("Animation Related")]
 	private Vector3 walkingDir;
 	public bool walking;
-	private bool forwarding;
-	private bool backwarding;
-	private bool lefting;
-	private bool righting;
+	public float flyAmount_death;
+	//private bool forwarding;
+	//private bool backwarding;
+	//private bool lefting;
+	//private bool righting;
 	[Header("Joystick Controll")]
 	public float joystickSensitivity;//0~1
 	[Header("VFX")]
 	public Transform hand;
+	// when select
 	public GameObject selectVFX_blue; // blue for amp
 	public GameObject selectLight_blue;
 	public GameObject selectVFX_white; // white for functional
@@ -46,6 +48,11 @@ public class PlayerScriptNew : MonoBehaviour
 	public GameObject selectLight_yellow;
 	public GameObject selectVFX_purple; // purple for boss
 	public GameObject selectLight_purple;
+	// when mat activated
+	public GameObject amp_activated_vfx;
+	public GameObject atk_activated_vfx;
+	public GameObject func_activated_vfx;
+	public GameObject boss_activated_vfx;
 
 	// backswing cancel
 	private GameObject lastMat;
@@ -70,13 +77,11 @@ public class PlayerScriptNew : MonoBehaviour
 
 	private void Update()
 	{
-		print(anim.GetCurrentAnimatorStateInfo(1).shortNameHash);
 		if (!MenuManager.GameIsPaused)
 		{
 			if (Input.GetKeyDown(KeyCode.M))
 			{
 				LoseHealth_player(1000);
-
 			}
 			if (Input.GetKeyDown(KeyCode.K) && SafehouseManager.Me.isCheatOn)
 			{
@@ -93,7 +98,7 @@ public class PlayerScriptNew : MonoBehaviour
 			Death();
 			if (!dead && !SafehouseManager.Me.isSafehouse)
 			{
-
+				ShowActivateVFX();
 				#region Temp UI
 				//if (selectedMats.Contains(matSlots[0]))
 				//{
@@ -129,6 +134,10 @@ public class PlayerScriptNew : MonoBehaviour
 				//}
 				#endregion
 				#region activate and deactivate mats
+				if (selectedMats.Count == 0) // put down hand
+				{
+					anim.SetBool("selected", false);
+				}
 				// activate mats
 				if (!anim.GetCurrentAnimatorStateInfo(1).IsName("testWindup") &&
 					!anim.GetCurrentAnimatorStateInfo(1).IsName("testBackswing") &&
@@ -150,7 +159,7 @@ public class PlayerScriptNew : MonoBehaviour
 								selectedMats.Add(matSlots[0]);
 								// vfx
 								PlaySelectVFX(matSlots[0]);
-								anim.SetTrigger("selected");
+								anim.SetBool("selected", true);
 							}
 						}
 						EffectManagerNew.me.RefreshCurrentMats();
@@ -169,7 +178,7 @@ public class PlayerScriptNew : MonoBehaviour
 								selectedMats.Add(matSlots[1]);
 								// vfx
 								PlaySelectVFX(matSlots[1]);
-								anim.SetTrigger("selected");
+								anim.SetBool("selected", true);
 							}
 						}
 						EffectManagerNew.me.RefreshCurrentMats();
@@ -185,7 +194,7 @@ public class PlayerScriptNew : MonoBehaviour
 						{
 							if (matSlots[2].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
 							{
-								anim.SetTrigger("selected");
+								anim.SetBool("selected", true);
 								// vfx
 								PlaySelectVFX(matSlots[2]);
 								selectedMats.Add(matSlots[2]);
@@ -204,7 +213,7 @@ public class PlayerScriptNew : MonoBehaviour
 						{
 							if (matSlots[3].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
 							{
-								anim.SetTrigger("selected");
+								anim.SetBool("selected", true);
 								// vfx
 								PlaySelectVFX(matSlots[3]);
 								selectedMats.Add(matSlots[3]);
@@ -269,21 +278,32 @@ public class PlayerScriptNew : MonoBehaviour
 				*/
 				#endregion
 				#region movement
-				if (((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) ||
+				if (anim.GetCurrentAnimatorStateInfo(1).IsName("testBackswing") ||
+					anim.GetCurrentAnimatorStateInfo(1).IsName("readingText")) // stop walking animation when attacking
+				{
+					anim.SetFloat("velocity x", 0);
+					anim.SetFloat("velocity z", 0);
+				}
+				if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) ||
 					Mathf.Abs(Input.GetAxis("LeftJoystickHorizontal")) >= joystickSensitivity ||
 					Mathf.Abs(Input.GetAxis("LeftJoystickVertical")) >= joystickSensitivity ||
 					Mathf.Sqrt(Mathf.Pow(Input.GetAxis("LeftJoystickHorizontal"), 2) + Mathf.Pow(Input.GetAxis("LeftJoystickVertical"), 2)) >= joystickSensitivity) &&
 					!anim.GetCurrentAnimatorStateInfo(1).IsName("testWindup") &&
 					!anim.GetCurrentAnimatorStateInfo(1).IsName("testATK") &&
 					!anim.GetCurrentAnimatorStateInfo(1).IsName("testBackswing") &&
-					!anim.GetCurrentAnimatorStateInfo(1).IsName("readingText"))
+					!anim.GetCurrentAnimatorStateInfo(1).IsName("readingText") &&
+					!anim.GetCurrentAnimatorStateInfo(0).IsName("Hitted") &&
+					!anim.GetCurrentAnimatorStateInfo(1).IsName("Hitted"))
 				//anim.GetCurrentAnimatorStateInfo(0).IsName("testIdle")) // if in walk state, walk
 				{
 					walking = true;
 					atkButtonPressed = false;
 				}
 
-				if (walking && !anim.GetCurrentAnimatorStateInfo(1).IsName("readingText"))
+				if (walking && 
+					!anim.GetCurrentAnimatorStateInfo(1).IsName("readingText") &&
+					!anim.GetCurrentAnimatorStateInfo(0).IsName("Hitted") &&
+					!anim.GetCurrentAnimatorStateInfo(1).IsName("Hitted"))
 				{
 					// walking diagonally
 					if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
@@ -338,19 +358,19 @@ public class PlayerScriptNew : MonoBehaviour
 					else
 					{
 						walkingDir = new Vector3(0, 0, 0);
-						forwarding = false;
-						backwarding = false;
-						lefting = false;
-						righting = false;
 						//anim.CrossFade("testIdle", .3f);
-						anim.Play("Idle", 1);
-						anim.Play("Idle", 0);
+						//anim.Play("Idle", 1);
+						//anim.Play("Idle", 0);
 						walking = false;
 					}
+					walkingDir = transform.InverseTransformDirection(walkingDir); // convert walkingDir to local relative to player's direction
+					anim.SetFloat("velocity x", Vector3.Normalize(walkingDir).x); // convert magnitude to 1, since the animation parameter is 0 to 1
+					anim.SetFloat("velocity z", Vector3.Normalize(walkingDir).z); // same
 
 					// decide walk animation
 					if (walkingDir.magnitude > 0)
 					{
+						/*
 						if (Vector3.Angle(walkingDir, transform.forward) < 45) // play walk straight
 						{
 							//anim.Play("testWalk");
@@ -449,7 +469,7 @@ public class PlayerScriptNew : MonoBehaviour
 								}
 							}
 						}
-
+						*/
 					}
 				}
 				Aim_and_LockOn();
@@ -560,18 +580,21 @@ public class PlayerScriptNew : MonoBehaviour
 	public void LoseHealth_player(int amt)
 	{
 		hp -= amt;
+		if (hp > 0)
+		{
+			anim.SetTrigger("hit");
+		}
 		SoundMan.SoundManager.PlayerHitten();
 		if(hp >= 0)
 		{
 			PostProcessingManager.Me.GradualDeath(maxHP, hp);
 			SoundMan.SoundManager.PlayerLowHealthFilter(); //if player lose health, sound will get blurry
 		}
-
-            /*if (hp < 25)
-            {
-                PostProcessingManager.Me.ChangeFilter();
-            }*/
-        }
+		/*if (hp < 25)
+		{
+			PostProcessingManager.Me.ChangeFilter();
+		}*/
+	}
     public void Death()
 	{
 		if (hp <= 0)
@@ -584,8 +607,11 @@ public class PlayerScriptNew : MonoBehaviour
 		}
 		if (dead != checkBoolChange && dead)
 		{
+			Rigidbody rb = GetComponent<Rigidbody>();
+			rb.AddForce(-transform.forward * flyAmount_death, ForceMode.Impulse);
 			checkBoolChange = dead;
-			anim.Play("Death");
+			//anim.Play("Death");
+			anim.SetTrigger("died");
 			StartCoroutine(WaitSecondsAndDie(deathTime));
 		}
 		else if (dead != checkBoolChange && !dead)
@@ -692,11 +718,25 @@ public class PlayerScriptNew : MonoBehaviour
 				break;
 		}
 	}
-	public void ResetWalkingBools()
+	private void ShowActivateVFX()
 	{
-		forwarding = false;
-		backwarding = false;
-		lefting = false;
-		righting = false;
+		foreach (var mat in selectedMats)
+		{
+			amp_activated_vfx.SetActive(mat.GetComponent<MatScriptNew>().myType == MatScriptNew.MatType.amp);
+			amp_activated_vfx.transform.position = hand.transform.position;
+			atk_activated_vfx.SetActive(mat.GetComponent<MatScriptNew>().myType == MatScriptNew.MatType.atk);
+			atk_activated_vfx.transform.position = hand.transform.position;
+			func_activated_vfx.SetActive(mat.GetComponent<MatScriptNew>().myType == MatScriptNew.MatType.functional);
+			func_activated_vfx.transform.position = hand.transform.position;
+			boss_activated_vfx.SetActive(mat.GetComponent<MatScriptNew>().myType == MatScriptNew.MatType.boss);
+			boss_activated_vfx.transform.position = hand.transform.position;
+		}
+		if (selectedMats.Count <= 0)
+		{
+			amp_activated_vfx.SetActive(false);
+			atk_activated_vfx.SetActive(false);
+			func_activated_vfx.SetActive(false);
+			boss_activated_vfx.SetActive(false);
+		}
 	}
 }
