@@ -138,7 +138,7 @@ public class DialogueScript : MonoBehaviour
 		if (other.CompareTag("Player") && areaTrigger)
 		{
 			StartCoroutine(Dialogue()); 
-			Debug.Log("Player in Range");
+			//Debug.Log("Player in Range");
 		}
 	}
 
