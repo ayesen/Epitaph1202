@@ -19,6 +19,13 @@ public class MotherController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GetComponent<Enemy>().health <= 0)
+		{
+			foreach (var bear in kidsHouse)
+			{
+                bear.GetComponent<SmallBear>().health = 0;
+			}
+		}
         /*if (Input.GetKeyDown(KeyCode.R))
         {
             foreach (GameObject kid in kidsHouse)
