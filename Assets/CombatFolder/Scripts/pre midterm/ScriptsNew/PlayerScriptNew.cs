@@ -278,7 +278,8 @@ public class PlayerScriptNew : MonoBehaviour
 				*/
 				#endregion
 				#region movement
-				if (anim.GetCurrentAnimatorStateInfo(1).IsName("testBackswing")) // stop walking animation when attacking
+				if (anim.GetCurrentAnimatorStateInfo(1).IsName("testBackswing") ||
+					anim.GetCurrentAnimatorStateInfo(1).IsName("readingText")) // stop walking animation when attacking
 				{
 					anim.SetFloat("velocity x", 0);
 					anim.SetFloat("velocity z", 0);
@@ -729,6 +730,13 @@ public class PlayerScriptNew : MonoBehaviour
 			func_activated_vfx.transform.position = hand.transform.position;
 			boss_activated_vfx.SetActive(mat.GetComponent<MatScriptNew>().myType == MatScriptNew.MatType.boss);
 			boss_activated_vfx.transform.position = hand.transform.position;
+		}
+		if (selectedMats.Count <= 0)
+		{
+			amp_activated_vfx.SetActive(false);
+			atk_activated_vfx.SetActive(false);
+			func_activated_vfx.SetActive(false);
+			boss_activated_vfx.SetActive(false);
 		}
 	}
 }
