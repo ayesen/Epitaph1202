@@ -24,6 +24,7 @@ public class SafehouseTutorScript : MonoBehaviour
                 GameObject Dialg = Instantiate(Dialg_Yes, transform);
                 Dialg.GetComponent<DialogueScript>().enabled = true;
                 DoorToCtrl.SendMessage("ControllDoor");
+                DoorToCtrl.GetComponent<DoorScript>().open = true;
                 Destroy(this);
             }
             else
