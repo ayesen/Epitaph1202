@@ -28,41 +28,37 @@ public class SavePointManager : MonoBehaviour
 
 	public void ResetPlayer()
 	{
+		// set player position
 		if (last_checkPoint == null)
 		{
-			// set player position
 			_player.transform.position = backUp_checkPoint.position;
-			// reset player stats
-			_ps.hp = _ps.maxHP;
-			_ps.anim.Play("testIdle");
-			// reset player mats
-			_ps.matSlots[0].GetComponent<MatScriptNew>().amount = _ps.matSlots[0].GetComponent<MatScriptNew>().amount_max;
-			_ps.matSlots[1].GetComponent<MatScriptNew>().amount = _ps.matSlots[0].GetComponent<MatScriptNew>().amount_max;
-			_ps.matSlots[2].GetComponent<MatScriptNew>().amount = _ps.matSlots[0].GetComponent<MatScriptNew>().amount_max;
-			_ps.matSlots[3] = null;
-			//reset audios
-			SoundMan.SoundManager.CheckPointRevive();
-		}
-		else if (last_checkPoint.rebornPos != null)
-		{
-			// set player position
-			_player.transform.position = last_checkPoint.rebornPos.position;
-			// reset player stats
-			_ps.hp = _ps.maxHP;
-			_ps.anim.Play("testIdle");
-			// reset player mats
-			_ps.matSlots[0].GetComponent<MatScriptNew>().amount = _ps.matSlots[0].GetComponent<MatScriptNew>().amount_max;
-			_ps.matSlots[1].GetComponent<MatScriptNew>().amount = _ps.matSlots[0].GetComponent<MatScriptNew>().amount_max;
-			_ps.matSlots[2].GetComponent<MatScriptNew>().amount = _ps.matSlots[0].GetComponent<MatScriptNew>().amount_max;
-			_ps.matSlots[3] = null;
-			//reset audios
-			SoundMan.SoundManager.CheckPointRevive();
 		}
 		else
 		{
-			Debug.LogError("Assign reborn position to safe house!");
+			_player.transform.position = last_checkPoint.transform.position;
 		}
-
+		// reset player stats
+		_ps.hp = _ps.maxHP;
+		// reset player mats
+		if (_ps.matSlots[0] != null)
+		{
+			_ps.matSlots[0].GetComponent<MatScriptNew>().amount = _ps.matSlots[0].GetComponent<MatScriptNew>().amount_max;
+		}
+		if (_ps.matSlots[1] != null)
+		{
+			_ps.matSlots[1].GetComponent<MatScriptNew>().amount = _ps.matSlots[0].GetComponent<MatScriptNew>().amount_max;
+		}
+		if (_ps.matSlots[2] != null)
+		{
+			_ps.matSlots[2].GetComponent<MatScriptNew>().amount = _ps.matSlots[0].GetComponent<MatScriptNew>().amount_max;
+		}
+		//_ps.matSlots[3] = null;
+		// reset audios
+		SoundMan.SoundManager.CheckPointRevive();
+		// reset animation
+		_ps.anim.SetBool("died", false);
+		_ps.anim.SetFloat("velocity x", 0);
+		_ps.anim.SetFloat("velocity z", 0);
 	}
 
 	public void ResetBears()
