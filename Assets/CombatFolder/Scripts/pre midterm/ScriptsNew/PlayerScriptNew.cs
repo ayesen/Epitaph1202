@@ -11,7 +11,6 @@ public class PlayerScriptNew : MonoBehaviour
 	public int hp;
 	public float spd;
 	public float rot_spd;
-	private GameObject enemy;
 	public int maxHP;
 	[HideInInspector]
     public Animator anim;
@@ -35,7 +34,7 @@ public class PlayerScriptNew : MonoBehaviour
 	//private bool backwarding;
 	//private bool lefting;
 	//private bool righting;
-	[Header("Joystick Controll")]
+	[Header("Joystick Control")]
 	public float joystickSensitivity;//0~1
 	[Header("VFX")]
 	public Transform hand;
@@ -53,9 +52,11 @@ public class PlayerScriptNew : MonoBehaviour
 	public GameObject atk_activated_vfx;
 	public GameObject func_activated_vfx;
 	public GameObject boss_activated_vfx;
-
-	// backswing cancel
-	private GameObject lastMat;
+	[Header("For Lock On")]
+	public Vector3 targetPos;
+	public GameObject lockedOnto;
+	private bool lockOnPressed = false;
+	private bool rightAnalogePushed = false;
 
 	//Do once after death
 	private bool checkBoolChange;
@@ -71,8 +72,6 @@ public class PlayerScriptNew : MonoBehaviour
     {
 		checkBoolChange = dead;
         anim = playerModel.GetComponent<Animator>();
-		//enemy = GameObject.FindGameObjectWithTag("Enemy");
-		enemy = EffectStorage.me.mainEnemyOfThisLevel;
     }
 
 	private void Update()
@@ -628,36 +627,50 @@ public class PlayerScriptNew : MonoBehaviour
 	}
 	private void Aim_and_LockOn()
 	{
-		// lock on
 		if (!anim.GetCurrentAnimatorStateInfo(1).IsName(("readingText")))
 		{
 			// lock on
 			if ((Input.GetMouseButton(1) || Input.GetAxis("LT") > 0) && LockOnManager.me.bears_canBeLockedOn.Count > 0)
 			{
-				var target = new Vector3(LockOnManager.me.bears_canBeLockedOn[0].transform.position.x, transform.position.y, LockOnManager.me.bears_canBeLockedOn[0].transform.position.z);
-				//print("currently locked onto: " + LockOnManager.me.bears_canBeLockedOn[0].name);
+				if (!lockOnPressed) // if haven't pressed it yet, assign lock on target
+				{
+					lockOnPressed = true;
+					lockedOnto = LockOnManager.me.bears_canBeLockedOn[0];
+				}
 				// change target
-				if (Input.GetAxis("RightJoystickHorizontal") >= joystickSensitivity)
+				if (Input.GetAxis("RightJoystickHorizontal") >= joystickSensitivity && !rightAnalogePushed)
 				{
+					rightAnalogePushed = true;
 					GameObject newTarget = LockOnManager.me.GetClosest_right();
-					target = new Vector3(newTarget.transform.position.x, transform.position.y, newTarget.transform.position.z);
+					lockedOnto = newTarget;
+					//print("right: "+newTarget.gameObject.name);
 				}
-				else if (Input.GetAxis("RightJoystickHorizontal") <= -joystickSensitivity)
+				else if (Input.GetAxis("RightJoystickHorizontal") <= -joystickSensitivity && !rightAnalogePushed)
 				{
+					rightAnalogePushed = true;
 					GameObject newTarget = LockOnManager.me.GetClosest_left();
-					target = new Vector3(newTarget.transform.position.x, transform.position.y, newTarget.transform.position.z);
+					lockedOnto = newTarget;
+					//print("left: "+newTarget.gameObject.name);
 				}
-				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target - transform.position), rot_spd * Time.deltaTime);
+				else if(Input.GetAxis("RightJoystickHorizontal") < joystickSensitivity || Input.GetAxis("RightJoystickHorizontal") > -joystickSensitivity)
+				{
+					rightAnalogePushed = false;
+				}
+				print("currently locked onto: " + lockedOnto);
+				targetPos = new Vector3(lockedOnto.transform.position.x, transform.position.y, lockedOnto.transform.position.z);
+				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(targetPos - transform.position), rot_spd * Time.deltaTime);
 			}
-			// look at mouse pos(not changing y-axis)
-			//! if this doesn't work properly, check game objects' layers, and make sure the mouse manager ignores the proper layers
-			else if (Mathf.Abs(Input.GetAxis("RightJoystickHorizontal")) >= joystickSensitivity ||
-					 Mathf.Abs(Input.GetAxis("RightJoystickVertical")) >= joystickSensitivity ||
-					 Mathf.Sqrt(Mathf.Pow(Input.GetAxis("RightJoystickHorizontal"), 2) + Mathf.Pow(Input.GetAxis("RightJoystickHorizontal"), 2)) >= joystickSensitivity &&
-					 Input.GetAxis("LT") == 0)
+			else if (Input.GetAxis("LT") == 0)
 			{
-				var target = new Vector3(Input.GetAxis("RightJoystickHorizontal"), 0, Input.GetAxis("RightJoystickVertical") * -1);
-				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target), rot_spd * Time.deltaTime);
+				lockOnPressed = false;
+				// aim with analog stick
+				if (Mathf.Abs(Input.GetAxis("RightJoystickHorizontal")) >= joystickSensitivity ||
+					 Mathf.Abs(Input.GetAxis("RightJoystickVertical")) >= joystickSensitivity ||
+					 Mathf.Sqrt(Mathf.Pow(Input.GetAxis("RightJoystickHorizontal"), 2) + Mathf.Pow(Input.GetAxis("RightJoystickHorizontal"), 2)) >= joystickSensitivity)
+				{
+					var target = new Vector3(Input.GetAxis("RightJoystickHorizontal"), 0, Input.GetAxis("RightJoystickVertical") * -1);
+					transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target), rot_spd * Time.deltaTime);
+				}
 			}
 		}
 	}
