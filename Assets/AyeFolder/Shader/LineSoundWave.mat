@@ -44,6 +44,8 @@ Material:
     - Power: 0.1
     - Size: 0.1
     - WaveAmt: 0
+    - WaveSize: 0.7
     - speed: 1
-    m_Colors: []
+    m_Colors:
+    - WaveColor: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
