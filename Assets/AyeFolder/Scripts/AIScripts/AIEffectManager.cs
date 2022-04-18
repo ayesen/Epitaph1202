@@ -10,7 +10,10 @@ public class AIEffectManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        /*if(Input.GetKeyDown(KeyCode.G))
+        {
+            StartCoroutine(StartSoundWave());
+        }*/
     }
 
     public void ResetSoundWave()
@@ -23,7 +26,7 @@ public class AIEffectManager : MonoBehaviour
     public IEnumerator StartSoundWave()
     {
         SoundWaveVFX.SetActive(true);
-        while (time < 0.5)
+        while (time < 0.7)
         {
             time += Time.fixedDeltaTime * 0.2f;
             SoundWaveVFX.GetComponent<MeshRenderer>().material.SetFloat("WaveAmt", time);
