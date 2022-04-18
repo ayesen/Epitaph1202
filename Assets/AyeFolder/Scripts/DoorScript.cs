@@ -28,6 +28,17 @@ public class DoorScript : MonoBehaviour
         }
 	}
 
+	private void Update()
+	{
+		if (PlayerScriptNew.me.hp <= 0)
+		{
+            if (open)
+			{
+                OpenDoor();
+			}
+		}
+	}
+
 	public doorAnim animState;
 
     public void SwitchDoor()
@@ -37,7 +48,6 @@ public class DoorScript : MonoBehaviour
             switch (animState)
             {
                 case DoorScript.doorAnim.openFront:
-                    print("changed anim state");
                     animState = DoorScript.doorAnim.closeFront;
                     break;
                 case DoorScript.doorAnim.openBack:
@@ -157,4 +167,24 @@ public class DoorScript : MonoBehaviour
             ControllDoor();
         }
     }
+
+    public void OpenDoor()
+	{
+        if (!isOpen)
+		{
+			switch (animState)
+			{
+                case DoorScript.doorAnim.closeFront:
+                    animState = DoorScript.doorAnim.openFront;
+                    break;
+                case DoorScript.doorAnim.closeBack:
+                    animState = DoorScript.doorAnim.openBack;
+                    break;
+                default:
+                    animState = DoorScript.doorAnim.openFront;
+                    break;
+            }
+            ControllDoor();
+        }
+	}
 }

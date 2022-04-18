@@ -91,7 +91,6 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 		{
 			PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("readingText", 1);
 			PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("Idle", 0);
-			PlayerScriptNew.me.ResetWalkingBools();
 		}
 		else if (!restrictMovement)
         {

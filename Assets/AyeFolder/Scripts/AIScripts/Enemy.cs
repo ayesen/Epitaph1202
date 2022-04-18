@@ -278,10 +278,15 @@ public class Enemy : MonoBehaviour
         //EnemyCanvas.SetActive(false);
     }
 
-    public void DealDmg(int dmgAmt)
+    public void DealDmg(int dmgAmt, GameObject dmgDealer)
     {
         if (target.gameObject.CompareTag("Player"))
         {
+            if (target.GetComponent<PlayerScriptNew>().hp > 0)
+			{
+                target.transform.LookAt(dmgDealer.transform.position);
+                target.transform.localEulerAngles = new Vector3(0, target.transform.localEulerAngles.y, 0);
+            }
             target.GetComponent<PlayerScriptNew>().LoseHealth_player(dmgAmt);
             //Debug.Log(dmgAmt);
         }
@@ -404,7 +409,7 @@ public class Enemy : MonoBehaviour
             //EffectManager.me.KnockBack(knockbackAmount, gameObject, GameObject.FindGameObjectWithTag("Player"));
             Vector3 dir = Receiver.transform.position - AttackerPos;
             Receiver.GetComponent<Rigidbody>().AddForce(dir.normalized * KnockBackAmt, ForceMode.Impulse);
-            DealDmg(attackamt);
+            DealDmg(attackamt, gameObject);
             if (GetComponent<CollisionDetectorScript>())
 			{
                 GetComponent<CollisionDetectorScript>().InflictEffects(Receiver);
@@ -421,9 +426,9 @@ public class Enemy : MonoBehaviour
         SoundMan.SoundManager.BearRoar();
         if (AIToPlayerDist() <= dmgRange)
         {
-            DealDmg((int)(attackamt / soundWaveDmg_decay) * 5);
-            print("bear roar dmg: "+(int)(attackamt / soundWaveDmg_decay) * 5);
-            StartCoroutine(EnemyDotDmg(5f, 1));
+            DealDmg((int)(attackamt / soundWaveDmg_decay) * 5, gameObject);
+            //print("bear roar dmg: "+(int)(attackamt / soundWaveDmg_decay) * 5);
+            //StartCoroutine(EnemyDotDmg(5f, 1));
         }
     }
 
@@ -482,7 +487,7 @@ public class Enemy : MonoBehaviour
         while (timer > 0)
         {
             timer--;
-            DealDmg(dotDmg);
+            DealDmg(dotDmg, gameObject);
             yield return new WaitForSeconds(dot_interval);
         }
     }
