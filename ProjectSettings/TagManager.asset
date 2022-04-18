@@ -18,6 +18,7 @@ TagManager:
   - EnemyInfoUI
   - PlayerSpawnedBear
   - BossMat
+  - PlayersView
   layers:
   - Default
   - TransparentFX
