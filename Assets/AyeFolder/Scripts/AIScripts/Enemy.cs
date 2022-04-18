@@ -282,8 +282,11 @@ public class Enemy : MonoBehaviour
     {
         if (target.gameObject.CompareTag("Player"))
         {
-            target.transform.LookAt(dmgDealer.transform.position);
-            target.transform.localEulerAngles = new Vector3(0, target.transform.localEulerAngles.y, 0);
+            if (target.GetComponent<PlayerScriptNew>().hp > 0)
+			{
+                target.transform.LookAt(dmgDealer.transform.position);
+                target.transform.localEulerAngles = new Vector3(0, target.transform.localEulerAngles.y, 0);
+            }
             target.GetComponent<PlayerScriptNew>().LoseHealth_player(dmgAmt);
             //Debug.Log(dmgAmt);
         }
@@ -424,8 +427,8 @@ public class Enemy : MonoBehaviour
         if (AIToPlayerDist() <= dmgRange)
         {
             DealDmg((int)(attackamt / soundWaveDmg_decay) * 5, gameObject);
-            print("bear roar dmg: "+(int)(attackamt / soundWaveDmg_decay) * 5);
-            StartCoroutine(EnemyDotDmg(5f, 1));
+            //print("bear roar dmg: "+(int)(attackamt / soundWaveDmg_decay) * 5);
+            //StartCoroutine(EnemyDotDmg(5f, 1));
         }
     }
 

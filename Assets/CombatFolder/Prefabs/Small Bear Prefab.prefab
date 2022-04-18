@@ -393,6 +393,8 @@ MonoBehaviour:
   myMats: []
   eventTarget: {fileID: 0}
   duration_phase2: 0
+  ogTransform: {fileID: 0}
+  myEntrances: []
 --- !u!114 &6992877877134007319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1233,7 +1235,7 @@ PrefabInstance:
     - target: {fileID: 8273916086644658235, guid: 901ac1e6318859240a71f7feafa39485, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 2d7800cd2bb0d8f42be8b09989037fa7, type: 2}
+      objectReference: {fileID: 2100000, guid: 2536bfd1cef289e42b85361e43e9e1c4, type: 2}
     - target: {fileID: 8580710902417682830, guid: 901ac1e6318859240a71f7feafa39485, type: 3}
       propertyPath: m_RootOrder
       value: 0
