@@ -15,12 +15,13 @@ public class StartSequence : MonoBehaviour
     public RectTransform uI;
     public RectTransform video;
     public Image bG;
+    public static bool sequenceIsDone;
 
     bool sequencePlayed;
     private void Start()
     {
         vP = GetComponent<VideoPlayer>();
-
+        sequenceIsDone = false;
     }
 
     private void Update()
@@ -75,6 +76,8 @@ public class StartSequence : MonoBehaviour
         //Video
         curVideoPos.x = -680;
         video.localPosition = curVideoPos;
+
+        sequenceIsDone = true;
     }
     
 }
