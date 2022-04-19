@@ -67,20 +67,25 @@ public class LockOnManager : MonoBehaviour
 				bears_canBeLockedOn.Remove(bear);
 			}
 		}
+
+
 	}
 
 	public GameObject GetClosest_right()
 	{
 		float smallest_angle = float.MaxValue;
-		GameObject closest_right_bear = bears_canBeLockedOn[0];
+		GameObject closest_right_bear = PlayerScriptNew.me.lockedOnto;
 		foreach (var bear in bears_canBeLockedOn)
 		{
-			Vector3 bearDir = bear.transform.position - transform.position;
-			float angle = Vector3.SignedAngle(bearDir, PlayerScriptNew.me.transform.forward, Vector3.up);
-			if (angle < smallest_angle && angle > 0)
+			if (bear.name != PlayerScriptNew.me.lockedOnto.name)
 			{
-				smallest_angle = angle;
-				closest_right_bear = bear;
+				Vector3 bearDir = bear.transform.position - transform.position;
+				float angle = Vector3.SignedAngle(PlayerScriptNew.me.transform.forward, bearDir, Vector3.up);
+				if (angle < smallest_angle && angle > 0)
+				{
+					smallest_angle = angle;
+					closest_right_bear = bear;
+				}
 			}
 		}
 		return closest_right_bear;
@@ -89,15 +94,18 @@ public class LockOnManager : MonoBehaviour
 	public GameObject GetClosest_left()
 	{
 		float smallest_angle = float.MinValue;
-		GameObject closest_left_bear = bears_canBeLockedOn[0];
+		GameObject closest_left_bear = PlayerScriptNew.me.lockedOnto;
 		foreach (var bear in bears_canBeLockedOn)
 		{
-			Vector3 bearDir = bear.transform.position - transform.position;
-			float angle = Vector3.SignedAngle(bearDir, PlayerScriptNew.me.transform.forward, Vector3.up);
-			if (angle > smallest_angle && angle < 0)
+			if (bear.name != PlayerScriptNew.me.lockedOnto.name)
 			{
-				smallest_angle = angle;
-				closest_left_bear = bear;
+				Vector3 bearDir = bear.transform.position - transform.position;
+				float angle = Vector3.SignedAngle(PlayerScriptNew.me.transform.forward, bearDir, Vector3.up);
+				if (angle > smallest_angle && angle < 0)
+				{
+					smallest_angle = angle;
+					closest_left_bear = bear;
+				}
 			}
 		}
 		return closest_left_bear;

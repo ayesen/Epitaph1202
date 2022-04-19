@@ -427,8 +427,8 @@ public class Enemy : MonoBehaviour
         if (AIToPlayerDist() <= dmgRange)
         {
             DealDmg((int)(attackamt / soundWaveDmg_decay) * 5, gameObject);
-            print("bear roar dmg: "+(int)(attackamt / soundWaveDmg_decay) * 5);
-            StartCoroutine(EnemyDotDmg(5f, 1));
+            //print("bear roar dmg: "+(int)(attackamt / soundWaveDmg_decay) * 5);
+            //StartCoroutine(EnemyDotDmg(5f, 1));
         }
     }
 
