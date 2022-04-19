@@ -245,7 +245,8 @@ public class Enemy : MonoBehaviour
     public IEnumerator EndGame()
     {
         yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene(2);
+        GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadLevel(2);
+        //SceneManager.LoadScene(2);
     }
 
     public void ResetEnemy()
