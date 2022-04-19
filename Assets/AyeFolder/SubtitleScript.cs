@@ -126,7 +126,7 @@ public class SubtitleScript : MonoBehaviour
             cg.alpha = Mathf.Lerp(startValue, endValue, elapsedTime / duration);
             yield return null;
         }
-        GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadLevel(2);
+        GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadLevel(0);
         //SceneManager.LoadScene(0);
     }
 
