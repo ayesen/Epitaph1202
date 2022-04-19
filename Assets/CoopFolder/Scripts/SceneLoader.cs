@@ -10,6 +10,7 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadLevel(int sceneIndex)
     {
+        //AudioListener.pause = true;
         StartCoroutine(LoadAsych(sceneIndex));
         //how to use this: GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadLevel( );
         //make sure there is SceneLoader in the level
