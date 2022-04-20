@@ -205,7 +205,8 @@ public class MenuManager : MonoBehaviour
     
     public void exitGame()
     {
-        SceneManager.LoadScene(0);
+        GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadLevel(2);
+        //SceneManager.LoadScene(0);
     }
 
     public void ShowCtrlMap()

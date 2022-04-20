@@ -20,6 +20,7 @@ public class StartManagerScript : MonoBehaviour
     public GameObject mappingHolder;
     public GameObject settingsHolder;
     public GameObject fadeImage;
+    public SceneLoader sceneLoader;
 
     private enum panels
     {
@@ -177,9 +178,11 @@ public class StartManagerScript : MonoBehaviour
         isFading = false;
 
         if (startGame)
-            SceneManager.LoadScene(1);
+            sceneLoader.LoadLevel(1);
+        //SceneManager.LoadScene(1);
         else if (creditScene)
-            SceneManager.LoadScene(2);
+            sceneLoader.LoadLevel(2);
+            //SceneManager.LoadScene(2);
     }
     public void PressedStart()
     {
