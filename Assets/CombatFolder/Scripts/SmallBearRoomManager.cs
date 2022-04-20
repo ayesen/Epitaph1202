@@ -8,6 +8,7 @@ public class SmallBearRoomManager : MonoBehaviour
 	public List<DoorScript> doors_iCtrl;
 	bool cleared = false;
 	public List<DoorScript> entrance_doors;
+	public List<GameObject> dialogueTrigger_iCtrl;
 	
 	public void BearStart()
 	{
@@ -45,6 +46,13 @@ public class SmallBearRoomManager : MonoBehaviour
 						door.ControllDoor();
 					}
 				}
+				if(dialogueTrigger_iCtrl.Count > 0)
+                {
+					foreach(var DT in dialogueTrigger_iCtrl)
+                    {
+						DT.SetActive(true);
+                    }
+                }
 			}
 		}
 	}
