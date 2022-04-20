@@ -205,6 +205,7 @@ public class MenuManager : MonoBehaviour
     
     public void exitGame()
     {
+        //GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadLevel(0);
         SceneManager.LoadScene(0);
     }
 
