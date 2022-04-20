@@ -38,6 +38,7 @@ public class UIManager : MonoBehaviour
     public Image slot0_Fill;
     public Image slot1_Fill;
     public Image slot2_Fill;
+    public float fillAlpha;
 
     [Header("UI_Choosen")]
     public GameObject choLeft;
@@ -110,7 +111,7 @@ public class UIManager : MonoBehaviour
                 if (i == 0)
                 {
                     slot0_Fill.color = ColorStorage.me.ChoColor(i);
-                    slot0_Fill.color = new Color(slot0_Fill.color.r, slot0_Fill.color.g, slot0_Fill.color.b, 0.5f);
+                    slot0_Fill.color = new Color(slot0_Fill.color.r, slot0_Fill.color.g, slot0_Fill.color.b, fillAlpha);
                     slot0_Fill.fillAmount = ((float)PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().CD_max -
                                              (float)PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().CD) /
                                              (float)PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().CD_max;
@@ -118,7 +119,7 @@ public class UIManager : MonoBehaviour
                 else if(i == 1)
                 {
                     slot1_Fill.color = ColorStorage.me.ChoColor(i);
-                    slot1_Fill.color = new Color(slot1_Fill.color.r, slot1_Fill.color.g, slot1_Fill.color.b, 0.5f);
+                    slot1_Fill.color = new Color(slot1_Fill.color.r, slot1_Fill.color.g, slot1_Fill.color.b, fillAlpha);
                     slot1_Fill.fillAmount = ((float)PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().CD_max -
                                              (float)PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().CD) /
                                              (float)PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().CD_max;
@@ -126,7 +127,7 @@ public class UIManager : MonoBehaviour
                 else if(i == 2)
                 {
                     slot2_Fill.color = ColorStorage.me.ChoColor(i);
-                    slot2_Fill.color = new Color(slot2_Fill.color.r, slot2_Fill.color.g, slot2_Fill.color.b, 0.5f);
+                    slot2_Fill.color = new Color(slot2_Fill.color.r, slot2_Fill.color.g, slot2_Fill.color.b, fillAlpha);
                     slot2_Fill.fillAmount = ((float)PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().CD_max -
                                              (float)PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().CD) /
                                              (float)PlayerScriptNew.me.matSlots[i].GetComponent<MatScriptNew>().CD_max;

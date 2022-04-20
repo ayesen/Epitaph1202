@@ -8,6 +8,7 @@ public class LoadEndCredit : MonoBehaviour
 {
     public void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene(2);
+        GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadLevel(2);
+        //SceneManager.LoadScene(2);
     }
 }
