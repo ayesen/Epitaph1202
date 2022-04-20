@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1025,7 +1025,7 @@ VideoPlayer:
   m_RenderMode: 2
   m_AspectRatio: 2
   m_DataSource: 0
-  m_PlaybackSpeed: 1
+  m_PlaybackSpeed: 0.6
   m_AudioOutputMode: 2
   m_TargetAudioSources: []
   m_DirectAudioVolumes: []
@@ -2202,6 +2202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d14c800a9014c9a43b74093e7b63fcac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startSequence: {fileID: 1817316522}
   fadeTime: 2
   mappingHolder: {fileID: 29612956}
   settingsHolder: {fileID: 4574480642178841933}
@@ -2943,6 +2944,18 @@ PrefabInstance:
     - target: {fileID: 6223375718273061027, guid: 5769b61f789f7403884c6b07cba6fa1b, type: 3}
       propertyPath: m_Name
       value: LoadingPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6223375718273061027, guid: 5769b61f789f7403884c6b07cba6fa1b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6223375719446930592, guid: 5769b61f789f7403884c6b07cba6fa1b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6223375719489947912, guid: 5769b61f789f7403884c6b07cba6fa1b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5769b61f789f7403884c6b07cba6fa1b, type: 3}
