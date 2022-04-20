@@ -2944,6 +2944,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: LoadingPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 6223375718273061027, guid: 5769b61f789f7403884c6b07cba6fa1b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6223375719446930592, guid: 5769b61f789f7403884c6b07cba6fa1b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6223375719489947912, guid: 5769b61f789f7403884c6b07cba6fa1b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5769b61f789f7403884c6b07cba6fa1b, type: 3}
 --- !u!1 &6229632367272534412

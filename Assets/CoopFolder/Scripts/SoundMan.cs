@@ -59,6 +59,13 @@ public class SoundMan : MonoBehaviour
         {
             sources[i] = Instantiate(sourcePrefab);
         }
+        
+    }
+
+    private void Start()
+    {
+        AudioListener.pause = false;
+        ChangeToNormalSnapshot();
     }
 
     public void CheckPointRevive()
