@@ -1121,6 +1121,7 @@ MonoBehaviour:
   slot0_Fill: {fileID: 3508773331561068704}
   slot1_Fill: {fileID: 1023814860171805896}
   slot2_Fill: {fileID: 8991219266443718162}
+  fillAlpha: 0.1
   choLeft: {fileID: 5516294625268750435}
   choUp: {fileID: 1236206585088582800}
   choRight: {fileID: 7566625680934172322}

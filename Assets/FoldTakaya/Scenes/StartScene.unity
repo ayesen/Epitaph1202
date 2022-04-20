@@ -2202,6 +2202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d14c800a9014c9a43b74093e7b63fcac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startSequence: {fileID: 1817316522}
   fadeTime: 2
   mappingHolder: {fileID: 29612956}
   settingsHolder: {fileID: 4574480642178841933}
