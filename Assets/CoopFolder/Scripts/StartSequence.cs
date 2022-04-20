@@ -20,6 +20,7 @@ public class StartSequence : MonoBehaviour
     bool sequencePlayed;
     private void Start()
     {
+        Time.timeScale = 1;
         vP = GetComponent<VideoPlayer>();
         sequenceIsDone = false;
     }
