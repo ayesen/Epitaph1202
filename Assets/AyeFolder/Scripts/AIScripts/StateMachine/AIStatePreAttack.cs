@@ -9,7 +9,7 @@ public class AIStatePreAttack : AIStateBase
     {
         //Debug.Log("enter preattack");
 
-        myEnemy.myTrigger.myMR.enabled = true;
+        //myEnemy.myTrigger.myMR.enabled = true;
         if (myEnemy.phase == Enemy.AIPhase.InBattle1)
         {
             myEnemy.AIAnimator.Play("PreAttack1");
@@ -27,7 +27,7 @@ public class AIStatePreAttack : AIStateBase
             if (myEnemy.attackable)
             {
                 preAtkTimer += Time.fixedDeltaTime;//change to after animation is over
-                myEnemy.TempPre(preAtkTimer);
+                //myEnemy.TempPre(preAtkTimer);
 
                 if (preAtkTimer > myEnemy.preAtkSpd)
                 {
