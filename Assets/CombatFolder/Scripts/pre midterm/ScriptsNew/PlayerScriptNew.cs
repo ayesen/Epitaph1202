@@ -76,6 +76,7 @@ public class PlayerScriptNew : MonoBehaviour
 
 	private void Update()
 	{
+		transform.localPosition = new Vector3(transform.localPosition.x, -8.5f, transform.localPosition.z);
 		if (!MenuManager.GameIsPaused)
 		{
 			if (Input.GetKeyDown(KeyCode.M))
@@ -579,7 +580,7 @@ public class PlayerScriptNew : MonoBehaviour
 	public void LoseHealth_player(int amt)
 	{
 		hp -= amt;
-		if (hp > 0)
+		if (hp > 0 && !anim.GetCurrentAnimatorStateInfo(0).IsName("Protected"))
 		{
 			anim.SetTrigger("hit");
 		}
