@@ -492,7 +492,8 @@ public class PlayerScriptNew : MonoBehaviour
 					//anim.GetCurrentAnimatorStateInfo(1).IsName("WalkingLeft") ||
 					//anim.GetCurrentAnimatorStateInfo(1).IsName("WalkingRight") ||  // if player in walk state
 					anim.GetCurrentAnimatorStateInfo(1).IsName("select") || // if player in select mat state
-					anim.GetCurrentAnimatorStateInfo(1).IsName("PostWind"))) 
+					anim.GetCurrentAnimatorStateInfo(1).IsName("PostWind") ||
+					anim.GetCurrentAnimatorStateInfo(1).IsName("Protected"))) 
 				{
 					if ((Input.GetMouseButtonUp(0) || Input.GetAxis("RT") > 0) && !atkButtonPressed) // if left click
 					{
@@ -579,7 +580,7 @@ public class PlayerScriptNew : MonoBehaviour
 	public void LoseHealth_player(int amt)
 	{
 		hp -= amt;
-		if (hp > 0)
+		if (hp > 0 && !anim.GetCurrentAnimatorStateInfo(0).IsName("Protected"))
 		{
 			anim.SetTrigger("hit");
 		}
@@ -663,6 +664,7 @@ public class PlayerScriptNew : MonoBehaviour
 			else if (Input.GetAxis("LT") == 0)
 			{
 				lockOnPressed = false;
+				lockedOnto = null;
 				// aim with analog stick
 				if (Mathf.Abs(Input.GetAxis("RightJoystickHorizontal")) >= joystickSensitivity ||
 					 Mathf.Abs(Input.GetAxis("RightJoystickVertical")) >= joystickSensitivity ||
