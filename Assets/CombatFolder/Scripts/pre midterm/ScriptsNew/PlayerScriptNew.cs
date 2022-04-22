@@ -664,6 +664,7 @@ public class PlayerScriptNew : MonoBehaviour
 			else if (Input.GetAxis("LT") == 0)
 			{
 				lockOnPressed = false;
+				lockedOnto = null;
 				// aim with analog stick
 				if (Mathf.Abs(Input.GetAxis("RightJoystickHorizontal")) >= joystickSensitivity ||
 					 Mathf.Abs(Input.GetAxis("RightJoystickVertical")) >= joystickSensitivity ||
