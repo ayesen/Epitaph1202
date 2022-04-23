@@ -19,7 +19,7 @@ public class AIStateIdle : AIStateBase
     {
         if (myEnemy.phase != Enemy.AIPhase.NotInBattle || myEnemy.phase != SmallBear.AIPhase.NotInBattle) // in battle phase 1 or 2
         {
-            myEnemy.Idleing();
+            //myEnemy.Idleing();
             if (myEnemy.InRange())
             {
                 if (myEnemy.attackable)
