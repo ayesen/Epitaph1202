@@ -24,7 +24,7 @@ public class AIStatePostAttack : AIStateBase
             if (myEnemy.attackable)
             {
                 postAtkTimer += Time.fixedDeltaTime;//change to after animation is over
-                myEnemy.TempPost(postAtkTimer);
+                //myEnemy.TempPost(postAtkTimer);
 
                 if (postAtkTimer > myEnemy.postAtkSpd)
                 {
