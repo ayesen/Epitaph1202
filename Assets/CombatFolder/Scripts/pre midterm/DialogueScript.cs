@@ -31,6 +31,10 @@ public class DialogueScript : MonoBehaviour
 	GameObject soundMan;
 	public GameObject itemToLookAt; // for look at things automatically after triggering dialogue
 
+	[Header("Repeat Timer")]
+	public float repeat_interval;
+	private float repeat_timer;
+
 	[Header("Custimizable End Action")]
 	public GameObject actor;
 	public string funcToCall;
@@ -58,78 +62,96 @@ public class DialogueScript : MonoBehaviour
 
 	private void Update()
 	{
+		// repeat timer (if the dialogue can be repeated)
+		if (repeat_timer > 0)
+        {
+			repeat_timer -= Time.deltaTime;
+        }
+
 		if (!inspected)
 		{
 			if (player != null && Vector3.Distance(player.transform.position, transform.position) < triggerRange &&
-            		    (!inspected))
+            		    !inspected)
+            {
+            	if (!autoTrigger) // highlight item, show text after pressing E
+            	{
+            		//mr.material = highLightMat;
+            		if ((Input.GetKeyUp(KeyCode.E) || Input.GetAxis("HorizontalArrow") > 0) &&
+            			(player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(1).IsName("Idle") ||
+            				player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Walking") ||
+            				player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("WalkingRight") ||
+            				player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("WalkingLeft") ||
+            				player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("BackWalking")) &&
+							!MenuManager.GameIsPaused &&
+							repeat_timer <= 0)
             		{
-            			if (!autoTrigger) // highlight item, show text after pressing E
-            			{
-            				//mr.material = highLightMat;
-            				if ((Input.GetKeyUp(KeyCode.E) || Input.GetAxis("HorizontalArrow") > 0) &&
-            					(player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(1).IsName("Idle") ||
-            					 player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Walking") ||
-            					 player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0)
-            						 .IsName("WalkingRight") ||
-            					 player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0)
-            						 .IsName("WalkingLeft") ||
-            					 player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0)
-            						 .IsName("BackWalking")) &&
-									 !MenuManager.GameIsPaused)
-            				{
-            					 if (!musicFunction.Equals(""))
-                                {
-            						bgmManager.SendMessage(musicFunction);
-                                }
+            			if (!musicFunction.Equals(""))
+                        {
+            				bgmManager.SendMessage(musicFunction);
+                        }
             					
-            					if (displayDelayed <= 0f)
-            					{
-            						SoundMan.SoundManager.ItemInspection();
-									if(!canRepeat)
-            							inspected = true;
-            						ObjectInspectorManagerScript.me.ShowText(this);
-            						foreach (GameObject interactable in interactiveSwitch)
-            						{
-            							interactable.SetActive(true);
-            						}
+            			if (displayDelayed <= 0f)
+            			{
+            				SoundMan.SoundManager.ItemInspection();
+							if (!canRepeat)
+							{
+								inspected = true;
+							}
+                            else
+                            {
+								repeat_timer = repeat_interval;
+							}
+            							
+            				ObjectInspectorManagerScript.me.ShowText(this);
+            				foreach (GameObject interactable in interactiveSwitch)
+            				{
+            					interactable.SetActive(true);
+            				}
             
-            						//if (LogManager.LOGManager != null)
-            						//{
-            						//	LogManager.LOGManager.CoverSetActive(logX, logY);
-            						//}
-            					}
+            				//if (LogManager.LOGManager != null)
+            				//{
+            				//	LogManager.LOGManager.CoverSetActive(logX, logY);
+            				//}
+            			}
 						if (!soundManFunction.Equals(""))
 						{
 							soundMan.SendMessage(soundManFunction);
 						}
 					}
-            			}
-            			else // auto show text
-            			{
-            				if (displayDelayed <= 0f && !inspected)
-            				{
-								if(!canRepeat)
-            						inspected = true;
-            					ObjectInspectorManagerScript.me.ShowText(this);
-            					foreach (GameObject interactable in interactiveSwitch)
-            					{
-            						interactable.SetActive(true);
-            					}
-            
-            					//if (LogManager.LOGManager != null)
-            					//{
-            					//	LogManager.LOGManager.CoverSetActive(logX, logY);
-            					//}
-            				}
-            			}
-            		}
-            		else
+            	}
+            	else // auto show text
+            	{
+            		if (displayDelayed <= 0f && !inspected)
             		{
-            			if (mr != null)
+                        if (!canRepeat)
+                        {
+							inspected = true;
+						}
+						else
+						{
+							repeat_timer = repeat_interval;
+						}
+						
+            			ObjectInspectorManagerScript.me.ShowText(this);
+            			foreach (GameObject interactable in interactiveSwitch)
             			{
-            				//mr.material = defaultMat;
+            				interactable.SetActive(true);
             			}
+            
+            			//if (LogManager.LOGManager != null)
+            			//{
+            			//	LogManager.LOGManager.CoverSetActive(logX, logY);
+            			//}
             		}
+            	}
+            }
+            else
+            {
+            	if (mr != null)
+            	{
+            		//mr.material = defaultMat;
+            	}
+            }
 		}
 	}
 
@@ -145,8 +167,14 @@ public class DialogueScript : MonoBehaviour
 	IEnumerator Dialogue()
 	{
 		yield return new WaitForSeconds (displayDelayed);
-		if(!canRepeat)
+        if (!canRepeat)
+        {
 			inspected = true;
+		}
+		else
+		{
+			repeat_timer = repeat_interval;
+		}
 		ObjectInspectorManagerScript.me.ShowText(this);
 		foreach (GameObject interactable in interactiveSwitch)
 		{

@@ -681,7 +681,6 @@ public class PlayerScriptNew : MonoBehaviour
 		var target = new Vector3(item.transform.position.x, transform.position.y, item.transform.position.z);
 		while (true)
 		{
-			print(target);
 			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target - transform.position), rot_spd * Time.deltaTime);
 			yield return null;
 		}
