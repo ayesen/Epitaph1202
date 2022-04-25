@@ -409,6 +409,7 @@ MonoBehaviour:
   doorOpen: {fileID: 8300000, guid: 31f7de5a7c8f842c0ba3eb09f099eeda, type: 3}
   doorLocked: {fileID: 8300000, guid: 5c1d253f36bbc453daf8871af9774386, type: 3}
   knifeDropped: {fileID: 8300000, guid: 71be3cbb5d0894295b1dd0c7fc14266f, type: 3}
+  bossRoomTrigger: {fileID: 8300000, guid: fc355e0e038f0406ea571c50bdee0e29, type: 3}
   battleVOPhaseOne:
   - {fileID: 8300000, guid: 366be40fb05a00c41a0462d710b14f69, type: 3}
   - {fileID: 8300000, guid: da97baea31d95a444a529a5fcf102ca1, type: 3}
