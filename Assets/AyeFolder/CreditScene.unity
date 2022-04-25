@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -475,12 +475,13 @@ MonoBehaviour:
   SubtitleEnglish: {fileID: 2025301040}
   Credit: {fileID: 1079359258}
   SubtitleReadTime: 2
-  LineOne: "\u5973\u5152\u7684\u9748\u9B42\u5DF2\u88AB\u8D85\u5EA6,\u91CD\u5165\u8F2A\u56DE\u4E4B\u4E2D\u3002\u9867\u751F\u4E5F\u6703\u5728\u5730\u5E9C\u4E2D\u70BA\u4ED6\u7684\u6240\u4F5C\u7684\u9670\u640D\u4E4B\u4E8B\u4ED8\u51FA\u4EE3\u50F9\u3002 "
-  LineOneEnglish: The daughter's soul has been reincarnated. Gu will also pay for
-    what he had done in hell.
-  LineTwo: "\u53EF\u662F\u90A3\u9001\u51FA\u9019\u672C\u8CA1\u9053\u8A8C\u7684\u6240\u8B02\u9AD8\u4EBA\u9084\u5728\u5916\u3002\u53EA\u8981\u4ED6\u6D3B\u8457\u4E00\u5929,\u9084\u6703\u6709\u66F4\u591A\u4EBA\u53D7\u5176\u6240\u5BB3\u3002\u6211\u5011\u4E00\u5B9A\u8981\u6293\u4F4F\u4ED6\u3002 "
-  LineTwoEnglish: Yet, the "Master" is still out there. As long as he's free out
-    there, more innocent people will be harmed. We must capture him.
+  LineOne: "\u5118\u7BA1\u602A\u718A\u6848\u5DF2\u7D93\u7D50\u675F\uFF0C\u4F46\u8001\u4E5D\u548C\u5C0F\u5F35\u5FC3\u4E2D\u537B\u9010\u6F38\u6D6E\u73FE\u58F9\u80A1\u4E0D\u5B89\u7684\u60C5\u7DD2\u3002"
+  LineOneEnglish: Although the bear case came to an end, a sense of insecurity surrounds
+    Jiu and Zhang.
+  LineTwo: "\u5169\u4F4D\u8B66\u5B98\u77E5\u9053\uFF0C\u4E8B\u60C5\u6C92\u9019\u9EBC\u7C21\u55AE\u3002\u800C\u8207\u6B64\u540C\u6642\uFF0C\u58F9\u5F35\u7121\u5F62\u7684\u9ED1\u8272\u5927\u7DB2\u6B63\u9019\u5EA7\u57CE\u5E02\u7684\u9ED1\u6697\u89D2\u843D\u9010\u6F38\u92EA\u958B\u3002"
+  LineTwoEnglish: The two officers knew that something big is going to happen. Those
+    hidden tentacles, slowly spreading, are sneaking out from the darkest corners
+    of this city.
   LineThree: "\u6B32\u77E5\u5F8C\u4E8B\u5982\u4F55\uFF0C\u8ACB\u807D\u4E0B\u56DE\u3002"
   LineThreeEnglish: To be continued.
   BackGround: {fileID: 521105870}
@@ -840,8 +841,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u4F60\u597D"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 518272b4347582c4daeede6451e1fd02, type: 2}
-  m_sharedMaterial: {fileID: 6945845047499274316, guid: 518272b4347582c4daeede6451e1fd02, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: db9b9bde17c85ab4f8ae27169eddfdc6, type: 2}
+  m_sharedMaterial: {fileID: -3952600663164309751, guid: db9b9bde17c85ab4f8ae27169eddfdc6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1103,23 +1104,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Credit:\nPresented By            Meteorlogist\n\n\nProducer                   
-    Cooper Yang\n\nGame Designer         Alex Guo\n                                   
-    Cooper Yang\n                                    Hank Feng\n                                   
-    James Yuan\n                                    Ivory Xu\n\t          Lingyan
-    Jiang\n                                    Yuhao Harry Gao\n\nNarrative Designer 
-    Yuhao Harry Gao\n\nProgrammer\t          Alex Guo\n\t          Ivory Xu\n                                  
-    James Yuan\n      \n2D Artist                     Hank Feng\n\n3D Artist                     
-    Ivory Xu\n                                    Lingyan Jiang\n\nAudio Designer         
-    Cooper Yang\n\t          Xinyue Zhang\n\nCats Dogs and Birds   Chester   \n                                    
-    Ellie\n                                     Evan\n                                    
-    Gecko\n                                     Gloria\n                                    
-    Guagua\n                                     Hamigua\n                                    
-    Mihoutao\n                                     Pipi\n                                    
-    Swire\n                                     Ziggy"
+  m_text: "Credit:\nPresented By                  Meteorologist\n\n\nProducer                          
+    Cooper Yang\n\nGame Designer               Alex Guo\n                                                
+    Cooper Yang\n                                                 Hank Feng\n                                                
+    James Yuan\n                                                 Ivory Xu\n\t                                  
+    Lingyan Jiang\n                                                 Yuhao Harry Gao\n\nNarrative
+    Designer  Yuhao Harry Gao\n\nLevel Designer             Yuhao Harry Gao\n\nProgrammer\t                    
+    Alex Guo\n\t                                   Ivory Xu\n                                                
+    James Yuan\n      \n2D Artist                           Hank Feng\n\n3D Artist                          
+    Ivory Xu\n                                                 Lingyan Jiang\n                                                
+    Xu Chen\n\nAudio Designer            Cooper Yang\n\t                                 
+    Xinyue Zhang\n\nSpecial Thanks            Chuyan Zeng"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3d90849ace5d1cd44b82baf629b112cc, type: 2}
-  m_sharedMaterial: {fileID: -1251981546105796507, guid: 3d90849ace5d1cd44b82baf629b112cc, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9f86fae4e6c095d4aac2e0167dec9437, type: 2}
+  m_sharedMaterial: {fileID: -946341822916620289, guid: 9f86fae4e6c095d4aac2e0167dec9437, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1509,8 +1507,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: This is subtitle
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9f86fae4e6c095d4aac2e0167dec9437, type: 2}
+  m_sharedMaterial: {fileID: -946341822916620289, guid: 9f86fae4e6c095d4aac2e0167dec9437, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
