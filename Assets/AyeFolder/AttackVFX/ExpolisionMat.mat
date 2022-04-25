@@ -36,15 +36,15 @@ Material:
     - InNoiseScale: 5
     - InOffset: 0
     - OutNoiseScale: 20
-    - OutOffset: 0
+    - OutOffset: 1.33
     - RimThickness: 0.05
     - circleScale: 0
     - noiseScale: 1
     - speed: 1
     m_Colors:
     - Color2: {r: 0.99056596, g: 0.7982736, b: 0.49061048, a: 0}
-    - InColor: {r: 1, g: 0.30283496, b: 0, a: 0}
-    - OutColor: {r: 1, g: 0.7465991, b: 0.17647058, a: 0}
+    - InColor: {r: 1, g: 0.4168397, b: 0.1745283, a: 0}
+    - OutColor: {r: 1, g: 0.7087828, b: 0, a: 0}
     - OutColor_1: {r: 0.99056596, g: 0.7982736, b: 0.49061048, a: 0}
     - _Color: {r: 0.8117647, g: 0.43184045, b: 0.07450982, a: 0}
   m_BuildTextureStacks: []
