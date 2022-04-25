@@ -257,6 +257,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 						blurMask.SetActive(false);
 						if (doer != null)
 						{
+							print("called");
 							doer.SendMessage(funcToCall);
 						}
 						if (burnAfterReading)
