@@ -34,6 +34,7 @@ public class SoundMan : MonoBehaviour
     public AudioClip doorOpen;
     public AudioClip doorLocked;
     public AudioClip knifeDropped;
+    public AudioClip bossRoomTrigger;
     [Header("BattleVO")]
     public AudioClip[] battleVOPhaseOne;
     public AudioClip[] battleVOPhaseTwo;
@@ -136,6 +137,15 @@ public class SoundMan : MonoBehaviour
         PitchRandomization(source);
         FindSFXGroup(source);
         source.clip = doorOpen;
+        source.Play();
+    }
+
+    public void BossRoomTrigger()
+    {
+        AudioSource source = GetSource();
+        PitchRandomization(source);
+        FindSFXGroup(source);
+        source.clip = bossRoomTrigger;
         source.Play();
     }
 
