@@ -18,5 +18,9 @@ public class LookTowardsScript : MonoBehaviour
         {
             StartCoroutine(ps.LookTowardsItem(lookTarget));
         }
+        else
+        {
+            Debug.LogError("look target null!");
+        }
     }
 }
