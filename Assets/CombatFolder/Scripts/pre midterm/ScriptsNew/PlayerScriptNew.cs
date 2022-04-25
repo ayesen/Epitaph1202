@@ -657,7 +657,6 @@ public class PlayerScriptNew : MonoBehaviour
 				{
 					rightAnalogePushed = false;
 				}
-				print("currently locked onto: " + lockedOnto);
 				targetPos = new Vector3(lockedOnto.transform.position.x, transform.position.y, lockedOnto.transform.position.z);
 				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(targetPos - transform.position), rot_spd * Time.deltaTime);
 			}
