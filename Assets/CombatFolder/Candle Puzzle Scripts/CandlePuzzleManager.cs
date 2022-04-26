@@ -34,6 +34,7 @@ public class CandlePuzzleManager : MonoBehaviour
 					if (!door.isOpen)
 					{
 						door.ControllDoor();
+						SoundMan.SoundManager.BossRoomTrigger();
 					}
 				}
 			}
