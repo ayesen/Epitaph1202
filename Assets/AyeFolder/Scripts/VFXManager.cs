@@ -6,7 +6,7 @@ public class VFXManager : MonoBehaviour
 {
     public GameObject ExplosionObj;
     public float speed = 2f;
-    private Material ExplosionMat;
+    public Material ExplosionMat;
     public float CircleSizeTimer;
     public float InOffsetTimer;
     public float OutOffsetTimer;
@@ -15,6 +15,7 @@ public class VFXManager : MonoBehaviour
     private void Start()
     {
         ExplosionMat = ExplosionObj.GetComponent<MeshRenderer>().material;
+        StartCoroutine(StartExplosion());
     }
 
     void Update()
