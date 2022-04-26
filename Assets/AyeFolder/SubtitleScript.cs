@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class SubtitleScript : MonoBehaviour
 {
@@ -20,13 +21,31 @@ public class SubtitleScript : MonoBehaviour
     private Vector3 OriginalPos;
     public SpriteRenderer BackGround;
     public CanvasGroup Black;
+    public GameObject videoHolder;
+    public VideoPlayer videoPlayer;
+    public GameObject upperStripe;
+    public GameObject lowerStripe;
+    bool videoCouldFinish;
+
 
     void Start()
     {
         StartCoroutine(FadeIn(5));
         StartCoroutine(HideBG(Black, 0f, 12f));
     }
-    
+
+    private void Update()
+    {
+        if (Input.GetButtonUp("AButton"))
+        {
+            GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadLevel(0);
+        }
+        if(videoCouldFinish && !videoPlayer.isPlaying)
+        {
+            GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadLevel(0);
+        }
+    }
+
     public IEnumerator FadeIn(float time)
     {
         yield return new WaitForSeconds(2);
@@ -93,7 +112,8 @@ public class SubtitleScript : MonoBehaviour
             BackGround.color = Color.Lerp(Color.clear, Color.white, Timer);
             yield return null;
         }
-        StartCoroutine(RolingUp(Black, 1f, 20f));
+        StartCoroutine(PlayDaVideo());
+        //StartCoroutine(RolingUp(Black, 1f, 20f));
     }
 
     public IEnumerator HideBG(CanvasGroup cg, float endValue, float duration)
@@ -106,6 +126,34 @@ public class SubtitleScript : MonoBehaviour
             cg.alpha = Mathf.Lerp(startValue, endValue, elapsedTime / duration);
             yield return null;
         }
+    }
+
+    public IEnumerator PlayDaVideo()
+    {
+        float elapsedTime = 0;
+        float startValue = Black.alpha;
+        while (elapsedTime < 1.5f)
+        {
+            elapsedTime += Time.deltaTime;
+            Black.alpha = Mathf.Lerp(startValue, 1f, elapsedTime / 1.5f);
+            yield return null;
+        }
+
+        upperStripe.SetActive(false);
+        lowerStripe.SetActive(false);
+        videoHolder.SetActive(true);
+        videoPlayer.Play();
+
+        elapsedTime = 0;
+        startValue = Black.alpha;
+        while (elapsedTime < 3f)
+        {
+            elapsedTime += Time.deltaTime;
+            Black.alpha = Mathf.Lerp(startValue, 0f, elapsedTime / 3f);
+            yield return null;
+        }
+        videoCouldFinish = true;
+
     }
 
     public IEnumerator RolingUp(CanvasGroup cg, float endValue, float duration)
