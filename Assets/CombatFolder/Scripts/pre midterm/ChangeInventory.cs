@@ -189,7 +189,6 @@ public class ChangeInventory : MonoBehaviour
         PlayerScriptNew.me.matSlots[choosenMat] = temp;
         if (PlayerScriptNew.me.matSlots[targetMat] == null)
         {
-            Debug.Log("choosenMat null");
             PlayerScriptNew.me.matSlots.RemoveAt(targetMat);
         }
         PlayerScriptNew.me.MatSlotUpdate();
