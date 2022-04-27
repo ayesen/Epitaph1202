@@ -23,18 +23,18 @@ public class VFXManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.J))
         {
             StartCoroutine(StartExplosion());
-
         }
     }
 
     public IEnumerator StartExplosion()
     {
+        print("started coroutine: start explosion");
         float time = 0f;
-        ExplosionObj.SetActive(true);
+        //ExplosionObj.SetActive(true);
         while (CircleSizeTimer > -0.8)
         {
             time += Time.fixedDeltaTime;
-            Debug.Log("j");
+            Debug.Log("start explosion");
             //CircleSizeTimer -= Time.fixedDeltaTime * speed;
             //InOffsetTimer += Time.fixedDeltaTime * 0.5f;
             //OutOffsetTimer -= Time.fixedDeltaTime * 0.5f;
@@ -54,7 +54,7 @@ public class VFXManager : MonoBehaviour
     {
         while (CircleSizeTimer < 0)
         {
-            Debug.Log("j");
+            Debug.Log("close explosion");
             //CircleSizeTimer += Time.fixedDeltaTime * 0.5f;
             //InOffsetTimer -= Time.fixedDeltaTime * 0.5f;
             //OutOffsetTimer += Time.fixedDeltaTime * 0.5f;
@@ -67,8 +67,6 @@ public class VFXManager : MonoBehaviour
 
             yield return null;
         }
-        ExplosionObj.SetActive(false);
+        gameObject.SetActive(false);
     }
-
-
 }
