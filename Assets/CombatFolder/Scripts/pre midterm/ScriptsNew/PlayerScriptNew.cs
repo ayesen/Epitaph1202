@@ -338,7 +338,6 @@ public class PlayerScriptNew : MonoBehaviour
 							!anim.GetCurrentAnimatorStateInfo(1).IsName("PostWind") &&
 							!anim.GetBool("selected"))
                         {
-							print("play walking");
 							anim.Play("Walking", 1);
                         }
 					}
