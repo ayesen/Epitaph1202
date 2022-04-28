@@ -36,7 +36,7 @@ public class BGMMan : MonoBehaviour
         if (!lordGuanPlayed)
         {
             lordGuanPlayed = true;
-            BGMAudioSource.loop = false;
+            BGMAudioSource.loop = true;
             StartCoroutine(FadeTrack(lordGuan));
         }
 
