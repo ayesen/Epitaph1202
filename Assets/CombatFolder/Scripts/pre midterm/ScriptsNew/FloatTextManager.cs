@@ -64,6 +64,7 @@ public class FloatTextManager : MonoBehaviour
                         FT.GetComponent<TextMesh>().color = highDmgColor;
                         FT.GetComponent<TextMesh>().fontSize = FT.GetComponent<TextMesh>().fontSize + highDmg_fontSize;
                     }
+                    FT.GetComponent<TextMesh>().fontSize = (int)(FT.GetComponent<TextMesh>().fontSize / target.transform.lossyScale.x);
                     FT.transform.localPosition += damage_Offset + intensity;
 
                 }
@@ -73,8 +74,6 @@ public class FloatTextManager : MonoBehaviour
                 FT.GetComponent<TextMesh>().color = damageColor;
                 FT.transform.localPosition += damage_Offset + intensity;
             }
-            FT.GetComponent<TextMesh>().color = damageColor;
-            FT.transform.localPosition += damage_Offset + intensity;
         }
         else if(type == TypeOfText.CD)
         {
