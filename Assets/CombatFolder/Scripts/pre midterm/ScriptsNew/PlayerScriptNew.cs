@@ -564,11 +564,13 @@ public class PlayerScriptNew : MonoBehaviour
 		var target = new Vector3(item.transform.position.x, transform.position.y, item.transform.position.z);
 		var dir = item.transform.position - transform.position;
 		bool looked = false;
+		print(Vector3.Angle(transform.forward, dir));
         while (Vector3.Angle(transform.forward, dir) > 5 && !looked)
         {
 			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target - transform.position), rot_spd * Time.deltaTime);
 			if (Vector3.Angle(transform.forward, dir) <= 6)
             {
+				print("don't look");
 				looked = true;
 			}
 			yield return null;

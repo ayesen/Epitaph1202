@@ -264,7 +264,6 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 						{
 							//dT.gameObject.SetActive(false);
 							dT.enabled = false;
-							
 						}
 						//print("stop coroutines");
 						StopAllCoroutines();
