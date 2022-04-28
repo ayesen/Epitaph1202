@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ExplosionObj: {fileID: 4955582257400944598}
-  speed: 2
+  speed: 10
   ExplosionMat: {fileID: 0}
   CircleSizeTimer: 0
   InOffsetTimer: 0
