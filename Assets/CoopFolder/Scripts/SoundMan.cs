@@ -34,6 +34,9 @@ public class SoundMan : MonoBehaviour
     public AudioClip doorOpen;
     public AudioClip doorLocked;
     public AudioClip knifeDropped;
+    public AudioClip bossRoomTrigger;
+    public AudioClip lordGuanBearTrigger;
+    public AudioClip lordGuanReturnKnife;
     [Header("BattleVO")]
     public AudioClip[] battleVOPhaseOne;
     public AudioClip[] battleVOPhaseTwo;
@@ -130,12 +133,37 @@ public class SoundMan : MonoBehaviour
         source.Play();
     }
 
+    public void LordGuanTrigger()
+    {
+        AudioSource source = GetSource();
+        FindSFXGroup(source);
+        source.clip = lordGuanBearTrigger;
+        source.Play();
+    }
+
+    public void LordGuanReturnKnife()
+    {
+        AudioSource source = GetSource();
+        FindSFXGroup(source);
+        source.clip = lordGuanReturnKnife;
+        source.Play();
+    }
+
     public void DoorOpen()
     {
         AudioSource source = GetSource();
         PitchRandomization(source);
         FindSFXGroup(source);
         source.clip = doorOpen;
+        source.Play();
+    }
+
+    public void BossRoomTrigger()
+    {
+        AudioSource source = GetSource();
+        PitchRandomization(source);
+        FindSFXGroup(source);
+        source.clip = bossRoomTrigger;
         source.Play();
     }
 

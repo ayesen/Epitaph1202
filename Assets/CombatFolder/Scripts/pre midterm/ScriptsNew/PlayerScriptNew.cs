@@ -98,40 +98,6 @@ public class PlayerScriptNew : MonoBehaviour
 			if (!dead && !SafehouseManager.Me.isSafehouse)
 			{
 				ShowActivateVFX();
-				#region Temp UI
-				//if (selectedMats.Contains(matSlots[0]))
-				//{
-				//	mat1.text = matSlots[0].name + ": " + matSlots[0].GetComponent<MatScriptNew>().amount;
-				//}
-				//else
-				//{
-				//	mat1.text = "mat 1 not selected";
-				//}
-				//if (selectedMats.Contains(matSlots[1]))
-				//{
-				//	mat2.text = matSlots[1].name + ": " + matSlots[1].GetComponent<MatScriptNew>().amount;
-				//}
-				//else
-				//{
-				//	mat2.text = "mat 2 not selected";
-				//}
-				//if (selectedMats.Contains(matSlots[2]))
-				//{
-				//	mat3.text = matSlots[2].name + ": " + matSlots[2].GetComponent<MatScriptNew>().amount;
-				//}
-				//else
-				//{
-				//	mat3.text = "mat 3 not selected";
-				//}
-				//if (selectedMats.Contains(matSlots[3]))
-				//{
-				//	mat4.text = matSlots[3].name + ": " + matSlots[3].GetComponent<MatScriptNew>().amount;
-				//}
-				//else
-				//{
-				//	mat4.text = "mat 4 not selected";
-				//}
-				#endregion
 				#region activate and deactivate mats
 				if (selectedMats.Count == 0) // put down hand
 				{
@@ -358,117 +324,22 @@ public class PlayerScriptNew : MonoBehaviour
 					{
 						walkingDir = new Vector3(0, 0, 0);
 						//anim.CrossFade("testIdle", .3f);
-						//anim.Play("Idle", 1);
+						anim.Play("Idle", 1);
 						//anim.Play("Idle", 0);
 						walking = false;
 					}
 					walkingDir = transform.InverseTransformDirection(walkingDir); // convert walkingDir to local relative to player's direction
 					anim.SetFloat("velocity x", Vector3.Normalize(walkingDir).x); // convert magnitude to 1, since the animation parameter is 0 to 1
 					anim.SetFloat("velocity z", Vector3.Normalize(walkingDir).z); // same
-
 					// decide walk animation
 					if (walkingDir.magnitude > 0)
 					{
-						/*
-						if (Vector3.Angle(walkingDir, transform.forward) < 45) // play walk straight
-						{
-							//anim.Play("testWalk");
-							if (!forwarding)
-							{
-								//anim.CrossFade("testWalk", .3f);
-								//anim.Play("testWalk");
-								anim.Play("Walking", 0);
-								anim.Play("Idle", 1);
-								//anim.Play("Walking", 0);
-								forwarding = true;
-								backwarding = false;
-								lefting = false;
-								righting = false;
-							}
-						}
-						else if (Vector3.Angle(walkingDir, transform.forward) > 135) // play walk back
-						{
-							if (!backwarding)
-							{
-								//anim.CrossFade("Player_Walking_Backwards", .3f);
-								anim.Play("BackWalking", 0);
-								anim.Play("Idle", 1);
-								//anim.Play("Walking", 0);
-								//anim.Play("BackWalking", 0);
-								forwarding = false;
-								backwarding = true;
-								lefting = false;
-								righting = false;
-							}
-						}
-						else if (Vector3.Angle(walkingDir, transform.forward) > 45 && Vector3.Angle(walkingDir, transform.forward) < 135)
-						{
-							Vector3 cross = Vector3.Cross(transform.forward, walkingDir);
-							if (cross.y > 0)
-							{
-								if (!righting) // play walk right
-								{
-									//anim.CrossFade("Player_Walking_Right", .3f);
-									anim.Play("WalkingRight", 0);
-									anim.Play("Idle", 1);
-									//anim.Play("Walking", 0);
-									//anim.Play("WalkingRight", 0);
-									forwarding = false;
-									backwarding = false;
-									lefting = false;
-									righting = true;
-								}
-							}
-							else if (cross.y < 0)
-							{
-								if (!lefting) // play walk left
-								{
-									//anim.CrossFade("Player_Walking_Left", .3f);
-									anim.Play("WalkingLeft", 0);
-									anim.Play("Idle", 1);
-									//anim.Play("Walking", 0);
-									//anim.Play("WalkingLeft", 0);
-									forwarding = false;
-									backwarding = false;
-									lefting = true;
-									righting = false;
-								}
-							}
-							else if (transform.forward.z > 0 || transform.forward.x > 0)
-							{
-								if (walkingDir.x > 0 || walkingDir.z < 0)
-								{
-									if (!righting)// play walk right
-									{
-										//anim.CrossFade("WalkingRight", .3f);
-										anim.Play("WalkingRight", 0);
-										anim.Play("Idle", 1);
-										//anim.Play("Walking", 0);
-										//anim.Play("WalkingRight", 0);
-										forwarding = false;
-										backwarding = false;
-										lefting = false;
-										righting = true;
-									}
-								}
-								else if (walkingDir.x < 0 || walkingDir.z > 0)
-								{
-									if (!lefting) // play walk left
-									{
-										//anim.CrossFade("Player_Walking_Left", .3f);
-										anim.Play("WalkingLeft", 0);
-										anim.Play("Idle", 1);
-										//anim.Play("Walking", 0);
-										//anim.Play("WalkingLeft", 0);
-										forwarding = false;
-										backwarding = false;
-										lefting = true;
-										righting = false;
-									}
-								}
-							}
-						}
-						*/
+						if (!anim.GetCurrentAnimatorStateInfo(1).IsName("select") &&
+							!anim.GetCurrentAnimatorStateInfo(1).IsName("PostWind") &&
+							!anim.GetBool("selected"))
+                        {
+							anim.Play("Walking", 1);
+                        }
 					}
 				}
 				Aim_and_LockOn();
@@ -492,7 +363,8 @@ public class PlayerScriptNew : MonoBehaviour
 					//anim.GetCurrentAnimatorStateInfo(1).IsName("WalkingLeft") ||
 					//anim.GetCurrentAnimatorStateInfo(1).IsName("WalkingRight") ||  // if player in walk state
 					anim.GetCurrentAnimatorStateInfo(1).IsName("select") || // if player in select mat state
-					anim.GetCurrentAnimatorStateInfo(1).IsName("PostWind"))) 
+					anim.GetCurrentAnimatorStateInfo(1).IsName("PostWind") ||
+					anim.GetCurrentAnimatorStateInfo(1).IsName("Protected"))) 
 				{
 					if ((Input.GetMouseButtonUp(0) || Input.GetAxis("RT") > 0) && !atkButtonPressed) // if left click
 					{
@@ -525,12 +397,10 @@ public class PlayerScriptNew : MonoBehaviour
 							if (anim.GetCurrentAnimatorStateInfo(1).IsName("select") || 
 								anim.GetCurrentAnimatorStateInfo(1).IsName("PostWind"))
 							{
-								print("back swing");
 								anim.Play("testBackswing", 1);
 							}
 							else
 							{
-								print("wind up");
 								anim.Play("testWindup", 1); // player anticipation clip and call effect manager's casting event in clip
 							}
 							// anim.CrossFade("testWindup", 0.1f);
@@ -557,6 +427,11 @@ public class PlayerScriptNew : MonoBehaviour
 					}
 				}
 				#endregion
+
+				if (!anim.GetCurrentAnimatorStateInfo(1).IsName("readingText"))
+                {
+					StopAllCoroutines();
+                }
 			}
 		}
 		
@@ -579,7 +454,7 @@ public class PlayerScriptNew : MonoBehaviour
 	public void LoseHealth_player(int amt)
 	{
 		hp -= amt;
-		if (hp > 0)
+		if (hp > 0 && !anim.GetCurrentAnimatorStateInfo(0).IsName("Protected"))
 		{
 			anim.SetTrigger("hit");
 		}
@@ -656,13 +531,13 @@ public class PlayerScriptNew : MonoBehaviour
 				{
 					rightAnalogePushed = false;
 				}
-				print("currently locked onto: " + lockedOnto);
 				targetPos = new Vector3(lockedOnto.transform.position.x, transform.position.y, lockedOnto.transform.position.z);
 				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(targetPos - transform.position), rot_spd * Time.deltaTime);
 			}
 			else if (Input.GetAxis("LT") == 0)
 			{
 				lockOnPressed = false;
+				lockedOnto = null;
 				// aim with analog stick
 				if (Mathf.Abs(Input.GetAxis("RightJoystickHorizontal")) >= joystickSensitivity ||
 					 Mathf.Abs(Input.GetAxis("RightJoystickVertical")) >= joystickSensitivity ||
@@ -679,11 +554,29 @@ public class PlayerScriptNew : MonoBehaviour
 		var target = new Vector3(item.transform.position.x, transform.position.y, item.transform.position.z);
 		while (true)
 		{
-			print(target);
 			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target - transform.position), rot_spd * Time.deltaTime);
 			yield return null;
 		}
 	}
+
+	public IEnumerator LookTowardsItemOnce(GameObject item)
+	{
+		var target = new Vector3(item.transform.position.x, transform.position.y, item.transform.position.z);
+		var dir = item.transform.position - transform.position;
+		bool looked = false;
+		print(Vector3.Angle(transform.forward, dir));
+        while (Vector3.Angle(transform.forward, dir) > 5 && !looked)
+        {
+			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target - transform.position), rot_spd * Time.deltaTime);
+			if (Vector3.Angle(transform.forward, dir) <= 6)
+            {
+				print("don't look");
+				looked = true;
+			}
+			yield return null;
+		}
+	}
+
 	public void MatSlotUpdate()
     {
 		if(matSlots.Count > 5)

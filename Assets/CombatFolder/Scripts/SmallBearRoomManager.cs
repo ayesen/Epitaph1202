@@ -6,13 +6,16 @@ public class SmallBearRoomManager : MonoBehaviour
 {
     public List<GameObject> bears_iCtrl;
 	public List<DoorScript> doors_iCtrl;
-	bool cleared = false;
+	private bool cleared = false;
 	public List<DoorScript> entrance_doors;
 	public List<GameObject> dialogueTrigger_iCtrl;
-	
+
+	[Header("customizable end function")]
+	public GameObject doer;
+	public string funcToCall;
+
 	public void BearStart()
 	{
-		print("bear start");
 		BGMMan.bGMManger.StartTinyTeddyCombatMusic();
 		foreach (var bear in bears_iCtrl)
 		{
@@ -35,10 +38,14 @@ public class SmallBearRoomManager : MonoBehaviour
 					clear = false;
 				}
 			}
+
+			// after bears are defeated
 			if (clear && !cleared)
 			{
 				cleared = true;
 				BGMMan.bGMManger.EndMusic();
+
+				// open doors
 				if (doors_iCtrl.Count > 0)
 				{
 					foreach (var door in doors_iCtrl)
@@ -46,12 +53,24 @@ public class SmallBearRoomManager : MonoBehaviour
 						door.ControllDoor();
 					}
 				}
+
+				// activate dialogue trigger
 				if(dialogueTrigger_iCtrl.Count > 0)
                 {
 					foreach(var DT in dialogueTrigger_iCtrl)
                     {
 						DT.SetActive(true);
                     }
+                }
+
+				// call function
+				if (doer != null)
+				{
+					doer.SendMessage(funcToCall);
+				}
+                else
+                {
+					Debug.LogError("Assign doer!");
                 }
 			}
 		}

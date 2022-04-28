@@ -348,7 +348,7 @@ public class Enemy : MonoBehaviour
 
     public void Idleing()
     {
-        if (InRange())
+        /*if (InRange())
         {
             myTrigger.myMR.enabled = true;
             myTrigger.myMR.material.color = Origin;
@@ -356,7 +356,7 @@ public class Enemy : MonoBehaviour
         if (!InRange())
         {
             myTrigger.myMR.enabled = false;
-        }
+        }*/
 
     }
     public void HittedStatesIndication()
@@ -403,7 +403,7 @@ public class Enemy : MonoBehaviour
     }
     public void KnockBackAtk(float KnockBackAmt, Vector3 AttackerPos, GameObject Receiver)
     {
-        myTrigger.myMR.material.color = new Color(1, 1, 1, 1);
+        //myTrigger.myMR.material.color = new Color(1, 1, 1, 1);
 
         if (InRange())
         {
@@ -420,7 +420,7 @@ public class Enemy : MonoBehaviour
 
     public void SoundWaveAtk()
     {
-        myTrigger.myMR.material.color = new Color(0, 0.5f, 1, 1);
+        //myTrigger.myMR.material.color = new Color(0, 0.5f, 1, 1);
         float dmgRange = 12;
         float soundWaveDmg_decay = AIToPlayerDist()*AIToPlayerDist(); //can change later
         StartCoroutine(GetComponent<AIEffectManager>().StartSoundWave());

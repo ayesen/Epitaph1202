@@ -90,12 +90,12 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 		if (restrictMovement) // if this dialogue prohibit player from moving when reading
 		{
 			PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("readingText", 1);
-			PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("Idle", 0);
+			//PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("Idle", 0);
 		}
 		else if (!restrictMovement)
         {
 			PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("Idle", 1);
-			PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("Idle", 0);
+			//PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("Idle", 0);
 		}
 		StartCoroutine(SetTextShowingToTrue());
 		
@@ -200,6 +200,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 						if (burnAfterReading)
 						{
 							dT.gameObject.SetActive(false);
+							//dT.enabled=false;
 						}
 					}
 					StopAllCoroutines();
@@ -261,8 +262,10 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 						}
 						if (burnAfterReading)
 						{
-							dT.gameObject.SetActive(false);
+							//dT.gameObject.SetActive(false);
+							dT.enabled = false;
 						}
+						//print("stop coroutines");
 						StopAllCoroutines();
 					}
 				}

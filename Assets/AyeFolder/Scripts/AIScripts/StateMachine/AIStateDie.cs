@@ -41,7 +41,7 @@ public class AIStateDie : AIStateBase
     public override void LeaveState(Enemy myEnemy)
     {
         myEnemy.GetComponentInChildren<SkinnedMeshRenderer>().material = myEnemy.ogMat;
-        myEnemy.myTrigger.myMR.enabled = true;
+        //myEnemy.myTrigger.myMR.enabled = true;
         myEnemy.ghostRider.enabled = true;
         //myEnemy.hittedStates.text = "";
     }
