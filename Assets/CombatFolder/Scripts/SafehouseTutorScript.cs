@@ -12,25 +12,28 @@ public class SafehouseTutorScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        triggered = true;
-
-        if(triggered != doOnce && triggered)
+        if (other.gameObject.CompareTag("Player"))
         {
-            doOnce = triggered;
-            if (PlayerScriptNew.me.matSlots[0] != null &&
-                PlayerScriptNew.me.matSlots[1] != null &&
-                PlayerScriptNew.me.matSlots[2] != null)
+            triggered = true;
+
+            if (triggered != doOnce && triggered)
             {
-                GameObject Dialg = Instantiate(Dialg_Yes, transform);
-                Dialg.GetComponent<DialogueScript>().enabled = true;
-                DoorToCtrl.SendMessage("ControllDoor");
-                DoorToCtrl.GetComponent<DoorScript>().open = true;
-                Destroy(this);
-            }
-            else
-            {
-                GameObject Dialg = Instantiate(Dialg_No, transform);
-                Dialg.GetComponent<DialogueScript>().enabled = true;
+                doOnce = triggered;
+                if (PlayerScriptNew.me.matSlots[0] != null &&
+                    PlayerScriptNew.me.matSlots[1] != null &&
+                    PlayerScriptNew.me.matSlots[2] != null)
+                {
+                    GameObject Dialg = Instantiate(Dialg_Yes, transform);
+                    Dialg.GetComponent<DialogueScript>().enabled = true;
+                    DoorToCtrl.SendMessage("ControllDoor");
+                    DoorToCtrl.GetComponent<DoorScript>().open = true;
+                    Destroy(this);
+                }
+                else
+                {
+                    GameObject Dialg = Instantiate(Dialg_No, transform);
+                    Dialg.GetComponent<DialogueScript>().enabled = true;
+                }
             }
         }
 
