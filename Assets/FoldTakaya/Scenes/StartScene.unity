@@ -1139,6 +1139,9 @@ MonoBehaviour:
   doorOpen: {fileID: 8300000, guid: 31f7de5a7c8f842c0ba3eb09f099eeda, type: 3}
   doorLocked: {fileID: 8300000, guid: 5c1d253f36bbc453daf8871af9774386, type: 3}
   knifeDropped: {fileID: 8300000, guid: 71be3cbb5d0894295b1dd0c7fc14266f, type: 3}
+  bossRoomTrigger: {fileID: 0}
+  lordGuanBearTrigger: {fileID: 0}
+  lordGuanReturnKnife: {fileID: 0}
   battleVOPhaseOne:
   - {fileID: 8300000, guid: 366be40fb05a00c41a0462d710b14f69, type: 3}
   - {fileID: 8300000, guid: da97baea31d95a444a529a5fcf102ca1, type: 3}
@@ -2354,8 +2357,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: START
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9f86fae4e6c095d4aac2e0167dec9437, type: 2}
-  m_sharedMaterial: {fileID: -946341822916620289, guid: 9f86fae4e6c095d4aac2e0167dec9437, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 316b568bed7e73a479f876f3ce5624bc, type: 2}
+  m_sharedMaterial: {fileID: -4131697396433299567, guid: 316b568bed7e73a479f876f3ce5624bc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2483,8 +2486,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: CREDITS
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9f86fae4e6c095d4aac2e0167dec9437, type: 2}
-  m_sharedMaterial: {fileID: -946341822916620289, guid: 9f86fae4e6c095d4aac2e0167dec9437, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 316b568bed7e73a479f876f3ce5624bc, type: 2}
+  m_sharedMaterial: {fileID: -4131697396433299567, guid: 316b568bed7e73a479f876f3ce5624bc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3078,8 +3081,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: CONTROL
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9f86fae4e6c095d4aac2e0167dec9437, type: 2}
-  m_sharedMaterial: {fileID: -946341822916620289, guid: 9f86fae4e6c095d4aac2e0167dec9437, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 316b568bed7e73a479f876f3ce5624bc, type: 2}
+  m_sharedMaterial: {fileID: -4131697396433299567, guid: 316b568bed7e73a479f876f3ce5624bc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3443,8 +3446,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: SETTINGS
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9f86fae4e6c095d4aac2e0167dec9437, type: 2}
-  m_sharedMaterial: {fileID: -946341822916620289, guid: 9f86fae4e6c095d4aac2e0167dec9437, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 316b568bed7e73a479f876f3ce5624bc, type: 2}
+  m_sharedMaterial: {fileID: -4131697396433299567, guid: 316b568bed7e73a479f876f3ce5624bc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3630,8 +3633,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: There will be settings being added here.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 316b568bed7e73a479f876f3ce5624bc, type: 2}
+  m_sharedMaterial: {fileID: -4131697396433299567, guid: 316b568bed7e73a479f876f3ce5624bc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3801,8 +3804,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: EXIT
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9f86fae4e6c095d4aac2e0167dec9437, type: 2}
-  m_sharedMaterial: {fileID: -946341822916620289, guid: 9f86fae4e6c095d4aac2e0167dec9437, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 316b568bed7e73a479f876f3ce5624bc, type: 2}
+  m_sharedMaterial: {fileID: -4131697396433299567, guid: 316b568bed7e73a479f876f3ce5624bc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
