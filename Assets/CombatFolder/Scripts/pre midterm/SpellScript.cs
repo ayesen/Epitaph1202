@@ -84,7 +84,7 @@ public class SpellScript : MonoBehaviour
 				(hit.gameObject.GetComponent<SmallBear>() &&
 				hit.gameObject.GetComponent<AIController>().enabled))) // if its small bear, check for small bear
 			{
-				// inflict effects on enemy and spawn fragments vfx
+				// inflict effects on enemy
 				ConditionStruct cs = new ConditionStruct
 				{
 					condition = EffectStructNew.Condition.collision_enemy,
@@ -134,6 +134,10 @@ public class SpellScript : MonoBehaviour
 				// vfx
 				foreach (var mat in mats)
 				{
+					//if (mat.gameObject.name == "Match")
+                    //{
+						//PlayerScriptNew.me.StartCoroutine(PlayerScriptNew.me.GetComponent<VFXManager>().StartExplosion());
+                    //}
 					if (mat.GetComponent<MatScriptNew>().myVFX != null)
 					{
 						GameObject ps = Instantiate(mat.GetComponent<MatScriptNew>().myVFX);

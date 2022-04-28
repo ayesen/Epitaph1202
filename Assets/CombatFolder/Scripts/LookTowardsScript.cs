@@ -14,9 +14,6 @@ public class LookTowardsScript : MonoBehaviour
 
     public void LookTowards()
     {
-        if (lookTarget != null)
-        {
-            StartCoroutine(ps.LookTowardsItem(lookTarget));
-        }
+        StartCoroutine(ps.LookTowardsItemOnce(lookTarget));
     }
 }

@@ -200,6 +200,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 						if (burnAfterReading)
 						{
 							dT.gameObject.SetActive(false);
+							//dT.enabled=false;
 						}
 					}
 					StopAllCoroutines();
@@ -261,8 +262,10 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 						}
 						if (burnAfterReading)
 						{
-							dT.gameObject.SetActive(false);
+							//dT.gameObject.SetActive(false);
+							dT.enabled = false;
 						}
+						//print("stop coroutines");
 						StopAllCoroutines();
 					}
 				}

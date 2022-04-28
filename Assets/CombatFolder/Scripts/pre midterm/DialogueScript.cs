@@ -118,6 +118,10 @@ public class DialogueScript : MonoBehaviour
 							soundMan.SendMessage(soundManFunction);
 						}
 					}
+                    else
+                    {
+
+                    }
             	}
             	else // auto show text
             	{
@@ -157,7 +161,7 @@ public class DialogueScript : MonoBehaviour
 
 	public void OnTriggerEnter(Collider other)
 	{
-		if (other.CompareTag("Player") && areaTrigger)
+		if (other.CompareTag("Player") && areaTrigger && !inspected)
 		{
 			StartCoroutine(Dialogue()); 
 			//Debug.Log("Player in Range");
