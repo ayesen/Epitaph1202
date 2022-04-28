@@ -49,6 +49,8 @@ public class GuanGongManager : MonoBehaviour
 		Event_SpawnSword();
 		// swap GG
 		Event_SwapGG_1();
+
+		SoundMan.SoundManager.LordGuanTrigger();
 	}
 
 	public void Event_SpawnSword()
