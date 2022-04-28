@@ -43,14 +43,80 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14bae7ca671459e44b9c1942d6842334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerRange: 3
+  triggerRange: 5
   autoTrigger: 0
   autoAdvance: 0
   areaTrigger: 0
   displayDelayed: 0
   texts:
-  - description_cht: sword put on
-    description_eng: 
+  - description_cht: "\u547C\uFF0C\u5687\u6B7B\u6211\u4E86"
+    description_eng: Phew, I was so scared
+    clip: {fileID: 0}
+    time: 0
+    options: []
+    logX: 0
+    logY: 0
+    rollBack: 0
+    rollBack_index: 0
+    actor_oneLine: {fileID: 0}
+    funcToCall_oneLine: 
+  - description_cht: "\u4F60\u807D\u8D77\u4F86\u597D\u5BB3\u6015\uFF0C\u9AEE\u751F\u4EC0\u9EBC\u4E86\uFF1F"
+    description_eng: You sound so scared. What happened?
+    clip: {fileID: 0}
+    time: 0
+    options: []
+    logX: 0
+    logY: 0
+    rollBack: 0
+    rollBack_index: 0
+    actor_oneLine: {fileID: 0}
+    funcToCall_oneLine: 
+  - description_cht: "\u525B\u624D\u6709\u597D\u591A\u5C0F\u718A\u76EF\u7740\u6211"
+    description_eng: There were a lot of teddy bears staring at me
+    clip: {fileID: 0}
+    time: 0
+    options: []
+    logX: 0
+    logY: 0
+    rollBack: 0
+    rollBack_index: 0
+    actor_oneLine: {fileID: 0}
+    funcToCall_oneLine: 
+  - description_cht: "\u4F46\u5B83\u5011\u73FE\u5728\u4E0D\u898B\u4E86"
+    description_eng: But they are gone now
+    clip: {fileID: 0}
+    time: 0
+    options: []
+    logX: 0
+    logY: 0
+    rollBack: 0
+    rollBack_index: 0
+    actor_oneLine: {fileID: 0}
+    funcToCall_oneLine: 
+  - description_cht: "\u5E2B\u7236\u8AAC\u904E\u95DC\u516C\u5200\u53EF\u4EE5\u93AE\u58D3\u90AA\u795F"
+    description_eng: Sifu said Green Dragon Blade can repress evil
+    clip: {fileID: 0}
+    time: 0
+    options: []
+    logX: 0
+    logY: 0
+    rollBack: 0
+    rollBack_index: 0
+    actor_oneLine: {fileID: 0}
+    funcToCall_oneLine: 
+  - description_cht: "\u90A3\u6211\u665A\u9EDE\u53EF\u5F97\u597D\u597D\u8B1D\u8B1D\u95DC\u516C\u4ED6\u8001"
+    description_eng: I have to thank Guan Gong later
+    clip: {fileID: 0}
+    time: 0
+    options: []
+    logX: 0
+    logY: 0
+    rollBack: 0
+    rollBack_index: 0
+    actor_oneLine: {fileID: 0}
+    funcToCall_oneLine: 
+  - description_cht: "[\u88DD\u4E0A\u4E86\u5200]"
+    description_eng: '[blade put on]'
     clip: {fileID: 0}
     time: 0
     options: []
@@ -118,14 +184,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14bae7ca671459e44b9c1942d6842334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerRange: 3
+  triggerRange: 5
   autoTrigger: 0
   autoAdvance: 0
   areaTrigger: 0
   displayDelayed: 0
   texts:
-  - description_cht: get the sword, try using sense
-    description_eng: 
+  - description_cht: "\u7528\u8B66\u5BDF\u611F\u5B98\u627E\u627E\u770B\uFF1F"
+    description_eng: Try using your Police Sense to find it
     clip: {fileID: 0}
     time: 0
     options: []
@@ -196,10 +262,10 @@ MonoBehaviour:
   bear_prefab: {fileID: 7180247402077187386, guid: ac5e96d3687523145a884335fb62e7a4, type: 3}
   amountToSpawn: 100
   bearsISpawned: []
-  randomAmount: 5
+  randomAmount: 10
   detectDis_bear: 2
   detectDis_player: 2
-  playerViewAngle: 50
+  playerViewAngle: 60
   sword: {fileID: 5598807490092527030}
   sword_picked: 0
   GG_og: {fileID: 2472206859962252443}
@@ -238,7 +304,6 @@ Transform:
   - {fileID: 1692302550773007606}
   - {fileID: 2955728765397050913}
   - {fileID: 1726041964648619624}
-  - {fileID: 6290383962656794106}
   - {fileID: 2955728765163235737}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -256,7 +321,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 366463506955709706, guid: 0177e09911c774f4aa090b765e2dba91, type: 3}
       propertyPath: m_LocalScale.x
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 366463506955709706, guid: 0177e09911c774f4aa090b765e2dba91, type: 3}
       propertyPath: m_LocalScale.y
@@ -268,15 +333,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 366463506955709706, guid: 0177e09911c774f4aa090b765e2dba91, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.44
+      value: -41.96
       objectReference: {fileID: 0}
     - target: {fileID: 366463506955709706, guid: 0177e09911c774f4aa090b765e2dba91, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.34
+      value: 0.92
       objectReference: {fileID: 0}
     - target: {fileID: 366463506955709706, guid: 0177e09911c774f4aa090b765e2dba91, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.91
+      value: 53.19
       objectReference: {fileID: 0}
     - target: {fileID: 366463506955709706, guid: 0177e09911c774f4aa090b765e2dba91, type: 3}
       propertyPath: m_LocalRotation.w
@@ -309,6 +374,10 @@ PrefabInstance:
     - target: {fileID: 6907186014246126666, guid: 0177e09911c774f4aa090b765e2dba91, type: 3}
       propertyPath: m_Name
       value: GG_sword
+      objectReference: {fileID: 0}
+    - target: {fileID: 6907186014246126666, guid: 0177e09911c774f4aa090b765e2dba91, type: 3}
+      propertyPath: m_Layer
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 6907186014246126666, guid: 0177e09911c774f4aa090b765e2dba91, type: 3}
       propertyPath: m_IsActive
@@ -344,8 +413,30 @@ MonoBehaviour:
   areaTrigger: 0
   displayDelayed: 0
   texts:
-  - description_cht: picked up sword
-    description_eng: 
+  - description_cht: "[\u64BF\u8D77\u4E86\u5200]"
+    description_eng: '[blade picked up]'
+    clip: {fileID: 0}
+    time: 0
+    options: []
+    logX: 0
+    logY: 0
+    rollBack: 0
+    rollBack_index: 0
+    actor_oneLine: {fileID: 0}
+    funcToCall_oneLine: 
+  - description_cht: "\u9019\u5C31\u662F\u90A3\u628A\u5200\u5427"
+    description_eng: This should be the blade
+    clip: {fileID: 0}
+    time: 0
+    options: []
+    logX: 0
+    logY: 0
+    rollBack: 0
+    rollBack_index: 0
+    actor_oneLine: {fileID: 0}
+    funcToCall_oneLine: 
+  - description_cht: "\u5F97\u5FEB\u9EDE\u628A\u5B83\u88DD\u56DE\u53BB"
+    description_eng: I should assemble it back as fast as I can
     clip: {fileID: 0}
     time: 0
     options: []
@@ -383,43 +474,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3618784137140894972, guid: 7987a5e398aad6d42977578a5e30b9df, type: 3}
       propertyPath: m_LocalScale.x
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3618784137140894972, guid: 7987a5e398aad6d42977578a5e30b9df, type: 3}
       propertyPath: m_LocalScale.y
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3618784137140894972, guid: 7987a5e398aad6d42977578a5e30b9df, type: 3}
       propertyPath: m_LocalScale.z
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3618784137140894972, guid: 7987a5e398aad6d42977578a5e30b9df, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.19
+      value: -56.99
       objectReference: {fileID: 0}
     - target: {fileID: 3618784137140894972, guid: 7987a5e398aad6d42977578a5e30b9df, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.86
+      value: 4.21
       objectReference: {fileID: 0}
     - target: {fileID: 3618784137140894972, guid: 7987a5e398aad6d42977578a5e30b9df, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 53.11
       objectReference: {fileID: 0}
     - target: {fileID: 3618784137140894972, guid: 7987a5e398aad6d42977578a5e30b9df, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.38268343
       objectReference: {fileID: 0}
     - target: {fileID: 3618784137140894972, guid: 7987a5e398aad6d42977578a5e30b9df, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3618784137140894972, guid: 7987a5e398aad6d42977578a5e30b9df, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.92387956
       objectReference: {fileID: 0}
     - target: {fileID: 3618784137140894972, guid: 7987a5e398aad6d42977578a5e30b9df, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3618784137140894972, guid: 7987a5e398aad6d42977578a5e30b9df, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -427,7 +518,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3618784137140894972, guid: 7987a5e398aad6d42977578a5e30b9df, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 135
       objectReference: {fileID: 0}
     - target: {fileID: 3618784137140894972, guid: 7987a5e398aad6d42977578a5e30b9df, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -453,133 +544,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3618784137140894972, guid: 7987a5e398aad6d42977578a5e30b9df, type: 3}
   m_PrefabInstance: {fileID: 2723731071414149780}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &7310307692057270534
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 7310307692820828022}
-    m_Modifications:
-    - target: {fileID: 3618784137140894972, guid: 7987a5e398aad6d42977578a5e30b9df, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3618784137140894972, guid: 7987a5e398aad6d42977578a5e30b9df, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3618784137140894972, guid: 7987a5e398aad6d42977578a5e30b9df, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3618784137140894972, guid: 7987a5e398aad6d42977578a5e30b9df, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3618784137140894972, guid: 7987a5e398aad6d42977578a5e30b9df, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.19
-      objectReference: {fileID: 0}
-    - target: {fileID: 3618784137140894972, guid: 7987a5e398aad6d42977578a5e30b9df, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.86
-      objectReference: {fileID: 0}
-    - target: {fileID: 3618784137140894972, guid: 7987a5e398aad6d42977578a5e30b9df, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3618784137140894972, guid: 7987a5e398aad6d42977578a5e30b9df, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3618784137140894972, guid: 7987a5e398aad6d42977578a5e30b9df, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3618784137140894972, guid: 7987a5e398aad6d42977578a5e30b9df, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3618784137140894972, guid: 7987a5e398aad6d42977578a5e30b9df, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3618784137140894972, guid: 7987a5e398aad6d42977578a5e30b9df, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3618784137140894972, guid: 7987a5e398aad6d42977578a5e30b9df, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3618784137140894972, guid: 7987a5e398aad6d42977578a5e30b9df, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366595592328435787, guid: 7987a5e398aad6d42977578a5e30b9df, type: 3}
-      propertyPath: m_Name
-      value: GG_noSword 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366595592328435787, guid: 7987a5e398aad6d42977578a5e30b9df, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7987a5e398aad6d42977578a5e30b9df, type: 3}
---- !u!1 &236449651070386509 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7366595592328435787, guid: 7987a5e398aad6d42977578a5e30b9df, type: 3}
-  m_PrefabInstance: {fileID: 7310307692057270534}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &6290383962656794106 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3618784137140894972, guid: 7987a5e398aad6d42977578a5e30b9df, type: 3}
-  m_PrefabInstance: {fileID: 7310307692057270534}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7310307692057270555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 236449651070386509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14bae7ca671459e44b9c1942d6842334, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerRange: 0
-  autoTrigger: 0
-  autoAdvance: 0
-  areaTrigger: 0
-  displayDelayed: 0
-  texts:
-  - description_cht: sword put on
-    description_eng: 
-    clip: {fileID: 0}
-    time: 0
-    options: []
-    logX: 0
-    logY: 0
-    rollBack: 0
-    rollBack_index: 0
-    actor_oneLine: {fileID: 0}
-    funcToCall_oneLine: 
-  image: {fileID: 0}
-  highLightMat: {fileID: 0}
-  restrictMovement: 1
-  oneTimeDialogue: 1
-  canRepeat: 0
-  isSwitch: 0
-  interactiveSwitch: []
-  logX: 0
-  logY: 0
-  musicFunction: 
-  soundManFunction: 
-  itemToLookAt: {fileID: 0}
-  repeat_interval: 0
-  actor: {fileID: 7310307691570287539}
-  funcToCall: 
 --- !u!1001 &7310307692480208449
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -597,31 +561,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5510072486843365472, guid: f381a68035a32cb4a9b6e58adafefd4a, type: 3}
       propertyPath: m_LocalScale.x
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5510072486843365472, guid: f381a68035a32cb4a9b6e58adafefd4a, type: 3}
       propertyPath: m_LocalScale.y
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5510072486843365472, guid: f381a68035a32cb4a9b6e58adafefd4a, type: 3}
       propertyPath: m_LocalScale.z
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5510072486843365472, guid: f381a68035a32cb4a9b6e58adafefd4a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.19
+      value: -56.99
       objectReference: {fileID: 0}
     - target: {fileID: 5510072486843365472, guid: f381a68035a32cb4a9b6e58adafefd4a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.86
+      value: 4.21
       objectReference: {fileID: 0}
     - target: {fileID: 5510072486843365472, guid: f381a68035a32cb4a9b6e58adafefd4a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 53.11
       objectReference: {fileID: 0}
     - target: {fileID: 5510072486843365472, guid: f381a68035a32cb4a9b6e58adafefd4a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.38268343
       objectReference: {fileID: 0}
     - target: {fileID: 5510072486843365472, guid: f381a68035a32cb4a9b6e58adafefd4a, type: 3}
       propertyPath: m_LocalRotation.x
@@ -629,7 +593,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5510072486843365472, guid: f381a68035a32cb4a9b6e58adafefd4a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.92387956
       objectReference: {fileID: 0}
     - target: {fileID: 5510072486843365472, guid: f381a68035a32cb4a9b6e58adafefd4a, type: 3}
       propertyPath: m_LocalRotation.z
@@ -641,7 +605,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5510072486843365472, guid: f381a68035a32cb4a9b6e58adafefd4a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 135
       objectReference: {fileID: 0}
     - target: {fileID: 5510072486843365472, guid: f381a68035a32cb4a9b6e58adafefd4a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -677,8 +641,9 @@ MonoBehaviour:
   areaTrigger: 0
   displayDelayed: 0
   texts:
-  - description_cht: You spot a sus GG
-    description_eng: 
+  - description_cht: "\u8001\u4E5D,\u53C8\u6709\u5C0A\u95DC\u516C,\u4F46\u9019\u6B21\u5200\u53E3\u662F\u671D\u4E0B\u7684"
+    description_eng: Jiu, here's another Lord Guan. The blade is facing downards
+      this time
     clip: {fileID: 0}
     time: 0
     options: []
@@ -688,7 +653,30 @@ MonoBehaviour:
     rollBack_index: 0
     actor_oneLine: {fileID: 0}
     funcToCall_oneLine: 
-  - description_cht: spawn small bears and spawn sword (play sound)
+  - description_cht: "\u5947\u602A,\u4E00\u822C\u4E00\u6236\u5167\u4E0D\u6703\u64FA\u5169\u5C0A\u95DC\u516C\u7684,\u66F4\u5225\u8AAA\u5200\u53E3\u671D\u5411\u9084\u4E0D\u540C\r"
+    description_eng: There shouldn't be two Lord Guans in one house, let alone the
+      blade directions
+    clip: {fileID: 0}
+    time: 0
+    options: []
+    logX: 0
+    logY: 0
+    rollBack: 0
+    rollBack_index: 0
+    actor_oneLine: {fileID: 0}
+    funcToCall_oneLine: 
+  - description_cht: "\u9019\u95DC\u516C\u611F\u89BA\u662F\u53EF\u4EE5\u64FA\u5F04\u7684"
+    description_eng: Maybe I can play around with the statue
+    clip: {fileID: 0}
+    time: 0
+    options: []
+    logX: 0
+    logY: 0
+    rollBack: 0
+    rollBack_index: 0
+    actor_oneLine: {fileID: 0}
+    funcToCall_oneLine: 
+  - description_cht: "*\u5200\u843D\u5730\u58F0*"
     description_eng: 
     clip: {fileID: 0}
     time: 0
@@ -699,8 +687,9 @@ MonoBehaviour:
     rollBack_index: 0
     actor_oneLine: {fileID: 7310307691570287539}
     funcToCall_oneLine: Event_SpawnSmallBear
-  - description_cht: use sense to find it
-    description_eng: 
+  - description_cht: "\u9019\u5200\u600E\u9EBC\u4E00\u78B0\u5C31\u6389\u5730\u4E0A\u4E86...\u6389\u54EA\u5152\u53BB\u4E86\uFF1F"
+    description_eng: "The Green Dragon Blade fell on the ground\u2026where did it
+      go?\r"
     clip: {fileID: 0}
     time: 0
     options: []
@@ -708,8 +697,8 @@ MonoBehaviour:
     logY: 0
     rollBack: 0
     rollBack_index: 0
-    actor_oneLine: {fileID: 0}
-    funcToCall_oneLine: 
+    actor_oneLine: {fileID: 7310307691570287539}
+    funcToCall_oneLine: Event_SpawnSmallBear
   image: {fileID: 0}
   highLightMat: {fileID: 0}
   restrictMovement: 1
@@ -742,35 +731,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5510072486843365472, guid: f381a68035a32cb4a9b6e58adafefd4a, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5510072486843365472, guid: f381a68035a32cb4a9b6e58adafefd4a, type: 3}
       propertyPath: m_LocalScale.x
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5510072486843365472, guid: f381a68035a32cb4a9b6e58adafefd4a, type: 3}
       propertyPath: m_LocalScale.y
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5510072486843365472, guid: f381a68035a32cb4a9b6e58adafefd4a, type: 3}
       propertyPath: m_LocalScale.z
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5510072486843365472, guid: f381a68035a32cb4a9b6e58adafefd4a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.19
+      value: -56.99
       objectReference: {fileID: 0}
     - target: {fileID: 5510072486843365472, guid: f381a68035a32cb4a9b6e58adafefd4a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.86
+      value: 4.21
       objectReference: {fileID: 0}
     - target: {fileID: 5510072486843365472, guid: f381a68035a32cb4a9b6e58adafefd4a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 53.11
       objectReference: {fileID: 0}
     - target: {fileID: 5510072486843365472, guid: f381a68035a32cb4a9b6e58adafefd4a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.38268343
       objectReference: {fileID: 0}
     - target: {fileID: 5510072486843365472, guid: f381a68035a32cb4a9b6e58adafefd4a, type: 3}
       propertyPath: m_LocalRotation.x
@@ -778,7 +767,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5510072486843365472, guid: f381a68035a32cb4a9b6e58adafefd4a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.92387956
       objectReference: {fileID: 0}
     - target: {fileID: 5510072486843365472, guid: f381a68035a32cb4a9b6e58adafefd4a, type: 3}
       propertyPath: m_LocalRotation.z
@@ -790,7 +779,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5510072486843365472, guid: f381a68035a32cb4a9b6e58adafefd4a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 135
       objectReference: {fileID: 0}
     - target: {fileID: 5510072486843365472, guid: f381a68035a32cb4a9b6e58adafefd4a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -826,8 +815,52 @@ MonoBehaviour:
   areaTrigger: 0
   displayDelayed: 0
   texts:
-  - description_cht: door opened
-    description_eng: 
+  - description_cht: "\u6211\u628A\u5200\u88DD\u56DE\u53BB\u4E86"
+    description_eng: I put the blade back
+    clip: {fileID: 0}
+    time: 0
+    options: []
+    logX: 0
+    logY: 0
+    rollBack: 0
+    rollBack_index: 0
+    actor_oneLine: {fileID: 0}
+    funcToCall_oneLine: 
+  - description_cht: "\u807D\u8D77\u4F86\u958B\u4E86\u4E00\u6247\u9580"
+    description_eng: Sounds like a door is opened
+    clip: {fileID: 0}
+    time: 0
+    options: []
+    logX: 0
+    logY: 0
+    rollBack: 0
+    rollBack_index: 0
+    actor_oneLine: {fileID: 0}
+    funcToCall_oneLine: ControllDoor
+  - description_cht: "\u770B\u4F86\u6211\u5011\u53EF\u4EE5\u7E7C\u7E8C\u8ABF\u67E5\u4E86\uFF0C\u6CE8\u610F\u5B89\u5168"
+    description_eng: Seems like we can continue to investigate. Stay safe
+    clip: {fileID: 0}
+    time: 0
+    options: []
+    logX: 0
+    logY: 0
+    rollBack: 0
+    rollBack_index: 0
+    actor_oneLine: {fileID: 0}
+    funcToCall_oneLine: 
+  - description_cht: "\u4F60\u53EF\u4E0D\u5728\u9019\u88E1\uFF0C\u4F60\u77E5\u9053\u7684\u5427\uFF1F"
+    description_eng: You are not physically here, you know
+    clip: {fileID: 0}
+    time: 0
+    options: []
+    logX: 0
+    logY: 0
+    rollBack: 0
+    rollBack_index: 0
+    actor_oneLine: {fileID: 0}
+    funcToCall_oneLine: 
+  - description_cht: "\u6211\u7684\u7CBE\u795E\u8207\u4F60\u540C\u5728\u561B\uFF01"
+    description_eng: "I\u2019m mentally with you!"
     clip: {fileID: 0}
     time: 0
     options: []
@@ -840,7 +873,7 @@ MonoBehaviour:
   image: {fileID: 0}
   highLightMat: {fileID: 0}
   restrictMovement: 1
-  oneTimeDialogue: 0
+  oneTimeDialogue: 1
   canRepeat: 0
   isSwitch: 0
   interactiveSwitch: []
@@ -850,5 +883,18 @@ MonoBehaviour:
   soundManFunction: 
   itemToLookAt: {fileID: 2472206859122324259}
   repeat_interval: 0
-  actor: {fileID: 0}
-  funcToCall: ControllDoor
+  actor: {fileID: 2472206859122324259}
+  funcToCall: LookTowards
+--- !u!114 &797228913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2472206859122324259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ff4fb3810906784ea30c85be4462477, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lookTarget: {fileID: 0}
