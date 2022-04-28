@@ -222,7 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BGMAudioSource: {fileID: 0}
   battleMusic: {fileID: 8300000, guid: 7c8b4466c9bdd4173b710ac3d01b07a1, type: 3}
-  lordGuan: {fileID: 8300000, guid: 0e202531efa7b4082ad0e07a0616fc02, type: 3}
+  lordGuan: {fileID: 8300000, guid: 637ed25e6c43642f1b35b37c12817c73, type: 3}
   firstTinyTeddy: {fileID: 8300000, guid: 22f2538b5b68f46318f15c6c04a95464, type: 3}
   tinyBattleMusic: {fileID: 8300000, guid: 26b4a2f12912946b087ca1caca66b2c1, type: 3}
   theme: {fileID: 8300000, guid: c90c94bee4d8d4d70930295cf0334a15, type: 3}
@@ -410,6 +410,8 @@ MonoBehaviour:
   doorLocked: {fileID: 8300000, guid: 5c1d253f36bbc453daf8871af9774386, type: 3}
   knifeDropped: {fileID: 8300000, guid: 71be3cbb5d0894295b1dd0c7fc14266f, type: 3}
   bossRoomTrigger: {fileID: 8300000, guid: fc355e0e038f0406ea571c50bdee0e29, type: 3}
+  lordGuanBearTrigger: {fileID: 8300000, guid: 165993ae496b342718f536e0e9723001, type: 3}
+  lordGuanReturnKnife: {fileID: 8300000, guid: da97baea31d95a444a529a5fcf102ca1, type: 3}
   battleVOPhaseOne:
   - {fileID: 8300000, guid: 366be40fb05a00c41a0462d710b14f69, type: 3}
   - {fileID: 8300000, guid: da97baea31d95a444a529a5fcf102ca1, type: 3}
