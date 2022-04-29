@@ -86,7 +86,7 @@ public class ShootAimTutorScript : MonoBehaviour
 			tut_state = state_aim;
 			dialg_aim.GetComponent<DialogueScript>().enabled = true;
 		}
-		else if ((Input.GetAxis("LT") > 0 || Input.GetKeyDown(KeyCode.Mouse1)) &&
+		else if ((Input.GetAxis("RT") > 0 || Input.GetKeyDown(KeyCode.Mouse0)) &&
 			tut_state == state_aim)
 		{
 			timer = timer_default;
