@@ -20,6 +20,8 @@ public class SafehouseManager : MonoBehaviour
 
     public Transform spawnPoint;
 
+    public GameObject instruc_Refill;
+
     private static SafehouseManager me = null;
 
     public static SafehouseManager Me
@@ -81,6 +83,7 @@ public class SafehouseManager : MonoBehaviour
             //PostProcessingManager.Me.StopAllCoroutines();
             PostProcessingManager.Me.StartCoroutine(PostProcessingManager.Me.ResetFilter());
             StartCoroutine(FadeCanvas(cg, 1f, fadeTime));
+            StartCoroutine(InstrucFadeCanvas(instruc_Refill.GetComponent<CanvasGroup>(), 1f, fadeTime));
             checkBoolChange = isSafehouse;
         }
         else if(isSafehouse != checkBoolChange && !isSafehouse)
@@ -141,5 +144,23 @@ public class SafehouseManager : MonoBehaviour
             yield return null;
         }
         isFading = false;
+    }
+
+    IEnumerator InstrucFadeCanvas(CanvasGroup cg, float endValue, float duration)
+    {
+        isFading = true;
+        float elapsedTime = 0;
+        float startValue = cg.alpha;
+        if (endValue >= 1)
+            CI.choosenMatIndex = 4;
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            cg.alpha = Mathf.Lerp(startValue, endValue, elapsedTime / duration);
+            yield return null;
+        }
+        yield return new WaitForSeconds(3f);
+        isFading = false;
+        StartCoroutine(FadeCanvas(instruc_Refill.GetComponent<CanvasGroup>(), 0f, fadeTime));
     }
 }
