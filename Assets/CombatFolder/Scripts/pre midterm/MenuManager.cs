@@ -227,4 +227,10 @@ public class MenuManager : MonoBehaviour
         StartCoroutine(FadeCanvas(gameObject.transform.Find("Home").GetComponent<CanvasGroup>(), 0f, fadeTime));
         panelState = panels.settings;
     }
+
+    public void LastSafehouse()
+    {
+        SavePointManager.me.ResetBears();
+        SavePointManager.me.ResetPlayer();
+    }
 }
