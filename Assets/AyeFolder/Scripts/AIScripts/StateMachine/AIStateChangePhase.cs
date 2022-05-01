@@ -8,7 +8,7 @@ public class AIStateChangePhase : AIStateBase
     public float changePhaseTimer;
     public override void StartState(Enemy myEnemy)
     {
-        myEnemy.AIAnimator.Play("RoarBear");
+        //myEnemy.AIAnimator.Play("RoarBear");
         if (myEnemy.interruptedState != myEnemy.myAC.hittedState)
         {
             if (myEnemy.phase == Enemy.AIPhase.InBattle2)
