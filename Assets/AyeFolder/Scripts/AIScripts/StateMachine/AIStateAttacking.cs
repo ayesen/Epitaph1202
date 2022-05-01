@@ -14,6 +14,7 @@ public class AIStateAttacking : AIStateBase
             if (myEnemy.phase == Enemy.AIPhase.InBattle1)
             {
                 myEnemy.AIAnimator.Play("Attacking1");
+                myEnemy.SlashVFX();
                 myEnemy.KnockBackAtk(myEnemy.knockbackAmount, myEnemy.transform.position, myEnemy.target);
             }
             else if (myEnemy.phase == Enemy.AIPhase.InBattle2)
