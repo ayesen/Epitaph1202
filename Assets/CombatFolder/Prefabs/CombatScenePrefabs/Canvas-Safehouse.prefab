@@ -2285,8 +2285,8 @@ MonoBehaviour:
   inventory: []
   imagePrefab: {fileID: 6518756364023069470, guid: fe3f55c1581646340b7cbaaddc994d23, type: 3}
   Amount_Of_Inventory: 0
-  X_Start: 100
-  Y_Start: 330
+  X_Start: 90
+  Y_Start: 340
   X_Space_Between_Items: 201
   Number_Of_Column: 4
   Y_Space_Between_Items: 184
@@ -2320,7 +2320,7 @@ MonoBehaviour:
   isChanging: 0
   squareChoCol: {r: 1, g: 1, b: 0.011764707, a: 1}
   X_Start: 437
-  Y_Start: 160
+  Y_Start: 150
   X_Space_Between_Items: 201
   Number_Of_Column: 4
   Y_Space_Between_Items: 184

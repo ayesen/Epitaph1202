@@ -41,6 +41,8 @@ public class MenuManager : MonoBehaviour
             Destroy(gameObject);
         }
         me = this;
+
+        GameIsPaused = false;
     }
 
     void Start()
@@ -74,6 +76,7 @@ public class MenuManager : MonoBehaviour
             else
             {
                 StartCoroutine(FadeCanvas(cg, 0f, fadeTime));
+                Time.timeScale = 1f;
                 GameIsPaused = false;
                 SoundMan.SoundManager.AudioPauseOrUnpause();
                 /*AmbienceManager.ambienceManager.gameObject.GetComponent<AudioReverbFilter>().enabled = false;
@@ -201,11 +204,13 @@ public class MenuManager : MonoBehaviour
     public void resumeGame()
     {
         isMenu = false;
+        GameIsPaused = false;
     }
     
     public void exitGame()
     {
         Time.timeScale = 1;
+        GameIsPaused = false;
         GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadLevel(0);
         //SceneManager.LoadScene(0);
     }
