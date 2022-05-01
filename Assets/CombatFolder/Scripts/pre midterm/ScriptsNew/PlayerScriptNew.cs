@@ -57,6 +57,8 @@ public class PlayerScriptNew : MonoBehaviour
 	public GameObject lockedOnto;
 	private bool lockOnPressed = false;
 	private bool rightAnalogePushed = false;
+	[Header("Police sense")]
+	public bool isPoliceSense;
 
 	//Do once after death
 	private bool checkBoolChange;
@@ -258,7 +260,8 @@ public class PlayerScriptNew : MonoBehaviour
 					!anim.GetCurrentAnimatorStateInfo(1).IsName("testBackswing") &&
 					!anim.GetCurrentAnimatorStateInfo(1).IsName("readingText") &&
 					!anim.GetCurrentAnimatorStateInfo(0).IsName("Hitted") &&
-					!anim.GetCurrentAnimatorStateInfo(1).IsName("Hitted"))
+					!anim.GetCurrentAnimatorStateInfo(1).IsName("Hitted") &&
+					!isPoliceSense)
 				//anim.GetCurrentAnimatorStateInfo(0).IsName("testIdle")) // if in walk state, walk
 				{
 					walking = true;
@@ -502,7 +505,7 @@ public class PlayerScriptNew : MonoBehaviour
 	}
 	private void Aim_and_LockOn()
 	{
-		if (!anim.GetCurrentAnimatorStateInfo(1).IsName(("readingText")))
+		if (!anim.GetCurrentAnimatorStateInfo(1).IsName("readingText") && !isPoliceSense)
 		{
 			// lock on
 			if ((Input.GetMouseButton(1) || Input.GetAxis("LT") > 0) && LockOnManager.me.bears_canBeLockedOn.Count > 0)
@@ -646,5 +649,16 @@ public class PlayerScriptNew : MonoBehaviour
 			func_activated_vfx.SetActive(false);
 			boss_activated_vfx.SetActive(false);
 		}
+	}
+
+	public void StopPlayer()
+    {
+		walkingDir = new Vector3(0, 0, 0);
+		//anim.CrossFade("testIdle", .3f);
+		anim.Play("Idle", 1);
+		//anim.Play("Idle", 0);
+		walking = false;
+		anim.SetFloat("velocity x", 0);
+		anim.SetFloat("velocity z", 0);
 	}
 }

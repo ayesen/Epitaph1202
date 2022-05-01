@@ -91,6 +91,8 @@ public class EffectStorage : MonoBehaviour
 				es.EnterHittedState(1);
 			}
 		}
+		if (FloatTextManager.Me.damageText && (int)dmgToDeal > 0)//float damage
+			FloatTextManager.Me.SpawnFloatText(enemy, "" + (int)dmgToDeal, FloatTextManager.TypeOfText.Damage);
 	}
 	public void DotEnemy(EffectHolderScript ehs, GameObject enemy)
 	{
