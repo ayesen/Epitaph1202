@@ -15,7 +15,7 @@ public class TriggerBossScript : MonoBehaviour
             BGMMan.bGMManger.StartTeddyBattleMusic();
             boss.phase = Enemy.AIPhase.InBattle1;
             boss.GetComponent<Enemy>().myEntrances = new List<DoorScript>(entrance_doors); // copy entrance list so that all bears know which door to close when player dies
-            Destroy(gameObject);
+            enabled = false;
         }
     }
 }
