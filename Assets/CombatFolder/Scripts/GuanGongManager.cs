@@ -63,6 +63,7 @@ public class GuanGongManager : MonoBehaviour
 		sword_picked = true;
 		GG_wS_dialogue_swordPicked.SetActive(true);
 		GG_wS_dialogue_swordNotPicked.SetActive(false);
+		Destroy(sword);
 		foreach (var bear in bearsISpawned)
         {
 			Destroy(bear);

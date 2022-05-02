@@ -22,6 +22,7 @@ public class EffectStorage : MonoBehaviour
 	public ParticleSystem fragments_dot;
 	public GameObject PlayerSoundWaveVFX;
 	public GameObject cd_vfx;
+	public Transform cd_vfx_target;
 	public GameObject bossMatDrop_vfx;
 	private float time = 0;
 
@@ -186,8 +187,10 @@ public class EffectStorage : MonoBehaviour
 			{
 				GameObject _cdVFX = Instantiate(cd_vfx);
 				_cdVFX.transform.position = enemy.transform.position;
+				
 				if (_cdVFX.GetComponent<ParticleAttractor>())
 				{
+					_cdVFX.GetComponent<ParticleAttractor>().attractorTransform = cd_vfx_target;
 					_cdVFX.GetComponent<ParticleAttractor>().particleAmount = (int)ehs.myEffect.amp;
 				}
 			}
