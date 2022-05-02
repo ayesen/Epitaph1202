@@ -35,6 +35,7 @@ public class Enemy : MonoBehaviour
     public AIPhase phase;
     public bool isPhaseTwo = false;
     public bool doorTrigger = false;
+    public bool isBigBear = false;
 
     [Header("Stun")]
     public float edr; // endurance: 0 ~ 1
@@ -435,7 +436,10 @@ public class Enemy : MonoBehaviour
 
     public void SlashVFX()
     {
-        StartCoroutine(GetComponent<AIEffectManager>().StartSlash());
+        if (isBigBear)
+        {
+            StartCoroutine(GetComponent<AIEffectManager>().StartSlash());
+        }
     }
 
     public float AIToPlayerDist()

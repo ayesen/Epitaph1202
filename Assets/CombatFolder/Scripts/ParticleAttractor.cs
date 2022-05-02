@@ -5,8 +5,7 @@ using UnityEngine;
 public class ParticleAttractor : MonoBehaviour
 {
 
-    [SerializeField]
-    private Transform _attractorTransform;
+    public Transform attractorTransform;
 
     private ParticleSystem _particleSystem;
     private ParticleSystem.Particle[] _particles = new ParticleSystem.Particle[1000];
@@ -15,17 +14,17 @@ public class ParticleAttractor : MonoBehaviour
 
     public void Start()
     {
-        _attractorTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        //_attractorTransform = GameObject.FindGameObjectWithTag("Player").transform;
         _particleSystem = GetComponent<ParticleSystem>();
         _particles = new ParticleSystem.Particle[particleAmount];
     }
 
     public void LateUpdate()
     {
-        if (_particleSystem.isPlaying && _attractorTransform != null)
+        if (_particleSystem.isPlaying && attractorTransform != null)
         {
             int length = _particleSystem.GetParticles(_particles);
-            Vector3 attractorPosition = new Vector3(_attractorTransform.position.x, _attractorTransform.position.y + 2, _attractorTransform.position.z);
+            Vector3 attractorPosition = new Vector3(attractorTransform.position.x, attractorTransform.position.y + 2, attractorTransform.position.z);
 
             for (int i = 0; i < length; i++)
             {
