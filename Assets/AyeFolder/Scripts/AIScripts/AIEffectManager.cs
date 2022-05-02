@@ -6,14 +6,17 @@ public class AIEffectManager : MonoBehaviour
 {
     public GameObject SoundWaveVFX;
     private float time = 0;
+    public GameObject SlashVFX;
+    public float SlashTimer;
+    public float SlashWaitTimer;
 
     // Update is called once per frame
     void Update()
     {
-        /*if(Input.GetKeyDown(KeyCode.G))
+        if(Input.GetKeyDown(KeyCode.G))
         {
-            StartCoroutine(StartSoundWave());
-        }*/
+            StartCoroutine(StartSlash());
+        }
     }
 
     public void ResetSoundWave()
@@ -33,6 +36,16 @@ public class AIEffectManager : MonoBehaviour
             yield return null;
         }
         ResetSoundWave();
+    }
+
+    public IEnumerator StartSlash()
+    {
+        yield return new WaitForSeconds(SlashWaitTimer);
+        SlashVFX.SetActive(true);
+        yield return new WaitForSeconds(SlashTimer);
+        SlashVFX.SetActive(false);
+        yield return null;
+
     }
 
 

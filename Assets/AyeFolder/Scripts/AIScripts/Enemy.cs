@@ -433,6 +433,11 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    public void SlashVFX()
+    {
+        StartCoroutine(GetComponent<AIEffectManager>().StartSlash());
+    }
+
     public float AIToPlayerDist()
     {
         return Vector3.Distance(transform.position, target.transform.position);
