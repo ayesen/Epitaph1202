@@ -5,19 +5,22 @@ using UnityEngine;
 public class DialogueArrow : MonoBehaviour
 {
     public float floatSpd;
+    public float half_range;
+    Vector3 initPos;
     private RectTransform rt;
     void Start()
     {
         rt = GetComponent<RectTransform>();
+        initPos = rt.localPosition;
     }
 
     void Update()
     {
-        rt.localPosition -= Vector3.down * floatSpd * Time.deltaTime;
+        rt.localPosition += Vector3.right * floatSpd * Time.deltaTime;
 
-        if (rt.localPosition.y < 80 || rt.localPosition.y > 110)
+        if (rt.localPosition.x <= initPos.x - half_range || rt.localPosition.x >= initPos.x + half_range)
         {
-            rt.localPosition = new Vector3(rt.localPosition.x, Mathf.Clamp(rt.localPosition.y, 80, 110), rt.localPosition.z);
+            rt.localPosition = new Vector3(Mathf.Clamp(rt.localPosition.x, initPos.x - half_range, initPos.x + half_range), rt.localPosition.y, rt.localPosition.z);
             floatSpd *= -1;
         }
     }

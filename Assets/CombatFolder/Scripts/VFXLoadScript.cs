@@ -10,7 +10,6 @@ public class VFXLoadScript : MonoBehaviour
     {
         foreach (var vfx in vfxs)
         {
-            print(vfx.name);
             GameObject _vfx = Instantiate(vfx);
             _vfx.transform.position = new Vector3(999, 999, 999);
         }

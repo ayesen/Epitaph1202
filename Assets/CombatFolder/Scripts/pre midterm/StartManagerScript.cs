@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class StartManagerScript : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class StartManagerScript : MonoBehaviour
     public StartSequence startSequence;
     private bool pressedArrow;
     private bool arrowDoOnce;
+    public GameObject rotateSpd;
     [Header("Fading Settings")]
     private bool isFading;
     private bool startGame;
@@ -127,6 +129,7 @@ public class StartManagerScript : MonoBehaviour
                 {
                     StartCoroutine(FadeCanvas(settingsHolder.GetComponent<CanvasGroup>(), 0f, fadeTime));
                     StartCoroutine(FadeCanvas(gameObject.transform.Find("Home").GetComponent<CanvasGroup>(), 1f, fadeTime));
+                    EventSystem.current.SetSelectedGameObject(null);
                     panelState = panels.home;
                     SoundMan.SoundManager.SafehouseMaterialSelect();
                 }
@@ -212,6 +215,8 @@ public class StartManagerScript : MonoBehaviour
     {
         StartCoroutine(FadeCanvas(settingsHolder.GetComponent<CanvasGroup>(), 1f, fadeTime));
         StartCoroutine(FadeCanvas(gameObject.transform.Find("Home").GetComponent<CanvasGroup>(), 0f, fadeTime));
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(rotateSpd);
         panelState = panels.settings;
     }
 
