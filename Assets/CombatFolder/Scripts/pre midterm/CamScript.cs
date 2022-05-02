@@ -17,12 +17,15 @@ public class CamScript : MonoBehaviour
 
     void Start()
     {
-        initialOffset = transform.position - targetObject.position;
+        //if (targetObject)
+        {
+            initialOffset = transform.position - targetObject.position;
+        }
     }
 
     void Update()
     {
-        cameraPosition = targetObject.position + initialOffset;
+            cameraPosition = targetObject.position + initialOffset;
         // when in living room
   //      if (inLivingRoom)
 		//{
