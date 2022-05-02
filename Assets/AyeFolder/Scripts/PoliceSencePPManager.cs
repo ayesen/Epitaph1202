@@ -36,7 +36,6 @@ public class PoliceSencePPManager : MonoBehaviour
 
             while (FishEye.distance.value != 0)
             {
-                Debug.Log("resetP");
                 time += Time.deltaTime*2;
                 FishEye.distance.value = Mathf.Lerp(originalDist, 0, time);
                 Vig.intensity.value = Mathf.Lerp(originalVigInt, 0, time);

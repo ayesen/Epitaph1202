@@ -46,11 +46,11 @@ public class SavePointManager : MonoBehaviour
 		}
 		if (_ps.matSlots[1] != null)
 		{
-			_ps.matSlots[1].GetComponent<MatScriptNew>().amount = _ps.matSlots[0].GetComponent<MatScriptNew>().amount_max;
+			_ps.matSlots[1].GetComponent<MatScriptNew>().amount = _ps.matSlots[1].GetComponent<MatScriptNew>().amount_max;
 		}
 		if (_ps.matSlots[2] != null)
 		{
-			_ps.matSlots[2].GetComponent<MatScriptNew>().amount = _ps.matSlots[0].GetComponent<MatScriptNew>().amount_max;
+			_ps.matSlots[2].GetComponent<MatScriptNew>().amount = _ps.matSlots[2].GetComponent<MatScriptNew>().amount_max;
 		}
 		//_ps.matSlots[3] = null;
 		// reset audios
@@ -77,6 +77,8 @@ public class SavePointManager : MonoBehaviour
 					door.GetComponent<DialogueScript>().enabled = false;
 				}
 				door.myOpenTrigger.SetActive(true);
+				door.myOpenTrigger.GetComponent<DialogueScript>().enabled = true;
+				door.myOpenTrigger.GetComponent<DialogueScript>().inspected = false;
 				door.bearsBehind.Add(bear);
 			}
 		}

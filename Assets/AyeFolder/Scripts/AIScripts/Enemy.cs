@@ -35,6 +35,7 @@ public class Enemy : MonoBehaviour
     public AIPhase phase;
     public bool isPhaseTwo = false;
     public bool doorTrigger = false;
+    public bool isBigBear = false;
 
     [Header("Stun")]
     public float edr; // endurance: 0 ~ 1
@@ -173,6 +174,7 @@ public class Enemy : MonoBehaviour
 
     public void ChangePhase(AIPhase phaseName, int time)
     {
+        Debug.Log("changePhase()");
         interruptedState = myAC.currentState;
         myTrigger.myMR.enabled = false;
         phase = phaseName;
@@ -185,8 +187,8 @@ public class Enemy : MonoBehaviour
     {
         if (phase == AIPhase.InBattle1)
         {
-            atkSpd = 5;
-            preAtkSpd = 5;
+            atkSpd = 1;
+            preAtkSpd = 1;
             atkTime = 1;
             postAtkSpd = 2;
             attackamt = 5;
@@ -195,19 +197,22 @@ public class Enemy : MonoBehaviour
             if (shield <= 0)
             {
                 timer_phase2 = duration_phase2;
+                print("enter phase 2");
+                phase = AIPhase.InBattle2;
                 ChangePhase(AIPhase.InBattle2, 1);
             }
         }
         else if (phase == AIPhase.InBattle2)
         {
-            atkSpd = 5;
-            preAtkSpd = 5;
+            atkSpd = 1;
+            preAtkSpd = 2;
             atkTime = 1;
             postAtkSpd = 2;
             attackamt = 25;
             myTriggerObj = GameObject.Find("Atk2Trigger");
             if ((health < healthLimit || timer_phase2 <= 0) && changeLimit > 0)
             {
+                print("restore shield and change phase");
                 shield = maxShield;
                 ChangePhase(AIPhase.InBattle1, 1);
             }
@@ -430,6 +435,14 @@ public class Enemy : MonoBehaviour
             DealDmg((int)(attackamt / soundWaveDmg_decay) * 5, gameObject);
             //print("bear roar dmg: "+(int)(attackamt / soundWaveDmg_decay) * 5);
             //StartCoroutine(EnemyDotDmg(5f, 1));
+        }
+    }
+
+    public void SlashVFX()
+    {
+        if (isBigBear)
+        {
+            StartCoroutine(GetComponent<AIEffectManager>().StartSlash());
         }
     }
 

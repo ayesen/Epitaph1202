@@ -18,6 +18,8 @@ public class SoundMan : MonoBehaviour
     public AudioClip castFlying;
     public AudioClip materialSelect;
     public AudioClip enemyHitten;
+    public AudioClip enemyHittenMatch;
+    public AudioClip enemyHittenNail;
     public AudioClip droppingBall;
     public AudioClip inspection;
     public AudioClip logChangePage;
@@ -266,11 +268,27 @@ public class SoundMan : MonoBehaviour
         source.Play();
     }
 
-    public void EnemyHitten()
+    public void EnemyHitten()//different enemy hitten
     {
         AudioSource source = GetSource();
         FindSFXGroup(source);
         source.clip = enemyHitten;
+        source.Play();
+    }
+
+    public void EnemyHittenMatch()
+    {
+        AudioSource source = GetSource();
+        FindSFXGroup(source);
+        source.clip = enemyHittenMatch;
+        source.Play();
+    }
+
+    public void EnemyHitternNail()
+    {
+        AudioSource source = GetSource();
+        FindSFXGroup(source);
+        source.clip = enemyHittenNail;
         source.Play();
     }
 
