@@ -65,8 +65,10 @@ public class MotherController : MonoBehaviour
 
     public void OutKids()
     {
+        print("out kids()");
 		for (int i = (GetComponent<Enemy>().changeLimit) * 3; i < (GetComponent<Enemy>().changeLimit) * 3 + 3; i++)
 		{
+            print("send out kid: "+kidsHouse[i].name);
             GameObject kidChild = kidsHouse[i].gameObject;
             kids.Add(kidChild);
             kidChild.GetComponent<Kids>().enabled = true;

@@ -198,7 +198,6 @@ public class PostProcessingManager : MonoBehaviour
 
             while (CA.saturation.value != -100)
             {
-                Debug.Log("black");
                 time += Time.fixedDeltaTime;
                 CA.saturation.value = Mathf.Lerp(originalSat, -100, time);
                 //FishEye.distance.value = Mathf.Lerp(originalDist, 0.5f, time);
