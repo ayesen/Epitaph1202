@@ -77,6 +77,8 @@ public class SavePointManager : MonoBehaviour
 					door.GetComponent<DialogueScript>().enabled = false;
 				}
 				door.myOpenTrigger.SetActive(true);
+				door.myOpenTrigger.GetComponent<DialogueScript>().enabled = true;
+				door.myOpenTrigger.GetComponent<DialogueScript>().inspected = false;
 				door.bearsBehind.Add(bear);
 			}
 		}
