@@ -34,7 +34,7 @@ public class DoorSwitchScript : MonoBehaviour
 							break;
 					}
 					door.ControllDoor();
-					Destroy(this);
+					enabled = false;
 				}
 				else if (!door.isOpen && OpenDoor)
 				{
@@ -51,7 +51,7 @@ public class DoorSwitchScript : MonoBehaviour
 							break;
 					}
 					door.ControllDoor();
-					Destroy(this);
+					enabled = false;
 				}
 			}
 		}
