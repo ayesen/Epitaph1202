@@ -234,6 +234,7 @@ public class EffectStorage : MonoBehaviour
 		// drop boss mat randomly
 		if (enemy.GetComponent<SmallBear>() == null)
 		{
+			print("give boss mat");
 			GameObject bossMatDropped = mainEnemyOfThisLevel.GetComponent<Enemy>().myMats[Random.Range(0, 2)];
 			Vector3 spawnPos_bossMat = new Vector3(enemy.transform.position.x, enemy.transform.position.y + 0.7f, enemy.transform.position.z);
 			GameObject droppedMat_bossMat = Instantiate(droppedMat_prefab, spawnPos_bossMat, Random.rotation);
@@ -241,11 +242,13 @@ public class EffectStorage : MonoBehaviour
 			droppedMat_bossMat.GetComponent<DroppedMatScript>().amount = 1;
 			if (bossMatDrop_vfx != null)
 			{
+				print("spawn vfx");
 				GameObject _bossMatVFX = Instantiate(bossMatDrop_vfx);
 				_bossMatVFX.transform.position = enemy.transform.position;
-				if (bossMatDrop_vfx.GetComponent<ParticleAttractor>())
+				if (_bossMatVFX.GetComponent<ParticleAttractor>())
 				{
-					bossMatDrop_vfx.GetComponent<ParticleAttractor>().particleAmount = 1;
+					_bossMatVFX.GetComponent<ParticleAttractor>().attractorTransform = cd_vfx_target;
+					_bossMatVFX.GetComponent<ParticleAttractor>().particleAmount = 1;
 				}
 			}
 

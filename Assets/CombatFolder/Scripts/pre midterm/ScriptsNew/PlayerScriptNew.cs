@@ -78,6 +78,7 @@ public class PlayerScriptNew : MonoBehaviour
 
 	private void Update()
 	{
+		print(GetComponent<CapsuleCollider>());
 		if (!MenuManager.GameIsPaused)
 		{
 			if (Input.GetKeyDown(KeyCode.M))
@@ -567,11 +568,14 @@ public class PlayerScriptNew : MonoBehaviour
 		var target = new Vector3(item.transform.position.x, transform.position.y, item.transform.position.z);
 		var dir = item.transform.position - transform.position;
 		bool looked = false;
-		print(Vector3.Angle(transform.forward, dir));
-        while (Vector3.Angle(transform.forward, dir) > 5 && !looked)
+        while (Vector3.Angle(transform.forward, dir) > 5 && 
+			//Vector3.Angle(transform.forward, dir) < 175 &&
+			!looked)
         {
 			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target - transform.position), rot_spd * Time.deltaTime);
-			if (Vector3.Angle(transform.forward, dir) <= 6)
+			if (Vector3.Angle(transform.forward, dir) <= 10 
+				//|| Vector3.Angle(transform.forward, dir) >= 174
+				)
             {
 				print("don't look");
 				looked = true;
