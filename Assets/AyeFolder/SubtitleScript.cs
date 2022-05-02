@@ -25,6 +25,7 @@ public class SubtitleScript : MonoBehaviour
     public VideoPlayer videoPlayer;
     public GameObject upperStripe;
     public GameObject lowerStripe;
+    public RenderTexture videoRD;
     bool videoCouldFinish;
 
 
@@ -141,7 +142,12 @@ public class SubtitleScript : MonoBehaviour
 
         upperStripe.SetActive(false);
         lowerStripe.SetActive(false);
+
+        videoPlayer.frame = 0;
+        videoRD.Release();
+
         videoHolder.SetActive(true);
+
         videoPlayer.Play();
 
         elapsedTime = 0;
@@ -152,8 +158,12 @@ public class SubtitleScript : MonoBehaviour
             Black.alpha = Mathf.Lerp(startValue, 0f, elapsedTime / 3f);
             yield return null;
         }
+
+        
+
         videoCouldFinish = true;
 
+       
     }
 
     public IEnumerator RolingUp(CanvasGroup cg, float endValue, float duration)
