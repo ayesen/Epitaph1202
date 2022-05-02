@@ -24,6 +24,7 @@ public class UIManager : MonoBehaviour
     public Image rightSlot;
     public Image upSlot;
     public Image downSlot;
+    public float colorAlpha;
 
     [Header("UI_Amount")]
     public TextMeshProUGUI slot0_TMP;
@@ -39,6 +40,11 @@ public class UIManager : MonoBehaviour
     public Image slot1_Fill;
     public Image slot2_Fill;
     public float fillAlpha;
+    public float expandAmount;
+    public float expandSpeed;
+    public Coroutine left_C;
+    public Coroutine up_C;
+    public Coroutine right_C;
 
     [Header("UI_Choosen")]
     public GameObject choLeft;
@@ -98,6 +104,49 @@ public class UIManager : MonoBehaviour
                 isHided = false;
                 StartCoroutine(FadeCanvas(cg, 1f, fadeTime));
             }
+        }
+    }
+
+    public IEnumerator MakePulse(Image Icon, float duration)
+    {
+        Vector2 startSize = Icon.GetComponent<RectTransform>().sizeDelta;
+        Vector2 targetSize = startSize * expandAmount;
+
+        float scrollAmount = 0;
+
+        while (scrollAmount < duration)
+        {
+            scrollAmount += Time.deltaTime * expandSpeed;
+
+            Icon.GetComponent<RectTransform>().sizeDelta = Vector2.Lerp(startSize, targetSize, scrollAmount / duration);
+
+            print(Icon.GetComponent<RectTransform>().sizeDelta.x);
+            yield return null;
+        }
+
+        scrollAmount = 0;
+
+        while (scrollAmount < duration)
+        {
+            scrollAmount += Time.deltaTime * expandSpeed;
+
+            Icon.GetComponent<RectTransform>().sizeDelta = Vector2.Lerp(targetSize, startSize, scrollAmount / duration);
+
+            print(Icon.GetComponent<RectTransform>().sizeDelta.x);
+            yield return null;
+        }
+
+        if(Icon == leftIcon)
+        {
+            left_C = null;
+        }
+        else if(Icon == upIcon)
+        {
+            up_C = null;
+        }
+        else if(Icon == rightIcon)
+        {
+            right_C = null;
         }
     }
 
@@ -253,9 +302,17 @@ public class UIManager : MonoBehaviour
             slot3_TMP.text = "0";
 
         leftSlot.color = ColorStorage.me.ChoColor(0);
+        if (ColorStorage.me.ChoColor(0) == ColorStorage.me.noMat)
+            leftSlot.color = new Color(leftSlot.color.r, leftSlot.color.g, leftSlot.color.b, colorAlpha);
         upSlot.color = ColorStorage.me.ChoColor(1);
+        if (ColorStorage.me.ChoColor(1) == ColorStorage.me.noMat)
+            upSlot.color = new Color(upSlot.color.r, upSlot.color.g, upSlot.color.b, colorAlpha);
         rightSlot.color = ColorStorage.me.ChoColor(2);
+        if (ColorStorage.me.ChoColor(2) == ColorStorage.me.noMat)
+            rightSlot.color = new Color(rightSlot.color.r, rightSlot.color.g, rightSlot.color.b, colorAlpha);
         downSlot.color = ColorStorage.me.ChoColor(3);
+        if (ColorStorage.me.ChoColor(3) == ColorStorage.me.noMat)
+            downSlot.color = new Color(downSlot.color.r, downSlot.color.g, downSlot.color.b, colorAlpha);
     }
 
     public IEnumerator FadeCanvas(CanvasGroup cg, float endValue, float duration)

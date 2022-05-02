@@ -68,6 +68,8 @@ public class PlayerScriptNew : MonoBehaviour
 		me = this;
 		walkingDir = new Vector3();
 		maxHP = hp;
+		if(StartSceneDataStorage.me != null)
+			rot_spd = StartSceneDataStorage.me.rotateSpd_startscene;
 	}
 
 	private void Start()
