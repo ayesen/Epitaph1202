@@ -50,17 +50,17 @@ public class MatScriptNew : MonoBehaviour
 					if (i == 0 && UIManager.Me.left_C == null)
 					{
 						UIManager.Me.left_C = UIManager.Me.StartCoroutine(UIManager.Me.MakePulse(UIManager.Me.leftIcon, 1f));
-						break;
+						
 					}
 					else if (i == 1 && UIManager.Me.up_C == null)
 					{
 						UIManager.Me.up_C = UIManager.Me.StartCoroutine(UIManager.Me.MakePulse(UIManager.Me.upIcon, 1f));
-						break;
+						
 					}
 					else if (i == 2 && UIManager.Me.right_C == null)
 					{
 						UIManager.Me.right_C = UIManager.Me.StartCoroutine(UIManager.Me.MakePulse(UIManager.Me.rightIcon, 1f));
-						break;
+						
 					}
 				}
 			}

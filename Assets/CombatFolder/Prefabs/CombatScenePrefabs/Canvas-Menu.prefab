@@ -2029,7 +2029,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Rotatioin Speed
+  m_text: Rotation Speed
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 316b568bed7e73a479f876f3ce5624bc, type: 2}
   m_sharedMaterial: {fileID: -4131697396433299567, guid: 316b568bed7e73a479f876f3ce5624bc, type: 2}
