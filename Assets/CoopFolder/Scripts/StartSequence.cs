@@ -59,7 +59,7 @@ public class StartSequence : MonoBehaviour
             curColor.a = Mathf.Lerp(bGStartValue, 1, t);
             bG.GetComponent<Image>().color = curColor;
             //UIs
-            curUIPos.x = Mathf.Lerp(uIPosXStartValue, 200, t);
+            curUIPos.x = Mathf.Lerp(uIPosXStartValue, 400, t);
             uI.localPosition = curUIPos;
             //Video
             curVideoPos.x = Mathf.Lerp(videoPosXStartValue, -680, t);
@@ -74,7 +74,7 @@ public class StartSequence : MonoBehaviour
         curColor.a = 1;
         bG.GetComponent<Image>().color = curColor;
         //UIs
-        curUIPos.x = 200;
+        curUIPos.x = 400;
         uI.localPosition = curUIPos;
         //Video
         curVideoPos.x = -680;
