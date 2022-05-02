@@ -15,12 +15,14 @@ public class StartSequence : MonoBehaviour
     public RectTransform uI;
     public RectTransform video;
     public Image bG;
+    public RenderTexture videoRd;
     public static bool sequenceIsDone;
 
     bool sequencePlayed;
     private void Start()
     {
         Time.timeScale = 1;
+        videoRd.Release();
         vP = GetComponent<VideoPlayer>();
         sequenceIsDone = false;
     }
