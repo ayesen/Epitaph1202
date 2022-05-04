@@ -32,7 +32,7 @@ public class DialogueScript : MonoBehaviour
 	public GameObject itemToLookAt; // for look at things automatically after triggering dialogue
 
 	[Header("Repeat Timer")]
-	public float repeat_interval;
+	private float repeat_interval = 1;
 	private float repeat_timer;
 
 	[Header("Custimizable End Action")]

@@ -59,6 +59,8 @@ public class PlayerScriptNew : MonoBehaviour
 	private bool rightAnalogePushed = false;
 	[Header("Police sense")]
 	public bool isPoliceSense;
+	[Header("Collision Fix")]
+	private bool collided = false;
 
 	//Do once after death
 	private bool checkBoolChange;
@@ -78,9 +80,9 @@ public class PlayerScriptNew : MonoBehaviour
         anim = playerModel.GetComponent<Animator>();
     }
 
-	private void Update()
+    private void Update()
 	{
-		print(GetComponent<CapsuleCollider>());
+		transform.localPosition = new Vector3(transform.localPosition.x, -8.5f, transform.localPosition.z);
 		if (!MenuManager.GameIsPaused)
 		{
 			if (Input.GetKeyDown(KeyCode.M))
@@ -248,8 +250,9 @@ public class PlayerScriptNew : MonoBehaviour
 				*/
 				#endregion
 				#region movement
+				// stop walking animation
 				if (anim.GetCurrentAnimatorStateInfo(1).IsName("testBackswing") ||
-					anim.GetCurrentAnimatorStateInfo(1).IsName("readingText")) // stop walking animation when attacking
+					anim.GetCurrentAnimatorStateInfo(1).IsName("readingText"))
 				{
 					anim.SetFloat("velocity x", 0);
 					anim.SetFloat("velocity z", 0);
@@ -265,7 +268,6 @@ public class PlayerScriptNew : MonoBehaviour
 					!anim.GetCurrentAnimatorStateInfo(0).IsName("Hitted") &&
 					!anim.GetCurrentAnimatorStateInfo(1).IsName("Hitted") &&
 					!isPoliceSense)
-				//anim.GetCurrentAnimatorStateInfo(0).IsName("testIdle")) // if in walk state, walk
 				{
 					walking = true;
 					atkButtonPressed = false;
@@ -274,7 +276,8 @@ public class PlayerScriptNew : MonoBehaviour
 				if (walking && 
 					!anim.GetCurrentAnimatorStateInfo(1).IsName("readingText") &&
 					!anim.GetCurrentAnimatorStateInfo(0).IsName("Hitted") &&
-					!anim.GetCurrentAnimatorStateInfo(1).IsName("Hitted"))
+					!anim.GetCurrentAnimatorStateInfo(1).IsName("Hitted")
+					)
 				{
 					// walking diagonally
 					if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))

@@ -19,6 +19,7 @@ public class EffectManagerScriptHolder : MonoBehaviour
     private void Update()
     {
 		transform.localRotation = Quaternion.Euler(0, 0, 0);
+		transform.localPosition = Vector3.zero;
     }
 
     public void Casting()

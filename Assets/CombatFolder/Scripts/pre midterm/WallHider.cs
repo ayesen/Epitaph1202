@@ -47,7 +47,7 @@ public class WallHider : MonoBehaviour
 		_masks = GameObject.FindGameObjectsWithTag("Wall Hide Mask").ToList();
 		_walls = GameObject.FindGameObjectsWithTag("Wall").ToList();
 		_lights = GameObject.FindGameObjectsWithTag("Light").ToList();
-		_floor = GameObject.FindGameObjectsWithTag("Floor").ToList();
+		//_floor = GameObject.FindGameObjectsWithTag("Floor").ToList();
 	}
 
 	private void Update()
@@ -91,7 +91,7 @@ public class WallHider : MonoBehaviour
 						light.SetActive(false);
 					}
 				}
-                foreach (var floor in _floor)
+                //foreach (var floor in _floor)
                 {
 					// if (floor.GetComponent<ShowScript>().whenSpawnHallway)
      //                {
@@ -140,7 +140,7 @@ public class WallHider : MonoBehaviour
 						light.SetActive(false);
 					}
 				}
-				foreach (var floor in _floor)
+				//foreach (var floor in _floor)
 				{
 					// if (floor.GetComponent<ShowScript>().whenEntryWay)
 					// {
@@ -193,7 +193,7 @@ public class WallHider : MonoBehaviour
 						light.SetActive(false);
 					}
 				}
-				foreach (var floor in _floor)
+				//foreach (var floor in _floor)
 				{
 					// if (floor.GetComponent<ShowScript>().whenLivingRoom)
 					// {
@@ -242,7 +242,7 @@ public class WallHider : MonoBehaviour
 						light.SetActive(false);
 					}
 				}
-				foreach (var floor in _floor)
+				//foreach (var floor in _floor)
 				{
 					// if (floor.GetComponent<ShowScript>().whenKitchen)
 					// {
@@ -291,7 +291,7 @@ public class WallHider : MonoBehaviour
 						light.SetActive(false);
 					}
 				}
-				foreach (var floor in _floor)
+				//foreach (var floor in _floor)
 				{
 					// if (floor.GetComponent<ShowScript>().whenBalcany)
 					// {
@@ -340,7 +340,7 @@ public class WallHider : MonoBehaviour
 						light.SetActive(false);
 					}
 				}
-				foreach (var floor in _floor)
+				//foreach (var floor in _floor)
 				{
 					// if (floor.GetComponent<ShowScript>().whenSubLivingRoom)
 					// {
@@ -389,17 +389,17 @@ public class WallHider : MonoBehaviour
 						light.SetActive(false);
 					}
 				}
-				foreach (var floor in _floor)
-				{
-					if (floor.GetComponent<ShowScript>().whenBathRoom)
-					{
-						floor.GetComponent<MeshRenderer>().enabled = true;
-					}
-					else
-					{
-						floor.GetComponent<MeshRenderer>().enabled = false;
-					}
-				}
+				//foreach (var floor in _floor)
+				//{
+				//	if (floor.GetComponent<ShowScript>().whenBathRoom)
+				//	{
+				//		floor.GetComponent<MeshRenderer>().enabled = true;
+				//	}
+				//	else
+				//	{
+				//		floor.GetComponent<MeshRenderer>().enabled = false;
+				//	}
+				//}
 				break;
 			case Room.bedroom:
 				foreach (var wall in _walls)
@@ -438,17 +438,17 @@ public class WallHider : MonoBehaviour
 						light.SetActive(false);
 					}
 				}
-				foreach (var floor in _floor)
-				{
-					if (floor.GetComponent<ShowScript>().whenBedRoom)
-					{
-						floor.GetComponent<MeshRenderer>().enabled = true;
-					}
-					else
-					{
-						floor.GetComponent<MeshRenderer>().enabled = false;
-					}
-				}
+				//foreach (var floor in _floor)
+				//{
+				//	if (floor.GetComponent<ShowScript>().whenBedRoom)
+				//	{
+				//		floor.GetComponent<MeshRenderer>().enabled = true;
+				//	}
+				//	else
+				//	{
+				//		floor.GetComponent<MeshRenderer>().enabled = false;
+				//	}
+				//}
 				break;
 			case Room.hideout:
 				foreach (var wall in _walls)
@@ -487,17 +487,17 @@ public class WallHider : MonoBehaviour
 						light.SetActive(false);
 					}
 				}
-				foreach (var floor in _floor)
-				{
-					if (floor.GetComponent<ShowScript>().whemHideout)
-					{
-						floor.GetComponent<MeshRenderer>().enabled = true;
-					}
-					else
-					{
-						floor.GetComponent<MeshRenderer>().enabled = false;
-					}
-				}
+				//foreach (var floor in _floor)
+				//{
+				//	if (floor.GetComponent<ShowScript>().whemHideout)
+				//	{
+				//		floor.GetComponent<MeshRenderer>().enabled = true;
+				//	}
+				//	else
+				//	{
+				//		floor.GetComponent<MeshRenderer>().enabled = false;
+				//	}
+				//}
 				break;
 			case Room.studyRoom:
 				foreach (var wall in _walls)
@@ -536,17 +536,17 @@ public class WallHider : MonoBehaviour
 						light.SetActive(false);
 					}
 				}
-				foreach (var floor in _floor)
-				{
-					if (floor.GetComponent<ShowScript>().whenStudyRoom)
-					{
-						floor.GetComponent<MeshRenderer>().enabled = true;
-					}
-					else
-					{
-						floor.GetComponent<MeshRenderer>().enabled = false;
-					}
-				}
+				//foreach (var floor in _floor)
+				//{
+				//	if (floor.GetComponent<ShowScript>().whenStudyRoom)
+				//	{
+				//		floor.GetComponent<MeshRenderer>().enabled = true;
+				//	}
+				//	else
+				//	{
+				//		floor.GetComponent<MeshRenderer>().enabled = false;
+				//	}
+				//}
 				break;
 			case Room.studyBalcony:
 				foreach (var wall in _walls)
@@ -585,17 +585,17 @@ public class WallHider : MonoBehaviour
 						light.SetActive(false);
 					}
 				}
-				foreach (var floor in _floor)
-				{
-					if (floor.GetComponent<ShowScript>().whenStudyBalcony)
-					{
-						floor.GetComponent<MeshRenderer>().enabled = true;
-					}
-					else
-					{
-						floor.GetComponent<MeshRenderer>().enabled = false;
-					}
-				}
+				//foreach (var floor in _floor)
+				//{
+				//	if (floor.GetComponent<ShowScript>().whenStudyBalcony)
+				//	{
+				//		floor.GetComponent<MeshRenderer>().enabled = true;
+				//	}
+				//	else
+				//	{
+				//		floor.GetComponent<MeshRenderer>().enabled = false;
+				//	}
+				//}
 				break;
 			case Room.subHallway:
 				foreach (var wall in _walls)
@@ -634,17 +634,17 @@ public class WallHider : MonoBehaviour
 						light.SetActive(false);
 					}
 				}
-				foreach (var floor in _floor)
-				{
-					if (floor.GetComponent<ShowScript>().whenSubHallway)
-					{
-						floor.GetComponent<MeshRenderer>().enabled = true;
-					}
-					else
-					{
-						floor.GetComponent<MeshRenderer>().enabled = false;
-					}
-				}
+				//foreach (var floor in _floor)
+				//{
+				//	if (floor.GetComponent<ShowScript>().whenSubHallway)
+				//	{
+				//		floor.GetComponent<MeshRenderer>().enabled = true;
+				//	}
+				//	else
+				//	{
+				//		floor.GetComponent<MeshRenderer>().enabled = false;
+				//	}
+				//}
 				break;
 			case Room.subbedRoom:
 				foreach (var wall in _walls)
@@ -683,17 +683,17 @@ public class WallHider : MonoBehaviour
 						light.SetActive(false);
 					}
 				}
-				foreach (var floor in _floor)
-				{
-					if (floor.GetComponent<ShowScript>().whenSubBedRoom)
-					{
-						floor.GetComponent<MeshRenderer>().enabled = true;
-					}
-					else
-					{
-						floor.GetComponent<MeshRenderer>().enabled = false;
-					}
-				}
+				//foreach (var floor in _floor)
+				//{
+				//	if (floor.GetComponent<ShowScript>().whenSubBedRoom)
+				//	{
+				//		floor.GetComponent<MeshRenderer>().enabled = true;
+				//	}
+				//	else
+				//	{
+				//		floor.GetComponent<MeshRenderer>().enabled = false;
+				//	}
+				//}
 				break;
 			case Room.subBathroom:
 				foreach (var wall in _walls)
@@ -732,17 +732,17 @@ public class WallHider : MonoBehaviour
 						light.SetActive(false);
 					}
 				}
-				foreach (var floor in _floor)
-				{
-					if (floor.GetComponent<ShowScript>().whenSubBathRoom)
-					{
-						floor.GetComponent<MeshRenderer>().enabled = true;
-					}
-					else
-					{
-						floor.GetComponent<MeshRenderer>().enabled = false;
-					}
-				}
+				//foreach (var floor in _floor)
+				//{
+				//	if (floor.GetComponent<ShowScript>().whenSubBathRoom)
+				//	{
+				//		floor.GetComponent<MeshRenderer>().enabled = true;
+				//	}
+				//	else
+				//	{
+				//		floor.GetComponent<MeshRenderer>().enabled = false;
+				//	}
+				//}
 				break;
 			case Room.candleRoom:
 				foreach (var wall in _walls)
@@ -781,17 +781,17 @@ public class WallHider : MonoBehaviour
 						light.SetActive(false);
 					}
 				}
-				foreach (var floor in _floor)
-				{
-					if (floor.GetComponent<ShowScript>().whenCandleRoom)
-					{
-						floor.GetComponent<MeshRenderer>().enabled = true;
-					}
-					else
-					{
-						floor.GetComponent<MeshRenderer>().enabled = false;
-					}
-				}
+				//foreach (var floor in _floor)
+				//{
+				//	if (floor.GetComponent<ShowScript>().whenCandleRoom)
+				//	{
+				//		floor.GetComponent<MeshRenderer>().enabled = true;
+				//	}
+				//	else
+				//	{
+				//		floor.GetComponent<MeshRenderer>().enabled = false;
+				//	}
+				//}
 				break;
 			case Room.bossRoom:
 				foreach (var wall in _walls)
@@ -830,17 +830,17 @@ public class WallHider : MonoBehaviour
 						light.SetActive(false);
 					}
 				}
-				foreach (var floor in _floor)
-				{
-					if (floor.GetComponent<ShowScript>().whenBossRoom)
-					{
-						floor.GetComponent<MeshRenderer>().enabled = true;
-					}
-					else
-					{
-						floor.GetComponent<MeshRenderer>().enabled = false;
-					}
-				}
+				//foreach (var floor in _floor)
+				//{
+				//	if (floor.GetComponent<ShowScript>().whenBossRoom)
+				//	{
+				//		floor.GetComponent<MeshRenderer>().enabled = true;
+				//	}
+				//	else
+				//	{
+				//		floor.GetComponent<MeshRenderer>().enabled = false;
+				//	}
+				//}
 				break;
 		}
 	}
