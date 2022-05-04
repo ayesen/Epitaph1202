@@ -19,7 +19,7 @@ public class DialogueScript : MonoBehaviour
 	public bool restrictMovement; // does the player is prohibited from doing anything when reading
 	public bool oneTimeDialogue; //! can this dialogue be triggered only once, dialogues with options should set this to true!
 	public bool canRepeat;//can this dialogue be repeated? controlls bool inspected
-	private bool inspected;
+	public bool inspected;
 	private MeshRenderer mr;
 	public bool isSwitch;
 	public GameObject[] interactiveSwitch;
