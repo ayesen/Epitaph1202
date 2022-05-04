@@ -37,7 +37,7 @@ public class SubtitleScript : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonUp("AButton"))
+        if (Input.GetButtonUp("AButton") || Input.GetKeyUp(KeyCode.Space))
         {
             GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadLevel(0);
         }
