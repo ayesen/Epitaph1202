@@ -358,6 +358,24 @@ public class PlayerScriptNew : MonoBehaviour
 				}
 				*/
 				#endregion
+				//Fuck I didn't want to touch this shit
+				#region police sense
+				if ((Input.GetButtonDown("LB") || Input.GetKeyDown(KeyCode.P)) &&
+					 PostProcessingManager.Me.coroutinesQueue.Count <= 0 &&
+					 anim.GetCurrentAnimatorStateInfo(1).IsName("readingText")) // A lot of shits has been moved by a hero
+				{
+					PostProcessingManager.Me.PS_Running = true;
+					isPoliceSense = true;
+					StopPlayer();
+					PostProcessingManager.Me.coroutinesQueue.Enqueue(PostProcessingManager.Me.DistorsionFilter());
+				}
+				if ((Input.GetButtonUp("LB") || Input.GetKeyUp(KeyCode.P)) && PostProcessingManager.Me.PS_Running)
+				{
+					PostProcessingManager.Me.coroutinesQueue.Enqueue(PostProcessingManager.Me.ResetPolice());
+					PostProcessingManager.Me.PS_Running = false;
+					isPoliceSense = false;
+				}
+				#endregion
 
 				// check for attack button press
 				#region attack
