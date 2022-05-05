@@ -414,6 +414,7 @@ MonoBehaviour:
   bossRoomTrigger: {fileID: 8300000, guid: fc355e0e038f0406ea571c50bdee0e29, type: 3}
   lordGuanBearTrigger: {fileID: 8300000, guid: 165993ae496b342718f536e0e9723001, type: 3}
   lordGuanReturnKnife: {fileID: 8300000, guid: da97baea31d95a444a529a5fcf102ca1, type: 3}
+  bearBreak: {fileID: 8300000, guid: c9d76b12b6f1148fba06138b1a931968, type: 3}
   battleVOPhaseOne:
   - {fileID: 8300000, guid: 366be40fb05a00c41a0462d710b14f69, type: 3}
   - {fileID: 8300000, guid: da97baea31d95a444a529a5fcf102ca1, type: 3}
