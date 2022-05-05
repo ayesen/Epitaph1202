@@ -115,81 +115,109 @@ public class PlayerScriptNew : MonoBehaviour
 					!SafehouseManager.Me.isSafehouse &&
 					!SafehouseManager.Me.isFading)
 				{
-					if (Input.GetKeyUp(KeyCode.Alpha1) || Input.GetButtonUp("XButton") && matSlots[0] != null)
+					if (Input.GetKeyUp(KeyCode.Alpha1) || Input.GetButtonUp("XButton"))
 					{
-						SoundMan.SoundManager.MaterialSelect();
-						if (selectedMats.Contains(matSlots[0]))
-						{
-							selectedMats.Remove(matSlots[0]);
+						if(matSlots[0] != null)
+                        {
+							SoundMan.SoundManager.MaterialSelect();
+							if (selectedMats.Contains(matSlots[0]))
+							{
+								selectedMats.Remove(matSlots[0]);
+							}
+							else
+							{
+								if (matSlots[0].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
+								{
+									selectedMats.Add(matSlots[0]);
+									// vfx
+									PlaySelectVFX(matSlots[0]);
+									anim.SetBool("selected", true);
+								}
+							}
+							EffectManagerNew.me.RefreshCurrentMats();
 						}
 						else
-						{
-							if (matSlots[0].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
-							{
-								selectedMats.Add(matSlots[0]);
-								// vfx
-								PlaySelectVFX(matSlots[0]);
-								anim.SetBool("selected", true);
-							}
-						}
-						EffectManagerNew.me.RefreshCurrentMats();
+                        {
+							SoundMan.SoundManager.CannotAccess();
+                        }
 					}
-					if (Input.GetKeyUp(KeyCode.Alpha2) || Input.GetButtonUp("YButton") && matSlots[1] != null)
+					if (Input.GetKeyUp(KeyCode.Alpha2) || Input.GetButtonUp("YButton"))
 					{
-						SoundMan.SoundManager.MaterialSelect();
-						if (selectedMats.Contains(matSlots[1]))
-						{
-							selectedMats.Remove(matSlots[1]);
-						}
-						else
-						{
-							if (matSlots[1].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
+						if(matSlots[1] != null)
+                        {
+							SoundMan.SoundManager.MaterialSelect();
+							if (selectedMats.Contains(matSlots[1]))
 							{
-								selectedMats.Add(matSlots[1]);
-								// vfx
-								PlaySelectVFX(matSlots[1]);
-								anim.SetBool("selected", true);
+								selectedMats.Remove(matSlots[1]);
 							}
+							else
+							{
+								if (matSlots[1].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
+								{
+									selectedMats.Add(matSlots[1]);
+									// vfx
+									PlaySelectVFX(matSlots[1]);
+									anim.SetBool("selected", true);
+								}
+							}
+							EffectManagerNew.me.RefreshCurrentMats();
 						}
-						EffectManagerNew.me.RefreshCurrentMats();
+                        else
+                        {
+							SoundMan.SoundManager.CannotAccess();
+                        }
 					}
-					if (Input.GetKeyUp(KeyCode.Alpha3) || Input.GetButtonUp("BButton") && matSlots[2] != null)
+					if (Input.GetKeyUp(KeyCode.Alpha3) || Input.GetButtonUp("BButton"))
 					{
-						SoundMan.SoundManager.MaterialSelect();
-						if (selectedMats.Contains(matSlots[2]))
-						{
-							selectedMats.Remove(matSlots[2]);
-						}
-						else
-						{
-							if (matSlots[2].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
+						if(matSlots[2] != null)
+                        {
+							SoundMan.SoundManager.MaterialSelect();
+							if (selectedMats.Contains(matSlots[2]))
 							{
-								anim.SetBool("selected", true);
-								// vfx
-								PlaySelectVFX(matSlots[2]);
-								selectedMats.Add(matSlots[2]);
+								selectedMats.Remove(matSlots[2]);
 							}
+							else
+							{
+								if (matSlots[2].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
+								{
+									anim.SetBool("selected", true);
+									// vfx
+									PlaySelectVFX(matSlots[2]);
+									selectedMats.Add(matSlots[2]);
+								}
+							}
+							EffectManagerNew.me.RefreshCurrentMats();
 						}
-						EffectManagerNew.me.RefreshCurrentMats();
+                        else
+                        {
+							SoundMan.SoundManager.CannotAccess();
+                        }
 					}
-					if (Input.GetKeyUp(KeyCode.Alpha4) || Input.GetButtonUp("AButton") && matSlots[3] != null)
+					if (Input.GetKeyUp(KeyCode.Alpha4) || Input.GetButtonUp("AButton"))
 					{
-						SoundMan.SoundManager.MaterialSelect();
-						if (selectedMats.Contains(matSlots[3]))
-						{
-							selectedMats.Remove(matSlots[3]);
-						}
-						else
-						{
-							if (matSlots[3].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
+						if(matSlots[3] != null)
+                        {
+							SoundMan.SoundManager.MaterialSelect();
+							if (selectedMats.Contains(matSlots[3]))
 							{
-								anim.SetBool("selected", true);
-								// vfx
-								PlaySelectVFX(matSlots[3]);
-								selectedMats.Add(matSlots[3]);
+								selectedMats.Remove(matSlots[3]);
 							}
+							else
+							{
+								if (matSlots[3].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
+								{
+									anim.SetBool("selected", true);
+									// vfx
+									PlaySelectVFX(matSlots[3]);
+									selectedMats.Add(matSlots[3]);
+								}
+							}
+							EffectManagerNew.me.RefreshCurrentMats();
 						}
-						EffectManagerNew.me.RefreshCurrentMats();
+                        else
+                        {
+							SoundMan.SoundManager.CannotAccess();
+                        }
 					}
 				}
 

@@ -35,19 +35,19 @@ public class ChangeInventory : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || Input.GetAxis("HorizontalArrow") > 0)
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || Input.GetAxis("HorizontalArrow") > 0 || Input.GetAxis("LeftJoystickHorizontal") > 0)
         {
             switching = true;
         }
-        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || Input.GetAxis("HorizontalArrow") < 0)
+        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || Input.GetAxis("HorizontalArrow") < 0 || Input.GetAxis("LeftJoystickHorizontal") < 0)
         {
             switching = true;
         }
-        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) || Input.GetAxis("VerticalArrow") < 0)
+        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) || Input.GetAxis("VerticalArrow") < 0 || Input.GetAxis("LeftJoystickVertical") < 0)
         {
             switching = true;
         }
-        else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetAxis("VerticalArrow") > 0)
+        else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetAxis("VerticalArrow") > 0 || Input.GetAxis("LeftJoystickVertical") > 0)
         {
             switching = true;
         }
@@ -63,17 +63,17 @@ public class ChangeInventory : MonoBehaviour
                 doOnce = switching;
                 if (switching && !SafehouseManager.Me.isFading)
                 {
-                    if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || Input.GetAxis("HorizontalArrow") > 0)
+                    if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || Input.GetAxis("HorizontalArrow") > 0 || Input.GetAxis("LeftJoystickHorizontal") > 0)
                     {
                         choosenMatIndex += 1;
                         SoundMan.SoundManager.SafehouseMaterialSelect();
                     }
-                    else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || Input.GetAxis("HorizontalArrow") < 0)
+                    else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || Input.GetAxis("HorizontalArrow") < 0 || Input.GetAxis("LeftJoystickHorizontal") < 0)
                     {
                         choosenMatIndex -= 1;
                         SoundMan.SoundManager.SafehouseMaterialSelect();
                     }
-                    else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) || Input.GetAxis("VerticalArrow") < 0)
+                    else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) || Input.GetAxis("VerticalArrow") < 0 || Input.GetAxis("LeftJoystickVertical") < 0)
                     {
                         if (!isChanging)
                         {
@@ -84,7 +84,7 @@ public class ChangeInventory : MonoBehaviour
                             }
                         }
                     }
-                    else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetAxis("VerticalArrow") > 0)
+                    else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetAxis("VerticalArrow") > 0 || Input.GetAxis("LeftJoystickVertical") > 0)
                     {
                         if (!isChanging)
                         {
