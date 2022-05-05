@@ -66,8 +66,8 @@ public class SavePointManager : MonoBehaviour
 		GetActivatedBears();
 		foreach (var bear in _activatedBears)
 		{
-			bear.transform.position = bear.GetComponent<Enemy>().ogTransform.position;
-			bear.transform.rotation = bear.GetComponent<Enemy>().ogTransform.rotation;
+			bear.transform.localPosition = bear.GetComponent<Enemy>().ogPosition;
+			bear.transform.localEulerAngles = bear.GetComponent<Enemy>().ogRotation;
 			bear.GetComponent<AIController>().enabled = false;
 			foreach (var door in bear.GetComponent<Enemy>().myEntrances)
 			{

@@ -78,10 +78,8 @@ public class DialogueScript : MonoBehaviour
             		//mr.material = highLightMat;
             		if ((Input.GetKeyUp(KeyCode.E) || Input.GetAxis("HorizontalArrow") > 0) &&
             			(player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(1).IsName("Idle") ||
-            				player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Walking") ||
-            				player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("WalkingRight") ||
-            				player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("WalkingLeft") ||
-            				player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("BackWalking")) &&
+						player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(1).IsName("select")
+							) &&
 							!MenuManager.GameIsPaused &&
 							repeat_timer <= 0)
             		{

@@ -59,8 +59,6 @@ public class PlayerScriptNew : MonoBehaviour
 	private bool rightAnalogePushed = false;
 	[Header("Police sense")]
 	public bool isPoliceSense;
-	[Header("Collision Fix")]
-	private bool collided = false;
 
 	//Do once after death
 	private bool checkBoolChange;
@@ -352,7 +350,6 @@ public class PlayerScriptNew : MonoBehaviour
 					}
 				}
 				Aim_and_LockOn();
-
 				/* //mouse rotation
 				else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("readingText"))
 				{
@@ -365,7 +362,7 @@ public class PlayerScriptNew : MonoBehaviour
 				#region police sense
 				if ((Input.GetButtonDown("LB") || Input.GetKeyDown(KeyCode.P)) &&
 					 PostProcessingManager.Me.coroutinesQueue.Count <= 0 &&
-					 anim.GetCurrentAnimatorStateInfo(1).IsName("readingText")) // A lot of shits has been moved by a hero
+					 !anim.GetCurrentAnimatorStateInfo(1).IsName("readingText")) // A lot of shits has been moved by a hero
 				{
 					PostProcessingManager.Me.PS_Running = true;
 					isPoliceSense = true;
