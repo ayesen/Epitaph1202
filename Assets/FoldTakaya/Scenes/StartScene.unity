@@ -1152,7 +1152,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 3779833363680136800, guid: a3ad3a61a370044af92c7b69f17a4f18, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 75cd329b9cb92d64cab3503605a0f505, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8ab9e4d607bc0434093267641135d8d2, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -2031,6 +2031,8 @@ MonoBehaviour:
   castFlying: {fileID: 8300000, guid: ed87793238b894e35b239c3b912efd2b, type: 3}
   materialSelect: {fileID: 8300000, guid: 8f16c2cba22994e9788c40a8efb5f061, type: 3}
   enemyHitten: {fileID: 8300000, guid: f0dd811892f3d4fb3bc7d733766c49e2, type: 3}
+  enemyHittenMatch: {fileID: 0}
+  enemyHittenNail: {fileID: 0}
   droppingBall: {fileID: 8300000, guid: e065904a2aacc9948af0f5ff0ae74d40, type: 3}
   inspection: {fileID: 8300000, guid: e0ccaa8bcf3054faba2d8eb32bf7bdaa, type: 3}
   logChangePage: {fileID: 8300000, guid: dd3c6aa3d036844b48ef5d0b8026edc1, type: 3}

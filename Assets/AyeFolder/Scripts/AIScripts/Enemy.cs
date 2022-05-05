@@ -98,6 +98,8 @@ public class Enemy : MonoBehaviour
     // for save point
     [HideInInspector]
     public Transform ogTransform;
+    public Vector3 ogPosition;
+    public Vector3 ogRotation;
     //[HideInInspector]
     public List<DoorScript> myEntrances;
     
@@ -116,6 +118,8 @@ public class Enemy : MonoBehaviour
         ogMat = GetComponentInChildren<SkinnedMeshRenderer>().material;
         breakMeterMax = breakMeter;
         ogTransform = transform;
+        ogPosition = transform.localPosition;
+        ogRotation = transform.localEulerAngles;
     }
 
     private void Update()
@@ -187,7 +191,7 @@ public class Enemy : MonoBehaviour
     {
         if (phase == AIPhase.InBattle1)
         {
-            atkSpd = 1;
+            atkSpd = 2;
             preAtkSpd = 1;
             atkTime = 1;
             postAtkSpd = 2;
@@ -204,8 +208,8 @@ public class Enemy : MonoBehaviour
         }
         else if (phase == AIPhase.InBattle2)
         {
-            atkSpd = 1;
-            preAtkSpd = 2;
+            atkSpd = 3;
+            preAtkSpd = 3;
             atkTime = 1;
             postAtkSpd = 2;
             attackamt = 25;
@@ -292,9 +296,8 @@ public class Enemy : MonoBehaviour
 			{
                 target.transform.LookAt(dmgDealer.transform.position);
                 target.transform.localEulerAngles = new Vector3(0, target.transform.localEulerAngles.y, 0);
+                target.GetComponent<PlayerScriptNew>().LoseHealth_player(dmgAmt);
             }
-            target.GetComponent<PlayerScriptNew>().LoseHealth_player(dmgAmt);
-            //Debug.Log(dmgAmt);
         }
         if (target.gameObject.CompareTag("Enemy"))
         {
