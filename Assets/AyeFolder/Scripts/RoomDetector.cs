@@ -12,11 +12,6 @@ public class RoomDetector : MonoBehaviour
         {
             WallHider.me.roomPlayerIsIn = whichRoomIAmIn;
         }
-        else
-        {
-            //print(other.gameObject.tag);
-            print(other.gameObject.name);
-        }
 
         switch (WallHider.me.roomPlayerIsIn)
         {

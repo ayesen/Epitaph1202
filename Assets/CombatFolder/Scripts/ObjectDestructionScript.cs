@@ -12,8 +12,6 @@ public class ObjectDestructionScript : MonoBehaviour
 	public float death_time;
 	private float death_timer;
 
-	public GameObject react_mat;
-
 	public GameObject impact_prefab;
 
 	private void Start()
@@ -34,7 +32,7 @@ public class ObjectDestructionScript : MonoBehaviour
 	{
 		if (collision.gameObject.CompareTag("Spell"))
 		{
-			if (collision.gameObject.GetComponent<SpellScript>() != null && collision.gameObject.GetComponent<SpellScript>().mats.Contains(react_mat))
+			if (collision.gameObject.GetComponent<SpellScript>() != null)
 			{
 				Vector3 dir = transform.position - collision.transform.position;
 				rb.AddForce(dir.normalized * flyAmount, ForceMode.Impulse);
@@ -46,7 +44,7 @@ public class ObjectDestructionScript : MonoBehaviour
 					impact_sphere.GetComponent<ImpactBallScript>().mats.Add(mat);
 				}
 			}
-			else if (collision.gameObject.GetComponent<ImpactBallScript>() != null && collision.gameObject.GetComponent<ImpactBallScript>().mats.Contains(react_mat))
+			else if (collision.gameObject.GetComponent<ImpactBallScript>() != null)
 			{
 				print(gameObject.name + ": collide");
 				Vector3 dir = transform.position - collision.transform.position;
@@ -58,7 +56,6 @@ public class ObjectDestructionScript : MonoBehaviour
 
 	IEnumerator StartSink()
 	{
-		print("sink");
 		yield return new WaitForSeconds(2);
 		sink = true;
 		GetComponent<Rigidbody>().isKinematic = true;
