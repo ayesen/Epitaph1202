@@ -172,6 +172,7 @@ public class Enemy : MonoBehaviour
         hittedTime = down_time;
         if (myAC.currentState != myAC.changePhaseState || myAC.currentState != myAC.dieState)
 		{
+            SoundMan.SoundManager.BearBreak();
             myAC.ChangeState(myAC.downedState);
 		}
 	}
@@ -192,7 +193,7 @@ public class Enemy : MonoBehaviour
         if (phase == AIPhase.InBattle1)
         {
             atkSpd = 2;
-            preAtkSpd = 1;
+            preAtkSpd = 2;
             atkTime = 1;
             postAtkSpd = 2;
             attackamt = 5;
