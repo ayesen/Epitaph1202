@@ -10,6 +10,7 @@ public class WallHider : MonoBehaviour
 	private List<GameObject> _walls;
 	private List<GameObject> _lights;
 	private List<GameObject> _floor;
+	private List<GameObject> _enemies;
 
 	public float doorOffset_x;
 	public float doorOffset_z;
@@ -47,6 +48,7 @@ public class WallHider : MonoBehaviour
 		_masks = GameObject.FindGameObjectsWithTag("Wall Hide Mask").ToList();
 		_walls = GameObject.FindGameObjectsWithTag("Wall").ToList();
 		_lights = GameObject.FindGameObjectsWithTag("Light").ToList();
+		_enemies = GameObject.FindGameObjectsWithTag("Enemy").ToList();
 		//_floor = GameObject.FindGameObjectsWithTag("Floor").ToList();
 	}
 
@@ -91,8 +93,22 @@ public class WallHider : MonoBehaviour
 						light.SetActive(false);
 					}
 				}
-                //foreach (var floor in _floor)
-                {
+				foreach (var enemy in _enemies)
+				{
+					if (enemy && enemy.GetComponent<ShowScript>())
+					{
+						if (enemy.GetComponent<ShowScript>().whenSpawnHallway)
+						{
+							enemy.SetActive(true);
+						}
+						else
+						{
+							enemy.SetActive(false);
+						}
+					}
+				}
+				//foreach (var floor in _floor)
+				{
 					// if (floor.GetComponent<ShowScript>().whenSpawnHallway)
      //                {
 					// 	floor.GetComponent<MeshRenderer>().enabled = true;
@@ -138,6 +154,20 @@ public class WallHider : MonoBehaviour
 					else
 					{
 						light.SetActive(false);
+					}
+				}
+				foreach (var enemy in _enemies)
+				{
+					if (enemy && enemy.GetComponent<ShowScript>())
+					{
+						if (enemy.GetComponent<ShowScript>().whenEntryWay)
+						{
+							enemy.SetActive(true);
+						}
+						else
+						{
+							enemy.SetActive(false);
+						}
 					}
 				}
 				//foreach (var floor in _floor)
@@ -193,6 +223,20 @@ public class WallHider : MonoBehaviour
 						light.SetActive(false);
 					}
 				}
+				foreach (var enemy in _enemies)
+				{
+					if (enemy && enemy.GetComponent<ShowScript>())
+					{
+						if (enemy.GetComponent<ShowScript>().whenLivingRoom)
+						{
+							enemy.SetActive(true);
+						}
+						else
+						{
+							enemy.SetActive(false);
+						}
+					}
+				}
 				//foreach (var floor in _floor)
 				{
 					// if (floor.GetComponent<ShowScript>().whenLivingRoom)
@@ -240,6 +284,20 @@ public class WallHider : MonoBehaviour
 					else
 					{
 						light.SetActive(false);
+					}
+				}
+				foreach (var enemy in _enemies)
+				{
+					if (enemy && enemy.GetComponent<ShowScript>())
+					{
+						if (enemy.GetComponent<ShowScript>().whenKitchen)
+						{
+							enemy.SetActive(true);
+						}
+						else
+						{
+							enemy.SetActive(false);
+						}
 					}
 				}
 				//foreach (var floor in _floor)
@@ -291,6 +349,20 @@ public class WallHider : MonoBehaviour
 						light.SetActive(false);
 					}
 				}
+				foreach (var enemy in _enemies)
+				{
+					if (enemy && enemy.GetComponent<ShowScript>())
+					{
+						if (enemy.GetComponent<ShowScript>().whenBalcany)
+						{
+							enemy.SetActive(true);
+						}
+						else
+						{
+							enemy.SetActive(false);
+						}
+					}
+				}
 				//foreach (var floor in _floor)
 				{
 					// if (floor.GetComponent<ShowScript>().whenBalcany)
@@ -338,6 +410,20 @@ public class WallHider : MonoBehaviour
 					else
 					{
 						light.SetActive(false);
+					}
+				}
+				foreach (var enemy in _enemies)
+				{
+					if (enemy && enemy.GetComponent<ShowScript>())
+					{
+						if (enemy.GetComponent<ShowScript>().whenSubLivingRoom)
+						{
+							enemy.SetActive(true);
+						}
+						else
+						{
+							enemy.SetActive(false);
+						}
 					}
 				}
 				//foreach (var floor in _floor)
@@ -389,6 +475,20 @@ public class WallHider : MonoBehaviour
 						light.SetActive(false);
 					}
 				}
+				foreach (var enemy in _enemies)
+				{
+					if (enemy && enemy.GetComponent<ShowScript>())
+					{
+						if (enemy.GetComponent<ShowScript>().whenBathRoom)
+						{
+							enemy.SetActive(true);
+						}
+						else
+						{
+							enemy.SetActive(false);
+						}
+					}
+				}
 				//foreach (var floor in _floor)
 				//{
 				//	if (floor.GetComponent<ShowScript>().whenBathRoom)
@@ -436,6 +536,20 @@ public class WallHider : MonoBehaviour
 					else
 					{
 						light.SetActive(false);
+					}
+				}
+				foreach (var enemy in _enemies)
+				{
+					if (enemy && enemy.GetComponent<ShowScript>())
+					{
+						if (enemy.GetComponent<ShowScript>().whenBedRoom)
+						{
+							enemy.SetActive(true);
+						}
+						else
+						{
+							enemy.SetActive(false);
+						}
 					}
 				}
 				//foreach (var floor in _floor)
@@ -487,6 +601,20 @@ public class WallHider : MonoBehaviour
 						light.SetActive(false);
 					}
 				}
+				foreach (var enemy in _enemies)
+				{
+					if (enemy && enemy.GetComponent<ShowScript>())
+                    {
+						if (enemy.GetComponent<ShowScript>().whemHideout)
+						{
+							enemy.SetActive(true);
+						}
+						else
+						{
+							enemy.SetActive(false);
+						}
+					}
+				}
 				//foreach (var floor in _floor)
 				//{
 				//	if (floor.GetComponent<ShowScript>().whemHideout)
@@ -534,6 +662,20 @@ public class WallHider : MonoBehaviour
 					else
 					{
 						light.SetActive(false);
+					}
+				}
+				foreach (var enemy in _enemies)
+				{
+					if (enemy && enemy.GetComponent<ShowScript>())
+					{
+						if (enemy.GetComponent<ShowScript>().whenStudyRoom)
+						{
+							enemy.SetActive(true);
+						}
+						else
+						{
+							enemy.SetActive(false);
+						}
 					}
 				}
 				//foreach (var floor in _floor)
@@ -585,6 +727,20 @@ public class WallHider : MonoBehaviour
 						light.SetActive(false);
 					}
 				}
+				foreach (var enemy in _enemies)
+				{
+					if (enemy && enemy.GetComponent<ShowScript>())
+					{
+						if (enemy.GetComponent<ShowScript>().whenStudyBalcony)
+						{
+							enemy.SetActive(true);
+						}
+						else
+						{
+							enemy.SetActive(false);
+						}
+					}
+				}
 				//foreach (var floor in _floor)
 				//{
 				//	if (floor.GetComponent<ShowScript>().whenStudyBalcony)
@@ -632,6 +788,20 @@ public class WallHider : MonoBehaviour
 					else
 					{
 						light.SetActive(false);
+					}
+				}
+				foreach (var enemy in _enemies)
+				{
+					if (enemy && enemy.GetComponent<ShowScript>())
+					{
+						if (enemy.GetComponent<ShowScript>().whenSubHallway)
+						{
+							enemy.SetActive(true);
+						}
+						else
+						{
+							enemy.SetActive(false);
+						}
 					}
 				}
 				//foreach (var floor in _floor)
@@ -683,6 +853,20 @@ public class WallHider : MonoBehaviour
 						light.SetActive(false);
 					}
 				}
+				foreach (var enemy in _enemies)
+				{
+					if (enemy && enemy.GetComponent<ShowScript>())
+					{
+						if (enemy.GetComponent<ShowScript>().whenSubBedRoom)
+						{
+							enemy.SetActive(true);
+						}
+						else
+						{
+							enemy.SetActive(false);
+						}
+					}
+				}
 				//foreach (var floor in _floor)
 				//{
 				//	if (floor.GetComponent<ShowScript>().whenSubBedRoom)
@@ -730,6 +914,20 @@ public class WallHider : MonoBehaviour
 					else
 					{
 						light.SetActive(false);
+					}
+				}
+				foreach (var enemy in _enemies)
+				{
+					if (enemy && enemy.GetComponent<ShowScript>())
+					{
+						if (enemy.GetComponent<ShowScript>().whenSubBathRoom)
+						{
+							enemy.SetActive(true);
+						}
+						else
+						{
+							enemy.SetActive(false);
+						}
 					}
 				}
 				//foreach (var floor in _floor)
@@ -781,6 +979,20 @@ public class WallHider : MonoBehaviour
 						light.SetActive(false);
 					}
 				}
+				foreach (var enemy in _enemies)
+				{
+					if (enemy && enemy.GetComponent<ShowScript>())
+					{
+						if (enemy.GetComponent<ShowScript>().whenCandleRoom)
+						{
+							enemy.SetActive(true);
+						}
+						else
+						{
+							enemy.SetActive(false);
+						}
+					}
+				}
 				//foreach (var floor in _floor)
 				//{
 				//	if (floor.GetComponent<ShowScript>().whenCandleRoom)
@@ -828,6 +1040,20 @@ public class WallHider : MonoBehaviour
 					else
 					{
 						light.SetActive(false);
+					}
+				}
+				foreach (var enemy in _enemies)
+				{
+					if (enemy && enemy.GetComponent<ShowScript>())
+					{
+						if (enemy.GetComponent<ShowScript>().whenBossRoom)
+						{
+							enemy.SetActive(true);
+						}
+						else
+						{
+							enemy.SetActive(false);
+						}
 					}
 				}
 				//foreach (var floor in _floor)

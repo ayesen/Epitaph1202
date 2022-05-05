@@ -85,12 +85,11 @@ public class DialogueScript : MonoBehaviour
             	if (!autoTrigger) // highlight item, show text after pressing E
             	{
             		//mr.material = highLightMat;
-            		if ((Input.GetKeyUp(KeyCode.E) || Input.GetAxis("HorizontalArrow") > 0) &&
+            		if ((Input.GetKeyUp(KeyCode.E) || Input.GetButtonUp("RB")) &&
             			(player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(1).IsName("Idle") ||
-						player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(1).IsName("select")
-							) &&
-							!MenuManager.GameIsPaused &&
-							repeat_timer <= 0)
+						 player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(1).IsName("select")) &&
+						!MenuManager.GameIsPaused &&
+						repeat_timer <= 0)
             		{
             			if (!musicFunction.Equals(""))
                         {
