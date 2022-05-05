@@ -209,76 +209,68 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 			}
 			else // if the dialogue requires player to press a button to proceed
 			{
-				if ((Input.GetKeyUp(KeyCode.E) || Input.GetAxis("HorizontalArrow") > 0) && !optionsDisplaying) // if no options being displayed, loop through text
+				if ((Input.GetKeyUp(KeyCode.E) || Input.GetButtonUp("RB")) && !optionsDisplaying) // if no options being displayed, loop through text
 				{
-                    if (!axisInUse)
-                    {
-						if (index < dialogueToShow.Count - 1)
+					if (index < dialogueToShow.Count - 1)
+					{
+						imageBG.SetActive(false);
+						blurMask.SetActive(false);
+						imageDisplayer.SetActive(false);
+						//LogManager.LOGManager.CoverSetActive(dialogueToShow[index].logX, dialogueToShow[index].logY);
+						index++;
+						objectDes_ui_cht.text = dialogueToShow[index].description_cht;
+						objectDes_ui_eng.text = dialogueToShow[index].description_eng;
+						if (dialogueToShow[index].options.Count > 0) // if there are options after this line
 						{
-							imageBG.SetActive(false);
-							blurMask.SetActive(false);
-							imageDisplayer.SetActive(false);
-							//LogManager.LOGManager.CoverSetActive(dialogueToShow[index].logX, dialogueToShow[index].logY);
-							index++;
-							objectDes_ui_cht.text = dialogueToShow[index].description_cht;
-							objectDes_ui_eng.text = dialogueToShow[index].description_eng;
-							if (dialogueToShow[index].options.Count > 0) // if there are options after this line
-							{
-								ShowOptions();
-							}
-							// play audio
-							if (dialogueToShow[index].clip != null)
-							{
-								aS.clip = dialogueToShow[index].clip;
-								aS.Play();
-							}
-							// roll back
-							if (dialogueToShow[index].rollBack)
-							{
-								dialogueToShow.Insert(index + 1, dialogueToShow[dialogueToShow[index].rollBack_index]);
-							}
-							// call function
-							if (dialogueToShow[index].actor_oneLine != null)
-							{
-								dialogueToShow[index].actor_oneLine.SendMessage(dialogueToShow[index].funcToCall_oneLine);
-							}
+							ShowOptions();
 						}
-						else // when the dialogue ends
+						// play audio
+						if (dialogueToShow[index].clip != null)
 						{
-							index = 0;
-							canvasUI.SetActive(true);
-							dialogueBG.SetActive(false);
-							objectDes_ui_cht.text = "";
-							objectDes_ui_eng.text = "";
-							textShowing = false;
-							if (restrictMovement)
-							{
-								PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("Idle", 1);
-								PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("Idle", 0);
-							}
-							imageDisplayer.SetActive(false);
-							imageBG.SetActive(false);
-							blurMask.SetActive(false);
-							if (doer != null)
-							{
-								doer.SendMessage(funcToCall);
-							}
-							if (burnAfterReading)
-							{
-								//dT.gameObject.SetActive(false);
-								dT.enabled = false;
-							}
-							//print("stop coroutines");
-							StopAllCoroutines();
-							dT.startCD = true;
+							aS.clip = dialogueToShow[index].clip;
+							aS.Play();
 						}
-						axisInUse = true;
+						// roll back
+						if (dialogueToShow[index].rollBack)
+						{
+							dialogueToShow.Insert(index + 1, dialogueToShow[dialogueToShow[index].rollBack_index]);
+						}
+						// call function
+						if (dialogueToShow[index].actor_oneLine != null)
+						{
+							dialogueToShow[index].actor_oneLine.SendMessage(dialogueToShow[index].funcToCall_oneLine);
+						}
+					}
+					else // when the dialogue ends
+					{
+						index = 0;
+						canvasUI.SetActive(true);
+						dialogueBG.SetActive(false);
+						objectDes_ui_cht.text = "";
+						objectDes_ui_eng.text = "";
+						textShowing = false;
+						if (restrictMovement)
+						{
+							PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("Idle", 1);
+							PlayerScriptNew.me.GetComponentInChildren<Animator>().Play("Idle", 0);
+						}
+						imageDisplayer.SetActive(false);
+						imageBG.SetActive(false);
+						blurMask.SetActive(false);
+						if (doer != null)
+						{
+							doer.SendMessage(funcToCall);
+						}
+						if (burnAfterReading)
+						{
+							//dT.gameObject.SetActive(false);
+							dT.enabled = false;
+						}
+						//print("stop coroutines");
+						StopAllCoroutines();
+						dT.startCD = true;
 					}
 				}
-				else if(Input.GetAxis("HorizontalArrow") <= 0)
-                {
-					axisInUse = false;
-                }
 				if (optionsDisplaying) // let player choose
 				{
 					optionSelection.SetActive(true);

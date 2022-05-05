@@ -10,6 +10,7 @@ public class ColorStorage : MonoBehaviour
     public Color ampChoCol;
     public Color funChoCol;
     public Color bosChoCol;
+    public Color safeColor;
     public Color noMat;
 
     private void Awake()
@@ -41,6 +42,10 @@ public class ColorStorage : MonoBehaviour
             }
             else
                 return noMat;
+        }
+        else if (SafehouseManager.Me.isSafehouse)
+        {
+            return safeColor;
         }
         else
             return noMat;

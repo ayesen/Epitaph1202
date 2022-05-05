@@ -618,7 +618,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Nail - Stun
+  m_text: <sprite=0> - Stun
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 316b568bed7e73a479f876f3ce5624bc, type: 2}
   m_sharedMaterial: {fileID: -4131697396433299567, guid: 316b568bed7e73a479f876f3ce5624bc, type: 2}
@@ -637,7 +637,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: bdeec206168c6be48993ff863552220c, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -767,7 +767,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Match - Recover Materials
+  m_text: <sprite=2> - Recover Materials
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 316b568bed7e73a479f876f3ce5624bc, type: 2}
   m_sharedMaterial: {fileID: -4131697396433299567, guid: 316b568bed7e73a479f876f3ce5624bc, type: 2}
@@ -786,7 +786,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: bdeec206168c6be48993ff863552220c, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -1065,7 +1065,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tear - Spread
+  m_text: <sprite=1> - Spread
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 316b568bed7e73a479f876f3ce5624bc, type: 2}
   m_sharedMaterial: {fileID: -4131697396433299567, guid: 316b568bed7e73a479f876f3ce5624bc, type: 2}
@@ -1084,7 +1084,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: bdeec206168c6be48993ff863552220c, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -1589,7 +1589,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Match + Nail - Damage
+  m_text: <sprite=2> + <sprite=0> - Damage
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 316b568bed7e73a479f876f3ce5624bc, type: 2}
   m_sharedMaterial: {fileID: -4131697396433299567, guid: 316b568bed7e73a479f876f3ce5624bc, type: 2}
@@ -1608,7 +1608,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: bdeec206168c6be48993ff863552220c, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -2139,14 +2139,14 @@ RectTransform:
   m_GameObject: {fileID: 3497994223793400485}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -222.562}
-  m_LocalScale: {x: 0.18, y: 0.12, z: 0.12}
+  m_LocalScale: {x: 0.15853831, y: 0.12, z: 0.12}
   m_Children: []
   m_Father: {fileID: 1302184539329853958}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -140.7, y: 0.9}
+  m_AnchoredPosition: {x: -150.3, y: 0.9}
   m_SizeDelta: {x: 2048, y: 1152}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1494728475812122705
@@ -2627,7 +2627,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Match + Tear - Recover More Materials
+  m_text: <sprite=2> + <sprite=1> - Recover More
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 316b568bed7e73a479f876f3ce5624bc, type: 2}
   m_sharedMaterial: {fileID: -4131697396433299567, guid: 316b568bed7e73a479f876f3ce5624bc, type: 2}
@@ -2646,7 +2646,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: bdeec206168c6be48993ff863552220c, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -4405,7 +4405,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Nail + Tear - Stun Longer
+  m_text: <sprite=0> + <sprite=1> - Stun Longer
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 316b568bed7e73a479f876f3ce5624bc, type: 2}
   m_sharedMaterial: {fileID: -4131697396433299567, guid: 316b568bed7e73a479f876f3ce5624bc, type: 2}
@@ -4424,7 +4424,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: bdeec206168c6be48993ff863552220c, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -4554,7 +4554,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: dc512da2f411898458102d39595b0268, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 85abd61e29ada6e4981a2897d4331cd8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
