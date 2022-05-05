@@ -202,6 +202,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 							dT.gameObject.SetActive(false);
 							//dT.enabled=false;
 						}
+						dT.startCD = true;
 					}
 					StopAllCoroutines();
 				}
@@ -269,6 +270,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 							}
 							//print("stop coroutines");
 							StopAllCoroutines();
+							dT.startCD = true;
 						}
 						axisInUse = true;
 					}

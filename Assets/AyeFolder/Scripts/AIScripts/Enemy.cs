@@ -192,7 +192,7 @@ public class Enemy : MonoBehaviour
         if (phase == AIPhase.InBattle1)
         {
             atkSpd = 2;
-            preAtkSpd = 1;
+            preAtkSpd = 2;
             atkTime = 1;
             postAtkSpd = 2;
             attackamt = 5;

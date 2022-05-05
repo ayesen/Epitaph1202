@@ -34,6 +34,7 @@ public class DialogueScript : MonoBehaviour
 	[Header("Repeat Timer")]
 	private float repeat_interval = 1;
 	private float repeat_timer;
+	public bool startCD = false;
 
 	[Header("Custimizable End Action")]
 	public GameObject actor;
@@ -63,10 +64,18 @@ public class DialogueScript : MonoBehaviour
 	private void Update()
 	{
 		// repeat timer (if the dialogue can be repeated)
-		if (repeat_timer > 0)
+		if (startCD)
         {
-			repeat_timer -= Time.deltaTime;
-        }
+			if (repeat_timer > 0)
+			{
+				repeat_timer -= Time.deltaTime;
+			}
+            else
+            {
+				repeat_timer = 0;
+				startCD = false;
+            }
+		}
 
 		if (!inspected)
 		{
