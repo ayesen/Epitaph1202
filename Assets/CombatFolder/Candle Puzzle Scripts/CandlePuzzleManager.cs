@@ -15,7 +15,9 @@ public class CandlePuzzleManager : MonoBehaviour
 
 	[Header("Door Opener")]
 	public List<DoorScript> doors_iCtrl;
-
+	[Header("Boss")]
+	public GameObject bossDialogue;
+	
 	private void Start()
 	{
 		lightedCandles = new List<GameObject>();
@@ -74,5 +76,15 @@ public class CandlePuzzleManager : MonoBehaviour
 		}
 
 		return areListsEqual;
+	}
+
+	public void activeDialogue()
+	{
+		if (bossDialogue != null)
+		{
+			bossDialogue.GetComponent<BoxCollider>().enabled = true;
+			bossDialogue.GetComponent<DialogueScript>().enabled = true;
+			SendMessage("LookTowards");
+		}
 	}
 }
