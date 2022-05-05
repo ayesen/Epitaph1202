@@ -95,7 +95,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var enemy in _enemies)
 				{
-					if (enemy.GetComponent<ShowScript>())
+					if (enemy && enemy.GetComponent<ShowScript>())
 					{
 						if (enemy.GetComponent<ShowScript>().whenSpawnHallway)
 						{
@@ -158,7 +158,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var enemy in _enemies)
 				{
-					if (enemy.GetComponent<ShowScript>())
+					if (enemy && enemy.GetComponent<ShowScript>())
 					{
 						if (enemy.GetComponent<ShowScript>().whenEntryWay)
 						{
@@ -225,7 +225,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var enemy in _enemies)
 				{
-					if (enemy.GetComponent<ShowScript>())
+					if (enemy && enemy.GetComponent<ShowScript>())
 					{
 						if (enemy.GetComponent<ShowScript>().whenLivingRoom)
 						{
@@ -288,7 +288,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var enemy in _enemies)
 				{
-					if (enemy.GetComponent<ShowScript>())
+					if (enemy && enemy.GetComponent<ShowScript>())
 					{
 						if (enemy.GetComponent<ShowScript>().whenKitchen)
 						{
@@ -351,7 +351,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var enemy in _enemies)
 				{
-					if (enemy.GetComponent<ShowScript>())
+					if (enemy && enemy.GetComponent<ShowScript>())
 					{
 						if (enemy.GetComponent<ShowScript>().whenBalcany)
 						{
@@ -414,7 +414,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var enemy in _enemies)
 				{
-					if (enemy.GetComponent<ShowScript>())
+					if (enemy && enemy.GetComponent<ShowScript>())
 					{
 						if (enemy.GetComponent<ShowScript>().whenSubLivingRoom)
 						{
@@ -477,7 +477,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var enemy in _enemies)
 				{
-					if (enemy.GetComponent<ShowScript>())
+					if (enemy && enemy.GetComponent<ShowScript>())
 					{
 						if (enemy.GetComponent<ShowScript>().whenBathRoom)
 						{
@@ -540,7 +540,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var enemy in _enemies)
 				{
-					if (enemy.GetComponent<ShowScript>())
+					if (enemy && enemy.GetComponent<ShowScript>())
 					{
 						if (enemy.GetComponent<ShowScript>().whenBedRoom)
 						{
@@ -603,7 +603,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var enemy in _enemies)
 				{
-					if (enemy.GetComponent<ShowScript>())
+					if (enemy && enemy.GetComponent<ShowScript>())
                     {
 						if (enemy.GetComponent<ShowScript>().whemHideout)
 						{
@@ -666,7 +666,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var enemy in _enemies)
 				{
-					if (enemy.GetComponent<ShowScript>())
+					if (enemy && enemy.GetComponent<ShowScript>())
 					{
 						if (enemy.GetComponent<ShowScript>().whenStudyRoom)
 						{
@@ -729,7 +729,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var enemy in _enemies)
 				{
-					if (enemy.GetComponent<ShowScript>())
+					if (enemy && enemy.GetComponent<ShowScript>())
 					{
 						if (enemy.GetComponent<ShowScript>().whenStudyBalcony)
 						{
@@ -792,7 +792,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var enemy in _enemies)
 				{
-					if (enemy.GetComponent<ShowScript>())
+					if (enemy && enemy.GetComponent<ShowScript>())
 					{
 						if (enemy.GetComponent<ShowScript>().whenSubHallway)
 						{
@@ -855,7 +855,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var enemy in _enemies)
 				{
-					if (enemy.GetComponent<ShowScript>())
+					if (enemy && enemy.GetComponent<ShowScript>())
 					{
 						if (enemy.GetComponent<ShowScript>().whenSubBedRoom)
 						{
@@ -918,7 +918,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var enemy in _enemies)
 				{
-					if (enemy.GetComponent<ShowScript>())
+					if (enemy && enemy.GetComponent<ShowScript>())
 					{
 						if (enemy.GetComponent<ShowScript>().whenSubBathRoom)
 						{
@@ -981,7 +981,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var enemy in _enemies)
 				{
-					if (enemy.GetComponent<ShowScript>())
+					if (enemy && enemy.GetComponent<ShowScript>())
 					{
 						if (enemy.GetComponent<ShowScript>().whenCandleRoom)
 						{
@@ -1044,7 +1044,7 @@ public class WallHider : MonoBehaviour
 				}
 				foreach (var enemy in _enemies)
 				{
-					if (enemy.GetComponent<ShowScript>())
+					if (enemy && enemy.GetComponent<ShowScript>())
 					{
 						if (enemy.GetComponent<ShowScript>().whenBossRoom)
 						{
