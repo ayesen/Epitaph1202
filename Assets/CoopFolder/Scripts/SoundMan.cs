@@ -181,6 +181,7 @@ public class SoundMan : MonoBehaviour
     public void WallBreaks()  //maybe need to add something to prevent it over playing
     {
         AudioSource source = GetSource();
+        source.volume = 0.33f;
         PitchRandomization(source);
         FindSFXGroup(source);
         source.clip = wallBreak;
@@ -422,9 +423,13 @@ public class SoundMan : MonoBehaviour
         for (int i = 0; i < maxAudioSouces ; i++)
         {
             if (!sources[i].isPlaying)
+            {
+                sources[i].volume = 1;
                 return sources[i];
+            }
         }
 
+        sources[0].volume = 1;
         return sources[0];
     }
 
