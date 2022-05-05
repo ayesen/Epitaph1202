@@ -172,6 +172,7 @@ public class Enemy : MonoBehaviour
         hittedTime = down_time;
         if (myAC.currentState != myAC.changePhaseState || myAC.currentState != myAC.dieState)
 		{
+            SoundMan.SoundManager.BearBreak();
             myAC.ChangeState(myAC.downedState);
 		}
 	}
