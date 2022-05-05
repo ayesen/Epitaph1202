@@ -39,6 +39,7 @@ public class SoundMan : MonoBehaviour
     public AudioClip bossRoomTrigger;
     public AudioClip lordGuanBearTrigger;
     public AudioClip lordGuanReturnKnife;
+    public AudioClip bearBreak;
     [Header("BattleVO")]
     public AudioClip[] battleVOPhaseOne;
     public AudioClip[] battleVOPhaseTwo;
@@ -178,9 +179,19 @@ public class SoundMan : MonoBehaviour
         source.Play();
     }
 
+    public void BearBreak()
+    {
+        AudioSource source = GetSource();
+        PitchRandomization(source);
+        FindSFXGroup(source);
+        source.clip = bearBreak;
+        source.Play();
+    }
+
     public void WallBreaks()  //maybe need to add something to prevent it over playing
     {
         AudioSource source = GetSource();
+        source.volume = 0.33f;
         PitchRandomization(source);
         FindSFXGroup(source);
         source.clip = wallBreak;
@@ -422,9 +433,13 @@ public class SoundMan : MonoBehaviour
         for (int i = 0; i < maxAudioSouces ; i++)
         {
             if (!sources[i].isPlaying)
+            {
+                sources[i].volume = 1;
                 return sources[i];
+            }
         }
 
+        sources[0].volume = 1;
         return sources[0];
     }
 
