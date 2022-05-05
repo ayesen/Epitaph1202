@@ -32,8 +32,9 @@ public class DialogueScript : MonoBehaviour
 	public GameObject itemToLookAt; // for look at things automatically after triggering dialogue
 
 	[Header("Repeat Timer")]
-	public float repeat_interval;
+	private float repeat_interval = 1;
 	private float repeat_timer;
+	public bool startCD = false;
 
 	[Header("Custimizable End Action")]
 	public GameObject actor;
@@ -63,10 +64,18 @@ public class DialogueScript : MonoBehaviour
 	private void Update()
 	{
 		// repeat timer (if the dialogue can be repeated)
-		if (repeat_timer > 0)
+		if (startCD)
         {
-			repeat_timer -= Time.deltaTime;
-        }
+			if (repeat_timer > 0)
+			{
+				repeat_timer -= Time.deltaTime;
+			}
+            else
+            {
+				repeat_timer = 0;
+				startCD = false;
+            }
+		}
 
 		if (!inspected)
 		{
@@ -78,10 +87,8 @@ public class DialogueScript : MonoBehaviour
             		//mr.material = highLightMat;
             		if ((Input.GetKeyUp(KeyCode.E) || Input.GetAxis("HorizontalArrow") > 0) &&
             			(player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(1).IsName("Idle") ||
-            				player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Walking") ||
-            				player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("WalkingRight") ||
-            				player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("WalkingLeft") ||
-            				player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("BackWalking")) &&
+						player.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(1).IsName("select")
+							) &&
 							!MenuManager.GameIsPaused &&
 							repeat_timer <= 0)
             		{
