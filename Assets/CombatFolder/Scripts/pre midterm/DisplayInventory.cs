@@ -21,6 +21,10 @@ public class DisplayInventory : MonoBehaviour
     public RectTransform positionHolder_1;
     public RectTransform positionHolder_2;
     public RectTransform positionHolder_3;
+    public Vector3 positionHolderOffset_0;
+    public Vector3 positionHolderOffset_1;
+    public Vector3 positionHolderOffset_2;
+    public Vector3 positionHolderOffset_3;
 
     public GameObject[] images;
 
@@ -98,13 +102,13 @@ public class DisplayInventory : MonoBehaviour
     public Vector3 GetPosition(int i)
     {
         if (i == -4)
-            return positionHolder_0.localPosition;
+            return positionHolder_0.localPosition + positionHolderOffset_0;
         else if (i == -3)
-            return positionHolder_1.localPosition;
+            return positionHolder_1.localPosition + positionHolderOffset_1;
         else if (i == -2)
-            return positionHolder_2.localPosition;
+            return positionHolder_2.localPosition + positionHolderOffset_2;
         else if (i == -1)
-            return positionHolder_3.localPosition;
+            return positionHolder_3.localPosition + positionHolderOffset_3;
         else
             return new Vector3(X_Start + (X_Space_Between_Items * (i % Number_Of_Column)), Y_Start + (-Y_Space_Between_Items * (i / Number_Of_Column)), 0f);
     }
