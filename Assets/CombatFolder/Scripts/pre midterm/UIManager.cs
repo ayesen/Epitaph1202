@@ -88,6 +88,7 @@ public class UIManager : MonoBehaviour
         choUp.SetActive(false);
         choRight.SetActive(false);
         choDown.SetActive(false);
+        ComboInstruct();
     }
 
     void Update()
@@ -95,7 +96,7 @@ public class UIManager : MonoBehaviour
         UI_SelectMat();
         UI_ChangeAmount();
         UI_CD();
-        ComboInstruct();
+        //ComboInstruct();
 
         timer += Time.deltaTime;
         if(timer >= hideTime & !isHided)
@@ -114,7 +115,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private void ComboInstruct()//I love hard coding
+    public void ComboInstruct()//I love hard coding
     {
         List<GameObject> selectedMats = PlayerScriptNew.me.selectedMats;
         if (selectedMats.Count <= 0)
@@ -148,7 +149,7 @@ public class UIManager : MonoBehaviour
             }
             else if(selectedMats.Count == 2)
             {
-                comboInstruct_TMP.text = "Combo: ";
+                comboInstruct_TMP.text = "<i><b>Combo:</b></i> ";
                 if (selectedMats.Contains(match))
                 {
                     if (selectedMats.Contains(nail))
@@ -163,7 +164,7 @@ public class UIManager : MonoBehaviour
                     }
                     else
                     {
-                        comboInstruct_TMP.text += "High Recovery Evil Material";
+                        comboInstruct_TMP.text += "Recovery Evil Material";
                         comboInstruct_TMP.color = ColorStorage.me.bosChoCol;
                     }
                 }
