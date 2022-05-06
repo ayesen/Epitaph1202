@@ -132,7 +132,7 @@ public class UIManager : MonoBehaviour
 
             Icon.GetComponent<RectTransform>().sizeDelta = Vector2.Lerp(targetSize, startSize, scrollAmount / duration);
 
-            print(Icon.GetComponent<RectTransform>().sizeDelta.x);
+            //print(Icon.GetComponent<RectTransform>().sizeDelta.x);
             yield return null;
         }
 
