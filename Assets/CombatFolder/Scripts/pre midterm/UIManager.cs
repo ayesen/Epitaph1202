@@ -52,6 +52,12 @@ public class UIManager : MonoBehaviour
     public GameObject choRight;
     public GameObject choDown;
 
+    [Header("UI_Combo")]
+    public TextMeshProUGUI comboInstruct_TMP;
+    public GameObject match;
+    public GameObject nail;
+    public GameObject tear;
+
     private bool isHided;
     private CanvasGroup cg;
 
@@ -68,7 +74,7 @@ public class UIManager : MonoBehaviour
     {
         if(me!=null && me != this)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
 
         me = this;
@@ -89,6 +95,7 @@ public class UIManager : MonoBehaviour
         UI_SelectMat();
         UI_ChangeAmount();
         UI_CD();
+        ComboInstruct();
 
         timer += Time.deltaTime;
         if(timer >= hideTime & !isHided)
@@ -103,6 +110,80 @@ public class UIManager : MonoBehaviour
                 timer = 0;
                 isHided = false;
                 StartCoroutine(FadeCanvas(cg, 1f, fadeTime));
+            }
+        }
+    }
+
+    private void ComboInstruct()//I love hard coding
+    {
+        List<GameObject> selectedMats = PlayerScriptNew.me.selectedMats;
+        if (selectedMats.Count <= 0)
+        {
+            comboInstruct_TMP.text = "";
+        }
+        else
+        {
+            if(selectedMats.Count == 1)
+            {
+                if (selectedMats.Contains(match))
+                {
+                    comboInstruct_TMP.text = "Recover Materials";
+                    comboInstruct_TMP.color = new Color32(100, 170, 200, 255);
+                }
+                else if (selectedMats.Contains(nail))
+                {
+                    comboInstruct_TMP.text = "Stun";
+                    comboInstruct_TMP.color = new Color32(222, 173, 122, 255);
+                }
+                else if (selectedMats.Contains(tear))
+                {
+                    comboInstruct_TMP.text = "Spread";
+                    comboInstruct_TMP.color = ColorStorage.me.funChoCol;
+                }
+                else
+                {
+                    comboInstruct_TMP.text = "Evil Material";
+                    comboInstruct_TMP.color = ColorStorage.me.bosChoCol;
+                }
+            }
+            else if(selectedMats.Count == 2)
+            {
+                if (selectedMats.Contains(match))
+                {
+                    if (selectedMats.Contains(nail))
+                    {
+                        comboInstruct_TMP.text = "Damage";
+                        comboInstruct_TMP.color = new Color32(200, 70, 51, 255);
+                    }
+                    else if (selectedMats.Contains(tear))
+                    {
+                        comboInstruct_TMP.text = "Recover a Lot of Materials";
+                        comboInstruct_TMP.color = ColorStorage.me.ampChoCol;
+                    }
+                    else
+                    {
+                        comboInstruct_TMP.text = "High Recovery Evil Material";
+                        comboInstruct_TMP.color = ColorStorage.me.bosChoCol;
+                    }
+                }
+                else if (selectedMats.Contains(nail))
+                {
+                    if (selectedMats.Contains(tear))
+                    {
+                        comboInstruct_TMP.text = "Easier to Stun";
+                        comboInstruct_TMP.color = ColorStorage.me.atkChoCol;
+                    }
+                    else
+                    {
+                        comboInstruct_TMP.text = "Stun Evil Material";
+                        comboInstruct_TMP.color = ColorStorage.me.bosChoCol;
+                    }
+                }
+                else if (selectedMats.Contains(tear))
+                {
+                    comboInstruct_TMP.text = "Spread Evil Material";
+                    comboInstruct_TMP.color = ColorStorage.me.bosChoCol;
+                }
             }
         }
     }
