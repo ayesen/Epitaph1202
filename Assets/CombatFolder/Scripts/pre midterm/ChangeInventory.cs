@@ -25,6 +25,9 @@ public class ChangeInventory : MonoBehaviour
     public int X_Space_Between_Items;
     public int Number_Of_Column;
     public int Y_Space_Between_Items;
+    public Vector3 positionOffset_0;
+    public Vector3 positionOffset_1;
+    public Vector3 positionOffset_2;
 
     void Start()
     {
@@ -199,7 +202,24 @@ public class ChangeInventory : MonoBehaviour
             {
                 choosenSquare.color = squareChoCol;
                 choosenCircle.enabled = true;
-                choosenCircle.GetComponent<RectTransform>().localPosition = DisplayInventory.Me.GetPosition(choosenMatIndex - 4) + Vector3.up * -213f + Vector3.right * 50f;
+                float offset_X = 1;
+                float offset_Y = 1;
+                if(choosenMatIndex == 0)
+                {
+                    offset_X = positionOffset_0.x;
+                    offset_Y = positionOffset_0.y;
+                }
+                else if(choosenMatIndex == 1)
+                {
+                    offset_X = positionOffset_1.x;
+                    offset_Y = positionOffset_1.y;
+                }
+                else if (choosenMatIndex == 2)
+                {
+                    offset_X = positionOffset_2.x;
+                    offset_Y = positionOffset_2.y;
+                }
+                choosenCircle.GetComponent<RectTransform>().localPosition = DisplayInventory.Me.GetPosition(choosenMatIndex - 4) + Vector3.up * offset_Y + Vector3.right * offset_X;
                 choosenCircle.color = ColorStorage.me.ChoColor(choosenMatIndex);
             }
             //Show description
