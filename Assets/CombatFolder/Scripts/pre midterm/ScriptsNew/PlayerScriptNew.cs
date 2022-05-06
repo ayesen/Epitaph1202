@@ -123,7 +123,7 @@ public class PlayerScriptNew : MonoBehaviour
 							if (selectedMats.Contains(matSlots[0]))
 							{
 								selectedMats.Remove(matSlots[0]);
-								UIManager.Me.ComboInstruct();
+								//UIManager.Me.ComboInstruct();
 								SoundMan.SoundManager.MaterialSelect();
 							}
 							else
@@ -134,7 +134,7 @@ public class PlayerScriptNew : MonoBehaviour
 									// vfx
 									PlaySelectVFX(matSlots[0]);
 									anim.SetBool("selected", true);
-									UIManager.Me.ComboInstruct();
+									//UIManager.Me.ComboInstruct();
 									SoundMan.SoundManager.MaterialSelect();
 								}
                                 else
@@ -156,7 +156,7 @@ public class PlayerScriptNew : MonoBehaviour
 							if (selectedMats.Contains(matSlots[1]))
 							{
 								selectedMats.Remove(matSlots[1]);
-								UIManager.Me.ComboInstruct();
+								//UIManager.Me.ComboInstruct();
 								SoundMan.SoundManager.MaterialSelect();
 							}
 							else
@@ -167,7 +167,7 @@ public class PlayerScriptNew : MonoBehaviour
 									// vfx
 									PlaySelectVFX(matSlots[1]);
 									anim.SetBool("selected", true);
-									UIManager.Me.ComboInstruct();
+									//UIManager.Me.ComboInstruct();
 									SoundMan.SoundManager.MaterialSelect();
                                 }
                                 else
@@ -189,7 +189,7 @@ public class PlayerScriptNew : MonoBehaviour
 							if (selectedMats.Contains(matSlots[2]))
 							{
 								selectedMats.Remove(matSlots[2]);
-								UIManager.Me.ComboInstruct();
+								//UIManager.Me.ComboInstruct();
 								SoundMan.SoundManager.MaterialSelect();
 							}
 							else
@@ -200,7 +200,7 @@ public class PlayerScriptNew : MonoBehaviour
 									// vfx
 									PlaySelectVFX(matSlots[2]);
 									selectedMats.Add(matSlots[2]);
-									UIManager.Me.ComboInstruct();
+									//UIManager.Me.ComboInstruct();
 									SoundMan.SoundManager.MaterialSelect();
                                 }
                                 else
@@ -222,7 +222,7 @@ public class PlayerScriptNew : MonoBehaviour
 							if (selectedMats.Contains(matSlots[3]))
 							{
 								selectedMats.Remove(matSlots[3]);
-								UIManager.Me.ComboInstruct();
+								//UIManager.Me.ComboInstruct();
 								SoundMan.SoundManager.MaterialSelect();
 							}
 							else
@@ -233,7 +233,7 @@ public class PlayerScriptNew : MonoBehaviour
 									// vfx
 									PlaySelectVFX(matSlots[3]);
 									selectedMats.Add(matSlots[3]);
-									UIManager.Me.ComboInstruct();
+									//UIManager.Me.ComboInstruct();
 									SoundMan.SoundManager.MaterialSelect();
                                 }
                                 else
