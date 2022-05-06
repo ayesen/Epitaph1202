@@ -88,6 +88,7 @@ public class UIManager : MonoBehaviour
         choUp.SetActive(false);
         choRight.SetActive(false);
         choDown.SetActive(false);
+        ComboInstruct();
     }
 
     void Update()
@@ -95,7 +96,7 @@ public class UIManager : MonoBehaviour
         UI_SelectMat();
         UI_ChangeAmount();
         UI_CD();
-        ComboInstruct();
+        //ComboInstruct();
 
         timer += Time.deltaTime;
         if(timer >= hideTime & !isHided)
@@ -114,7 +115,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private void ComboInstruct()//I love hard coding
+    public void ComboInstruct()//I love hard coding
     {
         List<GameObject> selectedMats = PlayerScriptNew.me.selectedMats;
         if (selectedMats.Count <= 0)
@@ -132,7 +133,7 @@ public class UIManager : MonoBehaviour
                 }
                 else if (selectedMats.Contains(nail))
                 {
-                    comboInstruct_TMP.text = "Stun";
+                    comboInstruct_TMP.text = "Hard to Stun";
                     comboInstruct_TMP.color = new Color32(222, 173, 122, 255);
                 }
                 else if (selectedMats.Contains(tear))
@@ -148,21 +149,22 @@ public class UIManager : MonoBehaviour
             }
             else if(selectedMats.Count == 2)
             {
+                comboInstruct_TMP.text = "<i><b>Combo:</b></i> ";
                 if (selectedMats.Contains(match))
                 {
                     if (selectedMats.Contains(nail))
                     {
-                        comboInstruct_TMP.text = "Damage";
+                        comboInstruct_TMP.text += "Damage";
                         comboInstruct_TMP.color = new Color32(200, 70, 51, 255);
                     }
                     else if (selectedMats.Contains(tear))
                     {
-                        comboInstruct_TMP.text = "Recover a Lot of Materials";
+                        comboInstruct_TMP.text += "Recover a Lot of Materials";
                         comboInstruct_TMP.color = ColorStorage.me.ampChoCol;
                     }
                     else
                     {
-                        comboInstruct_TMP.text = "High Recovery Evil Material";
+                        comboInstruct_TMP.text += "Recovery Evil Material";
                         comboInstruct_TMP.color = ColorStorage.me.bosChoCol;
                     }
                 }
@@ -170,18 +172,18 @@ public class UIManager : MonoBehaviour
                 {
                     if (selectedMats.Contains(tear))
                     {
-                        comboInstruct_TMP.text = "Easier to Stun";
+                        comboInstruct_TMP.text += "Easy to Stun";
                         comboInstruct_TMP.color = ColorStorage.me.atkChoCol;
                     }
                     else
                     {
-                        comboInstruct_TMP.text = "Stun Evil Material";
+                        comboInstruct_TMP.text += "Stun Evil Material";
                         comboInstruct_TMP.color = ColorStorage.me.bosChoCol;
                     }
                 }
                 else if (selectedMats.Contains(tear))
                 {
-                    comboInstruct_TMP.text = "Spread Evil Material";
+                    comboInstruct_TMP.text += "Spread Evil Material";
                     comboInstruct_TMP.color = ColorStorage.me.bosChoCol;
                 }
             }
