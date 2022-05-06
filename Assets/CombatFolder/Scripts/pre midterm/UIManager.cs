@@ -153,7 +153,7 @@ public class UIManager : MonoBehaviour
                     if (selectedMats.Contains(nail))
                     {
                         comboInstruct_TMP.text = "Damage";
-                        comboInstruct_TMP.color = new Color32(255, 70, 51, 255);
+                        comboInstruct_TMP.color = new Color32(200, 70, 51, 255);
                     }
                     else if (selectedMats.Contains(tear))
                     {
