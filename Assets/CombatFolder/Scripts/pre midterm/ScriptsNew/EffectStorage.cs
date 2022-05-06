@@ -38,6 +38,8 @@ public class EffectStorage : MonoBehaviour
 	public void HurtEnemy(EffectHolderScript ehs, GameObject enemy)
 	{
 		Enemy es = enemy.GetComponent<Enemy>();
+		print(es.edr+" "+es.myAC.currentState);
+		es.ChangeEdrBasedOnStates();
 		// hp dmg
 		float finalDmg = Mathf.Clamp((ehs.myEffect.atk - es.def) * ehs.myEffect.amp, 0, float.MaxValue); // dmg = (atk - def) * amp
 		//print(ehs.myEffect.atk);
@@ -47,6 +49,7 @@ public class EffectStorage : MonoBehaviour
 			FloatTextManager.Me.SpawnFloatText(enemy, ""+ (int)finalDmg, FloatTextManager.TypeOfText.Damage);
 		// poise dmg
 		float finalPD = ehs.myEffect.atk / es.edr;
+		finalPD = Mathf.Clamp(finalPD, 0, float.MaxValue);
 		//print("edr: "+es.edr);
 		es.downPoise -= finalPD;
 		es.stunPoise -= finalPD;
@@ -77,6 +80,7 @@ public class EffectStorage : MonoBehaviour
 		es.LoseHealth((int)dmgToDeal);
 		// poise dmg
 		float finalPD = ehs.myEffect.atk / es.edr;
+		finalPD = Mathf.Clamp(finalPD, 0, float.MaxValue);
 		//print("edr: "+es.edr);
 		es.downPoise -= finalPD;
 		es.stunPoise -= finalPD;

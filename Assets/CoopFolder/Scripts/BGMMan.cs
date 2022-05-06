@@ -158,6 +158,10 @@ public class BGMMan : MonoBehaviour
                 yield return null;
             }
         }
+        else
+        {
+            BGMAudioSource.clip = clip;
+        }
         
 
     }

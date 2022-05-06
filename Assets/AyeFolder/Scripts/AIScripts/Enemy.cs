@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
     public int maxShield;
     public int atkSpd;
     public int attackamt;
-    public int preAtkSpd;
+    public float preAtkSpd;
     public int atkTime;
     public int postAtkSpd;
     public int changePhaseTime;
@@ -143,7 +143,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void ChangeEdrBasedOnStates()
+    public void ChangeEdrBasedOnStates()
 	{
         // low edr
 		if (myAC.currentState == myAC.preAttackState || myAC.currentState == myAC.attackState)
