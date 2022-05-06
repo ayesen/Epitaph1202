@@ -23,6 +23,7 @@ public class MatScriptNew : MonoBehaviour
 	public string Description;
 	[Header("Hit VFX")]
 	public GameObject myVFX;
+	public string sfxFunction;
 
 	// type
 	public MatType myType;
