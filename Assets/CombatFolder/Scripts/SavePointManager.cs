@@ -46,11 +46,11 @@ public class SavePointManager : MonoBehaviour
 		}
 		if (_ps.matSlots[1] != null)
 		{
-			_ps.matSlots[1].GetComponent<MatScriptNew>().amount = _ps.matSlots[0].GetComponent<MatScriptNew>().amount_max;
+			_ps.matSlots[1].GetComponent<MatScriptNew>().amount = _ps.matSlots[1].GetComponent<MatScriptNew>().amount_max;
 		}
 		if (_ps.matSlots[2] != null)
 		{
-			_ps.matSlots[2].GetComponent<MatScriptNew>().amount = _ps.matSlots[0].GetComponent<MatScriptNew>().amount_max;
+			_ps.matSlots[2].GetComponent<MatScriptNew>().amount = _ps.matSlots[2].GetComponent<MatScriptNew>().amount_max;
 		}
 		//_ps.matSlots[3] = null;
 		// reset audios
@@ -66,8 +66,8 @@ public class SavePointManager : MonoBehaviour
 		GetActivatedBears();
 		foreach (var bear in _activatedBears)
 		{
-			bear.transform.position = bear.GetComponent<Enemy>().ogTransform.position;
-			bear.transform.rotation = bear.GetComponent<Enemy>().ogTransform.rotation;
+			bear.transform.localPosition = bear.GetComponent<Enemy>().ogPosition;
+			bear.transform.localEulerAngles = bear.GetComponent<Enemy>().ogRotation;
 			bear.GetComponent<AIController>().enabled = false;
 			foreach (var door in bear.GetComponent<Enemy>().myEntrances)
 			{
@@ -77,6 +77,8 @@ public class SavePointManager : MonoBehaviour
 					door.GetComponent<DialogueScript>().enabled = false;
 				}
 				door.myOpenTrigger.SetActive(true);
+				door.myOpenTrigger.GetComponent<DialogueScript>().enabled = true;
+				door.myOpenTrigger.GetComponent<DialogueScript>().inspected = false;
 				door.bearsBehind.Add(bear);
 			}
 		}

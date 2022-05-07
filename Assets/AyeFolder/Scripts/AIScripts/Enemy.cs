@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
     public int maxShield;
     public int atkSpd;
     public int attackamt;
-    public int preAtkSpd;
+    public float preAtkSpd;
     public int atkTime;
     public int postAtkSpd;
     public int changePhaseTime;
@@ -98,6 +98,8 @@ public class Enemy : MonoBehaviour
     // for save point
     [HideInInspector]
     public Transform ogTransform;
+    public Vector3 ogPosition;
+    public Vector3 ogRotation;
     //[HideInInspector]
     public List<DoorScript> myEntrances;
     
@@ -116,6 +118,8 @@ public class Enemy : MonoBehaviour
         ogMat = GetComponentInChildren<SkinnedMeshRenderer>().material;
         breakMeterMax = breakMeter;
         ogTransform = transform;
+        ogPosition = transform.localPosition;
+        ogRotation = transform.localEulerAngles;
     }
 
     private void Update()
@@ -139,7 +143,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void ChangeEdrBasedOnStates()
+    public void ChangeEdrBasedOnStates()
 	{
         // low edr
 		if (myAC.currentState == myAC.preAttackState || myAC.currentState == myAC.attackState)
@@ -168,12 +172,14 @@ public class Enemy : MonoBehaviour
         hittedTime = down_time;
         if (myAC.currentState != myAC.changePhaseState || myAC.currentState != myAC.dieState)
 		{
+            SoundMan.SoundManager.BearBreak();
             myAC.ChangeState(myAC.downedState);
 		}
 	}
 
     public void ChangePhase(AIPhase phaseName, int time)
     {
+        Debug.Log("changePhase()");
         interruptedState = myAC.currentState;
         myTrigger.myMR.enabled = false;
         phase = phaseName;
@@ -186,8 +192,8 @@ public class Enemy : MonoBehaviour
     {
         if (phase == AIPhase.InBattle1)
         {
-            atkSpd = 5;
-            preAtkSpd = 5;
+            atkSpd = 2;
+            preAtkSpd = 2;
             atkTime = 1;
             postAtkSpd = 2;
             attackamt = 5;
@@ -196,19 +202,22 @@ public class Enemy : MonoBehaviour
             if (shield <= 0)
             {
                 timer_phase2 = duration_phase2;
+                print("enter phase 2");
+                phase = AIPhase.InBattle2;
                 ChangePhase(AIPhase.InBattle2, 1);
             }
         }
         else if (phase == AIPhase.InBattle2)
         {
-            atkSpd = 5;
-            preAtkSpd = 5;
+            atkSpd = 3;
+            preAtkSpd = 3;
             atkTime = 1;
             postAtkSpd = 2;
             attackamt = 25;
             myTriggerObj = GameObject.Find("Atk2Trigger");
             if ((health < healthLimit || timer_phase2 <= 0) && changeLimit > 0)
             {
+                print("restore shield and change phase");
                 shield = maxShield;
                 ChangePhase(AIPhase.InBattle1, 1);
             }
@@ -288,9 +297,8 @@ public class Enemy : MonoBehaviour
 			{
                 target.transform.LookAt(dmgDealer.transform.position);
                 target.transform.localEulerAngles = new Vector3(0, target.transform.localEulerAngles.y, 0);
+                target.GetComponent<PlayerScriptNew>().LoseHealth_player(dmgAmt);
             }
-            target.GetComponent<PlayerScriptNew>().LoseHealth_player(dmgAmt);
-            //Debug.Log(dmgAmt);
         }
         if (target.gameObject.CompareTag("Enemy"))
         {

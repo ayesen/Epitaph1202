@@ -26,6 +26,9 @@ public class SubtitleScript : MonoBehaviour
     public GameObject upperStripe;
     public GameObject lowerStripe;
     public RenderTexture videoRD;
+    public CanvasGroup skipLine;
+    bool couldSkip;
+    bool couldPress;
     bool videoCouldFinish;
 
 
@@ -33,11 +36,16 @@ public class SubtitleScript : MonoBehaviour
     {
         StartCoroutine(FadeIn(5));
         StartCoroutine(HideBG(Black, 0f, 12f));
+        couldPress = true;
     }
 
     private void Update()
     {
-        if (Input.GetButtonUp("AButton"))
+        if (Input.anyKeyDown && couldPress)
+        {
+            StartCoroutine(PressToSkip());
+        }
+        if ((Input.GetButtonUp("AButton") || Input.GetKeyUp(KeyCode.Space)) && couldSkip)
         {
             GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadLevel(0);
         }
@@ -45,6 +53,34 @@ public class SubtitleScript : MonoBehaviour
         {
             GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadLevel(0);
         }
+    }
+
+    public IEnumerator PressToSkip()
+    {
+        couldPress = false;
+        float elapsedTime = 0;
+        float startValue = skipLine.alpha;
+        while (elapsedTime < 1.5f)
+        {
+            elapsedTime += Time.deltaTime;
+            skipLine.alpha = Mathf.Lerp(startValue, 1f, elapsedTime / 1.5f);
+            yield return null;
+        }
+
+        couldSkip = true;
+        elapsedTime = 0;
+        startValue = skipLine.alpha;
+        yield return new WaitForSeconds(5);
+
+        while (elapsedTime < 1.5f)
+        {
+            elapsedTime += Time.deltaTime;
+            skipLine.alpha = Mathf.Lerp(startValue, 0f, elapsedTime / 1.5f);
+            yield return null;
+        }
+
+        couldSkip = false;
+        couldPress = true;
     }
 
     public IEnumerator FadeIn(float time)

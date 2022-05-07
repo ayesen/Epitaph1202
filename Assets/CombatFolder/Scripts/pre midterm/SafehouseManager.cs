@@ -16,7 +16,8 @@ public class SafehouseManager : MonoBehaviour
 
     public Enemy enemyScript;
 
-    public ChangeInventory CI;
+    private ChangeInventory CI;
+    private DisplayInventory DI;
 
     public Transform spawnPoint;
 
@@ -47,6 +48,7 @@ public class SafehouseManager : MonoBehaviour
         checkBoolChange = isSafehouse;
         cg = GetComponent<CanvasGroup>();
         CI = GetComponentInChildren<ChangeInventory>();
+        DI = GetComponentInChildren<DisplayInventory>();
         enemyScript = GameObject.Find("Bear").GetComponent<Enemy>();
         canSafehouse = false;
     }
@@ -84,6 +86,7 @@ public class SafehouseManager : MonoBehaviour
             PostProcessingManager.Me.StartCoroutine(PostProcessingManager.Me.ResetFilter());
             StartCoroutine(FadeCanvas(cg, 1f, fadeTime));
             StartCoroutine(InstrucFadeCanvas(instruc_Refill.GetComponent<CanvasGroup>(), 1f, fadeTime));
+            DI.CreateDisplay();
             checkBoolChange = isSafehouse;
         }
         else if(isSafehouse != checkBoolChange && !isSafehouse)

@@ -68,6 +68,8 @@ public class PlayerScriptNew : MonoBehaviour
 		me = this;
 		walkingDir = new Vector3();
 		maxHP = hp;
+		if(StartSceneDataStorage.me != null)
+			rot_spd = StartSceneDataStorage.me.rotateSpd_startscene;
 	}
 
 	private void Start()
@@ -76,8 +78,9 @@ public class PlayerScriptNew : MonoBehaviour
         anim = playerModel.GetComponent<Animator>();
     }
 
-	private void Update()
+    private void Update()
 	{
+		transform.localPosition = new Vector3(transform.localPosition.x, -8.5f, transform.localPosition.z);
 		if (!MenuManager.GameIsPaused)
 		{
 			if (Input.GetKeyDown(KeyCode.M))
@@ -112,81 +115,138 @@ public class PlayerScriptNew : MonoBehaviour
 					!SafehouseManager.Me.isSafehouse &&
 					!SafehouseManager.Me.isFading)
 				{
-					if (Input.GetKeyUp(KeyCode.Alpha1) || Input.GetButtonUp("XButton") && matSlots[0] != null)
+					if (Input.GetKeyUp(KeyCode.Alpha1) || Input.GetButtonUp("XButton"))
 					{
-						SoundMan.SoundManager.MaterialSelect();
-						if (selectedMats.Contains(matSlots[0]))
-						{
-							selectedMats.Remove(matSlots[0]);
+						if(matSlots[0] != null)
+                        {
+							
+							if (selectedMats.Contains(matSlots[0]))
+							{
+								selectedMats.Remove(matSlots[0]);
+								//UIManager.Me.ComboInstruct();
+								SoundMan.SoundManager.MaterialSelect();
+							}
+							else
+							{
+								if (matSlots[0].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
+								{
+									selectedMats.Add(matSlots[0]);
+									// vfx
+									PlaySelectVFX(matSlots[0]);
+									anim.SetBool("selected", true);
+									//UIManager.Me.ComboInstruct();
+									SoundMan.SoundManager.MaterialSelect();
+								}
+                                else
+                                {
+									SoundMan.SoundManager.CannotAccess();
+								}
+							}
+							EffectManagerNew.me.RefreshCurrentMats();
 						}
 						else
-						{
-							if (matSlots[0].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
-							{
-								selectedMats.Add(matSlots[0]);
-								// vfx
-								PlaySelectVFX(matSlots[0]);
-								anim.SetBool("selected", true);
-							}
-						}
-						EffectManagerNew.me.RefreshCurrentMats();
+                        {
+							SoundMan.SoundManager.CannotAccess();
+                        }
 					}
-					if (Input.GetKeyUp(KeyCode.Alpha2) || Input.GetButtonUp("YButton") && matSlots[1] != null)
+					if (Input.GetKeyUp(KeyCode.Alpha2) || Input.GetButtonUp("YButton"))
 					{
-						SoundMan.SoundManager.MaterialSelect();
-						if (selectedMats.Contains(matSlots[1]))
-						{
-							selectedMats.Remove(matSlots[1]);
-						}
-						else
-						{
-							if (matSlots[1].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
+						if(matSlots[1] != null)
+                        {
+							if (selectedMats.Contains(matSlots[1]))
 							{
-								selectedMats.Add(matSlots[1]);
-								// vfx
-								PlaySelectVFX(matSlots[1]);
-								anim.SetBool("selected", true);
+								selectedMats.Remove(matSlots[1]);
+								//UIManager.Me.ComboInstruct();
+								SoundMan.SoundManager.MaterialSelect();
 							}
+							else
+							{
+								if (matSlots[1].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
+								{
+									selectedMats.Add(matSlots[1]);
+									// vfx
+									PlaySelectVFX(matSlots[1]);
+									anim.SetBool("selected", true);
+									//UIManager.Me.ComboInstruct();
+									SoundMan.SoundManager.MaterialSelect();
+                                }
+                                else
+                                {
+									SoundMan.SoundManager.CannotAccess();
+								}
+							}
+							EffectManagerNew.me.RefreshCurrentMats();
 						}
-						EffectManagerNew.me.RefreshCurrentMats();
+                        else
+                        {
+							SoundMan.SoundManager.CannotAccess();
+                        }
 					}
-					if (Input.GetKeyUp(KeyCode.Alpha3) || Input.GetButtonUp("BButton") && matSlots[2] != null)
+					if (Input.GetKeyUp(KeyCode.Alpha3) || Input.GetButtonUp("BButton"))
 					{
-						SoundMan.SoundManager.MaterialSelect();
-						if (selectedMats.Contains(matSlots[2]))
-						{
-							selectedMats.Remove(matSlots[2]);
-						}
-						else
-						{
-							if (matSlots[2].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
+						if(matSlots[2] != null)
+                        {
+							if (selectedMats.Contains(matSlots[2]))
 							{
-								anim.SetBool("selected", true);
-								// vfx
-								PlaySelectVFX(matSlots[2]);
-								selectedMats.Add(matSlots[2]);
+								selectedMats.Remove(matSlots[2]);
+								//UIManager.Me.ComboInstruct();
+								SoundMan.SoundManager.MaterialSelect();
 							}
+							else
+							{
+								if (matSlots[2].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
+								{
+									anim.SetBool("selected", true);
+									// vfx
+									PlaySelectVFX(matSlots[2]);
+									selectedMats.Add(matSlots[2]);
+									//UIManager.Me.ComboInstruct();
+									SoundMan.SoundManager.MaterialSelect();
+                                }
+                                else
+                                {
+									SoundMan.SoundManager.CannotAccess();
+								}
+							}
+							EffectManagerNew.me.RefreshCurrentMats();
 						}
-						EffectManagerNew.me.RefreshCurrentMats();
+                        else
+                        {
+							SoundMan.SoundManager.CannotAccess();
+                        }
 					}
-					if (Input.GetKeyUp(KeyCode.Alpha4) || Input.GetButtonUp("AButton") && matSlots[3] != null)
+					if (Input.GetKeyUp(KeyCode.Alpha4) || Input.GetButtonUp("AButton"))
 					{
-						SoundMan.SoundManager.MaterialSelect();
-						if (selectedMats.Contains(matSlots[3]))
-						{
-							selectedMats.Remove(matSlots[3]);
-						}
-						else
-						{
-							if (matSlots[3].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
+						if(matSlots[3] != null)
+                        {
+							if (selectedMats.Contains(matSlots[3]))
 							{
-								anim.SetBool("selected", true);
-								// vfx
-								PlaySelectVFX(matSlots[3]);
-								selectedMats.Add(matSlots[3]);
+								selectedMats.Remove(matSlots[3]);
+								//UIManager.Me.ComboInstruct();
+								SoundMan.SoundManager.MaterialSelect();
 							}
+							else
+							{
+								if (matSlots[3].GetComponent<MatScriptNew>().amount > 0 && selectedMats.Count < 2)
+								{
+									anim.SetBool("selected", true);
+									// vfx
+									PlaySelectVFX(matSlots[3]);
+									selectedMats.Add(matSlots[3]);
+									//UIManager.Me.ComboInstruct();
+									SoundMan.SoundManager.MaterialSelect();
+                                }
+                                else
+                                {
+									SoundMan.SoundManager.CannotAccess();
+								}
+							}
+							EffectManagerNew.me.RefreshCurrentMats();
 						}
-						EffectManagerNew.me.RefreshCurrentMats();
+                        else
+                        {
+							SoundMan.SoundManager.CannotAccess();
+                        }
 					}
 				}
 
@@ -245,8 +305,9 @@ public class PlayerScriptNew : MonoBehaviour
 				*/
 				#endregion
 				#region movement
+				// stop walking animation
 				if (anim.GetCurrentAnimatorStateInfo(1).IsName("testBackswing") ||
-					anim.GetCurrentAnimatorStateInfo(1).IsName("readingText")) // stop walking animation when attacking
+					anim.GetCurrentAnimatorStateInfo(1).IsName("readingText"))
 				{
 					anim.SetFloat("velocity x", 0);
 					anim.SetFloat("velocity z", 0);
@@ -262,7 +323,6 @@ public class PlayerScriptNew : MonoBehaviour
 					!anim.GetCurrentAnimatorStateInfo(0).IsName("Hitted") &&
 					!anim.GetCurrentAnimatorStateInfo(1).IsName("Hitted") &&
 					!isPoliceSense)
-				//anim.GetCurrentAnimatorStateInfo(0).IsName("testIdle")) // if in walk state, walk
 				{
 					walking = true;
 					atkButtonPressed = false;
@@ -271,7 +331,8 @@ public class PlayerScriptNew : MonoBehaviour
 				if (walking && 
 					!anim.GetCurrentAnimatorStateInfo(1).IsName("readingText") &&
 					!anim.GetCurrentAnimatorStateInfo(0).IsName("Hitted") &&
-					!anim.GetCurrentAnimatorStateInfo(1).IsName("Hitted"))
+					!anim.GetCurrentAnimatorStateInfo(1).IsName("Hitted")
+					)
 				{
 					// walking diagonally
 					if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
@@ -346,7 +407,6 @@ public class PlayerScriptNew : MonoBehaviour
 					}
 				}
 				Aim_and_LockOn();
-
 				/* //mouse rotation
 				else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("readingText"))
 				{
@@ -354,6 +414,24 @@ public class PlayerScriptNew : MonoBehaviour
 					transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target - transform.position), rot_spd * Time.deltaTime);
 				}
 				*/
+				#endregion
+				//Fuck I didn't want to touch this shit
+				#region police sense
+				if ((Input.GetButtonDown("LB") || Input.GetKeyDown(KeyCode.P)) &&
+					 PostProcessingManager.Me.coroutinesQueue.Count <= 0 &&
+					 !anim.GetCurrentAnimatorStateInfo(1).IsName("readingText")) // A lot of shits has been moved by a hero
+				{
+					PostProcessingManager.Me.PS_Running = true;
+					isPoliceSense = true;
+					StopPlayer();
+					PostProcessingManager.Me.coroutinesQueue.Enqueue(PostProcessingManager.Me.DistorsionFilter());
+				}
+				if ((Input.GetButtonUp("LB") || Input.GetKeyUp(KeyCode.P)) && PostProcessingManager.Me.PS_Running)
+				{
+					PostProcessingManager.Me.coroutinesQueue.Enqueue(PostProcessingManager.Me.ResetPolice());
+					PostProcessingManager.Me.PS_Running = false;
+					isPoliceSense = false;
+				}
 				#endregion
 
 				// check for attack button press
@@ -567,11 +645,14 @@ public class PlayerScriptNew : MonoBehaviour
 		var target = new Vector3(item.transform.position.x, transform.position.y, item.transform.position.z);
 		var dir = item.transform.position - transform.position;
 		bool looked = false;
-		print(Vector3.Angle(transform.forward, dir));
-        while (Vector3.Angle(transform.forward, dir) > 5 && !looked)
+        while (Vector3.Angle(transform.forward, dir) > 5 && 
+			//Vector3.Angle(transform.forward, dir) < 175 &&
+			!looked)
         {
 			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target - transform.position), rot_spd * Time.deltaTime);
-			if (Vector3.Angle(transform.forward, dir) <= 6)
+			if (Vector3.Angle(transform.forward, dir) <= 10 
+				//|| Vector3.Angle(transform.forward, dir) >= 174
+				)
             {
 				print("don't look");
 				looked = true;

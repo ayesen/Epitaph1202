@@ -16,8 +16,8 @@ public class PostProcessingManager : MonoBehaviour
     DepthOfField DOF;
     LensDistortion LD;
     private bool isQueuing;
-    private bool PS_Running;
-    private Queue<IEnumerator> coroutinesQueue = new Queue<IEnumerator>();
+    public bool PS_Running;
+    public Queue<IEnumerator> coroutinesQueue = new Queue<IEnumerator>();
 
     private static PostProcessingManager me = null;
     public static PostProcessingManager Me
@@ -52,20 +52,6 @@ public class PostProcessingManager : MonoBehaviour
 
     private void Update()
     {
-        if((Input.GetButtonDown("LB") || Input.GetKeyDown(KeyCode.P)) && coroutinesQueue.Count <= 0) // Move this shit mountain into playerScriptNew
-        {
-            PS_Running = true;
-            PlayerScriptNew.me.isPoliceSense = true;
-            PlayerScriptNew.me.StopPlayer();
-            coroutinesQueue.Enqueue(DistorsionFilter());
-        }
-        if((Input.GetButtonUp("LB") || Input.GetKeyUp(KeyCode.P)) && PS_Running)
-        {
-            coroutinesQueue.Enqueue(ResetPolice());
-            PS_Running = false;
-            PlayerScriptNew.me.isPoliceSense = false;
-        }
-
         if (coroutinesQueue.Count > 0)
             isQueuing = true;
 
@@ -198,7 +184,6 @@ public class PostProcessingManager : MonoBehaviour
 
             while (CA.saturation.value != -100)
             {
-                Debug.Log("black");
                 time += Time.fixedDeltaTime;
                 CA.saturation.value = Mathf.Lerp(originalSat, -100, time);
                 //FishEye.distance.value = Mathf.Lerp(originalDist, 0.5f, time);

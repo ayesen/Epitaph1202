@@ -22,10 +22,12 @@ public class SpellScript : MonoBehaviour
 	public GameObject red_light;
 	public GameObject yellow_light;
 	public GameObject blue_light;
-	// ∂Ÿ÷°
+	// ????
 	public float timeScale_target;
 	public float slowDown_time;
 	private float slowDown_timer;
+
+	GameObject soundMan;
 
 	private void Start()
 	{
@@ -131,18 +133,20 @@ public class SpellScript : MonoBehaviour
 						TutorialManagerScript.me.PassCombination(mats);
 					}
 				}
-				// vfx
 				foreach (var mat in mats)
 				{
-					//if (mat.gameObject.name == "Match")
-                    //{
-						//PlayerScriptNew.me.StartCoroutine(PlayerScriptNew.me.GetComponent<VFXManager>().StartExplosion());
-                    //}
+					// vfx
 					if (mat.GetComponent<MatScriptNew>().myVFX != null)
 					{
 						GameObject ps = Instantiate(mat.GetComponent<MatScriptNew>().myVFX);
 						ps.transform.position = hitPos;
 						ps.transform.rotation = transform.rotation;
+					}
+					// sfx
+					if (mat.GetComponent<MatScriptNew>().sfxFunction != "")
+                    {
+						soundMan = GameObject.Find("AudioManager");
+						soundMan.SendMessage(mat.GetComponent<MatScriptNew>().sfxFunction);
 					}
 				}
 				SlowDownTime(hitPos);

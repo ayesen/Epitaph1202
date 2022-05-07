@@ -394,6 +394,24 @@ MonoBehaviour:
   castFlying: {fileID: 8300000, guid: ed87793238b894e35b239c3b912efd2b, type: 3}
   materialSelect: {fileID: 8300000, guid: 8f16c2cba22994e9788c40a8efb5f061, type: 3}
   enemyHitten: {fileID: 8300000, guid: f0dd811892f3d4fb3bc7d733766c49e2, type: 3}
+  enemyHittenMatch:
+  - {fileID: 8300000, guid: c19c65f675ab3446288a8c0cc299feaa, type: 3}
+  - {fileID: 8300000, guid: 0836ed3729957432caff995b91c1cdd4, type: 3}
+  - {fileID: 8300000, guid: 11ab60c65a1b24ae7a9752adb0b7579c, type: 3}
+  - {fileID: 8300000, guid: cb1ae8a3e2f7b4d5d9ef9d5cf85eb89c, type: 3}
+  - {fileID: 8300000, guid: b69e3ba4af31042859bbc6344bba9564, type: 3}
+  enemyHittenMatchEffect:
+  - {fileID: 8300000, guid: 65e25163637ac451cbcaf0d27adaa0cf, type: 3}
+  - {fileID: 8300000, guid: e3c4624f6b44e421e8efebece3113979, type: 3}
+  enemyHittenNail:
+  - {fileID: 8300000, guid: 48cf3f316eefe461092527d2de1d0f81, type: 3}
+  - {fileID: 8300000, guid: 6c41592358d824711b41930561280a4c, type: 3}
+  - {fileID: 8300000, guid: 46004a25648e84681948e36020c6b6c7, type: 3}
+  - {fileID: 8300000, guid: fd359b6ed7612473e9a02af03847bd6d, type: 3}
+  - {fileID: 8300000, guid: 4637b41f34cb94bc69ac446918d955dd, type: 3}
+  enemyHittenNailEffect:
+  - {fileID: 8300000, guid: 331d306a262b24e8d94e313f87092cc2, type: 3}
+  - {fileID: 8300000, guid: 4a53bdcacef0d4acb81ae76a7d67c6b0, type: 3}
   droppingBall: {fileID: 8300000, guid: e065904a2aacc9948af0f5ff0ae74d40, type: 3}
   inspection: {fileID: 8300000, guid: e0ccaa8bcf3054faba2d8eb32bf7bdaa, type: 3}
   logChangePage: {fileID: 8300000, guid: dd3c6aa3d036844b48ef5d0b8026edc1, type: 3}
@@ -403,7 +421,7 @@ MonoBehaviour:
   safehouseMaterialSelect: {fileID: 8300000, guid: c757de223d82543e78fdab4054b2ec6e, type: 3}
   safehouseMaterialSwap: {fileID: 8300000, guid: 9172e9761d239490e8f6492e35cb8547, type: 3}
   bearRoar: {fileID: 8300000, guid: 691d9638cebf44c87a11eebab6edb142, type: 3}
-  wallBreak: {fileID: 8300000, guid: e8a40e33c026a4c1fad0d332ad1854bc, type: 3}
+  wallBreak: {fileID: 8300000, guid: 91dfcfb4607d74ee88b95d56a09a081f, type: 3}
   jumpScare: {fileID: 8300000, guid: 620314988308d4299bd59bc850146f15, type: 3}
   cannotAccess: {fileID: 8300000, guid: 6e4954ad1083d4097999ae94c3e52a84, type: 3}
   doorOpen: {fileID: 8300000, guid: 31f7de5a7c8f842c0ba3eb09f099eeda, type: 3}
@@ -412,6 +430,7 @@ MonoBehaviour:
   bossRoomTrigger: {fileID: 8300000, guid: fc355e0e038f0406ea571c50bdee0e29, type: 3}
   lordGuanBearTrigger: {fileID: 8300000, guid: 165993ae496b342718f536e0e9723001, type: 3}
   lordGuanReturnKnife: {fileID: 8300000, guid: da97baea31d95a444a529a5fcf102ca1, type: 3}
+  bearBreak: {fileID: 8300000, guid: c9d76b12b6f1148fba06138b1a931968, type: 3}
   battleVOPhaseOne:
   - {fileID: 8300000, guid: 366be40fb05a00c41a0462d710b14f69, type: 3}
   - {fileID: 8300000, guid: da97baea31d95a444a529a5fcf102ca1, type: 3}

@@ -202,13 +202,14 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 							dT.gameObject.SetActive(false);
 							//dT.enabled=false;
 						}
+						dT.startCD = true;
 					}
 					StopAllCoroutines();
 				}
 			}
 			else // if the dialogue requires player to press a button to proceed
 			{
-				if ((Input.GetKeyUp(KeyCode.E) || Input.GetButtonUp("AButton")) && !optionsDisplaying) // if no options being displayed, loop through text
+				if ((Input.GetKeyUp(KeyCode.E) || Input.GetButtonUp("RB")) && !optionsDisplaying) // if no options being displayed, loop through text
 				{
 					if (index < dialogueToShow.Count - 1)
 					{
@@ -267,6 +268,7 @@ public class ObjectInspectorManagerScript : MonoBehaviour
 						}
 						//print("stop coroutines");
 						StopAllCoroutines();
+						dT.startCD = true;
 					}
 				}
 				if (optionsDisplaying) // let player choose

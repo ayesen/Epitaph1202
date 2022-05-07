@@ -23,6 +23,7 @@ public class MatScriptNew : MonoBehaviour
 	public string Description;
 	[Header("Hit VFX")]
 	public GameObject myVFX;
+	public string sfxFunction;
 
 	// type
 	public MatType myType;
@@ -43,7 +44,28 @@ public class MatScriptNew : MonoBehaviour
 				CD = CD_max;
 			else
 				CD = CD_max + overdose;
-			//Debug.Log("MatScriptNew: " + gameObject.ToString() + CD);
+			for (int i = 0; i <= 2; i++)
+			{
+				if (PlayerScriptNew.me.matSlots[i].gameObject.name == gameObject.name)
+				{
+					if (i == 0 && UIManager.Me.left_C == null)
+					{
+						UIManager.Me.left_C = UIManager.Me.StartCoroutine(UIManager.Me.MakePulse(UIManager.Me.leftIcon, 1f));
+						
+					}
+					else if (i == 1 && UIManager.Me.up_C == null)
+					{
+						UIManager.Me.up_C = UIManager.Me.StartCoroutine(UIManager.Me.MakePulse(UIManager.Me.upIcon, 1f));
+						
+					}
+					else if (i == 2 && UIManager.Me.right_C == null)
+					{
+						UIManager.Me.right_C = UIManager.Me.StartCoroutine(UIManager.Me.MakePulse(UIManager.Me.rightIcon, 1f));
+						
+					}
+				}
+			}
+			Debug.Log("MatScriptNew: " + gameObject.ToString() + CD);
         }
     }
 }

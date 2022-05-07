@@ -16,7 +16,13 @@ public class EffectManagerScriptHolder : MonoBehaviour
 		anim = GetComponent<Animator>();
 	}
 
-	public void Casting()
+    private void Update()
+    {
+		transform.localRotation = Quaternion.Euler(0, 0, 0);
+		transform.localPosition = Vector3.zero;
+    }
+
+    public void Casting()
 	{
 		PlayerScriptNew.me.atkButtonPressed = false;
 		ConditionStruct cs = new ConditionStruct

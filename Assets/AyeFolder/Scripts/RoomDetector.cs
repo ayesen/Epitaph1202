@@ -9,7 +9,9 @@ public class RoomDetector : MonoBehaviour
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject.CompareTag("Player"))
-			WallHider.me.roomPlayerIsIn = whichRoomIAmIn;
+        {
+            WallHider.me.roomPlayerIsIn = whichRoomIAmIn;
+        }
 
         switch (WallHider.me.roomPlayerIsIn)
         {

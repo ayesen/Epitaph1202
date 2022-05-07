@@ -75,7 +75,7 @@ public class TutorialManagerScript : MonoBehaviour
 			// keep bear hp above 0 until should be killed
 			if (tut_state != state_dmg)
 			{
-				tutorBear.GetComponent<SmallBear>().health = Mathf.Clamp(tutorBear.GetComponent<SmallBear>().health, 30, int.MaxValue);
+				tutorBear.GetComponent<SmallBear>().health = Mathf.Clamp(tutorBear.GetComponent<SmallBear>().health, 25, int.MaxValue);
 			}
 		}
 	}

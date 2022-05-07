@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class MenuManager : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class MenuManager : MonoBehaviour
     private CanvasGroup cg;
 
     public GameObject mappingHolder;
+    public GameObject rotatespd;
 
     private enum panels
     {
@@ -161,7 +163,9 @@ public class MenuManager : MonoBehaviour
             {
                 if ((Input.GetButtonDown("BButton") || Input.GetKeyDown(KeyCode.B)) && !isFading)
                 {
+                    StartCoroutine(FadeCanvas(gameObject.transform.Find("Settings").GetComponent<CanvasGroup>(), 0f, fadeTime));
                     StartCoroutine(FadeCanvas(gameObject.transform.Find("Home").GetComponent<CanvasGroup>(), 1f, fadeTime));
+                    EventSystem.current.SetSelectedGameObject(null);
                     panelState = panels.home;
                     SoundMan.SoundManager.SafehouseMaterialSelect();
                 }
@@ -198,6 +202,8 @@ public class MenuManager : MonoBehaviour
             choosenIndex = 0;
             transform.Find("Home").GetComponent<CanvasGroup>().alpha = 1;
             mappingHolder.GetComponent<CanvasGroup>().alpha = 0;
+            transform.Find("Settings").GetComponent<CanvasGroup>().alpha = 0;
+            EventSystem.current.SetSelectedGameObject(null);
         }
         isFading = false;
     }
@@ -224,7 +230,11 @@ public class MenuManager : MonoBehaviour
 
     public void ShowSetting()
     {
+        EventSystem.current.SetSelectedGameObject(null);
         StartCoroutine(FadeCanvas(gameObject.transform.Find("Home").GetComponent<CanvasGroup>(), 0f, fadeTime));
+        StartCoroutine(FadeCanvas(gameObject.transform.Find("Settings").GetComponent<CanvasGroup>(), 1f, fadeTime));
+        EventSystem.current.SetSelectedGameObject(rotatespd);
+        Debug.Log(EventSystem.current.currentSelectedGameObject.name);
         panelState = panels.settings;
     }
 
@@ -232,5 +242,7 @@ public class MenuManager : MonoBehaviour
     {
         SavePointManager.me.ResetBears();
         SavePointManager.me.ResetPlayer();
+        isMenu = false;
+        GameIsPaused = false;
     }
 }
