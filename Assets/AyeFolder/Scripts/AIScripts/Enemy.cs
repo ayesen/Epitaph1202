@@ -37,16 +37,16 @@ public class Enemy : MonoBehaviour
     public bool doorTrigger = false;
     public bool isBigBear = false;
 
-    [Header("Phase 1")]
-    public int atkSpdP1;
-    public float preAtkSpdP1;
-    public int atkTimeP1;
-    public float postAtkSpdP1;
-    public int attackamtP1;
-    public float moveSpdP1;
+    [Header("Phase 1")]//只有大熊的要在phase1和phase2这里改，小熊在上面改！！！
+    public int atkSpdP1;//攻击间隔
+    public float preAtkSpdP1;//前摇时间
+    public int atkTimeP1;//攻击那一帧的停留时间（最好别改！！！！
+    public float postAtkSpdP1;//后摇时间
+    public int attackamtP1;//攻击力（扣玩家多少血
+    public float moveSpdP1;//移速
 
 
-    [Header("Phase 2")]
+    [Header("Phase 2")]//全都同上，小熊只有p1没有p2
     public int atkSpdP2;
     public float preAtkSpdP2;
     public int atkTimeP2;
