@@ -142,7 +142,8 @@ public class DoorScript : MonoBehaviour
 	{
         SwitchDoor();
         isOpen = true;
-		foreach (var bear in bearsBehind)
+        BGMMan.bGMManger.StartTeddyBattleMusic();
+        foreach (var bear in bearsBehind)
 		{
             bear.GetComponent<AIController>().enabled = true;
 		}
