@@ -8,7 +8,11 @@ public class LoadEndCredit : MonoBehaviour
 {
     public void OnTriggerEnter(Collider other)
     {
-        StartCoroutine(FadeInManager.Me.SceneLoadFadeCanvas(FadeInManager.Me.gameObject.GetComponent<CanvasGroup>(), 1, 3));
+        if (other.gameObject.CompareTag("Player"))
+        {
+            StartCoroutine(FadeInManager.Me.SceneLoadFadeCanvas(FadeInManager.Me.gameObject.GetComponent<CanvasGroup>(), 1, 3));
+
+        }
         //SceneManager.LoadScene(2);
     }
 
