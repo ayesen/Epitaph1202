@@ -10,7 +10,10 @@ public class AIEffectManager : MonoBehaviour
     public float SlashTimer;
     public float SlashWaitTimer;
 
-    // Update is called once per frame
+    private void Awake()
+    {
+        SlashVFX.SetActive(false);
+    }
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.G))

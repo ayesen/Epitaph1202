@@ -88,7 +88,7 @@ public class UIManager : MonoBehaviour
         choUp.SetActive(false);
         choRight.SetActive(false);
         choDown.SetActive(false);
-        ComboInstruct();
+        //ComboInstruct();
     }
 
     void Update()
@@ -96,7 +96,7 @@ public class UIManager : MonoBehaviour
         UI_SelectMat();
         UI_ChangeAmount();
         UI_CD();
-        //ComboInstruct();
+        ComboInstruct();
 
         timer += Time.deltaTime;
         if(timer >= hideTime & !isHided)
