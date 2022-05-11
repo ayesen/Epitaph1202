@@ -432,6 +432,8 @@ MonoBehaviour:
   lordGuanBearTrigger: {fileID: 8300000, guid: 165993ae496b342718f536e0e9723001, type: 3}
   lordGuanReturnKnife: {fileID: 8300000, guid: da97baea31d95a444a529a5fcf102ca1, type: 3}
   bearBreak: {fileID: 8300000, guid: c9d76b12b6f1148fba06138b1a931968, type: 3}
+  smallBearSlash: {fileID: 8300000, guid: cc54386b1a5eba141acb24d1688b2d6b, type: 3}
+  bigBearSlash: {fileID: 8300000, guid: 937853d41428d5645b2c32b22ec2c60f, type: 3}
   battleVOPhaseOne:
   - {fileID: 8300000, guid: 366be40fb05a00c41a0462d710b14f69, type: 3}
   - {fileID: 8300000, guid: da97baea31d95a444a529a5fcf102ca1, type: 3}

@@ -43,6 +43,8 @@ public class SoundMan : MonoBehaviour
     public AudioClip lordGuanBearTrigger;
     public AudioClip lordGuanReturnKnife;
     public AudioClip bearBreak;
+    public AudioClip smallBearSlash;
+    public AudioClip bigBearSlash;
     [Header("BattleVO")]
     public AudioClip[] battleVOPhaseOne;
     public AudioClip[] battleVOPhaseTwo;
@@ -133,6 +135,24 @@ public class SoundMan : MonoBehaviour
         AudioSource source = GetSource();
         FindSFXGroup(source);
         source.clip = lockUnlocked;
+        source.Play();
+    }
+
+    public void SmallBearSlash()
+    {
+        AudioSource source = GetSource();
+        FindSFXGroup(source);
+        PitchRandomization(source);
+        source.clip = smallBearSlash;
+        source.Play();
+    }
+
+    public void BigBearSlash()
+    {
+        AudioSource source = GetSource();
+        FindSFXGroup(source);
+        PitchRandomization(source);
+        source.clip = bigBearSlash;
         source.Play();
     }
 
