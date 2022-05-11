@@ -37,11 +37,14 @@ public class SoundMan : MonoBehaviour
     public AudioClip cannotAccess;
     public AudioClip doorOpen;
     public AudioClip doorLocked;
+    public AudioClip lockUnlocked;
     public AudioClip knifeDropped;
     public AudioClip bossRoomTrigger;
     public AudioClip lordGuanBearTrigger;
     public AudioClip lordGuanReturnKnife;
     public AudioClip bearBreak;
+    public AudioClip smallBearSlash;
+    public AudioClip bigBearSlash;
     [Header("BattleVO")]
     public AudioClip[] battleVOPhaseOne;
     public AudioClip[] battleVOPhaseTwo;
@@ -127,6 +130,32 @@ public class SoundMan : MonoBehaviour
     }
 
     /*The SFX Funcions*/
+    public void LockUnlocked()
+    {
+        AudioSource source = GetSource();
+        FindSFXGroup(source);
+        source.clip = lockUnlocked;
+        source.Play();
+    }
+
+    public void SmallBearSlash()
+    {
+        AudioSource source = GetSource();
+        FindSFXGroup(source);
+        PitchRandomization(source);
+        source.clip = smallBearSlash;
+        source.Play();
+    }
+
+    public void BigBearSlash()
+    {
+        AudioSource source = GetSource();
+        FindSFXGroup(source);
+        PitchRandomization(source);
+        source.clip = bigBearSlash;
+        source.Play();
+    }
+
     public void CannotAccess()
     {
         AudioSource source = GetSource();

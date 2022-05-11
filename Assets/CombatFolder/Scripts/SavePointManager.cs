@@ -66,9 +66,12 @@ public class SavePointManager : MonoBehaviour
 		GetActivatedBears();
 		foreach (var bear in _activatedBears)
 		{
+			AIController ac = bear.GetComponent<AIController>();
 			bear.transform.localPosition = bear.GetComponent<Enemy>().ogPosition;
 			bear.transform.localEulerAngles = bear.GetComponent<Enemy>().ogRotation;
-			bear.GetComponent<AIController>().enabled = false;
+			ac.ChangeState(ac.idleState);
+			//ac.enabled = false;
+			bear.GetComponent<Enemy>().ChangePhase(Enemy.AIPhase.NotInBattle, 0);
 			foreach (var door in bear.GetComponent<Enemy>().myEntrances)
 			{
 				door.CloseDoor();
@@ -81,6 +84,12 @@ public class SavePointManager : MonoBehaviour
 				door.myOpenTrigger.GetComponent<DialogueScript>().inspected = false;
 				door.bearsBehind.Add(bear);
 			}
+			if (bear.GetComponent<Enemy>().myDialogueTrigger)
+            {
+				bear.GetComponent<Enemy>().myDialogueTrigger.gameObject.SetActive(true);
+				bear.GetComponent<Enemy>().myDialogueTrigger.inspected = false;
+            }
+				
 		}
 	}
 
@@ -97,7 +106,6 @@ public class SavePointManager : MonoBehaviour
 					if (bear.GetComponent<AIController>().enabled &&
 						bear.GetComponent<SmallBear>().health > 0)
 					{
-						
 						if (!_activatedBears.Contains(bear))
 						{
 							_activatedBears.Add(bear);

@@ -117,8 +117,8 @@ public class Enemy : MonoBehaviour
     public Transform ogTransform;
     public Vector3 ogPosition;
     public Vector3 ogRotation;
-    //[HideInInspector]
     public List<DoorScript> myEntrances;
+    public DialogueScript myDialogueTrigger;
     
 
     private void Awake()
@@ -478,6 +478,14 @@ public class Enemy : MonoBehaviour
     {
         if (GetComponent<AIEffectManager>()!= null)
         {
+            if (isBigBear)
+            {
+                SoundMan.SoundManager.BigBearSlash();
+            }
+            else
+            {
+                SoundMan.SoundManager.SmallBearSlash();
+            }
             StartCoroutine(GetComponent<AIEffectManager>().StartSlash());
         }
     }
