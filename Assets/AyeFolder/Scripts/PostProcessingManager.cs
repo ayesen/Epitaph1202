@@ -126,10 +126,11 @@ public class PostProcessingManager : MonoBehaviour
         float minValue = 0;
         float maxValue = 0.8f;
 
-        float deathValue = 1 - 1.8f * Mathf.Sqrt((float)currentHp/maxHp);
+        float deathValue = 1 - 1.2f * Mathf.Sqrt((float)currentHp/maxHp);
         CA.saturation.value = Mathf.Clamp(deathValue * 100, minValue, maxValue*100);
         Vig.intensity.value = Mathf.Clamp(deathValue/2.2f, minValue, maxValue);
         ChrAb.intensity.value = Mathf.Clamp(deathValue, minValue, maxValue);
+        CA.colorFilter.value = Color.Lerp(Color.white,Color.red, deathValue);
         //Debug.Log(deathValue);
     }
 
@@ -145,11 +146,11 @@ public class PostProcessingManager : MonoBehaviour
         while (CA.colorFilter.value != Color.black)
         {
             //Debug.Log("black");
-            time += Time.fixedDeltaTime/5;
-            timecolor += Time.fixedDeltaTime/10;
-            timevig += Time.fixedDeltaTime/10;
+            time += Time.fixedDeltaTime/3;
+            timecolor += Time.fixedDeltaTime/6;
+            timevig += Time.fixedDeltaTime/6;
             CA.saturation.value = Mathf.Lerp(originalSat, -100, time);
-            CA.colorFilter.value = Color.Lerp(Color.white, Color.black, timecolor);
+            CA.colorFilter.value = Color.Lerp(Color.red, Color.black, timecolor);
             Vig.intensity.value = Mathf.Lerp(originalVig, 1, timevig);
             ChrAb.intensity.value = Mathf.Lerp(originalChrom, 1, timevig);
             yield return null;
