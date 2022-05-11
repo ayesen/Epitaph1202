@@ -23,6 +23,7 @@ public class SmallBearRoomManager : MonoBehaviour
 			bear.GetComponent<SmallBear>().enabled = true;
 			bear.GetComponent<EffectHoldersHolderScript>().enabled = true;
 			bear.GetComponent<Enemy>().myEntrances = new List<DoorScript>(entrance_doors); // copy entrance list so that all bears know which door to close when player dies
+			print(entrance_doors.Count);
 		}
 	}
 
