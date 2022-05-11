@@ -6,10 +6,16 @@ public class AIStateDie : AIStateBase
 {
     public AIStateBase oldState;
     private float timer_flashWhite;
+    private bool flashed = false;
     public override void StartState(Enemy myEnemy)
     {
-        timer_flashWhite = .2f;
-        FlashWhite(myEnemy);
+        if (!flashed)
+        {
+            timer_flashWhite = .2f;
+            FlashWhite(myEnemy);
+            flashed = true;
+        }
+        
         myEnemy.AIAnimator.Play("Die");
         myEnemy.myTrigger.myMR.enabled = false;
         myEnemy.ghostRider.enabled = false;
