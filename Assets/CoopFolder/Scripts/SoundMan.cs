@@ -37,6 +37,7 @@ public class SoundMan : MonoBehaviour
     public AudioClip cannotAccess;
     public AudioClip doorOpen;
     public AudioClip doorLocked;
+    public AudioClip lockUnlocked;
     public AudioClip knifeDropped;
     public AudioClip bossRoomTrigger;
     public AudioClip lordGuanBearTrigger;
@@ -127,6 +128,14 @@ public class SoundMan : MonoBehaviour
     }
 
     /*The SFX Funcions*/
+    public void LockUnlocked()
+    {
+        AudioSource source = GetSource();
+        FindSFXGroup(source);
+        source.clip = lockUnlocked;
+        source.Play();
+    }
+
     public void CannotAccess()
     {
         AudioSource source = GetSource();

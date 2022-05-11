@@ -10,8 +10,8 @@ public class LoadEndCredit : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            PlayerScriptNew.me.StopPlayer();
             StartCoroutine(FadeInManager.Me.SceneLoadFadeCanvas(FadeInManager.Me.gameObject.GetComponent<CanvasGroup>(), 1, 3));
-
         }
         //SceneManager.LoadScene(2);
     }
