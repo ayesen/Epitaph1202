@@ -145,7 +145,7 @@ public class DoorScript : MonoBehaviour
         BGMMan.bGMManger.StartTeddyBattleMusic();
         foreach (var bear in bearsBehind)
 		{
-            bear.GetComponent<AIController>().enabled = true;
+            //bear.GetComponent<AIController>().enabled = true;
 		}
 	}
 
