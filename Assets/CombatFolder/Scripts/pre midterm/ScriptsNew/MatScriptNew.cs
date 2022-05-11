@@ -46,7 +46,7 @@ public class MatScriptNew : MonoBehaviour
 				CD = CD_max + overdose;
 			for (int i = 0; i <= 2; i++)
 			{
-				if (PlayerScriptNew.me.matSlots[i].gameObject.name == gameObject.name)
+				if (PlayerScriptNew.me.matSlots[i] && PlayerScriptNew.me.matSlots[i].gameObject.name == gameObject.name)
 				{
 					if (i == 0 && UIManager.Me.left_C == null)
 					{
