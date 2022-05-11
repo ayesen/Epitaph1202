@@ -394,8 +394,24 @@ MonoBehaviour:
   castFlying: {fileID: 8300000, guid: ed87793238b894e35b239c3b912efd2b, type: 3}
   materialSelect: {fileID: 8300000, guid: 8f16c2cba22994e9788c40a8efb5f061, type: 3}
   enemyHitten: {fileID: 8300000, guid: f0dd811892f3d4fb3bc7d733766c49e2, type: 3}
-  enemyHittenMatch: {fileID: 0}
-  enemyHittenNail: {fileID: 0}
+  enemyHittenMatch:
+  - {fileID: 8300000, guid: c19c65f675ab3446288a8c0cc299feaa, type: 3}
+  - {fileID: 8300000, guid: 0836ed3729957432caff995b91c1cdd4, type: 3}
+  - {fileID: 8300000, guid: 11ab60c65a1b24ae7a9752adb0b7579c, type: 3}
+  - {fileID: 8300000, guid: cb1ae8a3e2f7b4d5d9ef9d5cf85eb89c, type: 3}
+  - {fileID: 8300000, guid: b69e3ba4af31042859bbc6344bba9564, type: 3}
+  enemyHittenMatchEffect:
+  - {fileID: 8300000, guid: 65e25163637ac451cbcaf0d27adaa0cf, type: 3}
+  - {fileID: 8300000, guid: e3c4624f6b44e421e8efebece3113979, type: 3}
+  enemyHittenNail:
+  - {fileID: 8300000, guid: 48cf3f316eefe461092527d2de1d0f81, type: 3}
+  - {fileID: 8300000, guid: 6c41592358d824711b41930561280a4c, type: 3}
+  - {fileID: 8300000, guid: 46004a25648e84681948e36020c6b6c7, type: 3}
+  - {fileID: 8300000, guid: fd359b6ed7612473e9a02af03847bd6d, type: 3}
+  - {fileID: 8300000, guid: 4637b41f34cb94bc69ac446918d955dd, type: 3}
+  enemyHittenNailEffect:
+  - {fileID: 8300000, guid: 331d306a262b24e8d94e313f87092cc2, type: 3}
+  - {fileID: 8300000, guid: 4a53bdcacef0d4acb81ae76a7d67c6b0, type: 3}
   droppingBall: {fileID: 8300000, guid: e065904a2aacc9948af0f5ff0ae74d40, type: 3}
   inspection: {fileID: 8300000, guid: e0ccaa8bcf3054faba2d8eb32bf7bdaa, type: 3}
   logChangePage: {fileID: 8300000, guid: dd3c6aa3d036844b48ef5d0b8026edc1, type: 3}

@@ -18,8 +18,10 @@ public class SoundMan : MonoBehaviour
     public AudioClip castFlying;
     public AudioClip materialSelect;
     public AudioClip enemyHitten;
-    public AudioClip enemyHittenMatch;
-    public AudioClip enemyHittenNail;
+    public AudioClip[] enemyHittenMatch;
+    public AudioClip[] enemyHittenMatchEffect;
+    public AudioClip[] enemyHittenNail;
+    public AudioClip[] enemyHittenNailEffect;
     public AudioClip droppingBall;
     public AudioClip inspection;
     public AudioClip logChangePage;
@@ -43,6 +45,11 @@ public class SoundMan : MonoBehaviour
     [Header("BattleVO")]
     public AudioClip[] battleVOPhaseOne;
     public AudioClip[] battleVOPhaseTwo;
+    int lastEHM;
+    int lastEHME;
+    int lastEHN;
+    int lastEHNE;
+
     int lastManWalk;
     int lastBearWalk;
     int lastSmallBearWalk;
@@ -284,24 +291,10 @@ public class SoundMan : MonoBehaviour
         AudioSource source = GetSource();
         FindSFXGroup(source);
         source.clip = enemyHitten;
-        source.Play();
+        //source.Play();
     }
 
-    public void EnemyHittenMatch()
-    {
-        AudioSource source = GetSource();
-        FindSFXGroup(source);
-        source.clip = enemyHittenMatch;
-        source.Play();
-    }
 
-    public void EnemyHitternNail()
-    {
-        AudioSource source = GetSource();
-        FindSFXGroup(source);
-        source.clip = enemyHittenNail;
-        source.Play();
-    }
 
     public void CastFlying()
     {
@@ -309,7 +302,7 @@ public class SoundMan : MonoBehaviour
         PitchRandomization(source);
         FindSFXGroup(source);
         source.clip = castFlying;
-        source.Play();
+        //source.Play();
     }
 
     public void MaterialSelect()
@@ -326,6 +319,42 @@ public class SoundMan : MonoBehaviour
         FindSFXGroup(source);
         source.clip = jumpScare;
         source.Play();
+    }
+
+    public void EnemyHittenMatch()  //MMMMMMMMMMM
+    {
+        AudioSource source = GetSource();
+        FindSFXGroup(source);
+        int clipNum = GetClipIndex(enemyHittenMatch.Length, lastEHM);
+        lastEHM = clipNum;
+        source.clip = enemyHittenMatch[clipNum];
+
+        AudioSource sourceT = GetSource();
+        FindSFXGroup(sourceT);
+        int clipNumT = GetClipIndex(enemyHittenMatchEffect.Length, lastEHME);
+        lastEHME = clipNumT;
+        sourceT.clip = enemyHittenMatchEffect[clipNumT];
+
+        source.Play();
+        sourceT.Play();
+    }
+
+    public void EnemyHitternNail()  //NNNNNNNNNNNNN
+    {
+        AudioSource source = GetSource();
+        FindSFXGroup(source);
+        int clipNum = GetClipIndex(enemyHittenNail.Length, lastEHN);
+        lastEHN = clipNum;
+        source.clip = enemyHittenNail[clipNum];
+
+        AudioSource sourceT = GetSource();
+        FindSFXGroup(sourceT);
+        int clipNumT = GetClipIndex(enemyHittenNailEffect.Length, lastEHNE);
+        lastEHNE = clipNumT;
+        sourceT.clip = enemyHittenNail[clipNumT];
+
+        source.Play();
+        sourceT.Play();
     }
 
     public void ManWalk()

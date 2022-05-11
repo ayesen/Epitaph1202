@@ -10,12 +10,19 @@ public class TriggerBossScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(("Player")))
+        if (other.CompareTag("Player"))
         {
-            BGMMan.bGMManger.StartTeddyBattleMusic();
-            boss.phase = Enemy.AIPhase.InBattle1;
-            boss.GetComponent<Enemy>().myEntrances = new List<DoorScript>(entrance_doors); // copy entrance list so that all bears know which door to close when player dies
-            enabled = false;
+            if(boss.phase == Enemy.AIPhase.NotInBattle)
+            {
+                BGMMan.bGMManger.StartTeddyBattleMusic();
+                boss.phase = Enemy.AIPhase.InBattle1;
+                boss.GetComponent<Enemy>().myEntrances = new List<DoorScript>(entrance_doors); // copy entrance list so that all bears know which door to close when player dies
+                enabled = false;
+            }
+            else
+            {
+                enabled = false;
+            }
         }
     }
 }

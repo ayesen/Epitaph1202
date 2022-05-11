@@ -140,9 +140,10 @@ public class DoorScript : MonoBehaviour
 
     public void OpenBack_and_reactivateBears() // front actually
 	{
-        DoorAnimator.Play("DoorFrontOpen");
+        SwitchDoor();
         isOpen = true;
-		foreach (var bear in bearsBehind)
+        BGMMan.bGMManger.StartTeddyBattleMusic();
+        foreach (var bear in bearsBehind)
 		{
             bear.GetComponent<AIController>().enabled = true;
 		}
