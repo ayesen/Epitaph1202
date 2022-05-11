@@ -63,10 +63,13 @@ public class BGMMan : MonoBehaviour
 
     public void EnterSafeHoueBaguaMusic()
     {
-        SoundMan.SoundManager.ChangeToSafeHouseSnapshot();
-        
-        BGMAudioSource.loop = true;
-        StartCoroutine(FadeTrack(safeHouse));
+        if (BGMAudioSource.clip != safeHouse)
+        {
+            SoundMan.SoundManager.ChangeToSafeHouseSnapshot();
+
+            BGMAudioSource.loop = true;
+            StartCoroutine(FadeTrack(safeHouse));
+        }
     }
 
     //public void EndSafeHoueBaguaMusic() //use EndMusic() instead of this

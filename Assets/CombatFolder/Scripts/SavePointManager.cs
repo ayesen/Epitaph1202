@@ -84,8 +84,12 @@ public class SavePointManager : MonoBehaviour
 				door.myOpenTrigger.GetComponent<DialogueScript>().inspected = false;
 				door.bearsBehind.Add(bear);
 			}
-			bear.GetComponent<Enemy>().myDialogueTrigger.gameObject.SetActive(true);
-			bear.GetComponent<Enemy>().myDialogueTrigger.inspected = false;
+			if (bear.GetComponent<Enemy>().myDialogueTrigger)
+            {
+				bear.GetComponent<Enemy>().myDialogueTrigger.gameObject.SetActive(true);
+				bear.GetComponent<Enemy>().myDialogueTrigger.inspected = false;
+            }
+				
 		}
 	}
 
