@@ -117,8 +117,8 @@ public class Enemy : MonoBehaviour
     public Transform ogTransform;
     public Vector3 ogPosition;
     public Vector3 ogRotation;
-    //[HideInInspector]
     public List<DoorScript> myEntrances;
+    public DialogueScript myDialogueTrigger;
     
 
     private void Awake()

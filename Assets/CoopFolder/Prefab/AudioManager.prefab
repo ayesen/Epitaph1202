@@ -426,6 +426,7 @@ MonoBehaviour:
   cannotAccess: {fileID: 8300000, guid: 6e4954ad1083d4097999ae94c3e52a84, type: 3}
   doorOpen: {fileID: 8300000, guid: 31f7de5a7c8f842c0ba3eb09f099eeda, type: 3}
   doorLocked: {fileID: 8300000, guid: 5c1d253f36bbc453daf8871af9774386, type: 3}
+  lockUnlocked: {fileID: 8300000, guid: 5078a025d6a40854f875e9069984a87b, type: 3}
   knifeDropped: {fileID: 8300000, guid: 71be3cbb5d0894295b1dd0c7fc14266f, type: 3}
   bossRoomTrigger: {fileID: 8300000, guid: fc355e0e038f0406ea571c50bdee0e29, type: 3}
   lordGuanBearTrigger: {fileID: 8300000, guid: 165993ae496b342718f536e0e9723001, type: 3}
