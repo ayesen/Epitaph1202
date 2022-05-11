@@ -113,7 +113,9 @@ public class DialogueScript : MonoBehaviour
             				{
             					interactable.SetActive(true);
             				}
-            
+
+							PlayerScriptNew.me.selectedMats.Clear();
+
             				//if (LogManager.LOGManager != null)
             				//{
             				//	LogManager.LOGManager.CoverSetActive(logX, logY);
@@ -147,12 +149,14 @@ public class DialogueScript : MonoBehaviour
             			{
             				interactable.SetActive(true);
             			}
-            
-            			//if (LogManager.LOGManager != null)
-            			//{
-            			//	LogManager.LOGManager.CoverSetActive(logX, logY);
-            			//}
-            		}
+
+						PlayerScriptNew.me.selectedMats.Clear();
+
+						//if (LogManager.LOGManager != null)
+						//{
+						//	LogManager.LOGManager.CoverSetActive(logX, logY);
+						//}
+					}
             	}
             }
             else
@@ -190,7 +194,7 @@ public class DialogueScript : MonoBehaviour
 		{
 			interactable.SetActive(true);
 		}
-
+		PlayerScriptNew.me.selectedMats.Clear();
 		//LogManager.LOGManager.CoverSetActive(logX, logY);
 	}
 }
