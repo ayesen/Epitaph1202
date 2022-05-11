@@ -107,7 +107,6 @@ public class PostProcessingManager : MonoBehaviour
 
         while (CA.colorFilter.value != Color.white)
         {
-            Debug.Log("resetf");
             time += Time.fixedDeltaTime / 5;
             timecolor += Time.fixedDeltaTime / 10;
             timevig += Time.fixedDeltaTime / 10;
