@@ -25,4 +25,18 @@ public class FadeInManager : MonoBehaviour
     {
         StartCoroutine(UIManager.Me.FadeCanvas(GetComponent<CanvasGroup>(), 0, 3));
     }
+
+    public IEnumerator SceneLoadFadeCanvas(CanvasGroup cg, float endValue, float duration)
+    {
+        float elapsedTime = 0;
+        float startValue = cg.alpha;
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            cg.alpha = Mathf.Lerp(startValue, endValue, elapsedTime / duration);
+            yield return null;
+        }
+
+        GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadLevel(2);
+    }
 }
