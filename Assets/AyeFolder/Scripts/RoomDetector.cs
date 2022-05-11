@@ -21,6 +21,9 @@ public class RoomDetector : MonoBehaviour
             case WallHider.Room.balcany:
                 AmbienceManager.ambienceManager.BalconyAmbiencePlay();
                 break;
+            case WallHider.Room.studyBalcony:
+                AmbienceManager.ambienceManager.BalconyAmbiencePlay();
+                break;
             default:
                 AmbienceManager.ambienceManager.RoomAmbiencePlay();
                 break;
