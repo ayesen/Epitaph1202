@@ -340,12 +340,21 @@ MonoBehaviour:
   maxAudioSouces: 50
   sourcePrefab: {fileID: 6500670877884442635, guid: 7aab4b4054ab5794391ccb73c06d2279, type: 3}
   mainAudioMixer: {fileID: 24100000, guid: a3ad3a61a370044af92c7b69f17a4f18, type: 2}
-  manWalkClips:
+  manWalkClipsWood:
+  - {fileID: 8300000, guid: 1fd860096f4a44449a16b2c87bc1ee7d, type: 3}
+  - {fileID: 8300000, guid: bb5f4be216c144402a8161b6f8497331, type: 3}
+  - {fileID: 8300000, guid: 4292c2d115ae44401976c87be49e19d0, type: 3}
+  manWalkClipsConcret:
   - {fileID: 8300000, guid: b6a17781fa8394039984f4af3fef5cb7, type: 3}
   - {fileID: 8300000, guid: 1b6f8b0ae0f3e4dada76d0c69a18c9a1, type: 3}
   - {fileID: 8300000, guid: e4d1dc9850f894dfaa93b4a4f769679c, type: 3}
   - {fileID: 8300000, guid: a7d053254eb1e4552869d6e98aa55d1a, type: 3}
   - {fileID: 8300000, guid: 03acf2cf4522c45f38a6e240e44d1bba, type: 3}
+  manWalkClipsMarble:
+  - {fileID: 8300000, guid: 1fdba1ac7294e4db79632de64c32ed7a, type: 3}
+  - {fileID: 8300000, guid: fdfe56a6593bd47bfb9717e5f0776cfc, type: 3}
+  - {fileID: 8300000, guid: 255173cc06ae94e0ea4090f737fd46c8, type: 3}
+  - {fileID: 8300000, guid: c43f30cb9f9814924a416afe63eedda5, type: 3}
   bearWalkClips:
   - {fileID: 8300000, guid: 35b3d63f9ae1f45a996a1315c0d264da, type: 3}
   - {fileID: 8300000, guid: 351887ed130f94704bd70fafde82b7e6, type: 3}
