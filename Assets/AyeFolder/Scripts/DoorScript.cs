@@ -142,9 +142,18 @@ public class DoorScript : MonoBehaviour
 	{
         SwitchDoor();
         isOpen = true;
-		foreach (var bear in bearsBehind)
+        /*if (WallHider.me.roomPlayerIsIn == WallHider.Room.candleRoom 
+            || WallHider.me.roomPlayerIsIn == WallHider.Room.bossRoom)
+        {
+            BGMMan.bGMManger.StartTinyTeddyCombatMusic();
+        }
+        else
+        {
+            BGMMan.bGMManger.StartTeddyBattleMusic();
+        }*/
+        foreach (var bear in bearsBehind)
 		{
-            bear.GetComponent<AIController>().enabled = true;
+            //bear.GetComponent<AIController>().enabled = true;
 		}
 	}
 

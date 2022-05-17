@@ -515,6 +515,12 @@ public class PlayerScriptNew : MonoBehaviour
                 }
 			}
 		}
+
+		if(Input.GetKeyDown(KeyCode.N))
+        {
+			LoseHealth_player(5);
+
+		}
 		
 	}
 	public void RecovMatCD(int breakAmp)

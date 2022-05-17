@@ -14,14 +14,14 @@ public class Enemy : MonoBehaviour
     public float def_weak;
     public int health;
     public int maxHealth;
-    public int moveSpeed;
+    public float moveSpeed;
     public int shield;
     public int maxShield;
     public int atkSpd;
     public int attackamt;
     public float preAtkSpd;
     public int atkTime;
-    public int postAtkSpd;
+    public float postAtkSpd;
     public int changePhaseTime;
     public int healthLimit;
     public int changeLimit;
@@ -36,6 +36,23 @@ public class Enemy : MonoBehaviour
     public bool isPhaseTwo = false;
     public bool doorTrigger = false;
     public bool isBigBear = false;
+
+    [Header("Phase 1")]//只有大熊的要在phase1和phase2这里改，小熊在上面改！！！
+    public int atkSpdP1;//攻击间隔
+    public float preAtkSpdP1;//前摇时间
+    public int atkTimeP1;//攻击那一帧的停留时间（最好别改！！！！
+    public float postAtkSpdP1;//后摇时间
+    public int attackamtP1;//攻击力（扣玩家多少血
+    public float moveSpdP1;//移速
+
+
+    [Header("Phase 2")]//全都同上，小熊只有p1没有p2
+    public int atkSpdP2;
+    public float preAtkSpdP2;
+    public int atkTimeP2;
+    public float postAtkSpdP2;
+    public int attackamtP2;
+    public float moveSpdP2;
 
     [Header("Stun")]
     public float edr; // endurance: 0 ~ 1
@@ -100,8 +117,8 @@ public class Enemy : MonoBehaviour
     public Transform ogTransform;
     public Vector3 ogPosition;
     public Vector3 ogRotation;
-    //[HideInInspector]
     public List<DoorScript> myEntrances;
+    public DialogueScript myDialogueTrigger;
     
 
     private void Awake()
@@ -120,7 +137,20 @@ public class Enemy : MonoBehaviour
         ogTransform = transform;
         ogPosition = transform.localPosition;
         ogRotation = transform.localEulerAngles;
-    }
+        if (isBigBear)
+        {
+            ghostRider.speed = moveSpeed;
+        }
+        if (!isBigBear)
+        {
+            atkSpdP1 = atkSpd;
+            preAtkSpdP1 = preAtkSpd;
+            atkTimeP1 = atkTime;
+            postAtkSpdP1 = postAtkSpd;
+            attackamtP1 = attackamt;
+            moveSpdP1 = ghostRider.speed;
+        }
+}
 
     private void Update()
     {
@@ -192,12 +222,12 @@ public class Enemy : MonoBehaviour
     {
         if (phase == AIPhase.InBattle1)
         {
-            atkSpd = 2;
-            preAtkSpd = 2;
-            atkTime = 1;
-            postAtkSpd = 2;
-            attackamt = 5;
-            
+            atkSpd = atkSpdP1;//2
+            preAtkSpd = preAtkSpdP1;//1.5
+            atkTime = atkTimeP1;//1
+            postAtkSpd = postAtkSpdP1;//1,5
+            attackamt = attackamtP1;//5
+            moveSpeed = moveSpdP1;//3
             myTriggerObj = GameObject.Find("Atk1Trigger");
             if (shield <= 0)
             {
@@ -209,11 +239,12 @@ public class Enemy : MonoBehaviour
         }
         else if (phase == AIPhase.InBattle2)
         {
-            atkSpd = 3;
-            preAtkSpd = 3;
-            atkTime = 1;
-            postAtkSpd = 2;
-            attackamt = 25;
+            atkSpd = atkSpdP2;//3
+            preAtkSpd = preAtkSpdP2;//3
+            atkTime = atkTimeP2;//1
+            postAtkSpd = postAtkSpdP2;//2
+            attackamt = attackamtP2;//25
+            moveSpeed = moveSpdP2;//1.5
             myTriggerObj = GameObject.Find("Atk2Trigger");
             if ((health < healthLimit || timer_phase2 <= 0) && changeLimit > 0)
             {
@@ -348,6 +379,7 @@ public class Enemy : MonoBehaviour
     public void ChangeSpd(int ChangeAmt)
     {
         moveSpeed += ChangeAmt; // get navmesh move spd
+        ghostRider.speed = moveSpeed;
     }
 
     public void ChaseTarget()
@@ -444,8 +476,16 @@ public class Enemy : MonoBehaviour
 
     public void SlashVFX()
     {
-        if (isBigBear)
+        if (GetComponent<AIEffectManager>()!= null)
         {
+            if (isBigBear)
+            {
+                SoundMan.SoundManager.BigBearSlash();
+            }
+            else
+            {
+                SoundMan.SoundManager.SmallBearSlash();
+            }
             StartCoroutine(GetComponent<AIEffectManager>().StartSlash());
         }
     }

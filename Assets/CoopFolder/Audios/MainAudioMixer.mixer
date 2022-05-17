@@ -71,6 +71,7 @@ AudioMixerSnapshotController:
     418fd03644a5a4a4fafcc10ce90b599d: 500
     56a005b64fde341198684d06a2335a66: 22000
     05ff74e62300f4d48a71b749e31e28d2: -40
+    837b024703f6f4d83a2445a30949eea4: -4.9356413
     99cd42c8ff2a34b139e1e7a9fdc3156b: -40
     a9ad0fc8febae48e4b08c5cd005bdb72: 0
     4971010bcf40d4c7c813b4d3412e5fcb: 0
@@ -157,7 +158,7 @@ AudioMixerController:
     - 5e3e007796a734eedadd8c033d8e44ee
     name: Global
   m_CurrentViewIndex: 0
-  m_TargetSnapshot: {fileID: 24500006}
+  m_TargetSnapshot: {fileID: -2579247095611112285}
 --- !u!243 &24300002
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -178,7 +179,6 @@ AudioMixerGroupController:
   m_Effects:
   - {fileID: 24400004}
   - {fileID: -1475448355390395657}
-  - {fileID: 750164917145249510}
   m_UserColorIndex: 8
   m_Mute: 0
   m_Solo: 0
@@ -216,6 +216,7 @@ AudioMixerSnapshotController:
     5cead386b0c034465b491af2e0dc1362: 340
     56a005b64fde341198684d06a2335a66: 22000
     05ff74e62300f4d48a71b749e31e28d2: -40
+    837b024703f6f4d83a2445a30949eea4: 5.1526933
     99cd42c8ff2a34b139e1e7a9fdc3156b: -40
     a9ad0fc8febae48e4b08c5cd005bdb72: 0
     4971010bcf40d4c7c813b4d3412e5fcb: 0
@@ -278,28 +279,6 @@ AudioMixerEffectController:
     m_GUID: 36f54a4804ef642bc8c938dbe9d80018
   - m_ParameterName: Sidechain Mix
     m_GUID: 131309064841b48e8aadfda3e12ed04d
-  m_SendTarget: {fileID: 0}
-  m_EnableWetMix: 0
-  m_Bypass: 0
---- !u!244 &750164917145249510
-AudioMixerEffectController:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_EffectID: 02eb1d54bc0dc4c289977b8aedffb4a2
-  m_EffectName: Compressor
-  m_MixLevel: 966c7d1ee74844cf1bc701ade63f79d7
-  m_Parameters:
-  - m_ParameterName: Threshold
-    m_GUID: cac28c81d970b4172b38c6254a5fb35e
-  - m_ParameterName: Attack
-    m_GUID: 0cfee8c2ff0704502ab0e5c1380e246d
-  - m_ParameterName: Release
-    m_GUID: 418fd03644a5a4a4fafcc10ce90b599d
-  - m_ParameterName: Make up gain
-    m_GUID: e30a305d058cd4d50b584b6398dbbe23
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0

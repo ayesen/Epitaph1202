@@ -10,6 +10,8 @@ public class SmallBearRoomManager : MonoBehaviour
 	public List<DoorScript> entrance_doors;
 	public List<GameObject> dialogueTrigger_iCtrl;
 
+	public DialogueScript bearTrigger;
+
 	[Header("customizable end function")]
 	public GameObject doer;
 	public string funcToCall;
@@ -19,10 +21,15 @@ public class SmallBearRoomManager : MonoBehaviour
 		BGMMan.bGMManger.StartTinyTeddyCombatMusic();
 		foreach (var bear in bears_iCtrl)
 		{
-			bear.GetComponent<AIController>().enabled = true;
-			bear.GetComponent<SmallBear>().enabled = true;
-			bear.GetComponent<EffectHoldersHolderScript>().enabled = true;
-			bear.GetComponent<Enemy>().myEntrances = new List<DoorScript>(entrance_doors); // copy entrance list so that all bears know which door to close when player dies
+			if (bear)
+            {
+				bear.GetComponent<AIController>().enabled = true;
+				bear.GetComponent<SmallBear>().enabled = true;
+				bear.GetComponent<EffectHoldersHolderScript>().enabled = true;
+				bear.GetComponent<Enemy>().ChangePhase(Enemy.AIPhase.InBattle1, 0);
+				bear.GetComponent<Enemy>().myEntrances = new List<DoorScript>(entrance_doors); // copy entrance list so that all bears know which door to close when player dies
+				bear.GetComponent<Enemy>().myDialogueTrigger = bearTrigger;
+			}
 		}
 	}
 
