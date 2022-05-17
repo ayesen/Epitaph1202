@@ -85,8 +85,10 @@ public class SafehouseManager : MonoBehaviour
             //PostProcessingManager.Me.StopAllCoroutines();
             PostProcessingManager.Me.StartCoroutine(PostProcessingManager.Me.ResetFilter());
             StartCoroutine(FadeCanvas(cg, 1f, fadeTime));
-            StartCoroutine(InstrucFadeCanvas(instruc_Refill.GetComponent<CanvasGroup>(), 1f, fadeTime));
+            //StartCoroutine(InstrucFadeCanvas(instruc_Refill.GetComponent<CanvasGroup>(), 1f, fadeTime));
             DI.CreateDisplay();
+            
+            PlayerScriptNew.me.StopPlayer();//Stop player from walking (animation)
             checkBoolChange = isSafehouse;
         }
         else if(isSafehouse != checkBoolChange && !isSafehouse)
@@ -112,9 +114,10 @@ public class SafehouseManager : MonoBehaviour
         }
     }
 
-    public void ResetMatAmount()
+    public void ResetMatAmount() // Recover hp & reset mat amount
     {
-        foreach(var mat in PlayerScriptNew.me.matSlots)
+        PlayerScriptNew.me.hp = PlayerScriptNew.me.maxHP; //Recover HP
+        foreach (var mat in PlayerScriptNew.me.matSlots)
         {
             if(mat != null)
             {
@@ -154,8 +157,6 @@ public class SafehouseManager : MonoBehaviour
         isFading = true;
         float elapsedTime = 0;
         float startValue = cg.alpha;
-        if (endValue >= 1)
-            CI.choosenMatIndex = 4;
         while (elapsedTime < duration)
         {
             elapsedTime += Time.deltaTime;
