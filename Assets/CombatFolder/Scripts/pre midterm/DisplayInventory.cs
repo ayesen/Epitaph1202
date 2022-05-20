@@ -108,7 +108,7 @@ public class DisplayInventory : MonoBehaviour
         else if (i == -2)
             return positionHolder_2.localPosition + positionHolderOffset_2;
         else if (i == -1)
-            return positionHolder_3.localPosition + positionHolderOffset_3;
+            return new Vector3(-431, -420, 0);
         else
             return new Vector3(X_Start + (X_Space_Between_Items * (i % Number_Of_Column)), Y_Start + (-Y_Space_Between_Items * (i / Number_Of_Column)), 0f);
     }
