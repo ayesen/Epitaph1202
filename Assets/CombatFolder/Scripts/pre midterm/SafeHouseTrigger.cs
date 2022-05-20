@@ -47,7 +47,8 @@ public class SafeHouseTrigger : MonoBehaviour
             if (entered)
             {
                 SafehouseManager.Me.ResetMatAmount(); //Reset mat amount & recover hp
-                StartCoroutine(InstrucFadeCanvas(refillInstructor.GetComponent<CanvasGroup>(), 1, 3));
+                StopAllCoroutines();
+                StartCoroutine(InstrucFadeCanvas(refillInstructor.GetComponent<CanvasGroup>(), 0, 3));
             }
         }
 
@@ -80,6 +81,8 @@ public class SafeHouseTrigger : MonoBehaviour
     IEnumerator InstrucFadeCanvas(CanvasGroup cg, float endValue, float duration)
     {
         isFading = true;
+        cg.alpha = 1;
+        yield return new WaitForSeconds(3f);
         float elapsedTime = 0;
         float startValue = cg.alpha;
         while (elapsedTime < duration)
@@ -88,8 +91,6 @@ public class SafeHouseTrigger : MonoBehaviour
             cg.alpha = Mathf.Lerp(startValue, endValue, elapsedTime / duration);
             yield return null;
         }
-        yield return new WaitForSeconds(3f);
         isFading = false;
-        StartCoroutine(FadeCanvas(refillInstructor.GetComponent<CanvasGroup>(), 0f, 3));
     }
 }

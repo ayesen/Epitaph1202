@@ -2460,7 +2460,7 @@ MonoBehaviour:
   positionHolderOffset_0: {x: -82, y: 5, z: 0}
   positionHolderOffset_1: {x: -58, y: 28, z: 0}
   positionHolderOffset_2: {x: -25, y: 5, z: 0}
-  positionHolderOffset_3: {x: -58, y: -8, z: 0}
+  positionHolderOffset_3: {x: -62, y: -25, z: 0}
   images: []
   slot0: {fileID: 2093741020537423047}
   slot1: {fileID: 6625109719566790251}
@@ -2494,6 +2494,7 @@ MonoBehaviour:
   positionOffset_0: {x: 127, y: -210.5, z: 0}
   positionOffset_1: {x: 104, y: -235, z: 0}
   positionOffset_2: {x: 73, y: -210, z: 0}
+  positionOffset_3: {x: 109, y: -180, z: 0}
 --- !u!1 &7378348869152356943
 GameObject:
   m_ObjectHideFlags: 0
