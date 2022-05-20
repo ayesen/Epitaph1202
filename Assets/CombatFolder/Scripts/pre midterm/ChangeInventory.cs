@@ -29,6 +29,7 @@ public class ChangeInventory : MonoBehaviour
     public Vector3 positionOffset_0;
     public Vector3 positionOffset_1;
     public Vector3 positionOffset_2;
+    public Vector3 positionOffset_3;
 
     void Start()
     {
@@ -84,7 +85,7 @@ public class ChangeInventory : MonoBehaviour
                         SoundMan.SoundManager.SafehouseMaterialSelect();
                     }
                     else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) || Input.GetAxis("VerticalArrow") < 0 
-                            || Input.GetAxis("LeftJoystickVertical") < -PlayerScriptNew.me.joystickSensitivity)
+                            || Input.GetAxis("LeftJoystickVertical") > PlayerScriptNew.me.joystickSensitivity)
                     {
                         if (choosenMatIndex > 4)
                         {
@@ -106,7 +107,7 @@ public class ChangeInventory : MonoBehaviour
                         }
                     }
                     else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetAxis("VerticalArrow") > 0 
-                            || Input.GetAxis("LeftJoystickVertical") > PlayerScriptNew.me.joystickSensitivity)
+                            || Input.GetAxis("LeftJoystickVertical") < -PlayerScriptNew.me.joystickSensitivity)
                     {
                         if (choosenMatIndex > 4)
                         {
@@ -126,6 +127,11 @@ public class ChangeInventory : MonoBehaviour
                             choosenMatIndex -= 1;
                             SoundMan.SoundManager.SafehouseMaterialSelect();
                         }
+                    }
+                    //Limit range
+                    if (choosenMatIndex - 4 > DI.Amount_Of_Inventory - 1)
+                    {
+                        choosenMatIndex = DI.Amount_Of_Inventory + 3;
                     }
                 }
                 else
@@ -173,8 +179,8 @@ public class ChangeInventory : MonoBehaviour
                 }
                 else if (choosenMatIndex == 3)
                 {
-                    offset_X = 0;
-                    offset_Y = 0;
+                    offset_X = positionOffset_3.x;
+                    offset_Y = positionOffset_3.y;
                 }
                 choosenCircle.GetComponent<RectTransform>().localPosition = DisplayInventory.Me.GetPosition(choosenMatIndex - 4) + Vector3.up * offset_Y + Vector3.right * offset_X;
             }
@@ -194,11 +200,7 @@ public class ChangeInventory : MonoBehaviour
                 choosenSquare.color = Color.white;
                 choosenCircle.color = Color.white;
                 
-                //Limit range
-                if (choosenMatIndex - 4 > DI.Amount_Of_Inventory - 1)
-                {
-                    choosenMatIndex = DI.Amount_Of_Inventory + 3;
-                }
+                
                 
                 //choosen mat
                 if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("AButton"))
