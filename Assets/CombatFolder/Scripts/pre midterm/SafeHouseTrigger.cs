@@ -25,6 +25,7 @@ public class SafeHouseTrigger : MonoBehaviour
             if (!MenuManager.GameIsPaused)
             {
                 entered = true;
+                SavePointManager.me.last_checkPoint = this;
 
                 if (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("RB") && !SafehouseManager.Me.isSafehouse)
                 {

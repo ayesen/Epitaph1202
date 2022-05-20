@@ -45,7 +45,7 @@ public class EffectStorage : MonoBehaviour
 		//print(ehs.myEffect.atk);
 		es.LoseHealth((int)finalDmg);
 		//print("dealt " + (int)finalDmg + " damage");
-		if (FloatTextManager.Me.damageText && (int)finalDmg > 0)//float damage text
+		if (FloatTextManager.Me.damageText)// && (int)finalDmg > 0)//float damage text
 			FloatTextManager.Me.SpawnFloatText(enemy, ""+ (int)finalDmg, FloatTextManager.TypeOfText.Damage);
 		// poise dmg
 		float finalPD = ehs.myEffect.atk / es.edr;
@@ -65,7 +65,7 @@ public class EffectStorage : MonoBehaviour
 			}
 		}
 		//print("dealt " + finalPD + " poise damage");
-		if (FloatTextManager.Me.poiseDamageText && (int)finalPD > 0)//float poise damage
+		if (FloatTextManager.Me.poiseDamageText)// && (int)finalPD > 0)//float poise damage
 			FloatTextManager.Me.SpawnFloatText(enemy, "" + (int)finalPD, FloatTextManager.TypeOfText.poiseDamage);
 	}
 	public void HurtEnemyBasedOnDis(EffectHolderScript ehs, GameObject enemy, float dis)
@@ -96,7 +96,7 @@ public class EffectStorage : MonoBehaviour
 				es.EnterHittedState(1);
 			}
 		}
-		if (FloatTextManager.Me.damageText && (int)dmgToDeal > 0)//float damage
+		if (FloatTextManager.Me.damageText)// && (int)dmgToDeal > 0)//float damage
 			FloatTextManager.Me.SpawnFloatText(enemy, "" + (int)dmgToDeal, FloatTextManager.TypeOfText.Damage);
 	}
 	public void DotEnemy(EffectHolderScript ehs, GameObject enemy)
@@ -113,7 +113,7 @@ public class EffectStorage : MonoBehaviour
 			float finalDmg = (ehs.myEffect.atk - enemy.GetComponent<Enemy>().def) * ehs.myEffect.amp;
 			enemy.GetComponent<Enemy>().LoseHealth((int)finalDmg);
 			SpawnParticle(fragments_dot, enemy.transform.position);
-			if (FloatTextManager.Me.damageText && (int)finalDmg > 0)
+			if (FloatTextManager.Me.damageText)// && (int)finalDmg > 0)
 				FloatTextManager.Me.SpawnFloatText(enemy, "" + (int)finalDmg, FloatTextManager.TypeOfText.Damage);
 			yield return new WaitForSeconds(dot_interval);
 		}
@@ -182,7 +182,7 @@ public class EffectStorage : MonoBehaviour
 		{
 			//print((int)ehs.myEffect.amp);
 			PlayerScriptNew.me.RecovMatCD((int)ehs.myEffect.amp);
-			if (FloatTextManager.Me.CDText && (int)ehs.myEffect.amp > 0)//float CD text
+			if (FloatTextManager.Me.CDText)// && (int)ehs.myEffect.amp > 0)//float CD text
 				FloatTextManager.Me.SpawnFloatText(enemy, "" + (int)ehs.myEffect.amp, FloatTextManager.TypeOfText.CD);
 			Enemy eS = enemy.GetComponent<Enemy>();
 			eS.breakMeter -= (int)ehs.myEffect.amp;
