@@ -11,7 +11,10 @@ public class SoundMan : MonoBehaviour
     public AudioSource sourcePrefab;
     public AudioMixer mainAudioMixer;
     [Header("SFX")]
-    public AudioClip[] manWalkClips;
+    AudioClip[] manWalkClips;
+    public AudioClip[] manWalkClipsWood;
+    public AudioClip[] manWalkClipsConcret;//darkestColor
+    public AudioClip[] manWalkClipsMarble;
     public AudioClip[] bearWalkClips;
     public AudioClip[] smallBearWalkClips;
     public AudioClip[] playerHittenClips;
@@ -43,6 +46,8 @@ public class SoundMan : MonoBehaviour
     public AudioClip lordGuanBearTrigger;
     public AudioClip lordGuanReturnKnife;
     public AudioClip bearBreak;
+    public AudioClip smallBearSlash;
+    public AudioClip bigBearSlash;
     [Header("BattleVO")]
     public AudioClip[] battleVOPhaseOne;
     public AudioClip[] battleVOPhaseTwo;
@@ -80,6 +85,7 @@ public class SoundMan : MonoBehaviour
     {
         AudioListener.pause = false;
         ChangeToNormalSnapshot();
+        FootStepSwitchToConcret();
     }
 
     public void CheckPointRevive()
@@ -127,12 +133,30 @@ public class SoundMan : MonoBehaviour
         mainAudioMixer.SetFloat("lowPass", currentCutOffHertz);
     }
 
-    /*The SFX Funcions*/
+    #region SFX
     public void LockUnlocked()
     {
         AudioSource source = GetSource();
         FindSFXGroup(source);
         source.clip = lockUnlocked;
+        source.Play();
+    }
+
+    public void SmallBearSlash()
+    {
+        AudioSource source = GetSource();
+        FindSFXGroup(source);
+        PitchRandomization(source);
+        source.clip = smallBearSlash;
+        source.Play();
+    }
+
+    public void BigBearSlash()
+    {
+        AudioSource source = GetSource();
+        FindSFXGroup(source);
+        PitchRandomization(source);
+        source.clip = bigBearSlash;
         source.Play();
     }
 
@@ -378,6 +402,21 @@ public class SoundMan : MonoBehaviour
         source.Play();
     }
 
+    public void FootStepSwitchToWood()
+    {
+        manWalkClips = manWalkClipsWood;
+    }
+
+    public void FootStepSwitchToMarble()
+    {
+        manWalkClips = manWalkClipsMarble;
+    }
+
+    public void FootStepSwitchToConcret()
+    {
+        manWalkClips = manWalkClipsConcret;
+    }
+
     public void BearWalk()
     {
         AudioSource source = GetSource();
@@ -399,7 +438,7 @@ public class SoundMan : MonoBehaviour
         //source.transform.position = pos;
         source.Play();
     }
-
+    #endregion
 
     /*Audio Mixer Snapshots management functions*/
     public void ChangeToNormalSnapshot()

@@ -478,6 +478,14 @@ public class Enemy : MonoBehaviour
     {
         if (GetComponent<AIEffectManager>()!= null)
         {
+            if (isBigBear)
+            {
+                SoundMan.SoundManager.BigBearSlash();
+            }
+            else
+            {
+                SoundMan.SoundManager.SmallBearSlash();
+            }
             StartCoroutine(GetComponent<AIEffectManager>().StartSlash());
         }
     }

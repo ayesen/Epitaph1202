@@ -9,6 +9,8 @@ public class TutorialManagerScript : MonoBehaviour
 
     public GameObject tutorBear;
 
+	public GameObject init_DialgScript;
+
 	// state machine
     public int tut_state = 0;
 	public float timer = 10;
@@ -60,6 +62,7 @@ public class TutorialManagerScript : MonoBehaviour
 			dialg_pd.GetComponent<DialogueScript>().enabled = true; // enable dialogue script, show dialogue
 			if (cur_coroutine == null)
 				cur_coroutine = StartCoroutine(RepeatDialogue());
+			init_DialgScript.GetComponent<DialogueScript>().enabled = true;
 		}
 	}
 

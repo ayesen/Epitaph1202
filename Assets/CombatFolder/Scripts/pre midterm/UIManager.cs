@@ -133,7 +133,7 @@ public class UIManager : MonoBehaviour
                 }
                 else if (selectedMats.Contains(nail))
                 {
-                    comboInstruct_TMP.text = "Hard to Stun";
+                    comboInstruct_TMP.text = "Less effective Stun";
                     comboInstruct_TMP.color = new Color32(222, 173, 122, 255);
                 }
                 else if (selectedMats.Contains(tear))
