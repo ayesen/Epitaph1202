@@ -117,6 +117,7 @@ public class SafehouseManager : MonoBehaviour
     public void ResetMatAmount() // Recover hp & reset mat amount
     {
         PlayerScriptNew.me.hp = PlayerScriptNew.me.maxHP; //Recover HP
+        PostProcessingManager.Me.GradualDeath(PlayerScriptNew.me.maxHP, PlayerScriptNew.me.hp);
         foreach (var mat in PlayerScriptNew.me.matSlots)
         {
             if(mat != null)
